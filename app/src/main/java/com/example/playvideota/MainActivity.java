@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.model.YoutuberModel;
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 String personEmail = acct.getEmail();
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
+                Toast.makeText(this, "email : "+personEmail, Toast.LENGTH_SHORT).show();
             }
 
         } catch (ApiException e) {
