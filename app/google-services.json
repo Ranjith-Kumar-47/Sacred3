@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258661547926",
+    "project_id": "playvideota",
+    "storage_bucket": "playvideota.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258661547926:android:bd274ed1196b6374e027b7",
+        "android_client_info": {
+          "package_name": "com.example.playvideota"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258661547926-tuj7vtem0lg0h2hqfij2k266vqp9dm25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6CfIDMHvcC9G1lMM5GLEGKb6VycZ5WNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258661547926-tuj7vtem0lg0h2hqfij2k266vqp9dm25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
