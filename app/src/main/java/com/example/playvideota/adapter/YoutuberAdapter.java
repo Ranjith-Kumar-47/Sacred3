@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playvideota.R;
 import com.example.playvideota.model.YoutuberModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,8 +37,12 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
         YoutuberModel youtuberModel = list.get(position);
-        holder.youtuberImage.setImageResource(youtuberModel.getYoutuberImage());
+
         holder.youtuberName.setText(youtuberModel.getYoutuberName());
+        Picasso.with(context)
+                .load(youtuberModel.getYoutuberImage())
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(holder.youtuberImage);
 
     }
 

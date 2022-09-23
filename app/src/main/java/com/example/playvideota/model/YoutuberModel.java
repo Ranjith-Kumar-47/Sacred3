@@ -1,19 +1,29 @@
 package com.example.playvideota.model;
 
 public class YoutuberModel {
-    int youtuberImage;
+    String youtuberImage;
     String youtuberName;
+    String youtuberId;
 
-    public YoutuberModel(int youtuberImage, String youtuberName) {
+    public YoutuberModel(String youtuberImage, String youtuberName, String youtuberId) {
         this.youtuberImage = youtuberImage;
         this.youtuberName = youtuberName;
+        this.youtuberId = youtuberId;
     }
 
-    public int getYoutuberImage() {
+    public String getYoutuberId() {
+        return youtuberId;
+    }
+
+    public void setYoutuberId(String youtuberId) {
+        this.youtuberId = youtuberId;
+    }
+
+    public String getYoutuberImage() {
         return youtuberImage;
     }
 
-    public void setYoutuberImage(int youtuberImage) {
+    public void setYoutuberImage(String youtuberImage) {
         this.youtuberImage = youtuberImage;
     }
 
