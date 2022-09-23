@@ -23,7 +23,7 @@
             android:gravity="center"
             >
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/yotuberProfile"
+                android:id="@+id/videoImage"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
                 android:layout_marginBottom="10dp"
                  />
             <TextView
-                android:id="@+id/youtuberName"
+                android:id="@+id/videoDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Text"

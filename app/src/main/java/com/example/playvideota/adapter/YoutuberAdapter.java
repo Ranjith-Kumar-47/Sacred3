@@ -1,16 +1,21 @@
 package com.example.playvideota.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.playvideota.MainActivity;
 import com.example.playvideota.R;
+import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.model.YoutuberModel;
 import com.squareup.picasso.Picasso;
 
@@ -38,11 +43,34 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
 
         YoutuberModel youtuberModel = list.get(position);
 
+
+
+
+
         holder.youtuberName.setText(youtuberModel.getYoutuberName());
         Picasso.with(context)
                 .load(youtuberModel.getYoutuberImage())
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.youtuberImage);
+
+
+        holder.youtuberImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "clicked "+youtuberModel.getYoutuberName(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -58,8 +86,8 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
-            youtuberImage = itemView.findViewById(R.id.yotuberProfile);
-            youtuberName = itemView.findViewById(R.id.youtuberName);
+            youtuberImage = itemView.findViewById(R.id.videoImage);
+            youtuberName = itemView.findViewById(R.id.videoDescription);
         }
     }
 }

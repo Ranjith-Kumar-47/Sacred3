@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".YoutubeDashboard">
 
     <View
         android:id="@+id/view"
@@ -32,15 +32,6 @@
         app:layout_constraintTop_toTopOf="@+id/view"
         tools:ignore="TextContrastCheck" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/profileUserImage"
-        app:layout_constraintEnd_toStartOf="@+id/profileUserImage"
-        app:layout_constraintBottom_toBottomOf="@+id/profileUserImage"
-        />
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileUserImage"
         android:layout_width="45dp"
@@ -53,6 +44,20 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
+    <ImageView
+        android:id="@+id/youtuberImageView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_profile_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -62,10 +67,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/youtuberImageView">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/youtuberRV"
+            android:id="@+id/youtubeVideoRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>
