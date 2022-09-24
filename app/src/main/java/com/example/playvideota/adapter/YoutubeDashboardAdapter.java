@@ -7,33 +7,51 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.playvideota.MainActivity;
+import com.android.volley.Response;
 import com.example.playvideota.R;
+import com.example.playvideota.VideoPlayer;
 import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.model.YoutubeDashboradModel;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboardAdapter.viewHolder> {
     Context context;
     ArrayList<YoutubeDashboradModel> list;
+    YoutubeDashBoardAdapterInterface listener;
 
-    public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list) {
+    public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list, YoutubeDashBoardAdapterInterface listener) {
         this.context = context;
         this.list = list;
+        this.listener = (YoutubeDashBoardAdapterInterface) listener;
     }
+
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.story_design_youtube_video, parent, false);
 
-        return new viewHolder(view);
+        viewHolder viewHolder = new viewHolder(view);
+        viewHolder.videoImage.setOnClickListener(v -> {
+//            listener.itemClicked(list.get(viewHolder.getAdapterPosition()));
+            listener.itemClicked(list.get(viewHolder.getAdapterPosition()).getVideoId(),list.get(viewHolder.getAdapterPosition()).getVideoId());
+            System.out.println("ITEM");
+            Toast.makeText(context, "INTERFACE TOAST", Toast.LENGTH_SHORT).show();
+        });
+
+
+
+
+        return viewHolder;
     }
 
     @Override
@@ -44,7 +62,13 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.videoImage);
 
-        holder.videoDescription.setText(youtubeDashboradModel.getVideoDescription());
+        holder.videoDescription.setText(youtubeDashboradModel.getVideoTitle());
+
+
+        holder.videoImage.setOnClickListener(v -> {
+            listener.itemClicked(youtubeDashboradModel.getVideoId(), youtubeDashboradModel.getVideoId());
+        });
+
 
 
 

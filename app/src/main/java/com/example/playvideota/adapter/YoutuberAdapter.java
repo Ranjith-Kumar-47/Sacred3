@@ -44,9 +44,6 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
         YoutuberModel youtuberModel = list.get(position);
 
 
-
-
-
         holder.youtuberName.setText(youtuberModel.getYoutuberName());
         Picasso.with(context)
                 .load(youtuberModel.getYoutuberImage())
@@ -61,11 +58,6 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
 
             }
         });
-
-
-
-
-
 
 
 
