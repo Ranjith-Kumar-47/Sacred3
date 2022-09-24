@@ -1,5 +1,6 @@
 package com.example.playvideota;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,10 +23,16 @@ import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.model.YoutubeDashboradModel;
 import com.example.playvideota.model.YoutuberModel;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,23 +44,59 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     ArrayList<YoutubeDashboradModel> list = new ArrayList<>();
     RecyclerView youtubeVideoRV;
     String youtubeAccountUrl;
+    String youtuberId = "";
+    String youtuberImage = "";
+    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube_dashboard);
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
         gettingItem();
+        loadProfileIamage();
         settingAdapter();
         loadYoutubeVideo();
+        logOutGoogleAccount();
+
 
 
     }
 
+    private void logOutGoogleAccount() {
+        ImageView logOutBtn  = findViewById(R.id.logoutBtn);
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mGoogleSignInClient.signOut();
+                Toast.makeText(YoutubeDashboard.this, "LOG OUT", Toast.LENGTH_SHORT).show();
+                Intent intent  = new Intent(YoutubeDashboard.this, AuthActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void loadProfileIamage() {
+        ImageView youtuberImageView = findViewById(R.id.youtuberImageView);
+        youtuberImage = getIntent().getStringExtra("youtuberImage");
+        Picasso.with(getApplicationContext())
+                .load(youtuberImage)
+                .into(youtuberImageView);
+    }
+
 
     private void loadYoutubeVideo() {
-        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCK8sQmJBp8GCxrOtXWBpyEA&maxResults=20&q=news&type=video&videoDefinition=any&key=AIzaSyAcI_4tCAc7i6psHKyqpIzzdDjxfCR3VS0";
+        youtuberId = getIntent().getStringExtra("youtuberId");
+        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&maxResults=20&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+//        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtuberId +"&maxResults=20&q=news&type=video&videoDefinition=any&key=AIzaSyAcI_4tCAc7i6psHKyqpIzzdDjxfCR3VS0";
 
         System.out.println("LOADING VIDEO");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
@@ -69,6 +113,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
+                        snippetJsonObject.getString("channelId");
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
@@ -86,7 +131,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                 snippetJsonObject.getString("description"),
                                 snippetJsonObject.getString("title"),
                                 idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent")
+                                snippetJsonObject.getString("liveBroadcastContent"),
+                                snippetJsonObject.getString("channelId")
                         );
                         list.add(youtubeDashboradModel);
                     }

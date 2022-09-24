@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Response;
@@ -41,16 +42,6 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         View view = LayoutInflater.from(context).inflate(R.layout.story_design_youtube_video, parent, false);
 
         viewHolder viewHolder = new viewHolder(view);
-        viewHolder.videoImage.setOnClickListener(v -> {
-//            listener.itemClicked(list.get(viewHolder.getAdapterPosition()));
-            listener.itemClicked(list.get(viewHolder.getAdapterPosition()).getVideoId(),list.get(viewHolder.getAdapterPosition()).getVideoId());
-            System.out.println("ITEM");
-            Toast.makeText(context, "INTERFACE TOAST", Toast.LENGTH_SHORT).show();
-        });
-
-
-
-
         return viewHolder;
     }
 
@@ -64,10 +55,34 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
 
         holder.videoDescription.setText(youtubeDashboradModel.getVideoTitle());
 
-
-        holder.videoImage.setOnClickListener(v -> {
-            listener.itemClicked(youtubeDashboradModel.getVideoId(), youtubeDashboradModel.getVideoId());
+        holder.videoDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
+                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
+                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
+                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
+                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
+                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                v.getContext().startActivity(intent);
+            }
         });
+
+
+
+        holder.cardViewContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
+                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
+                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
+                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
+                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
+                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                v.getContext().startActivity(intent);
+            }
+        });
+
 
 
 
@@ -82,12 +97,15 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView videoImage;
         TextView videoDescription;
+        CardView cardViewContainer;
+
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
             videoDescription = itemView.findViewById(R.id.videoDescription);
             videoImage = itemView.findViewById(R.id.videoImage);
+            cardViewContainer  = itemView.findViewById(R.id.cardViewContainer);
         }
     }
 }

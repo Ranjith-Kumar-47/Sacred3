@@ -54,6 +54,10 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
         holder.youtuberImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), YoutubeDashboard.class);
+                intent.putExtra("youtuberId",youtuberModel.getYoutuberId());
+                intent.putExtra("youtuberImage",youtuberModel.getYoutuberImage());
+                v.getContext().startActivity(intent);
                 Toast.makeText(context, "clicked "+youtuberModel.getYoutuberName(), Toast.LENGTH_SHORT).show();
 
             }

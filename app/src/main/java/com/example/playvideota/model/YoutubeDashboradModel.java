@@ -6,15 +6,25 @@ public class YoutubeDashboradModel {
     String videoTitle;
     String videoId;
     String videoLiveBroadcastContent;
+    String channelId;
 
 
 
-    public YoutubeDashboradModel(String videoImage, String videoDescription, String videoTitle, String videoId, String videoLiveBroadcastContent) {
+    public YoutubeDashboradModel(String videoImage, String videoDescription, String videoTitle, String videoId, String videoLiveBroadcastContent, String channelId) {
         this.videoImage = videoImage;
         this.videoDescription = videoDescription;
         this.videoTitle = videoTitle;
         this.videoId = videoId;
         this.videoLiveBroadcastContent = videoLiveBroadcastContent;
+        this.channelId = channelId;
+    }
+
+    public String getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
     }
 
     public String getVideoImage() {

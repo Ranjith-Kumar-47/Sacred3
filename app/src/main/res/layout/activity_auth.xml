@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YoutubeDashboard">
+    tools:context=".AuthActivity">
 
     <View
         android:id="@+id/view"
@@ -32,48 +32,39 @@
         app:layout_constraintTop_toTopOf="@+id/view"
         tools:ignore="TextContrastCheck" />
 
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/logoutBtn"
+        android:id="@+id/profileUserImage"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logout_icon"
+        android:src="@drawable/ic_profile_svgrepo_com"
+        app:civ_border_color="#0B0909"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <ImageView
-        android:id="@+id/youtuberImageView"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        android:src="@drawable/ic_profile_svgrepo_com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in Using Google"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtuberImageView">
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
+        app:layout_constraintVertical_bias="0.88" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/youtubeVideoRV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
