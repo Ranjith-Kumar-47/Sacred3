@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -42,10 +44,13 @@ import java.util.ArrayList;
 public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBoardAdapterInterface {
 
     ArrayList<YoutubeDashboradModel> list = new ArrayList<>();
+    ArrayList<YoutubeDashboradModel> filteredList = new ArrayList<>();
     RecyclerView youtubeVideoRV;
     String youtubeAccountUrl;
     String youtuberId = "";
     String youtuberImage = "";
+    String youtuberName = "";
+    String youtuberBannerImage = "";
     GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -62,12 +67,28 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
         gettingItem();
         loadProfileIamage();
+        loadbannerImage();
         settingAdapter();
         loadYoutubeVideo();
+        loadYoutuberName();
         logOutGoogleAccount();
 
 
 
+    }
+
+    private void loadYoutuberName() {
+        TextView youtuberName = findViewById(R.id.youtuberName);
+        String name = getIntent().getStringExtra("youtuberName");
+        youtuberName.setText(name);
+    }
+
+    private void loadbannerImage() {
+        ImageView youtuberImageView = findViewById(R.id.youtuberImageView);
+        youtuberImage = getIntent().getStringExtra("youtuberBannerImage");
+        Picasso.with(getApplicationContext())
+                .load(youtuberImage)
+                .into(youtuberImageView);
     }
 
     private void logOutGoogleAccount() {
@@ -85,7 +106,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     }
 
     private void loadProfileIamage() {
-        ImageView youtuberImageView = findViewById(R.id.youtuberImageView);
+        ImageView youtuberImageView = findViewById(R.id.profileUserImage);
         youtuberImage = getIntent().getStringExtra("youtuberImage");
         Picasso.with(getApplicationContext())
                 .load(youtuberImage)
@@ -95,7 +116,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     private void loadYoutubeVideo() {
         youtuberId = getIntent().getStringExtra("youtuberId");
-        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&maxResults=20&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&eventType=live&eventType=none&maxResults=20&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 //        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtuberId +"&maxResults=20&q=news&type=video&videoDefinition=any&key=AIzaSyAcI_4tCAc7i6psHKyqpIzzdDjxfCR3VS0";
 
         System.out.println("LOADING VIDEO");
@@ -132,9 +153,18 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                 snippetJsonObject.getString("title"),
                                 idJsonObject.getString("videoId"),
                                 snippetJsonObject.getString("liveBroadcastContent"),
-                                snippetJsonObject.getString("channelId")
+                                snippetJsonObject.getString("channelId"),
+                                youtuberImage,
+                                youtuberName
                         );
                         list.add(youtubeDashboradModel);
+                        System.out.println("ans" +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                    }
+
+                    for(int i=0 ;i<list.size(); i++){
+                        if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+                            filteredList.add(list.get(i));
+                        }
                     }
 
                     YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), list,YoutubeDashboard.this::itemClicked);

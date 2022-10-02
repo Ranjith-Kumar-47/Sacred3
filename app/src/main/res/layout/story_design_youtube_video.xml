@@ -29,25 +29,26 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/videoImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
                 android:layout_gravity="start"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile_svgrepo_com"
                 app:civ_border_color="#0B0909"
                 app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/videoDescription"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif-light"
                 android:inputType="textMultiLine"
                 android:maxLines="4"
@@ -58,12 +59,24 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/videoImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/videoImage"
-                app:layout_constraintTop_toTopOf="@+id/videoImage">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/videoImage"
+                app:layout_constraintStart_toEndOf="@+id/profileUserImage"
+                app:layout_constraintTop_toBottomOf="@+id/videoImage">
 
             </TextView>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileUserImage"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile_svgrepo_com"
+                app:civ_border_color="#0B0909"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="@+id/videoImage"
+                app:layout_constraintTop_toBottomOf="@+id/videoImage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

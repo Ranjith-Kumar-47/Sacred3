@@ -53,6 +53,11 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.videoImage);
 
+        Picasso.with(context)
+                .load(youtubeDashboradModel.getChannelIcon())
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(holder.channelIcon);
+
         holder.videoDescription.setText(youtubeDashboradModel.getVideoTitle());
 
         holder.videoDescription.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +69,8 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
                 intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
                 intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
+                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
                 v.getContext().startActivity(intent);
             }
         });
@@ -98,6 +105,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         ImageView videoImage;
         TextView videoDescription;
         CardView cardViewContainer;
+        ImageView channelIcon;
 
 
         public viewHolder(@NonNull View itemView) {
@@ -106,6 +114,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
             videoDescription = itemView.findViewById(R.id.videoDescription);
             videoImage = itemView.findViewById(R.id.videoImage);
             cardViewContainer  = itemView.findViewById(R.id.cardViewContainer);
+            channelIcon = itemView.findViewById(R.id.profileUserImage);
         }
     }
 }

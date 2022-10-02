@@ -17,6 +17,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.squareup.picasso.Picasso;
 
 public class VideoPlayer extends YouTubeBaseActivity {
 
@@ -25,6 +26,8 @@ public class VideoPlayer extends YouTubeBaseActivity {
     String videoTitle = "";
     String videoDescription = "";
     String videoLiveBroadcastContent = "";
+    String channelName = "";
+    String channelIcon = "";
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -48,6 +51,8 @@ public class VideoPlayer extends YouTubeBaseActivity {
         videoTitle = getIntent().getStringExtra("videoTitle");
         videoDescription = getIntent().getStringExtra("videoDescription");
         videoLiveBroadcastContent = getIntent().getStringExtra("videoLiveBroadcastContent");
+        channelName = getIntent().getStringExtra("channelName");
+        channelIcon = getIntent().getStringExtra("channelIcon");
 
         String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +userId +"&maxResults=20&q=news&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
@@ -62,6 +67,8 @@ public class VideoPlayer extends YouTubeBaseActivity {
 
         videoTitleT.setText(videoTitle);
         videoDescriptionT.setText(videoDescription);
+
+        loadingChannelNameAndImage();
 
 
 
@@ -95,6 +102,25 @@ public class VideoPlayer extends YouTubeBaseActivity {
 
 
     }
+
+    private void loadingChannelNameAndImage() {
+        ImageView profileUserImage;
+        TextView youtuberName;
+
+        profileUserImage = findViewById(R.id.profileUserImage);
+        youtuberName = findViewById(R.id.youtuberName);
+
+        channelIcon = getIntent().getStringExtra("channelIcon");
+        channelName = getIntent().getStringExtra("channelName");
+
+
+        Picasso.with(getApplicationContext())
+                .load(channelIcon)
+                .into(profileUserImage);
+
+        youtuberName.setText(channelName);
+    }
+
     private void logOutGoogleAccount() {
         ImageView logOutBtn  = findViewById(R.id.logoutBtn);
         logOutBtn.setOnClickListener(new View.OnClickListener() {

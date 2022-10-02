@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
         youtubeAcountList.add("GoogleDevelopers");
         youtubeAcountList.add("PowerKids");
-//        youtubeAcountList.add("Calisthenicmovement");
+
         youtubeAcountList.add("Movieclips");
         youtubeAcountList.add("SThenics");
 
         youtubeAcountList.add("sonyliv");
-        youtubeAcountList.add("AshtonFitness");
+        youtubeAcountList.add("google");
         youtubeAcountList.add("ZeeMusicCompany");
         youtubeAcountList.add("WWE");
         youtubeAcountList.add("LikeNastya");
@@ -93,11 +93,12 @@ public class MainActivity extends AppCompatActivity {
         youtubeAcountList.add("PewDiePie");
         youtubeAcountList.add("MrBeast");
         youtubeAcountList.add("CanalKondZilla");
+        youtubeAcountList.add("Calisthenicmovement");
         youtubeAcountList.add("ArianaGrande");
-
+        youtubeAcountList.add("AshtonFitness");
         youtubeAcountList.add("voot");
         youtubeAcountList.add("star");
-        youtubeAcountList.add("google");
+
         youtubeAcountList.add("amazon");
         youtubeAcountList.add("school");
 
@@ -106,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadYoutubeAccount() {
 
 
-        for (int j = 0; j < 20; j++) {
-            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        for (int j = 0; j < youtubeAcountList.size(); j++) {
+            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -131,10 +132,18 @@ public class MainActivity extends AppCompatActivity {
                             mediumJsonObject.getString("url");
                             System.out.println("URL : " + mediumJsonObject.getString("url"));
 
+                            // getting channel branding image
+                            JSONObject channelBrandingJsonObject = jsonObject.getJSONObject("brandingSettings");
+                            JSONObject bannerImageJsonObject = channelBrandingJsonObject.getJSONObject("image");
+                            bannerImageJsonObject.getString("bannerExternalUrl");
+
+
                             YoutuberModel youtuberModel = new YoutuberModel(
                                     mediumJsonObject.getString("url"),
                                     snippetJsonObject.getString("title"),
-                                    jsonObject.getString("id")
+                                    jsonObject.getString("id"),
+                                    bannerImageJsonObject.getString("bannerExternalUrl")
+
                             );
                             list.add(youtuberModel);
                         }

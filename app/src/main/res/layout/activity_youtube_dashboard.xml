@@ -46,16 +46,40 @@
         android:id="@+id/youtuberImageView"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
         android:scaleType="fitXY"
-        android:visibility="visible"
         android:src="@drawable/ic_profile_svgrepo_com"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileUserImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile_svgrepo_com"
+        app:civ_border_color="#0B0909"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/youtuberImageView"
+        app:layout_constraintStart_toStartOf="@+id/youtuberImageView"
+        app:layout_constraintTop_toBottomOf="@+id/youtuberImageView" />
+
+    <TextView
+        android:id="@+id/youtuberName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Youtuber Name"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/youtuberImageView"
+        app:layout_constraintTop_toBottomOf="@+id/profileUserImage"
+        tools:ignore="TextContrastCheck" />
 
 
     <RelativeLayout
@@ -67,13 +91,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtuberImageView">
+        app:layout_constraintTop_toBottomOf="@+id/youtuberName">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/youtubeVideoRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
