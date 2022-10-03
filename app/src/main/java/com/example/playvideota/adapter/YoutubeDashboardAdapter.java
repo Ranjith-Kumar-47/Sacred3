@@ -86,6 +86,9 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
                 intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
                 intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
+                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
+                System.out.println("CHANNEL NAME YDA : "+youtubeDashboradModel.getChannelName());
                 v.getContext().startActivity(intent);
             }
         });

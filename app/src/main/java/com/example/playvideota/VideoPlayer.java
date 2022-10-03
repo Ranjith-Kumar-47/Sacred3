@@ -78,6 +78,7 @@ public class VideoPlayer extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 youTubePlayer.loadVideo(videoId);
+
                 youTubePlayer.play();
 
             }
@@ -113,9 +114,14 @@ public class VideoPlayer extends YouTubeBaseActivity {
         channelIcon = getIntent().getStringExtra("channelIcon");
         channelName = getIntent().getStringExtra("channelName");
 
+        System.out.println("Channel ICON : "+channelIcon);
+        System.out.println("Channel NAME : "+channelName);
+
+
 
         Picasso.with(getApplicationContext())
                 .load(channelIcon)
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(profileUserImage);
 
         youtuberName.setText(channelName);

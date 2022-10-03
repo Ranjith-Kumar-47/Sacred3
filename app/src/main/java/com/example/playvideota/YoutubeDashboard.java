@@ -78,16 +78,16 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     }
 
     private void loadYoutuberName() {
-        TextView youtuberName = findViewById(R.id.youtuberName);
-        String name = getIntent().getStringExtra("youtuberName");
-        youtuberName.setText(name);
+        TextView youtuberNameTV = findViewById(R.id.youtuberName);
+        youtuberName = getIntent().getStringExtra("youtuberName");
+        youtuberNameTV.setText(youtuberName);
     }
 
     private void loadbannerImage() {
         ImageView youtuberImageView = findViewById(R.id.youtuberImageView);
-        youtuberImage = getIntent().getStringExtra("youtuberBannerImage");
+        youtuberBannerImage = getIntent().getStringExtra("youtuberBannerImage");
         Picasso.with(getApplicationContext())
-                .load(youtuberImage)
+                .load(youtuberBannerImage)
                 .into(youtuberImageView);
     }
 
@@ -106,18 +106,17 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     }
 
     private void loadProfileIamage() {
-        ImageView youtuberImageView = findViewById(R.id.profileUserImage);
+        ImageView profileUserImage = findViewById(R.id.profileUserImage);
         youtuberImage = getIntent().getStringExtra("youtuberImage");
         Picasso.with(getApplicationContext())
                 .load(youtuberImage)
-                .into(youtuberImageView);
+                .into(profileUserImage);
     }
 
 
     private void loadYoutubeVideo() {
         youtuberId = getIntent().getStringExtra("youtuberId");
         youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&eventType=live&eventType=none&maxResults=20&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-//        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtuberId +"&maxResults=20&q=news&type=video&videoDefinition=any&key=AIzaSyAcI_4tCAc7i6psHKyqpIzzdDjxfCR3VS0";
 
         System.out.println("LOADING VIDEO");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
