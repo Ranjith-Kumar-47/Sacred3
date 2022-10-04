@@ -52,14 +52,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.youtube.player.YouTubePlayerView
-            android:id="@+id/videoPlayer"
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/playVid"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+
             android:layout_gravity="start" />
     </FrameLayout>
 
