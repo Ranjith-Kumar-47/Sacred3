@@ -45,6 +45,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     ArrayList<YoutubeDashboradModel> list = new ArrayList<>();
     ArrayList<YoutubeDashboradModel> filteredList = new ArrayList<>();
+    ArrayList<YoutubeDashboradModel> normalList = new ArrayList<>();
+    ArrayList<YoutubeDashboradModel> selectedList = new ArrayList<>();
     RecyclerView youtubeVideoRV;
     String youtubeAccountUrl;
     String youtuberId = "";
@@ -156,17 +158,39 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                 youtuberImage,
                                 youtuberName
                         );
+
                         list.add(youtubeDashboradModel);
+
                         System.out.println("ans" +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
+                    // filter list contain only live videos
                     for(int i=0 ;i<list.size(); i++){
                         if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
                             filteredList.add(list.get(i));
                         }
                     }
 
-                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), list,YoutubeDashboard.this::itemClicked);
+                    // normalList contain video other than live
+                    for(int i=0 ;i<list.size(); i++){
+                        if(list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+                            normalList.add(list.get(i));
+                        }
+                    }
+
+
+                    // firstly adding live video to the selected list
+                    for(int i=0 ;i<filteredList.size(); i++){
+                        selectedList.add(filteredList.get(i));
+                    }
+
+                    // secondly adding video other than live video
+                    for(int i=0 ;i<normalList.size(); i++){
+                        selectedList.add(normalList.get(i));
+                    }
+
+
+                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList,YoutubeDashboard.this::itemClicked);
                     youtubeVideoRV.setAdapter(youtubeDashboardAdapter1);
 
 

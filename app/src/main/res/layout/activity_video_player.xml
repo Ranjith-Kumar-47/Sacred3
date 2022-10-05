@@ -62,7 +62,7 @@
             android:id="@+id/playVid"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-
+            app:enableAutomaticInitialization="false"
             android:layout_gravity="start" />
     </FrameLayout>
 
