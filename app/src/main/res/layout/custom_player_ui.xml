@@ -21,6 +21,20 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ProgressBar
+        android:id="@+id/progressBarSeek"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="50dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/enter_exit_fullscreen_button" />
+
+    <ProgressBar
         android:id="@+id/progressbar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
@@ -33,6 +47,7 @@
         app:layout_constraintStart_toStartOf="@+id/panel"
         app:layout_constraintTop_toTopOf="@+id/panel" />
 
+
     <TextView
         android:id="@+id/video_current_time"
         android:layout_width="86dp"
@@ -40,23 +55,19 @@
 
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="60dp"
-        android:textColor="@color/ayp_red"
-        app:layout_constraintBottom_toBottomOf="@+id/panel"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        android:textColor="@color/teal_700"
+        app:layout_constraintStart_toStartOf="@+id/progressBarSeek"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSeek" />
 
     <TextView
         android:id="@+id/playback_speed_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:visibility="gone"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="144dp"
         android:text="PLAYBACK SPEED :"
         android:textColor="@color/ayp_red"
-        app:layout_constraintBottom_toBottomOf="@+id/panel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressbar" />
@@ -68,16 +79,15 @@
 
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="60dp"
-        android:textColor="@color/ayp_red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginEnd="35dp"
+        android:textColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSeek" />
 
     <ImageView
         android:id="@+id/play_pause_button"
-        android:layout_width="90dp"
-        android:layout_height="100dp"
+        android:layout_width="63dp"
+        android:layout_height="64dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
 
@@ -89,8 +99,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/playBackSpeedCardView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         android:visibility="gone"
         app:cardBackgroundColor="@android:color/transparent"
@@ -99,101 +109,195 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zeroPointTwoFive"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="5dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
                 android:background="#D30F0F"
-                android:text="0.25x" />
+                android:text="0.25x"
+                app:layout_constraintStart_toEndOf="@+id/zeroPointFive"
+                app:layout_constraintTop_toTopOf="@+id/zeroPointFive" />
 
             <Button
                 android:id="@+id/zeroPointFive"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_height="30dp"
                 android:background="#D30F0F"
-                android:text="0.5" />
+                android:text="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
                 android:background="#D30F0F"
-                android:text="normal" />
+                android:text="normal"
+                app:layout_constraintStart_toEndOf="@+id/zeroPointTwoFive"
+                app:layout_constraintTop_toTopOf="@+id/zeroPointTwoFive" />
 
             <Button
                 android:id="@+id/oneX"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
                 android:background="#D30F0F"
-                android:text="1x" />
-
-            <Button
-                android:id="@+id/onePointFive"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="#D30F0F"
-                android:text="1.5x" />
+                android:text="1x"
+                app:layout_constraintStart_toStartOf="@+id/zeroPointFive"
+                app:layout_constraintTop_toBottomOf="@+id/zeroPointFive" />
 
             <Button
                 android:id="@+id/twoX"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_gravity="end"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginStart="10dp"
                 android:background="#D30F0F"
-                android:text="2x" />
-        </LinearLayout>
+                android:text="2x"
+                app:layout_constraintStart_toEndOf="@+id/onePointFive"
+                app:layout_constraintTop_toTopOf="@+id/onePointFive" />
+
+            <Button
+                android:id="@+id/onePointFive"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#D30F0F"
+                android:text="1.5x"
+                app:layout_constraintStart_toEndOf="@+id/oneX"
+                app:layout_constraintTop_toBottomOf="@+id/zeroPointTwoFive" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/qualityCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/play_pause_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="89dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/oneFourFourP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#D30F0F"
+                android:text="144p"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/twoFourZeroP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="#D30F0F"
+                android:text="240p"
+                app:layout_constraintStart_toEndOf="@+id/oneFourFourP"
+                app:layout_constraintTop_toTopOf="@+id/oneFourFourP" />
+
+            <Button
+                android:id="@+id/threeTwoZeroP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="#D30F0F"
+                android:text="320p"
+                app:layout_constraintStart_toEndOf="@+id/twoFourZeroP"
+                app:layout_constraintTop_toTopOf="@+id/twoFourZeroP" />
+
+            <Button
+                android:id="@+id/sevenTwoZeroP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:background="#D30F0F"
+                android:text="720p"
+                app:layout_constraintStart_toEndOf="@+id/fourEightZeroP"
+                app:layout_constraintTop_toTopOf="@+id/fourEightZeroP" />
+
+            <Button
+                android:id="@+id/oneZeroTwoFourP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="20dp"
+                android:background="#D30F0F"
+                android:text="1080p"
+                app:layout_constraintStart_toEndOf="@+id/sevenTwoZeroP"
+                app:layout_constraintTop_toTopOf="@+id/sevenTwoZeroP" />
+
+            <Button
+                android:id="@+id/fourEightZeroP"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="#D30F0F"
+                android:text="480p"
+                app:layout_constraintStart_toStartOf="@+id/oneFourFourP"
+                app:layout_constraintTop_toBottomOf="@+id/oneFourFourP" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/playbackSpeedButton"
         android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/playback_speed_24"
-        app:layout_constraintBottom_toBottomOf="@+id/highQuality"
-        app:layout_constraintStart_toEndOf="@+id/highQuality"
-        app:layout_constraintTop_toTopOf="@+id/highQuality" />
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
+        android:src="@drawable/ic_baseline_video_settings_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/enter_exit_fullscreen_button"
         android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_alignParentStart="true"
 
         android:layout_alignParentBottom="true"
         android:src="@drawable/fullscreen_24"
         android:text="Enter/exit fullscreen"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/panel" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/highQuality"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="1dp"
         android:src="@drawable/high_quality"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/playbackSpeedButton"
+        app:layout_constraintTop_toTopOf="@+id/playbackSpeedButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
