@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:orientation="vertical"
+            android:background="@color/orange"
             android:gravity="center"
             >
             <de.hdodenhof.circleimageview.CircleImageView

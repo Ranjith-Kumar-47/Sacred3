@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView profileUserImage = findViewById(R.id.profileUserImage);
 
-        Picasso.with(getApplicationContext())
-                .load(personPhoto)
-                .into(profileUserImage);
+//        Picasso.with(getApplicationContext())
+//                .load(personPhoto)
+//                .into(profileUserImage);
 
 
 
