@@ -77,30 +77,71 @@ public class MainActivity extends AppCompatActivity {
     private void youtubeAccount(){
         youtubeAcountList = new ArrayList<>();
 
-        youtubeAcountList.add("GoogleDevelopers");
-        youtubeAcountList.add("PowerKids");
+//        youtubeAcountList.add("GoogleDevelopers");
+//        youtubeAcountList.add("PowerKids");
+//
+//        youtubeAcountList.add("Movieclips");
+//        youtubeAcountList.add("SThenics");
+//
+//        youtubeAcountList.add("sonyliv");
+//        youtubeAcountList.add("google");
+//        youtubeAcountList.add("ZeeMusicCompany");
+//        youtubeAcountList.add("WWE");
+//        youtubeAcountList.add("LikeNastya");
+//
+//        youtubeAcountList.add("SETIndia");
+//        youtubeAcountList.add("PewDiePie");
+//        youtubeAcountList.add("MrBeast");
+//        youtubeAcountList.add("CanalKondZilla");
+//        youtubeAcountList.add("Calisthenicmovement");
+//        youtubeAcountList.add("ArianaGrande");
+//        youtubeAcountList.add("AshtonFitness");
+//        youtubeAcountList.add("voot");
+//        youtubeAcountList.add("star");
+//
+//        youtubeAcountList.add("amazon");
+//        youtubeAcountList.add("school");
 
-        youtubeAcountList.add("Movieclips");
-        youtubeAcountList.add("SThenics");
 
-        youtubeAcountList.add("sonyliv");
-        youtubeAcountList.add("google");
-        youtubeAcountList.add("ZeeMusicCompany");
-        youtubeAcountList.add("WWE");
-        youtubeAcountList.add("LikeNastya");
+        youtubeAcountList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
+        youtubeAcountList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
+        youtubeAcountList.add("UCPITDRnLbTRyyEUVwZHbMww");
+        youtubeAcountList.add("UCSzOZ97LOpU-_AVlGfmD4rQ");
+        youtubeAcountList.add("UCHq7ZxlzRRXimaBmk5QAxSQ");
+        youtubeAcountList.add("UCUUIz69kK3Ib5bD4hWLKAwA");
+        youtubeAcountList.add("UC8Igqo3g1U40n66BLb-xHuQ");
+        youtubeAcountList.add("UCfwa_zKl8-zC9rQDWIEixgg");
+        youtubeAcountList.add("UCfwa_zKl8-zC9rQDWIEixgg");
+        youtubeAcountList.add("CT_QwW7Tbew5qrYNb2auqAQ");
+        youtubeAcountList.add("UC04m8d9t8UeWZ5DuvQVnqiw");
+        youtubeAcountList.add("UC6vQRTCxutg6fJLUGkDKynQ");
+        youtubeAcountList.add("UCOizxR3GwY7dmehMCAdvv9g");
+        youtubeAcountList.add("UCyIkg79GpPVF77qYKoAINtw");
+        youtubeAcountList.add("UCDqkux3AH7P9hRjmunoUeAQ");
+        youtubeAcountList.add("UC7ZivIYRB0fMSGh-THcTYbw");
+        youtubeAcountList.add("UCaayLD9i5x4MmIoVZxXSv_g");
+        youtubeAcountList.add("UCHKGDg0GJKBsA9mFraDOLHA");
 
-        youtubeAcountList.add("SETIndia");
-        youtubeAcountList.add("PewDiePie");
-        youtubeAcountList.add("MrBeast");
-        youtubeAcountList.add("CanalKondZilla");
-        youtubeAcountList.add("Calisthenicmovement");
-        youtubeAcountList.add("ArianaGrande");
-        youtubeAcountList.add("AshtonFitness");
-        youtubeAcountList.add("voot");
-        youtubeAcountList.add("star");
 
-        youtubeAcountList.add("amazon");
-        youtubeAcountList.add("school");
+//        youtubeAcountList.add("AasthaChannel UCRUAdVm9ZOF4JheOd8qIQHA");
+//        youtubeAcountList.add("Aniruddhacharya ji UCDe0DwkMVFfSIoiYdQUPQmQ");
+//        youtubeAcountList.add("Satsang UCPITDRnLbTRyyEUVwZHbMww");
+//        youtubeAcountList.add("Bhakthi TV UCSzOZ97LOpU-_AVlGfmD4rQ");
+//        youtubeAcountList.add("Shri Devkinandan Thakur Ji UCHq7ZxlzRRXimaBmk5QAxSQ");
+//        youtubeAcountList.add("Pandit Pradeep Ji Mishra Sehore Wale UCUUIz69kK3Ib5bD4hWLKAwA");
+//        youtubeAcountList.add("Bhakti Sangeet HDN UC8Igqo3g1U40n66BLb-xHuQ");
+//        youtubeAcountList.add("JayaKishori Motivation UCfwa_zKl8-zC9rQDWIEixgg");
+//        youtubeAcountList.add("Iamjayakishori UCfwa_zKl8-zC9rQDWIEixgg");
+//        youtubeAcountList.add("SanskarTV CT_QwW7Tbew5qrYNb2auqAQ");
+//        youtubeAcountList.add("SADHNA GOLD UC04m8d9t8UeWZ5DuvQVnqiw");
+//        youtubeAcountList.add("Saregama Bhakti UC6vQRTCxutg6fJLUGkDKynQ");
+//        youtubeAcountList.add("Gauri Gopal Tv UCOizxR3GwY7dmehMCAdvv9g");
+//        youtubeAcountList.add("Swami Raghvacharya UCyIkg79GpPVF77qYKoAINtw");
+//        youtubeAcountList.add("BhaktiSagar Tv UCDqkux3AH7P9hRjmunoUeAQ");
+//        youtubeAcountList.add("Shemaroo Bhakti UC7ZivIYRB0fMSGh-THcTYbw");
+//        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
+//        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
+
 
     }
 
@@ -108,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
-            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+//            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+              String youtubeAccountUrl  = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
