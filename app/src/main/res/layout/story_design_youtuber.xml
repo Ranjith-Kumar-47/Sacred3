@@ -31,7 +31,7 @@
                 app:civ_border_color="#0B0909"
                 app:civ_border_width="2dp"
                 android:layout_marginBottom="10dp"
-                 />
+                />
             <TextView
                 android:id="@+id/videoDescription"
                 android:layout_width="wrap_content"
