@@ -19,9 +19,14 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstan
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerFullScreenListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerTracker;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.DefaultPlayerUiController;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.PlayerUiController;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.utils.FadeViewHelper;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.views.YouTubePlayerSeekBar;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.views.YouTubePlayerSeekBarListener;
 
 import java.sql.Time;
 import java.util.Date;
@@ -45,6 +50,7 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
     ImageView enterExitFullscreenButton;
 
     CardView qualityCardView;
+    CardView playBackCardView;
     Button oneFourFourP;
     Button twoFourZeroP;
     Button threeTwoZeroP;
@@ -52,6 +58,8 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
     Button sevenTwoZeroP;
     Button oneZeroTwoFourP;
     ProgressBar progressBarSeek;
+    YouTubePlayerSeekBar youTubePlayerSeekBar;
+
 
     Handler handler;
     int progressCount = 0;
@@ -74,13 +82,12 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
     private void initViews(View playerUi) {
         panel = playerUi.findViewById(R.id.panel);
         progressbar = playerUi.findViewById(R.id.progressbar);
-        videoCurrentTimeTextView = playerUi.findViewById(R.id.video_current_time);
-        videoDurationTextView = playerUi.findViewById(R.id.video_duration);
+
         playPauseButton = playerUi.findViewById(R.id.play_pause_button);
         enterExitFullscreenButton = playerUi.findViewById(R.id.enter_exit_fullscreen_button);
 
         playBackSpeedButton = playerUi.findViewById(R.id.playbackSpeedButton);
-        CardView playBackCardView = playerUi.findViewById(R.id.playBackSpeedCardView);
+        playBackCardView = playerUi.findViewById(R.id.playBackSpeedCardView);
 
         highQuality = playerUi.findViewById(R.id.highQuality);
         qualityCardView = playerUi.findViewById(R.id.qualityCardView);
@@ -92,7 +99,8 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
         sevenTwoZeroP = playerUi.findViewById(R.id.sevenTwoZeroP);
         oneZeroTwoFourP = playerUi.findViewById(R.id.oneZeroTwoFourP);
 
-        progressBarSeek = playerUi.findViewById(R.id.progressBarSeek);
+
+        youTubePlayerSeekBar = playerUi.findViewById(R.id.youtube_player_seekbar);
 
 //        panel.setOnClickListener(view -> {
 //            panel.setVisibility(View.VISIBLE);
@@ -107,31 +115,35 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
 //            );
 //        });
 
-        handler = new Handler();
-        handler.postDelayed(new Runnable() {
+
+
+        youTubePlayer.addListener(youTubePlayerSeekBar);
+        youTubePlayerSeekBar.setYoutubePlayerSeekBarListener(new YouTubePlayerSeekBarListener() {
             @Override
-            public void run() {
-                int ctime = (int) playerTracker.getCurrentSecond();
-                int maxTime = (int) playerTracker.getVideoDuration();
-                progressBarSeek.setMax(maxTime);
-                if(progressBarSeek.getProgress()<100){
-                    progressBarSeek.setProgress(progressCount);
-                    handler.postDelayed(this,100);
-                    progressCount++;
-                }else{
-
-                }
+            public void seekTo(float time) {
+                youTubePlayer.seekTo(time);
             }
-        },100);
+        });
+//
+//        FadeViewHelper fadeViewHelper = new FadeViewHelper(playerUi);
+//        fadeViewHelper.setAnimationDuration(FadeViewHelper.DEFAULT_ANIMATION_DURATION);
+//        fadeViewHelper.setFadeOutDelay(FadeViewHelper.DEFAULT_FADE_OUT_DELAY);
+//        youTubePlayer.addListener(fadeViewHelper);
 
 
+        // ###############################
 
-        highQuality.setOnClickListener(view -> qualityCardView.setVisibility(View.VISIBLE));
+        highQuality.setOnClickListener((view) -> {
+            playBackCardView.setVisibility(View.GONE);
+            qualityCardView.setVisibility(View.VISIBLE);
+        });
 
 
 
         playBackSpeedButton.setOnClickListener((view) -> {
+            qualityCardView.setVisibility(View.GONE);
             playBackCardView.setVisibility(View.VISIBLE);
+            System.out.println("Visibility speed : "+playBackCardView.getVisibility());
             System.out.println("Speed Clicked");
         });
 
@@ -154,6 +166,7 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
     @Override
     public void onReady(@NonNull YouTubePlayer youTubePlayer) {
         progressbar.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -177,11 +190,15 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
             panel.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
             playPauseButton.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
             progressbar.setVisibility(View.GONE);
+            highQuality.setVisibility(View.GONE);
+            playBackSpeedButton.setVisibility(View.GONE);
         }
         else if (state == PlayerConstants.PlayerState.PAUSED || state == PlayerConstants.PlayerState.VIDEO_CUED){
             panel.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
             playPauseButton.setImageResource(R.drawable.ic_baseline_motion_photos_paused_24);
             progressbar.setVisibility(View.GONE);
+            highQuality.setVisibility(View.VISIBLE);
+            playBackSpeedButton.setVisibility(View.VISIBLE);
         }
         else
         if(state == PlayerConstants.PlayerState.BUFFERING)
@@ -204,14 +221,14 @@ class CustomPlayerUiController extends AbstractYouTubePlayerListener implements 
     @Override
     public void onCurrentSecond(@NonNull YouTubePlayer youTubePlayer, float second) {
         int val = (int) second;
-        videoCurrentTimeTextView.setText(val+"");
+//        videoCurrentTimeTextView.setText(val+"");
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onVideoDuration(@NonNull YouTubePlayer youTubePlayer, float duration) {
         int vak = (int) duration;
-        videoDurationTextView.setText(vak+"");
+//        videoDurationTextView.setText(vak+"");
     }
 
     @Override

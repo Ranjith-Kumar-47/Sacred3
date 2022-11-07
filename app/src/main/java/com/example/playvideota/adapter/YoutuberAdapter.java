@@ -60,8 +60,6 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
                 intent.putExtra("youtuberImage",youtuberModel.getYoutuberImage());
                 intent.putExtra("youtuberBannerImage",youtuberModel.getYoutuberBannerImage());
                 v.getContext().startActivity(intent);
-                Toast.makeText(context, "clicked "+youtuberModel.getYoutuberName(), Toast.LENGTH_SHORT).show();
-
             }
         });
 

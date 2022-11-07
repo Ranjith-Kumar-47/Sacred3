@@ -41,6 +41,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTube
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.DefaultPlayerUiController;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.PlayerUiController;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.utils.FadeViewHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.concurrent.ExecutorService;
@@ -56,9 +57,10 @@ public class VideoPlayer extends AppCompatActivity  {
     String channelName = "";
     String channelIcon = "";
 
-    YouTubePlayerListener listener;
     YouTubePlayerTracker playerTracker;
     ProgressBar progressBarSeek ;
+
+    YouTubePlayerListener listener;
 
     GoogleSignInClient mGoogleSignInClient;
     com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView playVid;
@@ -97,14 +99,90 @@ public class VideoPlayer extends AppCompatActivity  {
         });
 
         playVid = findViewById(R.id.playVid);
+
+//        initYouTubePlayerView();
         getLifecycle().addObserver(playVid);
 
         View customPlayerUi = playVid.inflateCustomPlayerUi(R.layout.custom_player_ui);
 
 
+
+//        YouTubePlayerListener listener = new AbstractYouTubePlayerListener() {
+//            @Override
+//            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+//                // using pre-made custom ui
+//                DefaultPlayerUiController defaultPlayerUiController = new DefaultPlayerUiController(youTubePlayerView, youTubePlayer);
+//                youTubePlayerView.setCustomPlayerUi(defaultPlayerUiController.getRootView());
+//            }
+//        };
+//
+//        // disable iframe ui
+//        IFramePlayerOptions options = new IFramePlayerOptions.Builder().controls(0).build();
+//        youTubePlayerView.initialize(listener, options);
+
+
         listener = new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer youTubePlayer) {
+
+
+
+
+                CustomPlayerUiController customPlayerUiController = new CustomPlayerUiController(VideoPlayer.this, customPlayerUi, youTubePlayer, playVid);
+                youTubePlayer.addListener(customPlayerUiController);
+
+
+
+                playerTracker = new YouTubePlayerTracker();
+                youTubePlayer.addListener(playerTracker);
+                playVid.addFullScreenListener(customPlayerUiController);
+
+
+//                FadeViewHelper fadeViewHelper = new FadeViewHelper(customPlayerUi);
+//                fadeViewHelper.setAnimationDuration(FadeViewHelper.DEFAULT_ANIMATION_DURATION);
+//                fadeViewHelper.setFadeOutDelay(FadeViewHelper.DEFAULT_FADE_OUT_DELAY);
+//                fadeViewHelper.toggleVisibility();
+//                youTubePlayer.addListener(fadeViewHelper);
+
+
+
+                setVidePlaybackSpeed(youTubePlayer);
+                setVideoQualityListener(youTubePlayer, playerTracker);
+                YouTubePlayerUtils.loadOrCueVideo(youTubePlayer,getLifecycle(),videoId,0f);
+
+                youTubePlayer.loadVideo(videoId,playerTracker.getVideoDuration());
+
+
+//                DefaultPlayerUiController defaultPlayerUiController = new DefaultPlayerUiController(playVid, youTubePlayer);
+//                defaultPlayerUiController.showYouTubeButton(false);
+//                defaultPlayerUiController.showMenuButton(false);
+//                defaultPlayerUiController.showUi(false);
+
+//                playVid.setCustomPlayerUi(defaultPlayerUiController.getRootView());
+//                playVid.setCustomPlayerUi(customPlayerUi);
+
+            }
+        };
+
+//        // disable web ui
+        IFramePlayerOptions options = new IFramePlayerOptions.Builder().controls(0).build();
+        playVid.initialize(listener,true,options);
+    }
+
+    private void initYouTubePlayerView() {
+//        playVid.inflateCustomPlayerUi(R.layout.custom_player_ui);
+        View customPlayerUi = playVid.inflateCustomPlayerUi(R.layout.custom_player_ui);
+
+        IFramePlayerOptions iFramePlayerOptions = new IFramePlayerOptions.Builder()
+                .controls(0)
+                .build();
+
+        getLifecycle().addObserver(playVid);
+
+        playVid.initialize(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+
                 CustomPlayerUiController customPlayerUiController = new CustomPlayerUiController(VideoPlayer.this, customPlayerUi, youTubePlayer, playVid);
                 youTubePlayer.addListener(customPlayerUiController);
 
@@ -112,37 +190,15 @@ public class VideoPlayer extends AppCompatActivity  {
                 youTubePlayer.addListener(playerTracker);
                 playVid.addFullScreenListener(customPlayerUiController);
 
-                setVidePlaybackSpeed(youTubePlayer);
-                setVideoQualityListener(youTubePlayer, playerTracker);
-                YouTubePlayerUtils.loadOrCueVideo(youTubePlayer,getLifecycle(),videoId,0f);
-
+                YouTubePlayerUtils.loadOrCueVideo(
+                        youTubePlayer, getLifecycle(),
+                        videoId,0f
+                );
             }
-
-
-            @Override
-            public void onPlaybackRateChange(@NonNull com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer youTubePlayer, @NonNull PlayerConstants.PlaybackRate playbackRate) {
-                TextView playbackSpeedTextView = findViewById(R.id.playback_speed_text_view);
-
-                String playbackSpeed = "Playback speed: ";
-//                playbackSpeedTextView.setText(playbackSpeed + playbackRate);
-            }
-
-            @Override
-            public void onPlaybackQualityChange(@NonNull com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer youTubePlayer, @NonNull PlaybackQuality playbackQuality) {
-
-                TextView playbackSpeedTextView = findViewById(R.id.playback_speed_text_view);
-                String playbackSpeed = "Playback Quality: ";
-                playbackSpeedTextView.setText(playbackSpeed + playbackQuality);
-
-            }
-
-        };
-
-
-        // disable web ui
-        IFramePlayerOptions options = new IFramePlayerOptions.Builder().controls(0).build();
-        playVid.initialize(listener, options );
+        }, true, iFramePlayerOptions);
     }
+
+
 
 
 
