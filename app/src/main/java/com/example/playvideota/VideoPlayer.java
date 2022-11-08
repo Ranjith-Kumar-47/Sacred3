@@ -56,6 +56,10 @@ public class VideoPlayer extends AppCompatActivity  {
     String videoLiveBroadcastContent = "";
     String channelName = "";
     String channelIcon = "";
+    ImageView highQuality ;
+    CardView qualityCardView;
+    ImageView playbackSpeedButton ;
+    CardView playBackSpeedCardView;
 
     YouTubePlayerTracker playerTracker;
     ProgressBar progressBarSeek ;
@@ -71,6 +75,7 @@ public class VideoPlayer extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_video_player);
 
         Button backButton = (Button) findViewById(R.id.backButton);
@@ -169,6 +174,8 @@ public class VideoPlayer extends AppCompatActivity  {
         playVid.initialize(listener,true,options);
     }
 
+
+
     private void initYouTubePlayerView() {
 //        playVid.inflateCustomPlayerUi(R.layout.custom_player_ui);
         View customPlayerUi = playVid.inflateCustomPlayerUi(R.layout.custom_player_ui);
@@ -204,8 +211,8 @@ public class VideoPlayer extends AppCompatActivity  {
 
     private void setVidePlaybackSpeed(YouTubePlayer youTubePlayer) {
 
-        ImageView playbackSpeedButton = findViewById(R.id.playbackSpeedButton);
-        CardView playBackSpeedCardView = findViewById(R.id.playBackSpeedCardView);
+        playbackSpeedButton = findViewById(R.id.playbackSpeedButton);
+        playBackSpeedCardView = findViewById(R.id.playBackSpeedCardView);
 
 
         Button oneX = findViewById(R.id.oneX);
@@ -216,7 +223,12 @@ public class VideoPlayer extends AppCompatActivity  {
         Button zeroPointTwoFive = findViewById(R.id.zeroPointTwoFive);
         Button zeroPointFive = findViewById(R.id.zeroPointFive);
 
-        playbackSpeedButton.setOnClickListener(view -> playBackSpeedCardView.setVisibility(View.VISIBLE));
+        playbackSpeedButton.setOnClickListener((view)->{
+            playBackSpeedCardView.setVisibility(View.VISIBLE);
+            qualityCardView.setVisibility(View.GONE);
+
+
+        });
 
         oneX.setOnClickListener(view -> {
             youTubePlayer.setPlaybackRate(PlayerConstants.PlaybackRate.RATE_1);
@@ -245,8 +257,8 @@ public class VideoPlayer extends AppCompatActivity  {
     }
 
     private void setVideoQualityListener(YouTubePlayer youTubePlayer, YouTubePlayerTracker playerTracker) {
-        ImageView highQuality = findViewById(R.id.highQuality);
-        CardView qualityCardView = findViewById(R.id.qualityCardView);
+        highQuality = findViewById(R.id.highQuality);
+        qualityCardView = findViewById(R.id.qualityCardView);
 
         Button oneFourFourP = findViewById(R.id.oneFourFourP);
         Button twoFourZeroP = findViewById(R.id.twoFourZeroP);
@@ -257,10 +269,13 @@ public class VideoPlayer extends AppCompatActivity  {
 
 
 
-        highQuality.setOnClickListener(view -> qualityCardView.setVisibility(View.VISIBLE));
+        highQuality.setOnClickListener((view) ->{
+            qualityCardView.setVisibility(View.VISIBLE);
+            playBackSpeedCardView.setVisibility(View.GONE);
+        });
 
         oneFourFourP.setOnClickListener(view -> {
-            listener.onPlaybackQualityChange(youTubePlayer,PlaybackQuality.UNKNOWN);
+            listener.onPlaybackQualityChange(youTubePlayer,PlaybackQuality.SMALL);
             youTubePlayer.loadVideo(videoId,playerTracker.getCurrentSecond());
             qualityCardView.setVisibility(View.GONE);
             System.out.println("THROUGH LISTENER");
@@ -304,6 +319,8 @@ public class VideoPlayer extends AppCompatActivity  {
 
 
     }
+
+
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {

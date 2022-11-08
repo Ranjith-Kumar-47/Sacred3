@@ -58,6 +58,12 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.channelIcon);
 
+        // checking for live video
+        if(!youtubeDashboradModel.getVideoLiveBroadcastContent().equalsIgnoreCase("none")){
+            holder.liveButton.setVisibility(View.VISIBLE);
+        }
+
+
         holder.videoDescription.setText(youtubeDashboradModel.getVideoTitle());
 
         holder.videoDescription.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +115,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         TextView videoDescription;
         CardView cardViewContainer;
         ImageView channelIcon;
+        ImageView liveButton;
 
 
         public viewHolder(@NonNull View itemView) {
@@ -118,6 +125,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
             videoImage = itemView.findViewById(R.id.videoImage);
             cardViewContainer  = itemView.findViewById(R.id.cardViewContainer);
             channelIcon = itemView.findViewById(R.id.profileUserImage);
+            liveButton = itemView.findViewById(R.id.liveButton);
         }
     }
 }

@@ -161,7 +161,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
                         list.add(youtubeDashboradModel);
 
-                        System.out.println("ans" +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
                     // filter list contain only live videos
