@@ -88,34 +88,49 @@ public class AuthActivity extends AppCompatActivity {
 
         //Initialize OTPLess Instance
         otpless = OtplessProvider.getInstance(this).init(this::onOtplessResult);
-//        otpless = OtplessProvider.getInstance(this).init(this)
+
 
 
         Button whatsappButton = (Button) findViewById(R.id.whatsappButton);
+        signInWithWhataApp();
         whatsappButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent  = getPackageManager().getLaunchIntentForPackage("com.youtube");
-//                Intent.createChooser(intent,"Launch Whatsapp");
-//                startActivity(intent);
-                signInWithWhataApp();
-                String whatappLink = signInWithWhataApp();
-                try {
-//                    Uri webpage = Uri.parse(whatappLink);
-//
-//                    Intent myIntent = new Intent(Intent.ACTION_VIEW, webpage);
-//
-//                    startActivity(myIntent);
 
-//                    String url = signInWithWhataApp();
-//                    Intent i = new Intent(Intent.ACTION_VIEW);
-//                    i.setData(Uri.parse(url));
-//                    startActivity(Intent.createChooser(i,"Launch whatsapp"));
-                    Toast.makeText(AuthActivity.this, "Loading", Toast.LENGTH_SHORT).show();
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(AuthActivity.this, "No application can handle this request. Please install a web browser or check your URL.", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
+                Toast.makeText(AuthActivity.this, "not working yet", Toast.LENGTH_SHORT).show();
+                signInWithWhataApp();
+
+//                String url = "http://www.google.com";
+                String url1 = whatsappUrl ;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url1));
+                startActivity(i);
+
+
+
+                initiateOtplessFlow(whatsappUrl);
+
+//                Intent intent  = getPackageManager().getLaunchIntentForPackage("com.youtube");
+////                Intent.createChooser(intent,"Launch Whatsapp");
+////                startActivity(intent);
+//                signInWithWhataApp();
+//                String whatappLink = signInWithWhataApp();
+//                try {
+////                    Uri webpage = Uri.parse(whatappLink);
+////
+////                    Intent myIntent = new Intent(Intent.ACTION_VIEW, webpage);
+////
+////                    startActivity(myIntent);
+//
+////                    String url = signInWithWhataApp();
+////                    Intent i = new Intent(Intent.ACTION_VIEW);
+////                    i.setData(Uri.parse(url));
+////                    startActivity(Intent.createChooser(i,"Launch whatsapp"));
+//                    Toast.makeText(AuthActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+//                } catch (ActivityNotFoundException e) {
+//                    Toast.makeText(AuthActivity.this, "No application can handle this request. Please install a web browser or check your URL.", Toast.LENGTH_SHORT).show();
+//                    e.printStackTrace();
+//                }
             }
         });
 
@@ -165,9 +180,12 @@ public class AuthActivity extends AppCompatActivity {
 
         //While you create a request with otpless sdk you can define your own loading text and color
 
+        System.out.println("initaite otp less flow ");
         final OtplessIntentRequest request = new OtplessIntentRequest(intentUri)
                 .setLoadingText("Please wait...")
                 .setProgressBarColor(R.color.purple_200);
+
+
 
         otpless.openOtpless(request);
 
@@ -181,6 +199,8 @@ public class AuthActivity extends AppCompatActivity {
         }
         //Send this token to your backend end api to fetch user details from otpless service
         token = response.getToken();
+
+        System.out.println("token : "+token);
 
 
     }

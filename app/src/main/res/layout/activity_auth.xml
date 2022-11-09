@@ -4,45 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/logov2"
     tools:context=".AuthActivity">
 
     <View
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_margin="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="16dp"
-        android:background="#D5CDCD"
+        android:background="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="TAPLAY"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        tools:ignore="TextContrastCheck" />
-
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profileUserImage"
+        android:id="@+id/logoIconImage"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_profile_svgrepo_com"
-        app:civ_border_color="#0B0909"
-        app:civ_border_width="2dp"
+        android:src="@drawable/logov2"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
 
@@ -65,7 +48,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.79" />
 
     <Button
         android:id="@+id/whatsappButton"
