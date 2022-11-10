@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        drawable="@drawable/ic_tv_smart_svgrepo_com_"
+        text="@string/tv" />
+
+    <tab
+        drawable="@drawable/rashiphal_removebg_preview"
+        text="@string/Rashiphal" />
+
+    <tab
+        drawable="@drawable/ic_calender_day_love_svgrepo_com"
+        text="@string/Panchang" />
+
+</tabs>

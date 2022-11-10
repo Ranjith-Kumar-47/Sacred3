@@ -1,52 +1,37 @@
-package com.example.playvideota;
+package com.example.playvideota.fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.playvideota.R;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.ActivityMainBinding;
-import com.example.playvideota.fragment.PanchangFragment;
-import com.example.playvideota.fragment.RashiphalFragment;
-import com.example.playvideota.fragment.TvFragment;
+import com.example.playvideota.databinding.FragmentTvBinding;
 import com.example.playvideota.model.YoutuberModel;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-import com.iammert.library.readablebottombar.ReadableBottomBar;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-public class MainActivity extends AppCompatActivity {
+
+public class TvFragment extends Fragment {
 
     private String api = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
-
-    ActivityMainBinding binding;
+    FragmentTvBinding binding;
 
     RecyclerView youtuberRV;
     ArrayList<YoutuberModel> list;
@@ -55,104 +40,41 @@ public class MainActivity extends AppCompatActivity {
     String personName = "";
     String personPhoto = "";
 
+
+    public TvFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        setContentView(R.layout.activity_main);
-        setContentView(binding.getRoot());
-//        youtubeAccount();
-//        gridListData();
-//        settingAdapter();
-//
-//        loadYoutubeAccount();
+
+
 //
 //        personName = getIntent().getStringExtra("personName");
 //        personPhoto = getIntent().getStringExtra("personPhoto");
 
-//        ImageView profileUserImage = findViewById(R.id.profileUserImage);
-
-//        Picasso.with(getApplicationContext())
-//                .load(personPhoto)
-//                .into(profileUserImage);
-
-
-        // setting the root fragment for home page
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentContainer, new TvFragment());
-        transaction.commit();
-
-
-
-
-        binding.bottomNavigation.setOnItemSelectListener(new ReadableBottomBar.ItemSelectListener() {
-            @Override
-            public void onItemSelected(int i) {
-
-                // this is used to change one fragment to another.
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-                switch (i){
-                    case 0:
-                        ExecutorService service = Executors.newSingleThreadExecutor();
-                        service.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new TvFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ContestFragment());
-                        break;
-                    case 1:
-                        ExecutorService service1 = Executors.newSingleThreadExecutor();
-                        service1.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new PanchangFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ProblemFragment());
-                        break;
-                    case 2:
-
-                        ExecutorService service2 = Executors.newSingleThreadExecutor();
-                        service2.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new RashiphalFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ProfileFragment());
-                        break;
-                }
-
-                transaction.commit();
-            }
-        });
-
-
 
 
     }
 
     @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentTvBinding.inflate(inflater, container, false);
+        // Inflate the layout for this fragment
+        // return inflater.inflate(R.layout.fragment_tv, container, false);
+
+        youtubeAccount();
+        gridListData();
+        settingAdapter();
+
+        loadYoutubeAccount();
+
+        return binding.getRoot();
     }
+
 
     private void youtubeAccount(){
         youtubeAcountList = new ArrayList<>();
@@ -230,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
 //            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-              String youtubeAccountUrl  = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+            String youtubeAccountUrl  = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -269,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                             );
                             list.add(youtuberModel);
                         }
-                        YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getApplicationContext(), list);
+                        YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getContext(), list);
                         youtuberRV.setAdapter(youtubeAccountAdapter);
 
 
@@ -287,11 +209,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
+//            MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+            MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
         }
 
-        YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getApplicationContext(), list);
+        YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtubeAccountAdapter1);
 
 
@@ -299,13 +221,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void settingAdapter() {
-        youtuberRV = findViewById(R.id.youtuberRV);
+//        youtuberRV = findViewById(R.id.youtuberRV);
+        youtuberRV = binding.youtuberRV;
         youtuberRV.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         gridLayoutManager.setOrientation(youtuberRV.VERTICAL);
         youtuberRV.setLayoutManager(gridLayoutManager);
 
-        youtuberAdapter = new YoutuberAdapter(this, list);
+        youtuberAdapter = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtuberAdapter);
 
     }

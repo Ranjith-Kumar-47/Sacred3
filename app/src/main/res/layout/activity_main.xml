@@ -30,6 +30,7 @@
         app:layout_constraintVertical_bias="0.47000003" />
 
     <RelativeLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
@@ -38,15 +39,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/bottomNavigation">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/youtuberRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/orange"
-            />
+            android:background="@color/orange" />
     </RelativeLayout>
+
+    <com.iammert.library.readablebottombar.ReadableBottomBar
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:rbb_activeItemType="text"
+        app:rbb_backgroundColor="#FF5722"
+        app:rbb_indicatorColor="@color/black"
+        app:rbb_indicatorHeight="4dp"
+        app:rbb_tabs="@xml/tabs"
+        app:rbb_textColor="@color/black"
+        app:rbb_textSize="5dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
