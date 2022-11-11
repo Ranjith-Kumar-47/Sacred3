@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -71,6 +72,13 @@ public class TvFragment extends Fragment {
         settingAdapter();
 
         loadYoutubeAccount();
+
+        binding.feedBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return binding.getRoot();
     }

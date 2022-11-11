@@ -36,7 +36,8 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentContainer"
         app:layout_constraintEnd_toEndOf="@id/fragmentContainer"
-        android:src="@drawable/feedback"
+        android:src="@drawable/ic_baseline_feedback_24"
+        android:backgroundTint="@color/orange"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

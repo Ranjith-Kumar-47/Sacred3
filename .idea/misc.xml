@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_baseline_feedback_24.xml" value="0.1375" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_profile_svgrepo_com.xml" value="0.235" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_tv_smart_svgrepo_com_.xml" value="0.1375" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_auth.xml" value="0.2513586956521739" />
@@ -14,7 +15,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/custom_player_ui.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_panchang.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_rashiphal.xml" value="0.24456521739130435" />
-        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_tv.xml" value="0.24456521739130435" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_tv.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/story_design_youtube_video.xml" value="0.26811594202898553" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/story_design_youtuber.xml" value="0.27447916666666666" />
       </map>
