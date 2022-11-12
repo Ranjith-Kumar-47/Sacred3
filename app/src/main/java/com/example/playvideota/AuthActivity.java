@@ -48,7 +48,7 @@ public class AuthActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private Otpless otpless;
     String whatsappUrl ;
-    Button whatsappButton;
+    Button phoneNumberButton;
     String token;
     private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
     private String secretKey = "nUKQZBGCIedyMZMBH35LPJe0ArlpljRPZIrqcGqEeX8CPMaugIVFhk3rt7xhyGN82";
@@ -100,37 +100,23 @@ public class AuthActivity extends AppCompatActivity {
                 Toast.makeText(AuthActivity.this, "not working yet", Toast.LENGTH_SHORT).show();
                 signInWithWhataApp();
 
-//                String url = "http://www.google.com";
                 String url1 = whatsappUrl ;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url1));
                 startActivity(i);
 
-
-
                 initiateOtplessFlow(whatsappUrl);
 
-//                Intent intent  = getPackageManager().getLaunchIntentForPackage("com.youtube");
-////                Intent.createChooser(intent,"Launch Whatsapp");
-////                startActivity(intent);
-//                signInWithWhataApp();
-//                String whatappLink = signInWithWhataApp();
-//                try {
-////                    Uri webpage = Uri.parse(whatappLink);
-////
-////                    Intent myIntent = new Intent(Intent.ACTION_VIEW, webpage);
-////
-////                    startActivity(myIntent);
-//
-////                    String url = signInWithWhataApp();
-////                    Intent i = new Intent(Intent.ACTION_VIEW);
-////                    i.setData(Uri.parse(url));
-////                    startActivity(Intent.createChooser(i,"Launch whatsapp"));
-//                    Toast.makeText(AuthActivity.this, "Loading", Toast.LENGTH_SHORT).show();
-//                } catch (ActivityNotFoundException e) {
-//                    Toast.makeText(AuthActivity.this, "No application can handle this request. Please install a web browser or check your URL.", Toast.LENGTH_SHORT).show();
-//                    e.printStackTrace();
-//                }
+            }
+        });
+
+        phoneNumberButton = findViewById(R.id.phoneNumberButton);
+
+        phoneNumberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AuthActivity.this, EnterPhoneNumberScreen.class);
+                startActivity(intent);
             }
         });
 
