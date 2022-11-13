@@ -1,5 +1,6 @@
 package com.example.playvideota.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,12 +16,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.playvideota.FeedbackActivity;
 import com.example.playvideota.R;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.ActivityMainBinding;
 import com.example.playvideota.databinding.FragmentTvBinding;
 import com.example.playvideota.model.YoutuberModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,6 +43,7 @@ public class TvFragment extends Fragment {
     ArrayList<String> youtubeAcountList;
     String personName = "";
     String personPhoto = "";
+    FloatingActionButton feedBackButton;
 
 
     public TvFragment() {
@@ -51,6 +55,12 @@ public class TvFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+//        youtubeAccount();
+//        gridListData();
+//        settingAdapter();
+
+//        loadYoutubeAccount();
 
 //
 //        personName = getIntent().getStringExtra("personName");
@@ -70,13 +80,14 @@ public class TvFragment extends Fragment {
         youtubeAccount();
         gridListData();
         settingAdapter();
-
         loadYoutubeAccount();
 
         binding.feedBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), FeedbackActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -85,6 +96,7 @@ public class TvFragment extends Fragment {
 
 
     private void youtubeAccount(){
+        System.out.println("YoutubeAccount");
         youtubeAcountList = new ArrayList<>();
 
 //        youtubeAcountList.add("GoogleDevelopers");
@@ -132,7 +144,6 @@ public class TvFragment extends Fragment {
         youtubeAcountList.add("UCaayLD9i5x4MmIoVZxXSv_g");
         youtubeAcountList.add("UCHKGDg0GJKBsA9mFraDOLHA");
 
-
 //        youtubeAcountList.add("AasthaChannel UCRUAdVm9ZOF4JheOd8qIQHA");
 //        youtubeAcountList.add("Aniruddhacharya ji UCDe0DwkMVFfSIoiYdQUPQmQ");
 //        youtubeAcountList.add("Satsang UCPITDRnLbTRyyEUVwZHbMww");
@@ -151,12 +162,11 @@ public class TvFragment extends Fragment {
 //        youtubeAcountList.add("Shemaroo Bhakti UC7ZivIYRB0fMSGh-THcTYbw");
 //        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
 //        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
-
-
     }
 
     private void loadYoutubeAccount() {
 
+        System.out.println("loadYoutubeAccount");
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
 //            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
@@ -204,6 +214,7 @@ public class TvFragment extends Fragment {
 
 
                     } catch (Exception e) {
+                        System.out.println("try catch error "+e.getMessage());
                         e.printStackTrace();
                     }
 
@@ -213,7 +224,7 @@ public class TvFragment extends Fragment {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     // TODO: Handle error
-
+                    System.out.println("volly error "+error.getMessage());
                 }
             });
 
@@ -222,6 +233,7 @@ public class TvFragment extends Fragment {
         }
 
         YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getContext(), list);
+//        youtuberAdapter = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtubeAccountAdapter1);
 
 
@@ -230,14 +242,15 @@ public class TvFragment extends Fragment {
 
     private void settingAdapter() {
 //        youtuberRV = findViewById(R.id.youtuberRV);
+        System.out.println("setting Adapter");
         youtuberRV = binding.youtuberRV;
         youtuberRV.setHasFixedSize(true);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         gridLayoutManager.setOrientation(youtuberRV.VERTICAL);
         youtuberRV.setLayoutManager(gridLayoutManager);
 
-        youtuberAdapter = new YoutuberAdapter(getContext(), list);
-        youtuberRV.setAdapter(youtuberAdapter);
+        YoutuberAdapter youtuberAdapters = new YoutuberAdapter(getContext(), list);
+        youtuberRV.setAdapter(youtuberAdapters);
 
     }
 

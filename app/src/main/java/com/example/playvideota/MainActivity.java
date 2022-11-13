@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 //        settingAdapter();
 //
 //        loadYoutubeAccount();
-//
+
 //        personName = getIntent().getStringExtra("personName");
 //        personPhoto = getIntent().getStringExtra("personPhoto");
 
@@ -141,6 +141,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 transaction.commit();
+            }
+        });
+
+
+        ImageView adminButton = findViewById(R.id.adminButton);
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AdminRashiphal.class);
+                startActivity(intent);
             }
         });
 

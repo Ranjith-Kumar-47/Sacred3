@@ -56,4 +56,7 @@ dependencies {
 //    implementationfiles('libs/OTPless-Android-SDK.aar')
 
 //    implementation 'com.github.MrNouri:DynamicSizes:1.0'
+
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-database'
 }

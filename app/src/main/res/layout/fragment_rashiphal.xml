@@ -1,14 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.RashiphalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="rahipal frag" />
+ <androidx.core.widget.NestedScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
 
-</FrameLayout>
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+         <View
+             android:id="@+id/view3"
+             android:layout_width="1dp"
+             android:layout_height="60dp"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="20dp"
+             android:background="@color/orange"
+             android:visibility="gone"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <TextView
+             android:id="@+id/textView4"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="30dp"
+             android:layout_marginEnd="30dp"
+             android:fontFamily="sans-serif"
+             android:text="@string/Rashiphal"
+             android:textColor="@color/orange"
+             android:textSize="30sp"
+             android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="@+id/view3"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toEndOf="@+id/view3"
+             app:layout_constraintTop_toTopOf="@+id/view3" />
+
+         <HorizontalScrollView
+             android:id="@+id/horizontalScrollView"
+             android:layout_width="0dp"
+             android:layout_height="120dp"
+             android:layout_marginTop="20dp"
+             android:scrollbars="none"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.5"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/view3">
+
+
+             <RelativeLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="match_parent">
+
+                 <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/rashiphalRV"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     tools:listitem="@layout/sample_rashiphal_fragment" />
+             </RelativeLayout>
+         </HorizontalScrollView>
+
+         <View
+             android:id="@+id/view4"
+             android:layout_width="1dp"
+             android:layout_height="60dp"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="20dp"
+             android:background="@color/orange"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+         <TextView
+             android:id="@+id/textView8"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="30dp"
+             android:layout_marginEnd="20dp"
+             android:text="Today 12 Nov, 2022 Rashiphal"
+             android:textColor="@color/orange"
+             android:textSize="22sp"
+             app:layout_constraintBottom_toBottomOf="@+id/view4"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toEndOf="@+id/view4"
+             app:layout_constraintTop_toTopOf="@+id/view4" />
+
+         <androidx.cardview.widget.CardView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="20dp"
+             android:layout_marginEnd="20dp"
+             android:layout_marginBottom="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.5"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/view4">
+
+             <TextView
+                 android:id="@+id/rashiphalDataTextview"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_gravity="center"
+                 android:fontFamily="sans-serif-condensed-light"
+                 android:textColor="@color/white"
+                 android:background="@drawable/cancer"
+                 android:padding="22sp"
+                 android:text="here we have details of today rashi There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                 android:textSize="24sp" />
+         </androidx.cardview.widget.CardView>
+
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+ </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

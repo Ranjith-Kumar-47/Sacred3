@@ -10,8 +10,11 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_tv_smart_svgrepo_com_.xml" value="0.1375" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_whatsapp_svgrepo_com.xml" value="0.138" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/mobile_number_background.xml" value="0.1" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_rashiphal.xml" value="0.264" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_rashiphal_add_data.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_auth.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_enter_phone_number_screen.xml" value="0.1" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_feedback.xml" value="0.1" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_otpless_login.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_panchang.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_rashiphal.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_tv.xml" value="0.264" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/sample_rashiphal_fragment.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/story_design_youtube_video.xml" value="0.26811594202898553" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/story_design_youtuber.xml" value="0.27447916666666666" />
       </map>
