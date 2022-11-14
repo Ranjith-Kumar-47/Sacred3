@@ -63,6 +63,44 @@ public class AdminRashiphalAddData extends AppCompatActivity {
 
 
 
+        if(rashiData.toLowerCase().equalsIgnoreCase("Aquarius"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.aquarius);
+        }else if(rashiData == "Aries")
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.aries);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Cancer"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.cancer);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Capricon"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Gemini"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.gemini);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Libra"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.libra);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Leo"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.lio);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Pisces"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.pisces);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Taurus"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.taurus);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Virgo"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.virgo);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Sagittarius"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.zodiac_sagarithus);
+        }
+
+
+
+
 
 
 
