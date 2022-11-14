@@ -34,11 +34,13 @@ public class AdminRashiphalAddData extends AppCompatActivity {
         rashiData = getIntent().getStringExtra("Rashipal");
 
         submitRashipal = findViewById(R.id.submitRashiphalButton);
+        rashiphalDataTextview = findViewById(R.id.rashiphalDataTextview);
 
         submitRashipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(rashiphalDataTextview.getText() != null){
+                System.out.println("Data : "+rashiphalDataTextview.getText().toString());
+                if(rashiphalDataTextview.getText().toString() != null){
                     database.getReference().child("Rashipal")
                             .child(rashiData)
                             .setValue(rashiphalDataTextview.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -57,6 +59,9 @@ public class AdminRashiphalAddData extends AppCompatActivity {
 
         rashiTextView = findViewById(R.id.rashiTextView);
         rashiTextView.setText(rashiData);
+
+
+
 
 
 

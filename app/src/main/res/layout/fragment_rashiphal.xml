@@ -52,17 +52,436 @@
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintTop_toBottomOf="@+id/view3">
 
-
-             <RelativeLayout
+             <LinearLayout
                  android:layout_width="wrap_content"
-                 android:layout_height="match_parent">
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal">
 
-                 <androidx.recyclerview.widget.RecyclerView
-                     android:id="@+id/rashiphalRV"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     tools:listitem="@layout/sample_rashiphal_fragment" />
-             </RelativeLayout>
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Capricon"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toEndOf="@+id/Cancer"
+                     app:layout_constraintTop_toTopOf="@+id/Cancer">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage1"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/capriconorg" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName1"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Capricon"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage1" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Cancer"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toEndOf="@+id/Aries"
+                     app:layout_constraintTop_toTopOf="@+id/Aries">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage3"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/cancer" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName3"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Cancer"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage3" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Aries"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toEndOf="@+id/Aquarius"
+                     app:layout_constraintTop_toTopOf="@+id/Aquarius">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage4"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/aries" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName4"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Aries"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage4" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Gemini"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toStartOf="@+id/Aquarius"
+                     app:layout_constraintTop_toBottomOf="@+id/Aquarius">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage5"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/gemini" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName5"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Gemini"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage5" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Taurus"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toStartOf="@+id/Gemini"
+                     app:layout_constraintTop_toBottomOf="@+id/Gemini">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage6"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/taurus" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName6"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Taurus"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage6" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Pisces"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintEnd_toEndOf="@+id/Capricon"
+                     app:layout_constraintStart_toEndOf="@+id/Leo"
+                     app:layout_constraintTop_toTopOf="@+id/Leo">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage7"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/pisces" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName7"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Pisces"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage7" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Libra"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toEndOf="@+id/Gemini"
+                     app:layout_constraintTop_toTopOf="@+id/Gemini">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage8"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/libra" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName8"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Libra"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage8" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Leo"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toEndOf="@+id/Libra"
+                     app:layout_constraintTop_toTopOf="@+id/Libra">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage9"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/lio" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName9"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Leo"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage9" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Aquarius"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+
+                     android:paddingRight="10dp"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="@+id/view">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage10"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/aquarius" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName10"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Aquarius"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage10" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Sagittarius"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     app:layout_constraintBottom_toBottomOf="@+id/Virgo"
+                     app:layout_constraintStart_toEndOf="@+id/Virgo"
+                     app:layout_constraintTop_toTopOf="@+id/Virgo">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage2"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             android:layout_marginTop="1dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/zodiac_sagarithus" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName2"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Sagittarius"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage2" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/Virgo"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="10dp"
+                     android:paddingRight="10dp"
+                     android:layout_marginEnd="10dp"
+                     app:layout_constraintBottom_toBottomOf="@+id/Taurus"
+                     app:layout_constraintStart_toEndOf="@+id/Taurus"
+                     app:layout_constraintTop_toTopOf="@+id/Taurus">
+
+                     <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/mobile_number_background">
+
+                         <ImageView
+                             android:id="@+id/rashiphalImage"
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:srcCompat="@drawable/virgo" />
+
+                         <TextView
+                             android:id="@+id/rashiphalName"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:text="Virgo"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:layout_constraintTop_toBottomOf="@+id/rashiphalImage" />
+                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 </androidx.cardview.widget.CardView>
+
+             </LinearLayout>
          </HorizontalScrollView>
 
          <View
@@ -76,12 +495,12 @@
              app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
          <TextView
-             android:id="@+id/textView8"
+             android:id="@+id/todayDateTextview"
              android:layout_width="0dp"
              android:layout_height="wrap_content"
              android:layout_marginStart="30dp"
              android:layout_marginEnd="20dp"
-             android:text="Today 12 Nov, 2022 Rashiphal"
+             android:text="Today 14 Nov, 2022 Rashiphal"
              android:textColor="@color/orange"
              android:textSize="22sp"
              app:layout_constraintBottom_toBottomOf="@+id/view4"
@@ -111,7 +530,8 @@
                  android:textColor="@color/white"
                  android:background="@drawable/cancer"
                  android:padding="22sp"
-                 android:text="here we have details of today rashi There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                 android:hint="       Loading Today's Rashipal..."
+                 android:textColorHint="@color/white"
                  android:textSize="24sp" />
          </androidx.cardview.widget.CardView>
 
