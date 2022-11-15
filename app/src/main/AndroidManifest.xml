@@ -17,6 +17,12 @@
         tools:replace="android:icon,android:roundIcon"
         tools:targetApi="31">
         <activity
+            android:name=".AdminPanchang"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDashboard"
+            android:exported="false" />
+        <activity
             android:name=".AdminRashiphalAddData"
             android:exported="false" />
         <activity

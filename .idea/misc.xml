@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/get_otp_button_background.xml" value="0.1" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1195" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_baseline_feedback_24.xml" value="0.1375" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_baseline_phone_android_24.xml" value="0.138" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_profile_svgrepo_com.xml" value="0.235" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_tv_smart_svgrepo_com_.xml" value="0.1375" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/ic_whatsapp_svgrepo_com.xml" value="0.138" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/mobile_number_background.xml" value="0.1" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.264" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_panchang.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_rashiphal.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_admin_rashiphal_add_data.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_auth.xml" value="0.264" />
