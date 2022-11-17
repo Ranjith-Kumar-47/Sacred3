@@ -61,20 +61,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
-//        youtubeAccount();
-//        gridListData();
-//        settingAdapter();
-//
-//        loadYoutubeAccount();
-
-//        personName = getIntent().getStringExtra("personName");
-//        personPhoto = getIntent().getStringExtra("personPhoto");
-
-//        ImageView profileUserImage = findViewById(R.id.profileUserImage);
-
-//        Picasso.with(getApplicationContext())
-//                .load(personPhoto)
-//                .into(profileUserImage);
+        toolbarButtonFunction();
 
 
         // setting the root fragment for home page
@@ -145,6 +132,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void toolbarButtonFunction() {
         ImageView adminButton = findViewById(R.id.adminButton);
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,8 +144,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        ImageView shareButton = (ImageView) findViewById(R.id.shareButton);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "this is sharing app");
+                intent.putExtra(Intent.EXTRA_TEXT,"your application link here");
+                startActivity(Intent.createChooser(intent,"Share Via"));
+            }
+        });
 
     }
 
@@ -166,32 +165,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void youtubeAccount(){
         youtubeAcountList = new ArrayList<>();
-
-//        youtubeAcountList.add("GoogleDevelopers");
-//        youtubeAcountList.add("PowerKids");
-//
-//        youtubeAcountList.add("Movieclips");
-//        youtubeAcountList.add("SThenics");
-//
-//        youtubeAcountList.add("sonyliv");
-//        youtubeAcountList.add("google");
-//        youtubeAcountList.add("ZeeMusicCompany");
-//        youtubeAcountList.add("WWE");
-//        youtubeAcountList.add("LikeNastya");
-//
-//        youtubeAcountList.add("SETIndia");
-//        youtubeAcountList.add("PewDiePie");
-//        youtubeAcountList.add("MrBeast");
-//        youtubeAcountList.add("CanalKondZilla");
-//        youtubeAcountList.add("Calisthenicmovement");
-//        youtubeAcountList.add("ArianaGrande");
-//        youtubeAcountList.add("AshtonFitness");
-//        youtubeAcountList.add("voot");
-//        youtubeAcountList.add("star");
-//
-//        youtubeAcountList.add("amazon");
-//        youtubeAcountList.add("school");
-
 
         youtubeAcountList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
         youtubeAcountList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
@@ -232,14 +205,10 @@ public class MainActivity extends AppCompatActivity {
 //        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
 //        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
 
-
     }
 
     private void loadYoutubeAccount() {
-
-
         for (int j = 0; j < youtubeAcountList.size(); j++) {
-//            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
               String youtubeAccountUrl  = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
