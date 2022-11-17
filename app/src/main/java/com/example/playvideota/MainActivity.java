@@ -1,12 +1,18 @@
 package com.example.playvideota;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -55,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
     String personName = "";
     String personPhoto = "";
 
+    private final String CHANNEL_ID = "simple_notification";
+    private final int NOTIFICATION_ID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
 
-
-
         binding.bottomNavigation.setOnItemSelectListener(new ReadableBottomBar.ItemSelectListener() {
             @Override
             public void onItemSelected(int i) {
@@ -79,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 // this is used to change one fragment to another.
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                switch (i){
+                switch (i) {
                     case 0:
                         ExecutorService service = Executors.newSingleThreadExecutor();
                         service.execute(new Runnable() {
@@ -131,8 +138,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageView logoImage = binding.logoImage;
+        logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createNotification();
+                addNotification();
+            }
+        });
 
     }
+
+
+    private void createNotification() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            CharSequence name = "Vedic Astrology Dainik Rashifal";
+            String desc = "Check out your today Rashiphal ";
+
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription(desc);
+
+            NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+
+        }
+
+    }
+
+    private void addNotification() {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.logov2);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logov2));
+        builder.setContentTitle("Vedic Astrology Dainik Rashifal");
+        builder.setContentText("Check out your today Rashiphal ");
+        builder.setAutoCancel(true);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        // Add as notification
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+
+    }
+
 
     private void toolbarButtonFunction() {
         ImageView adminButton = findViewById(R.id.adminButton);
@@ -151,8 +201,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "this is sharing app");
-                intent.putExtra(Intent.EXTRA_TEXT,"your application link here");
-                startActivity(Intent.createChooser(intent,"Share Via"));
+                intent.putExtra(Intent.EXTRA_TEXT, "your application link here");
+                startActivity(Intent.createChooser(intent, "Share Via"));
             }
         });
 
@@ -163,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    private void youtubeAccount(){
+    private void youtubeAccount() {
         youtubeAcountList = new ArrayList<>();
 
         youtubeAcountList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
@@ -209,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadYoutubeAccount() {
         for (int j = 0; j < youtubeAcountList.size(); j++) {
-              String youtubeAccountUrl  = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -220,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                             jsonObject.getString("id");
-                            System.out.println("ID : "+jsonObject.getString("id"));
+                            System.out.println("ID : " + jsonObject.getString("id"));
 
                             JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                             snippetJsonObject.getString("title");

@@ -79,8 +79,8 @@
         app:rbb_indicatorColor="@color/black"
         app:rbb_indicatorHeight="4dp"
         app:rbb_tabs="@xml/tabs"
-        app:rbb_textColor="@color/black"
-        app:rbb_textSize="5dp" />
+        app:rbb_textColor="@color/white"
+        app:rbb_textSize="7dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

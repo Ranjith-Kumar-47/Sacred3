@@ -120,6 +120,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
         youtuberId = getIntent().getStringExtra("youtuberId");
         youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
+        String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId+"&eventType=live&maxResults=250&type=video&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+
         System.out.println("LOADING VIDEO");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -164,12 +166,12 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                         System.out.println("live video : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
-                    // filter list contain only live videos
-                    for(int i=0 ;i<list.size(); i++){
-                        if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
-                            filteredList.add(list.get(i));
-                        }
-                    }
+//                    // filter list contain only live videos
+//                    for(int i=0 ;i<list.size(); i++){
+//                        if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+//                            filteredList.add(list.get(i));
+//                        }
+//                    }
 
                     // normalList contain video other than live
                     for(int i=0 ;i<list.size(); i++){
@@ -178,11 +180,11 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                         }
                     }
 
-
-                    // firstly adding live video to the selected list
-                    for(int i=0 ;i<filteredList.size(); i++){
-                        selectedList.add(filteredList.get(i));
-                    }
+//
+//                    // firstly adding live video to the selected list
+//                    for(int i=0 ;i<filteredList.size(); i++){
+//                        selectedList.add(filteredList.get(i));
+//                    }
 
                     // secondly adding video other than live video
                     for(int i=0 ;i<normalList.size(); i++){
@@ -190,6 +192,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                     }
 
 
+
+//
                     YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList,YoutubeDashboard.this::itemClicked);
                     youtubeVideoRV.setAdapter(youtubeDashboardAdapter1);
 
@@ -208,7 +212,100 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
             }
         });
 
+        JsonObjectRequest jsonObjectRequestLive = new JsonObjectRequest(Request.Method.GET, liveYoutubeVideoUrl, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("items");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+                        idJsonObject.getString("videoId");
+                        System.out.println("VIDEO ID : "+idJsonObject.getString("videoId"));
+
+                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+                        snippetJsonObject.getString("title");
+                        snippetJsonObject.getString("channelId");
+                        snippetJsonObject.getString("description");
+                        snippetJsonObject.getString("liveBroadcastContent");
+
+                        System.out.println("VIDEO TITLE : " +snippetJsonObject.getString("title") );
+                        System.out.println("VIDEO DESCRIPTION : " +snippetJsonObject.getString("description") );
+
+                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
+                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
+
+                        mediumJsonObject.getString("url");
+                        System.out.println("URL : " + mediumJsonObject.getString("url"));
+
+                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+                                mediumJsonObject.getString("url"),
+                                snippetJsonObject.getString("description"),
+                                snippetJsonObject.getString("title"),
+                                idJsonObject.getString("videoId"),
+                                snippetJsonObject.getString("liveBroadcastContent"),
+                                snippetJsonObject.getString("channelId"),
+                                youtuberImage,
+                                youtuberName
+                        );
+
+                        list.add(youtubeDashboradModel);
+
+                        System.out.println("live video : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                    }
+
+                    // filter list contain only live videos
+                    for(int i=0 ;i<list.size(); i++){
+                        if(list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("live")){
+                            filteredList.add(list.get(i));
+                        }
+                    }
+
+                    // firstly adding live video to the selected list
+                    for(int i=0 ;i<filteredList.size(); i++){
+                        selectedList.add(filteredList.get(i));
+                    }
+
+//
+//                    // normalList contain video other than live
+//                    for(int i=0 ;i<list.size(); i++){
+//                        if(list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+//                            normalList.add(list.get(i));
+//                        }
+//                    }
+
+                    YoutubeDashboardAdapter youtubeDashboardAdapter20 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList,YoutubeDashboard.this::itemClicked);
+                    youtubeVideoRV.setAdapter(youtubeDashboardAdapter20);
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+
+            }
+        });
+
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequestLive);
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+
+
+
+
+
+
+
+
+        YoutubeDashboardAdapter youtubeDashboardAdapter30 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList,YoutubeDashboard.this::itemClicked);
+        youtubeVideoRV.setAdapter(youtubeDashboardAdapter30);
 
         System.out.println("LOADED VIDEO");
     }

@@ -1,8 +1,14 @@
 package com.example.playvideota;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +29,9 @@ public class AdminRashiphalAddData extends AppCompatActivity {
     TextView rashiTextView;
     EditText rashiphalDataTextview;
     String rashiData;
+
+    private final String CHANNEL_ID = "simple_notification";
+    private final int NOTIFICATION_ID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,8 @@ public class AdminRashiphalAddData extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(AdminRashiphalAddData.this, "Added to database", Toast.LENGTH_SHORT).show();
+                                    createNotification();
+                                    addNotification();
                                 }
                             });
                 }
@@ -106,6 +117,39 @@ public class AdminRashiphalAddData extends AppCompatActivity {
 
 
 
+
+    }
+
+    private void createNotification() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            CharSequence name = "Vedic Astrology Dainik Rashifal";
+            String desc = "Check out your today Rashiphal ";
+
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription(desc);
+
+            NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+
+        }
+
+    }
+
+    private void addNotification() {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.logov2);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logov2));
+        builder.setContentTitle("Vedic Astrology Dainik Rashifal");
+        builder.setContentText("Check out your today Rashiphal ");
+        builder.setAutoCancel(true);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        // Add as notification
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
 
     }
 }
