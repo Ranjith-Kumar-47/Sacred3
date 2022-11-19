@@ -7,15 +7,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -150,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
+
     private void createNotification() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -210,7 +220,40 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+//        moveTaskToBack(true);
+        Dialog customDialog = new Dialog(this);
+        customDialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
+
+        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        customDialog.getWindow().getAttributes().windowAnimations
+                = androidx.appcompat.R.style.Animation_AppCompat_Dialog;
+        customDialog.setContentView(R.layout.exit_dialog_layout);
+
+        ImageButton yesBtn = customDialog.findViewById(R.id.btnYes);
+        ImageButton noBtn = customDialog.findViewById(R.id.btnNo);
+
+        yesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "this is sharing app");
+                intent.putExtra(Intent.EXTRA_TEXT, "your application link here");
+                startActivity(Intent.createChooser(intent, "Share Via"));
+//                finishAffinity();
+            }
+        });
+
+        noBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customDialog.cancel();
+            }
+        });
+
+        customDialog.show();
     }
 
     private void youtubeAccount() {
