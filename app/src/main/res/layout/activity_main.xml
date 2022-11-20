@@ -8,9 +8,13 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@color/orange"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/mobile_number_background"
+        android:padding="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +47,7 @@
         android:id="@+id/logoImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="2dp"
         android:scaleType="centerCrop"
         android:src="@drawable/logov2"
         app:civ_border_color="#0B0909"
@@ -75,11 +80,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:rbb_activeItemType="text"
-        app:rbb_backgroundColor="#FF5722"
-        app:rbb_indicatorColor="@color/black"
+        app:rbb_backgroundColor="@color/white"
+        app:rbb_indicatorColor="@color/colorNo"
         app:rbb_indicatorHeight="4dp"
         app:rbb_tabs="@xml/tabs"
-        app:rbb_textColor="@color/white"
+        app:rbb_textColor="@color/colorNo"
         app:rbb_textSize="7dp" />
 
 

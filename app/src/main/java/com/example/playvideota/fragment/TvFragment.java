@@ -5,11 +5,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,10 +20,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.playvideota.FeedbackActivity;
 import com.example.playvideota.R;
+import com.example.playvideota.adapter.TvLiveVideoAdapter;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.ActivityMainBinding;
 import com.example.playvideota.databinding.FragmentTvBinding;
+import com.example.playvideota.model.TvLiveVideoModel;
 import com.example.playvideota.model.YoutuberModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -44,6 +48,38 @@ public class TvFragment extends Fragment {
     String personName = "";
     String personPhoto = "";
     FloatingActionButton feedBackButton;
+
+    // for live video
+    RecyclerView liveVideoRV;
+    ArrayList<TvLiveVideoModel> tvLiveVideoModelArrayList;
+
+    // for chalisa
+    RecyclerView chalisaRV;
+    ArrayList<TvLiveVideoModel> tvChalisaArrayList;
+
+    // for aarti
+    RecyclerView aartiRV;
+    ArrayList<TvLiveVideoModel> tvAartiArrayList;
+
+    // for Bhajan
+    RecyclerView bhajanRV;
+    ArrayList<TvLiveVideoModel> bhajanArrayList;
+
+    // for Mantra
+    RecyclerView mantraRV;
+    ArrayList<TvLiveVideoModel> mantraArrayList;
+
+    // for Dainik brat Katha
+    RecyclerView dainikBratKathaRV;
+    ArrayList<TvLiveVideoModel> dainikBratKathaArrayList;
+
+    // for sadguru
+    RecyclerView sadguruRV;
+    ArrayList<TvLiveVideoModel> sadguruArrayList;
+
+    // for Guru Dev Sri Sri Ravishanker
+    RecyclerView guruDevSriSriRV;
+    ArrayList<TvLiveVideoModel> gurudevSriSriRavishankerArrayList;
 
 
     public TvFragment() {
@@ -244,6 +280,9 @@ public class TvFragment extends Fragment {
 
     private void settingAdapter() {
 //        youtuberRV = findViewById(R.id.youtuberRV);
+
+
+
         System.out.println("setting Adapter");
         youtuberRV = binding.youtuberRV;
         youtuberRV.setHasFixedSize(true);
@@ -253,6 +292,141 @@ public class TvFragment extends Fragment {
 
         YoutuberAdapter youtuberAdapters = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtuberAdapters);
+
+
+        // for live video
+        tvLiveVideoModelArrayList = new ArrayList<>();
+
+        tvLiveVideoModelArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+        tvLiveVideoModelArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        tvLiveVideoModelArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        tvLiveVideoModelArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        tvLiveVideoModelArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+
+
+        liveVideoRV = binding.liveVideoRV;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        liveVideoRV.setLayoutManager(linearLayoutManager);
+        TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvLiveVideoModelArrayList, getContext());
+        liveVideoRV.setAdapter(tvLiveVideoAdapter);
+
+        // for chalisa
+        tvChalisaArrayList = new ArrayList<>();
+
+        tvChalisaArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        tvChalisaArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        tvChalisaArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        tvChalisaArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        tvChalisaArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        chalisaRV = binding.chalisaRV;
+        LinearLayoutManager linearLayoutManagerChalisa = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        chalisaRV.setLayoutManager(linearLayoutManagerChalisa);
+        TvLiveVideoAdapter tvChalisaAdapter = new TvLiveVideoAdapter(tvChalisaArrayList, getContext());
+        chalisaRV.setAdapter(tvChalisaAdapter);
+
+
+
+        // for aarti
+        tvAartiArrayList = new ArrayList<>();
+
+        tvAartiArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        tvAartiArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        tvAartiArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        tvAartiArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        tvAartiArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        aartiRV = binding.aartiRV;
+        LinearLayoutManager linearLayoutManagerAarti = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        aartiRV.setLayoutManager(linearLayoutManagerAarti);
+        TvLiveVideoAdapter tvAartiAdapter = new TvLiveVideoAdapter(tvAartiArrayList, getContext());
+        aartiRV.setAdapter(tvAartiAdapter);
+
+
+        // for bhajan
+        bhajanArrayList = new ArrayList<>();
+
+        bhajanArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        bhajanArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        bhajanArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        bhajanArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        bhajanArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        bhajanRV = binding.bhajanRV;
+        LinearLayoutManager linearLayoutManagerBhajan = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        bhajanRV.setLayoutManager(linearLayoutManagerBhajan);
+        TvLiveVideoAdapter bhajanAdapter = new TvLiveVideoAdapter(bhajanArrayList, getContext());
+        bhajanRV.setAdapter(tvAartiAdapter);
+
+
+        // for mantra
+        mantraArrayList = new ArrayList<>();
+
+        mantraArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        mantraArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        mantraArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        mantraArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        mantraArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        mantraRV = binding.mantraRV;
+        LinearLayoutManager linearLayoutManagerMantra = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        mantraRV.setLayoutManager(linearLayoutManagerMantra);
+        TvLiveVideoAdapter mantraAdapter = new TvLiveVideoAdapter(mantraArrayList, getContext());
+        mantraRV.setAdapter(mantraAdapter);
+
+
+        // for dainik brat katha
+        dainikBratKathaArrayList = new ArrayList<>();
+
+        dainikBratKathaArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        dainikBratKathaArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        dainikBratKathaArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        dainikBratKathaArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        dainikBratKathaArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        dainikBratKathaRV = binding.dainikBratKathaRV;
+        LinearLayoutManager linearLayoutManagerDainikBratKatha = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        dainikBratKathaRV.setLayoutManager(linearLayoutManagerDainikBratKatha);
+        TvLiveVideoAdapter dainikBratKathaAdapter = new TvLiveVideoAdapter(dainikBratKathaArrayList, getContext());
+        dainikBratKathaRV.setAdapter(dainikBratKathaAdapter);
+
+
+        // for sadguru
+        sadguruArrayList = new ArrayList<>();
+
+        sadguruArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        sadguruArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        sadguruArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        sadguruArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        sadguruArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        sadguruRV = binding.sadguruRV;
+        LinearLayoutManager linearLayoutManagerSadguru = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        sadguruRV.setLayoutManager(linearLayoutManagerSadguru);
+        TvLiveVideoAdapter sadguruAdapter = new TvLiveVideoAdapter(sadguruArrayList, getContext());
+        sadguruRV.setAdapter(sadguruAdapter);
+
+
+
+        // for Gurudev Sri Sri Ravishankar
+        gurudevSriSriRavishankerArrayList = new ArrayList<>();
+
+        gurudevSriSriRavishankerArrayList.add(new TvLiveVideoModel(R.drawable.lio));
+        gurudevSriSriRavishankerArrayList.add(new TvLiveVideoModel(R.drawable.libra));
+        gurudevSriSriRavishankerArrayList.add(new TvLiveVideoModel(R.drawable.gemini));
+        gurudevSriSriRavishankerArrayList.add(new TvLiveVideoModel(R.drawable.cancer));
+        gurudevSriSriRavishankerArrayList.add(new TvLiveVideoModel(R.drawable.aquarius));
+
+        guruDevSriSriRV = binding.gurudevSriSriRavishankerRV;
+        LinearLayoutManager linearLayoutManagerGurudevSriSriRaviShanker = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        guruDevSriSriRV.setLayoutManager(linearLayoutManagerGurudevSriSriRaviShanker);
+        TvLiveVideoAdapter guruSriSriRavishankerAdapter = new TvLiveVideoAdapter(gurudevSriSriRavishankerArrayList, getContext());
+        guruDevSriSriRV.setAdapter(guruSriSriRavishankerAdapter);
+
+
+
+
+
 
     }
 
