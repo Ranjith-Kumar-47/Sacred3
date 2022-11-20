@@ -249,7 +249,8 @@ public class MainActivity extends AppCompatActivity {
         noBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customDialog.cancel();
+                finishAffinity();
+//                customDialog.cancel();
             }
         });
 
