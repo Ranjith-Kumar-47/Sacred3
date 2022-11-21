@@ -33,8 +33,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/youtuberRV"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="match_parent" />
 
 
             </RelativeLayout>
@@ -70,9 +69,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Live Videos"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/fragmentContainer"
                 app:layout_constraintTop_toBottomOf="@id/dividverLiveVideo" />
 
@@ -123,9 +122,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Chalisa"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverChalisa"
                 app:layout_constraintTop_toTopOf="@id/dividverChalisa" />
 
@@ -177,9 +176,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Aarti"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverAarti"
                 app:layout_constraintTop_toTopOf="@id/dividverAarti" />
 
@@ -231,9 +230,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Bhajan"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverbhajan"
                 app:layout_constraintTop_toTopOf="@id/dividverbhajan" />
 
@@ -285,9 +284,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Mantra"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverMantra"
                 app:layout_constraintTop_toTopOf="@id/dividverMantra" />
 
@@ -339,9 +338,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Dainik Brat Katha"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverDainikVratKatha"
                 app:layout_constraintTop_toTopOf="@id/dividverDainikVratKatha" />
 
@@ -393,9 +392,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Sadguru"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverSadguru"
                 app:layout_constraintTop_toTopOf="@id/dividverSadguru" />
 
@@ -447,9 +446,9 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Gurudev Sri Sri Ravishanker"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/dividverGurudevSriSriRavishanker"
                 app:layout_constraintTop_toTopOf="@id/dividverGurudevSriSriRavishanker" />
 
@@ -480,20 +479,459 @@
             </HorizontalScrollView>
 
 
+            <View
+                android:id="@+id/dividerOtherSerial"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#C8C0C0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gurudevSriSriRavishankerHorizontalSV" />
+
+            <TextView
+                android:id="@+id/otherSerialTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Other TV Serial "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/dividerOtherSerial"
+                app:layout_constraintTop_toTopOf="@id/dividerOtherSerial" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mahabharatCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintStart_toStartOf="@+id/otherSerialTextview"
+                app:layout_constraintTop_toBottomOf="@+id/otherSerialTextview">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/mahabharatImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/mahabharatTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sampurnRamayanaCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/mahabharatCV"
+                app:layout_constraintTop_toTopOf="@+id/mahabharatCV">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/sampurnRamayanaIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/sampurnRamayanaTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uttarRamayanaCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/mahabharatCV"
+                app:layout_constraintTop_toBottomOf="@+id/mahabharatCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/uttarRamayanaIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/uttarRamayanaTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shreeMahalaxmiCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/uttarRamayanaCV"
+                app:layout_constraintTop_toTopOf="@+id/uttarRamayanaCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/shreeMahalaxmiIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/shreeMahalaxmiTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shivMahapuranCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/uttarRamayanaCV"
+                app:layout_constraintTop_toBottomOf="@+id/uttarRamayanaCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/shivMahapuranIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/shivMahapuranTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/jaiHanumanCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/shivMahapuranCV"
+                app:layout_constraintTop_toTopOf="@+id/shivMahapuranCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/jaiHanumanIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/jaiHanumanTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/visnuPuranCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/shivMahapuranCV"
+                app:layout_constraintTop_toBottomOf="@+id/shivMahapuranCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/visnuPuranIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/visnuPuranTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/balKrishnaCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/visnuPuranCV"
+                app:layout_constraintTop_toTopOf="@+id/visnuPuranCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/balKrishnaIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/balKrishnaTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gitaGyanCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/visnuPuranCV"
+                app:layout_constraintTop_toBottomOf="@+id/visnuPuranCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/gitaGyanIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/gitaGyanTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bikramBatalCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/gitaGyanCV"
+                app:layout_constraintTop_toTopOf="@+id/gitaGyanCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/bikramBatalIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/bikramBatalTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/karanCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/gitaGyanCV"
+                app:layout_constraintTop_toBottomOf="@+id/gitaGyanCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/karanIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/karanTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sankatMochanHanumanCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/karanCV"
+                app:layout_constraintTop_toTopOf="@+id/karanCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/sankatMochanHanumanIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/sankatMochanHanumanTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vignahranGaneshCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/karanCV"
+                app:layout_constraintTop_toBottomOf="@+id/karanCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/vignahranGaneshIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/vignahranGaneshTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/saiNathTeraHajarohathCV"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vignahranGaneshCV"
+                app:layout_constraintTop_toTopOf="@+id/vignahranGaneshCV">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/saiNathTeraHajarohathIV"
+                        android:layout_width="150dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_profile_svgrepo_com"/>
+
+                    <TextView
+                        android:id="@+id/saiNathTeraHajarohathTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="307 Epidode"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

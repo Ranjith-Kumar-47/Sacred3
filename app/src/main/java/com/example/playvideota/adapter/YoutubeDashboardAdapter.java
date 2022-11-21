@@ -35,6 +35,10 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         this.listener = (YoutubeDashBoardAdapterInterface) listener;
     }
 
+    public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list) {
+        this.context = context;
+        this.list = list;
+    }
 
     @NonNull
     @Override
@@ -57,6 +61,11 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
                 .load(youtubeDashboradModel.getChannelIcon())
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.channelIcon);
+
+//        Picasso.with(context)
+//                .load(youtubeDashboradModel.getVideoImage())
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(holder);
 
         // checking for live video
         if(!youtubeDashboradModel.getVideoLiveBroadcastContent().equalsIgnoreCase("none")){
@@ -116,6 +125,8 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         CardView cardViewContainer;
         ImageView channelIcon;
         ImageView liveButton;
+
+
 
 
         public viewHolder(@NonNull View itemView) {

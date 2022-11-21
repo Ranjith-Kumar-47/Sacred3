@@ -23,6 +23,16 @@ public class YoutubeDashboradModel {
         this.channelName = channelName;
     }
 
+    public YoutubeDashboradModel(String videoImage, String videoDescription, String videoTitle, String videoId, String videoLiveBroadcastContent, String channelId) {
+        this.videoImage = videoImage;
+        this.videoDescription = videoDescription;
+        this.videoTitle = videoTitle;
+        this.videoId = videoId;
+        this.videoLiveBroadcastContent = videoLiveBroadcastContent;
+        this.channelId = channelId;
+
+    }
+
     public String getChannelName() {
         return channelName;
     }

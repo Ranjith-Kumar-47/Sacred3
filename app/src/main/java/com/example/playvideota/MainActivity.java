@@ -371,6 +371,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     private void settingAdapter() {
         youtuberRV = findViewById(R.id.youtuberRV);
         youtuberRV.setHasFixedSize(true);

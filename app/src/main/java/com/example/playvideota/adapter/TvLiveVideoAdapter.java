@@ -12,15 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playvideota.R;
 import com.example.playvideota.model.TvLiveVideoModel;
+import com.example.playvideota.model.YoutubeDashboradModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class TvLiveVideoAdapter extends RecyclerView.Adapter<TvLiveVideoAdapter.viewHolder> {
 
-    ArrayList<TvLiveVideoModel> list;
+    ArrayList<YoutubeDashboradModel> list;
     Context context;
 
-    public TvLiveVideoAdapter(ArrayList<TvLiveVideoModel> list, Context context) {
+    public TvLiveVideoAdapter(ArrayList<YoutubeDashboradModel> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -36,8 +38,15 @@ public class TvLiveVideoAdapter extends RecyclerView.Adapter<TvLiveVideoAdapter.
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
-        TvLiveVideoModel tvLiveVideoModel = list.get(position);
-        holder.liveVideoImage.setImageResource(tvLiveVideoModel.getImage());
+//        TvLiveVideoModel tvLiveVideoModel = list.get(position);
+//        holder.liveVideoImage.setImageResource(tvLiveVideoModel.getImage());
+
+        YoutubeDashboradModel youtubeDashboradModel = list.get(position);
+
+        Picasso.with(context)
+                .load(youtubeDashboradModel.getVideoImage())
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(holder.liveVideoImage);
 
 
     }
