@@ -56,8 +56,10 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     String personName = "";
     String personPhoto = "";
     FloatingActionButton feedBackButton;
-//    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
-    private String apikey = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
+//    private String apikey = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+
+    String liveStatus  = "none";
 
     // for live video
     RecyclerView liveVideoRV;
@@ -330,31 +332,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         System.out.println("YoutubeAccount");
         youtubeAcountList = new ArrayList<>();
 
-//        youtubeAcountList.add("GoogleDevelopers");
-//        youtubeAcountList.add("PowerKids");
-//
-//        youtubeAcountList.add("Movieclips");
-//        youtubeAcountList.add("SThenics");
-//
-//        youtubeAcountList.add("sonyliv");
-//        youtubeAcountList.add("google");
-//        youtubeAcountList.add("ZeeMusicCompany");
-//        youtubeAcountList.add("WWE");
-//        youtubeAcountList.add("LikeNastya");
-//
-//        youtubeAcountList.add("SETIndia");
-//        youtubeAcountList.add("PewDiePie");
-//        youtubeAcountList.add("MrBeast");
-//        youtubeAcountList.add("CanalKondZilla");
-//        youtubeAcountList.add("Calisthenicmovement");
-//        youtubeAcountList.add("ArianaGrande");
-//        youtubeAcountList.add("AshtonFitness");
-//        youtubeAcountList.add("voot");
-//        youtubeAcountList.add("star");
-//
-//        youtubeAcountList.add("amazon");
-//        youtubeAcountList.add("school");
-
 
         youtubeAcountList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
         youtubeAcountList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
@@ -373,7 +350,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         youtubeAcountList.add("UCDqkux3AH7P9hRjmunoUeAQ");
         youtubeAcountList.add("UC7ZivIYRB0fMSGh-THcTYbw");
         youtubeAcountList.add("UCaayLD9i5x4MmIoVZxXSv_g");
-        youtubeAcountList.add("UCHKGDg0GJKBsA9mFraDOLHA");
+//        youtubeAcountList.add("UCHKGDg0GJKBsA9mFraDOLHA");
 
 //        youtubeAcountList.add("AasthaChannel UCRUAdVm9ZOF4JheOd8qIQHA");
 //        youtubeAcountList.add("Aniruddhacharya ji UCDe0DwkMVFfSIoiYdQUPQmQ");
@@ -397,13 +374,56 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
     private void loadYoutubeAccount() {
 
-        System.out.println("loadYoutubeAccount");
+
+        System.out.println("Getting live Status ... ");
+
+
+
+
+
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
 
 //            String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)+"&eventType=live&maxResults=250&type=video&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 //            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+
             String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=" + apikey;
+
+            // geting live status
+            String checkingLiveVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)  +"&eventType=live&type=video&videoDefinition=any&key=" +apikey;
+
+            JsonObjectRequest liveStatusObjectRequest = new JsonObjectRequest(Request.Method.GET,checkingLiveVideoUrl , null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        JSONArray jsonArray = response.getJSONArray("items");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+
+                            liveStatus = snippetJsonObject.getString("liveBroadcastContent");
+                            System.out.println("Live status : " +snippetJsonObject.getString("liveBroadcastContent"));
+
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO: Handle error
+
+                }
+            });
+
+
+
+
+
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -433,17 +453,23 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                             bannerImageJsonObject.getString("bannerExternalUrl");
 
 
+
+
                             YoutuberModel youtuberModel = new YoutuberModel(
                                     mediumJsonObject.getString("url"),
                                     snippetJsonObject.getString("title"),
                                     jsonObject.getString("id"),
-                                    bannerImageJsonObject.getString("bannerExternalUrl")
+                                    bannerImageJsonObject.getString("bannerExternalUrl"),
+                                    liveStatus
 
                             );
                             list.add(youtuberModel);
+                            liveStatus = "none";
                         }
                         YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getContext(), list);
                         youtuberRV.setAdapter(youtubeAccountAdapter);
+
+                        liveStatus = "none";
 
 
                     } catch (Exception e) {
@@ -461,13 +487,16 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                 }
             });
 
-//            MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+            liveStatus = "none";
+
+            MySingleton.getInstance(getContext()).addToRequestQueue(liveStatusObjectRequest);
             MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
         }
 
         YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getContext(), list);
-//        youtuberAdapter = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtubeAccountAdapter1);
+
+
 
 
     }

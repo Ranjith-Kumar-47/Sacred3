@@ -63,6 +63,10 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
             }
         });
 
+        if(youtuberModel.getLiveStatus().toLowerCase().equalsIgnoreCase("live")){
+            holder.liveIconImageView.setVisibility(View.VISIBLE);
+        }
+
 
 
 
@@ -76,7 +80,7 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{
-        ImageView youtuberImage;
+        ImageView youtuberImage, liveIconImageView;
         TextView youtuberName;
 
         public viewHolder(@NonNull View itemView) {
@@ -84,6 +88,7 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
 
             youtuberImage = itemView.findViewById(R.id.videoImage);
             youtuberName = itemView.findViewById(R.id.videoDescription);
+            liveIconImageView = itemView.findViewById(R.id.liveIconImageView);
         }
     }
 }

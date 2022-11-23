@@ -21,9 +21,15 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:orientation="vertical"
-
             android:gravity="center"
             >
+            <ImageView
+                android:id="@+id/liveIconImageView"
+                android:layout_width="40dp"
+                android:layout_height="32dp"
+
+                android:src="@drawable/live_icon"
+                android:layout_gravity="right"/>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/videoImage"
                 android:layout_width="130dp"

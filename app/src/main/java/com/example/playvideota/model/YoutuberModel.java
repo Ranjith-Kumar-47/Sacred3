@@ -5,12 +5,29 @@ public class YoutuberModel {
     String youtuberName;
     String youtuberId;
     String youtuberBannerImage;
+    String liveStatus;
 
     public YoutuberModel(String youtuberImage, String youtuberName, String youtuberId, String youtuberBannerImage) {
         this.youtuberImage = youtuberImage;
         this.youtuberName = youtuberName;
         this.youtuberId = youtuberId;
         this.youtuberBannerImage = youtuberBannerImage;
+    }
+
+    public YoutuberModel(String youtuberImage, String youtuberName, String youtuberId, String youtuberBannerImage, String liveStatus) {
+        this.youtuberImage = youtuberImage;
+        this.youtuberName = youtuberName;
+        this.youtuberId = youtuberId;
+        this.youtuberBannerImage = youtuberBannerImage;
+        this.liveStatus = liveStatus;
+    }
+
+    public String getLiveStatus() {
+        return liveStatus;
+    }
+
+    public void setLiveStatus(String liveStatus) {
+        this.liveStatus = liveStatus;
     }
 
     public String getYoutuberId() {
