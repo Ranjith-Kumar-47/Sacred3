@@ -522,6 +522,7 @@
                         android:id="@+id/mahabharatImageView"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -553,6 +554,7 @@
                         android:id="@+id/sampurnRamayanaIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -582,6 +584,7 @@
                     <ImageView
                         android:id="@+id/uttarRamayanaIV"
                         android:layout_width="150dp"
+                        android:scaleType="centerCrop"
                         android:layout_height="130dp"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
@@ -612,6 +615,8 @@
                     <ImageView
                         android:id="@+id/shreeMahalaxmiIV"
                         android:layout_width="150dp"
+
+                        android:scaleType="centerCrop"
                         android:layout_height="130dp"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
@@ -643,6 +648,8 @@
                         android:id="@+id/shivMahapuranIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -673,6 +680,7 @@
                         android:id="@+id/jaiHanumanIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -702,6 +710,7 @@
                     <ImageView
                         android:id="@+id/visnuPuranIV"
                         android:layout_width="150dp"
+                        android:scaleType="centerCrop"
                         android:layout_height="130dp"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
@@ -733,6 +742,7 @@
                         android:id="@+id/balKrishnaIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -763,6 +773,7 @@
                         android:id="@+id/gitaGyanIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -793,6 +804,7 @@
                         android:id="@+id/bikramBatalIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -823,6 +835,7 @@
                         android:id="@+id/karanIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -853,6 +866,7 @@
                         android:id="@+id/sankatMochanHanumanIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -883,6 +897,7 @@
                         android:id="@+id/vignahranGaneshIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView
@@ -915,6 +930,7 @@
                         android:id="@+id/saiNathTeraHajarohathIV"
                         android:layout_width="150dp"
                         android:layout_height="130dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_svgrepo_com"/>
 
                     <TextView

@@ -55,6 +55,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     String youtuberBannerImage = "";
     GoogleSignInClient mGoogleSignInClient;
 
+    private  String apiKey="AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,9 +120,9 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     private void loadYoutubeVideo() {
         youtuberId = getIntent().getStringExtra("youtuberId");
-        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId  +"&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key="+apiKey;
 
-        String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId+"&eventType=live&maxResults=250&type=video&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId="+youtuberId+"&eventType=live&maxResults=250&type=video&key="+apiKey ;
 
         System.out.println("LOADING VIDEO");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
@@ -324,14 +326,15 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     }
 
     private void gettingItem() {
-//
+
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
 //        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));//       list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
+//       list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
     }
 
 

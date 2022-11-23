@@ -57,13 +57,14 @@
         app:layout_constraintTop_toTopOf="@+id/view3" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/submitRashiphalButton"
+        app:layout_constraintBottom_toTopOf="@+id/adminVideoIdEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,10 +77,10 @@
             android:layout_gravity="center"
             android:background="@drawable/gemini"
             android:fontFamily="sans-serif-condensed-light"
-            android:padding="22sp"
             android:hint="     Write About Today's Rashipal"
-            android:textColorHint="@color/white"
+            android:padding="22sp"
             android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="24sp" />
 
     </androidx.cardview.widget.CardView>
@@ -96,6 +97,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/adminVideoIdEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Video Id"
+        android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/submitRashiphalButton"
+        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
+        app:layout_constraintStart_toStartOf="@+id/cardView6" />
+
+    <ImageButton
+        android:id="@+id/submitVideoIdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/adminVideoIdEditText"
+        app:layout_constraintEnd_toEndOf="@+id/cardView6"
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_constraintTop_toTopOf="@+id/adminVideoIdEditText"
+        android:background="@drawable/yes_button_bg" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

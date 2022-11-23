@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,8 @@ public class AdminRashiphalAddData extends AppCompatActivity {
     FirebaseDatabase database;
     Button submitRashipal;
     TextView rashiTextView;
-    EditText rashiphalDataTextview;
+    EditText rashiphalDataTextview,adminVideoIdEditText;
+    ImageButton submitVideoIdButton;
     String rashiData;
 
     private final String CHANNEL_ID = "simple_notification";
@@ -65,6 +67,28 @@ public class AdminRashiphalAddData extends AppCompatActivity {
         });
 
 
+        adminVideoIdEditText = findViewById(R.id.adminVideoIdEditText);
+        submitVideoIdButton = findViewById(R.id.submitVideoIdButton);
+
+        submitVideoIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(adminVideoIdEditText.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(AdminRashiphalAddData.this, "Enter Video Id", Toast.LENGTH_SHORT).show();
+                }else {
+                    database.getReference().child("Rashipal")
+                            .child("videoId")
+                            .setValue(adminVideoIdEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(AdminRashiphalAddData.this, "Video ID Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+            }
+        });
+
+
 
         String RashipalImage = getIntent().getStringExtra("RashipalImage");
 
@@ -77,7 +101,7 @@ public class AdminRashiphalAddData extends AppCompatActivity {
         if(rashiData.toLowerCase().equalsIgnoreCase("Aquarius"))
         {
             rashiphalDataTextview.setBackgroundResource(R.drawable.aquarius);
-        }else if(rashiData == "Aries")
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Aries"))
         {
             rashiphalDataTextview.setBackgroundResource(R.drawable.aries);
         }else if(rashiData.toLowerCase().equalsIgnoreCase("Cancer"))

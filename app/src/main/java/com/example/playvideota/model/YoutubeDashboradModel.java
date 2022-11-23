@@ -33,6 +33,11 @@ public class YoutubeDashboradModel {
 
     }
 
+    public YoutubeDashboradModel(String videoImage, String videoDescription) {
+        this.videoImage = videoImage;
+        this.videoDescription = videoDescription;
+    }
+
     public String getChannelName() {
         return channelName;
     }

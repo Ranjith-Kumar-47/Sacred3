@@ -12,12 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.playvideota.AdminRashiphal;
 import com.example.playvideota.AdminRashiphalAddData;
 import com.example.playvideota.R;
+import com.example.playvideota.VideoPlayer;
 import com.example.playvideota.adapter.RashiphalAdapter;
+import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.FragmentRashiphalBinding;
 import com.example.playvideota.model.RashiPhalModel;
 import com.example.playvideota.model.RashiphalDataModel;
@@ -25,6 +32,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,7 +50,16 @@ public class RashiphalFragment extends Fragment {
     FirebaseDatabase database;
     TextView rashiphalDataTextview,todayDateTextview;
     CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius;
+    ImageView adminVideo, adminVideoPlayButton;
+    String videoIdData = "";
 
+    String userId = "";
+    String videoId = "";
+    String videoTitle = "";
+    String videoDescription = "";
+    String videoLiveBroadcastContent = "";
+    String channelIcon = "";
+    String channelName = "";
 
     public RashiphalFragment() {
         // Required empty public constructor
@@ -116,6 +136,25 @@ public class RashiphalFragment extends Fragment {
                             rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
                         }
                     }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+        database.getReference().child("Rashipal")
+                .child("videoId")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("Database Data : "+snapshot.toString());
+                            System.out.println("Database Value : "+snapshot.getValue());
+                            System.out.println("Database Key : "+snapshot.getKey());
+                            String videoIdValue = snapshot.getValue().toString();
+                            videoIdData = videoIdValue;
+                            adminVideo();
+                        }
+                    }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -124,9 +163,80 @@ public class RashiphalFragment extends Fragment {
                 });
 
 
+        adminVideoPlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
+                intent.putExtra("userId", userId );
+                intent.putExtra("videoId",videoId);
+                intent.putExtra("videoTitle",videoTitle);
+                intent.putExtra("videoDescription",videoDescription);
+                intent.putExtra("videoLiveBroadcastContent",videoLiveBroadcastContent);
+                intent.putExtra("channelIcon",channelIcon);
+                intent.putExtra("channelName",channelName);
+                v.getContext().startActivity(intent);
+            }
+        });
+
 
 
         return binding.getRoot();
+    }
+
+    private void adminVideo() {
+
+        System.out.println("loading admin video...");
+        String adminVideoUrl = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+ videoIdData +"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, adminVideoUrl, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+
+                    JSONArray jsonArray = response.getJSONArray("items");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+
+                        userId = snippetJsonObject.getString("channelId");
+                        videoTitle = snippetJsonObject.getString("title");
+                        videoDescription = snippetJsonObject.getString("description");
+                        channelName = snippetJsonObject.getString("channelTitle");
+                        videoLiveBroadcastContent = snippetJsonObject.getString("liveBroadcastContent");
+                        videoId = videoIdData;
+
+
+                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
+                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
+
+                        channelIcon = mediumJsonObject.getString("url");
+                        System.out.println("Image URL  : " + mediumJsonObject.getString("url"));
+
+                        Picasso.with(getContext())
+                                .load(mediumJsonObject.getString("url").toString())
+                                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                                .into(binding.adminVideo);
+
+
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+
+            }
+        });
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     private void clickHalderOnRashi() {
@@ -431,5 +541,9 @@ public class RashiphalFragment extends Fragment {
         Taurus = binding.Taurus;
         Virgo = binding.Virgo;
         Sagittarius = binding.Sagittarius;
+
+        adminVideo = binding.adminVideo;
+        adminVideoPlayButton = binding.adminVideoPlayButton;
+
     }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Response;
 import com.example.playvideota.R;
+import com.example.playvideota.TvSerialActivity;
 import com.example.playvideota.VideoPlayer;
 import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.model.YoutubeDashboradModel;
@@ -39,6 +40,8 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         this.context = context;
         this.list = list;
     }
+
+
 
     @NonNull
     @Override

@@ -1,16 +1,19 @@
 package com.example.playvideota.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playvideota.R;
+import com.example.playvideota.VideoPlayer;
 import com.example.playvideota.model.TvLiveVideoModel;
 import com.example.playvideota.model.YoutubeDashboradModel;
 import com.squareup.picasso.Picasso;
@@ -21,10 +24,12 @@ public class TvLiveVideoAdapter extends RecyclerView.Adapter<TvLiveVideoAdapter.
 
     ArrayList<YoutubeDashboradModel> list;
     Context context;
+    YoutubeDashBoardAdapterInterface listener;
 
-    public TvLiveVideoAdapter(ArrayList<YoutubeDashboradModel> list, Context context) {
+    public TvLiveVideoAdapter(ArrayList<YoutubeDashboradModel> list, Context context, YoutubeDashBoardAdapterInterface listener) {
         this.list = list;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -49,6 +54,45 @@ public class TvLiveVideoAdapter extends RecyclerView.Adapter<TvLiveVideoAdapter.
                 .into(holder.liveVideoImage);
 
 
+        holder.liveVideoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("momo : "+youtubeDashboradModel.getVideoId());
+
+                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
+                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
+                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
+                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
+                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
+                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
+                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
+                System.out.println("CHANNEL NAME YDA : "+youtubeDashboradModel.getChannelName());
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
+        holder.playButtonImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("momo : "+youtubeDashboradModel.getVideoId());
+
+                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
+                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
+                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
+                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
+                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
+                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
+                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
+                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
+                System.out.println("CHANNEL NAME YDA : "+youtubeDashboradModel.getChannelName());
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
+
     }
 
     @Override
@@ -57,11 +101,12 @@ public class TvLiveVideoAdapter extends RecyclerView.Adapter<TvLiveVideoAdapter.
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        ImageView liveVideoImage;
+        ImageView liveVideoImage,playButtonImageView;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
             liveVideoImage = itemView.findViewById(R.id.liveVideoImageView);
+            playButtonImageView = itemView.findViewById(R.id.playButtonImageView);
         }
     }
 }

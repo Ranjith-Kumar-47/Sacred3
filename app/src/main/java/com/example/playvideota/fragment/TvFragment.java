@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.playvideota.FeedbackActivity;
 import com.example.playvideota.R;
+import com.example.playvideota.TvSerialActivity;
 import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.adapter.TvLiveVideoAdapter;
 import com.example.playvideota.adapter.YoutubeDashBoardAdapterInterface;
@@ -54,6 +56,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     String personName = "";
     String personPhoto = "";
     FloatingActionButton feedBackButton;
+//    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
+    private String apikey = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
     // for live video
     RecyclerView liveVideoRV;
@@ -88,9 +92,9 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     RecyclerView guruDevSriSriRV;
     ArrayList<YoutubeDashboradModel> gurudevSriSriRavishankerArrayList;
 
-    CardView mahabharatCV,sampurnRamayanaCV,uttarRamayanaCV,shreeMahalaxmiCV,shivMahapuranCV,jaiHanumanCV,visnuPuranCV,balKrishnaCV,gitaGyanCV,bikramBatalCV,karanCV,sankatMochanHanumanCV,vignahranGaneshCV,saiNathTeraHajarohathCV;
-    ImageView mahabharatImageView,sampurnRamayanaIV,uttarRamayanaIV,shreeMahalaxmiIV,shivMahapuranIV,jaiHanumanIV,visnuPuranIV,balKrishnaIV,gitaGyanIV,bikramBatalIV,karanIV,sankatMochanHanumanIV,vignahranGaneshIV,saiNathTeraHajarohathIV;
-    TextView mahabharatTV,sampurnRamayanaTV,uttarRamayanaTV,shreeMahalaxmiTV,shivMahapuranTV,jaiHanumanTV,visnuPuranTV,balKrishnaTV,gitaGyanTV,bikramBatalTV,karanTV,sankatMochanHanumanTV,vignahranGaneshTV,saiNathTeraHajarohathTV;
+    CardView mahabharatCV, sampurnRamayanaCV, uttarRamayanaCV, shreeMahalaxmiCV, shivMahapuranCV, jaiHanumanCV, visnuPuranCV, balKrishnaCV, gitaGyanCV, bikramBatalCV, karanCV, sankatMochanHanumanCV, vignahranGaneshCV, saiNathTeraHajarohathCV;
+    ImageView mahabharatImageView, sampurnRamayanaIV, uttarRamayanaIV, shreeMahalaxmiIV, shivMahapuranIV, jaiHanumanIV, visnuPuranIV, balKrishnaIV, gitaGyanIV, bikramBatalIV, karanIV, sankatMochanHanumanIV, vignahranGaneshIV, saiNathTeraHajarohathIV;
+    TextView mahabharatTV, sampurnRamayanaTV, uttarRamayanaTV, shreeMahalaxmiTV, shivMahapuranTV, jaiHanumanTV, visnuPuranTV, balKrishnaTV, gitaGyanTV, bikramBatalTV, karanTV, sankatMochanHanumanTV, vignahranGaneshTV, saiNathTeraHajarohathTV;
 
 
     public TvFragment() {
@@ -125,6 +129,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         loadGurudevSriSriRaviSanker();
         initView();
         loadOtherTVSerial();
+        clickListener();
 
         binding.feedBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +141,137 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         });
 
         return binding.getRoot();
+    }
+
+    private void clickListener() {
+        mahabharatCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFr_jkwUp0hhm1lR1TSdgESOfoyLQR3t2");
+                startActivity(intent);
+            }
+        });
+
+        sampurnRamayanaCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFPJRCFRDARSZofcQcV6m7Pu2EAL8_1dv");
+                startActivity(intent);
+            }
+        });
+
+        uttarRamayanaCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFr_jkwUp0hhyQevNGOYNOMJnQMxUVbYF");
+                startActivity(intent);
+            }
+        });
+
+        shreeMahalaxmiCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFr_jkwUp0hgkkuYwmaFJ1uyoN7uz2zTh");
+                startActivity(intent);
+            }
+        });
+
+        shivMahapuranCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PL57F01972FF119B66");
+                startActivity(intent);
+            }
+        });
+        jaiHanumanCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLxAeSrqQeWdVRBmLQEbmrzPnGrgADaNFw");
+                startActivity(intent);
+            }
+        });
+
+        visnuPuranCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLQQa2ptMYrubalxxhseMKKZBYMGk_MC26");
+                startActivity(intent);
+            }
+        });
+
+        balKrishnaCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFr_jkwUp0hgeL8Tvt4a8reRmum760h5G");
+                startActivity(intent);
+            }
+        });
+
+
+        gitaGyanCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFPJRCFRDARSRskyLvVn6ukSQvLq2c_iy");
+                startActivity(intent);
+            }
+        });
+
+        bikramBatalCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLFr_jkwUp0hjTXfIElDpIfgBYUwWhKnSn");
+                startActivity(intent);
+            }
+        });
+
+        karanCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLzufeTFnhupzEKODFa86wWlD8HYEqMage");
+                startActivity(intent);
+            }
+        });
+
+        sankatMochanHanumanCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLlNHEsFhS-kVLRmuQyssIkr_qaPmyaKC7");
+                startActivity(intent);
+            }
+        });
+
+        vignahranGaneshCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLsGrL5_XD8WI8OKxiqOkNRRJT-Vnrb7qT");
+
+                startActivity(intent);
+            }
+        });
+
+        saiNathTeraHajarohathCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TvSerialActivity.class);
+                intent.putExtra("playlistId", "PLVkaGZKVjEqQgBqA8-12rEun4OnhjlawN");
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void initView() {
@@ -175,7 +311,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         sampurnRamayanaTV = binding.sampurnRamayanaTV;
         uttarRamayanaTV = binding.uttarRamayanaTV;
         shreeMahalaxmiTV = binding.shreeMahalaxmiTV;
-        shivMahapuranTV =binding.shivMahapuranTV;
+        shivMahapuranTV = binding.shivMahapuranTV;
         jaiHanumanTV = binding.jaiHanumanTV;
         visnuPuranTV = binding.visnuPuranTV;
         balKrishnaTV = binding.balKrishnaTV;
@@ -184,7 +320,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         karanTV = binding.karanTV;
         sankatMochanHanumanTV = binding.sankatMochanHanumanTV;
         vignahranGaneshTV = binding.vignahranGaneshTV;
-        saiNathTeraHajarohathTV =binding.saiNathTeraHajarohathTV;
+        saiNathTeraHajarohathTV = binding.saiNathTeraHajarohathTV;
 
 
     }
@@ -258,6 +394,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 //        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
 //        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
     }
+
     private void loadYoutubeAccount() {
 
         System.out.println("loadYoutubeAccount");
@@ -266,7 +403,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
 //            String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)+"&eventType=live&maxResults=250&type=video&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 //            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=" + apikey;
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -334,6 +471,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
 
     }
+
     private void settingAdapter() {
 //        youtuberRV = findViewById(R.id.youtuberRV);
 
@@ -356,7 +494,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         liveVideoRV = binding.liveVideoRV;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         liveVideoRV.setLayoutManager(linearLayoutManager);
-        TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvLiveVideoModelArrayList, getContext());
+        TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvLiveVideoModelArrayList, getContext(), this::itemClicked);
         liveVideoRV.setAdapter(tvLiveVideoAdapter);
 
         // for chalisa
@@ -366,7 +504,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         chalisaRV = binding.chalisaRV;
         LinearLayoutManager linearLayoutManagerChalisa = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         chalisaRV.setLayoutManager(linearLayoutManagerChalisa);
-        TvLiveVideoAdapter tvChalisaAdapter = new TvLiveVideoAdapter(tvChalisaArrayList, getContext());
+        TvLiveVideoAdapter tvChalisaAdapter = new TvLiveVideoAdapter(tvChalisaArrayList, getContext(), this::itemClicked);
         chalisaRV.setAdapter(tvChalisaAdapter);
 
 
@@ -377,7 +515,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         aartiRV = binding.aartiRV;
         LinearLayoutManager linearLayoutManagerAarti = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         aartiRV.setLayoutManager(linearLayoutManagerAarti);
-        TvLiveVideoAdapter tvAartiAdapter = new TvLiveVideoAdapter(tvAartiArrayList, getContext());
+        TvLiveVideoAdapter tvAartiAdapter = new TvLiveVideoAdapter(tvAartiArrayList, getContext(), this::itemClicked);
         aartiRV.setAdapter(tvAartiAdapter);
 
 
@@ -388,7 +526,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         bhajanRV = binding.bhajanRV;
         LinearLayoutManager linearLayoutManagerBhajan = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         bhajanRV.setLayoutManager(linearLayoutManagerBhajan);
-        TvLiveVideoAdapter bhajanAdapter = new TvLiveVideoAdapter(bhajanArrayListYoutuberModel, getContext());
+        TvLiveVideoAdapter bhajanAdapter = new TvLiveVideoAdapter(bhajanArrayListYoutuberModel, getContext(), this::itemClicked);
         bhajanRV.setAdapter(bhajanAdapter);
 
 
@@ -399,7 +537,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         mantraRV = binding.mantraRV;
         LinearLayoutManager linearLayoutManagerMantra = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         mantraRV.setLayoutManager(linearLayoutManagerMantra);
-        TvLiveVideoAdapter mantraAdapter = new TvLiveVideoAdapter(mantraArrayList, getContext());
+        TvLiveVideoAdapter mantraAdapter = new TvLiveVideoAdapter(mantraArrayList, getContext(), this::itemClicked);
         mantraRV.setAdapter(mantraAdapter);
 
 
@@ -410,7 +548,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         dainikBratKathaRV = binding.dainikBratKathaRV;
         LinearLayoutManager linearLayoutManagerDainikBratKatha = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         dainikBratKathaRV.setLayoutManager(linearLayoutManagerDainikBratKatha);
-        TvLiveVideoAdapter dainikBratKathaAdapter = new TvLiveVideoAdapter(dainikBratKathaArrayList, getContext());
+        TvLiveVideoAdapter dainikBratKathaAdapter = new TvLiveVideoAdapter(dainikBratKathaArrayList, getContext(), this::itemClicked);
         dainikBratKathaRV.setAdapter(dainikBratKathaAdapter);
 
 
@@ -421,7 +559,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         sadguruRV = binding.sadguruRV;
         LinearLayoutManager linearLayoutManagerSadguru = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         sadguruRV.setLayoutManager(linearLayoutManagerSadguru);
-        TvLiveVideoAdapter sadguruAdapter = new TvLiveVideoAdapter(sadguruArrayList, getContext());
+        TvLiveVideoAdapter sadguruAdapter = new TvLiveVideoAdapter(sadguruArrayList, getContext(), this::itemClicked);
         sadguruRV.setAdapter(sadguruAdapter);
 
 
@@ -431,16 +569,17 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         guruDevSriSriRV = binding.gurudevSriSriRavishankerRV;
         LinearLayoutManager linearLayoutManagerGurudevSriSriRaviShanker = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         guruDevSriSriRV.setLayoutManager(linearLayoutManagerGurudevSriSriRaviShanker);
-        TvLiveVideoAdapter guruSriSriRavishankerAdapter = new TvLiveVideoAdapter(gurudevSriSriRavishankerArrayList, getContext());
+        TvLiveVideoAdapter guruSriSriRavishankerAdapter = new TvLiveVideoAdapter(gurudevSriSriRavishankerArrayList, getContext(), this::itemClicked);
         guruDevSriSriRV.setAdapter(guruSriSriRavishankerAdapter);
 
 
     }
+
     private void loadBhajan() {
 
         System.out.println("Load Bhajan");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCfzYE5p3KDmRQKUpOLz1_tw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCfzYE5p3KDmRQKUpOLz1_tw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
 
         System.out.println("LOADING VIDEO");
@@ -454,7 +593,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject idJsonObject = jsonObject.getJSONObject("id");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of bhajan : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
@@ -462,8 +601,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of bhajan : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of bhajan : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
@@ -483,18 +622,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         bhajanArrayListYoutuberModel.add(youtubeDashboradModel);
 
-                        System.out.println("live video of bhajan : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video of bhajan : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
-
-
-
-
-
 
 
 //
 //                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(bhajanArrayListYoutuberModel,getContext());
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(bhajanArrayListYoutuberModel, getContext(), TvFragment.this::itemClicked);
                     bhajanRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -515,13 +649,15 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadAarti() {
+
 
         System.out.println("Loading Aarti");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCf3i_gCIO8J21hYNtMKiEaw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-qncdFkqIattVxgOdO-BMNC&key="+apikey +"&part=contentDetails&maxResults=5";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -529,49 +665,43 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+                        JSONObject idJsonObject = jsonObject.getJSONObject("contentDetails");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of Dainik Vrat Katha  : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
                         snippetJsonObject.getString("channelId");
                         snippetJsonObject.getString("description");
-                        snippetJsonObject.getString("liveBroadcastContent");
+//                        snippetJsonObject.getString("liveBroadcastContent");
+                        snippetJsonObject.getString("channelTitle");
+                        snippetJsonObject.getString("playlistId");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of dainik brat katha  : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of dbk : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
 
                         mediumJsonObject.getString("url");
-                        System.out.println("URL of bhajan : " + mediumJsonObject.getString("url"));
+                        System.out.println("URL of dbk : " + mediumJsonObject.getString("url"));
 
                         YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
                                 mediumJsonObject.getString("url"),
                                 snippetJsonObject.getString("description"),
                                 snippetJsonObject.getString("title"),
                                 idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent"),
+                                "none",
                                 snippetJsonObject.getString("channelId")
 
                         );
-
                         tvAartiArrayList.add(youtubeDashboradModel);
-
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
 
-
-
-
-
-
 //
-//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvAartiArrayList,getContext());
+//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), dainikBratKathaArrayList);
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvAartiArrayList, getContext(), TvFragment.this::itemClicked);
                     aartiRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -591,12 +721,84 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
+
+
+
+//
+//        System.out.println("Loading Aarti");
+//
+//        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-oonikoLBHKk5OeklJMTwqn&key="+apikey +"&part=contentDetails&maxResults=5";
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    JSONArray jsonArray = response.getJSONArray("items");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+//
+//                        JSONObject idJsonObject = jsonObject.getJSONObject("contentDetails");
+//                        idJsonObject.getString("videoId");
+//                        System.out.println("VIDEO ID of Dainik Vrat Katha  : " + idJsonObject.getString("videoId"));
+//
+//                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+//                        snippetJsonObject.getString("title");
+//                        snippetJsonObject.getString("channelId");
+//                        snippetJsonObject.getString("description");
+////                        snippetJsonObject.getString("liveBroadcastContent");
+//                        snippetJsonObject.getString("channelTitle");
+//                        snippetJsonObject.getString("playlistId");
+//
+//                        System.out.println("VIDEO TITLE of dainik brat katha  : " + snippetJsonObject.getString("title"));
+//                        System.out.println("VIDEO DESCRIPTION of dbk : " + snippetJsonObject.getString("description"));
+//
+//                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
+//                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
+//
+//                        mediumJsonObject.getString("url");
+//                        System.out.println("URL of dbk : " + mediumJsonObject.getString("url"));
+//
+//                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                mediumJsonObject.getString("url"),
+//                                snippetJsonObject.getString("description"),
+//                                snippetJsonObject.getString("title"),
+//                                idJsonObject.getString("videoId"),
+//                                "none",
+//                                snippetJsonObject.getString("channelId")
+//
+//                        );
+//                        tvAartiArrayList.add(youtubeDashboradModel);
+//                    }
+//
+//
+////
+////                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), dainikBratKathaArrayList);
+//                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvAartiArrayList, getContext(), TvFragment.this::itemClicked);
+//                    aartiRV.setAdapter(tvLiveVideoAdapter);
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                // TODO: Handle error
+//
+//            }
+//        });
+//
+//        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
+
     }
+
     private void loadLiveVideo() {
 
         System.out.println("Loading Aarti");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCx3--yoxFz4RF13KMGH7__g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCx3--yoxFz4RF13KMGH7__g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -608,7 +810,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject idJsonObject = jsonObject.getJSONObject("id");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of bhajan : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
@@ -616,8 +818,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of bhajan : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of bhajan : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
@@ -637,14 +839,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         tvLiveVideoModelArrayList.add(youtubeDashboradModel);
 
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video of Aarti : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
-
 
 
 //
 //                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvLiveVideoModelArrayList,getContext());
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvLiveVideoModelArrayList, getContext(), TvFragment.this::itemClicked);
                     liveVideoRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -653,6 +854,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                 }
 
             }
+
+
         }, new Response.ErrorListener() {
 
             @Override
@@ -665,13 +868,16 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadMantra() {
+
+
 
         System.out.println("Loading Aarti");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCaayLD9i5x4MmIoVZxXSv_g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL57FdneUw7RLbUAA9xb0bqJza-xbkMgbw&key="+apikey +"&part=contentDetails&maxResults=5";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -679,45 +885,43 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+                        JSONObject idJsonObject = jsonObject.getJSONObject("contentDetails");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of Dainik Vrat Katha  : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
                         snippetJsonObject.getString("channelId");
                         snippetJsonObject.getString("description");
-                        snippetJsonObject.getString("liveBroadcastContent");
+//                        snippetJsonObject.getString("liveBroadcastContent");
+                        snippetJsonObject.getString("channelTitle");
+                        snippetJsonObject.getString("playlistId");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of dainik brat katha  : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of dbk : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
 
                         mediumJsonObject.getString("url");
-                        System.out.println("URL of bhajan : " + mediumJsonObject.getString("url"));
+                        System.out.println("URL of dbk : " + mediumJsonObject.getString("url"));
 
                         YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
                                 mediumJsonObject.getString("url"),
                                 snippetJsonObject.getString("description"),
                                 snippetJsonObject.getString("title"),
                                 idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent"),
+                                "none",
                                 snippetJsonObject.getString("channelId")
 
                         );
-
                         mantraArrayList.add(youtubeDashboradModel);
-
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
 
-
 //
-//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(mantraArrayList,getContext());
+//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), dainikBratKathaArrayList);
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(mantraArrayList, getContext(), TvFragment.this::itemClicked);
                     mantraRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -737,14 +941,20 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
+
     }
+
     private void loadDainikBratKatha() {
 
-        System.out.println("Loading Aarti");
+        System.out.println("Loading Dainik Brat Katha ");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCtzWNV1gw53ecASMQ-6Esnw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
+//        String urlvks = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-pl3iLsHPoK3oUWWIU8awC3&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=20&chart=mostPopular&order=viewCount";
+//        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCtzWNV1gw53ecASMQ-6Esnw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
+
+
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-pl3iLsHPoK3oUWWIU8awC3&key="+apikey +"&part=contentDetails&maxResults=5";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -752,45 +962,43 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+                        JSONObject idJsonObject = jsonObject.getJSONObject("contentDetails");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of Dainik Vrat Katha  : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
                         snippetJsonObject.getString("channelId");
                         snippetJsonObject.getString("description");
-                        snippetJsonObject.getString("liveBroadcastContent");
+//                        snippetJsonObject.getString("liveBroadcastContent");
+                        snippetJsonObject.getString("channelTitle");
+                        snippetJsonObject.getString("playlistId");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of dainik brat katha  : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of dbk : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
 
                         mediumJsonObject.getString("url");
-                        System.out.println("URL of bhajan : " + mediumJsonObject.getString("url"));
+                        System.out.println("URL of dbk : " + mediumJsonObject.getString("url"));
 
                         YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
                                 mediumJsonObject.getString("url"),
                                 snippetJsonObject.getString("description"),
                                 snippetJsonObject.getString("title"),
                                 idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent"),
+                                "none",
                                 snippetJsonObject.getString("channelId")
 
                         );
-
                         dainikBratKathaArrayList.add(youtubeDashboradModel);
-
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
 
 
-
 //
-//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(dainikBratKathaArrayList,getContext());
+//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), dainikBratKathaArrayList);
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(dainikBratKathaArrayList, getContext(), TvFragment.this::itemClicked);
                     dainikBratKathaRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -811,11 +1019,12 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadSadguru() {
 
         System.out.println("Loading Aarti");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCgaiWfiix1zaQS6Mn5SIw2g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCgaiWfiix1zaQS6Mn5SIw2g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -827,7 +1036,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject idJsonObject = jsonObject.getJSONObject("id");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of bhajan : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
@@ -835,8 +1044,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of bhajan : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of bhajan : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
@@ -856,14 +1065,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         sadguruArrayList.add(youtubeDashboradModel);
 
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video of Aarti : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
-
 
 
 //
 //                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(sadguruArrayList,getContext());
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(sadguruArrayList, getContext(), TvFragment.this::itemClicked);
                     sadguruRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -884,12 +1092,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadGurudevSriSriRaviSanker() {
 
         System.out.println("Loading Aarti");
 
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC60K5WIeDKvsJk2hL0QLYwA&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC60K5WIeDKvsJk2hL0QLYwA&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -901,7 +1110,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject idJsonObject = jsonObject.getJSONObject("id");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of bhajan : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
@@ -909,8 +1118,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of bhajan : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of bhajan : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
@@ -930,14 +1139,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         gurudevSriSriRavishankerArrayList.add(youtubeDashboradModel);
 
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video of Aarti : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
-
 
 
 //
 //                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(gurudevSriSriRavishankerArrayList,getContext());
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(gurudevSriSriRavishankerArrayList, getContext(), TvFragment.this::itemClicked);
                     guruDevSriSriRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -958,11 +1166,12 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadChalisa() {
 
         System.out.println("Loading Aarti");
 
-        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCaayLD9i5x4MmIoVZxXSv_g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
+        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCaayLD9i5x4MmIoVZxXSv_g&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeBhajanUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -974,7 +1183,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject idJsonObject = jsonObject.getJSONObject("id");
                         idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID of bhajan : "+idJsonObject.getString("videoId"));
+                        System.out.println("VIDEO ID of bhajan : " + idJsonObject.getString("videoId"));
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("title");
@@ -982,8 +1191,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         snippetJsonObject.getString("description");
                         snippetJsonObject.getString("liveBroadcastContent");
 
-                        System.out.println("VIDEO TITLE of bhajan : " +snippetJsonObject.getString("title") );
-                        System.out.println("VIDEO DESCRIPTION of bhajan : " +snippetJsonObject.getString("description") );
+                        System.out.println("VIDEO TITLE of bhajan : " + snippetJsonObject.getString("title"));
+                        System.out.println("VIDEO DESCRIPTION of bhajan : " + snippetJsonObject.getString("description"));
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
                         JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
@@ -1003,14 +1212,13 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         tvChalisaArrayList.add(youtubeDashboradModel);
 
-                        System.out.println("live video of Aarti : " +youtubeDashboradModel.getVideoLiveBroadcastContent());
+                        System.out.println("live video of Aarti : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
                     }
-
 
 
 //
 //                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getContext(), bhajanArrayListYoutuberModel);
-                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvChalisaArrayList,getContext());
+                    TvLiveVideoAdapter tvLiveVideoAdapter = new TvLiveVideoAdapter(tvChalisaArrayList, getContext(), TvFragment.this::itemClicked);
                     chalisaRV.setAdapter(tvLiveVideoAdapter);
 
 
@@ -1053,10 +1261,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
         System.out.println("Loaded Other TV Serial");
     }
+
     private void loadMahabharat() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hhm1lR1TSdgESOfoyLQR3t2&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hhm1lR1TSdgESOfoyLQR3t2&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1065,8 +1274,9 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    mahabharatTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    mahabharatTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
+
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1075,7 +1285,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1110,10 +1320,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadSampurnRamayana() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFPJRCFRDARSZofcQcV6m7Pu2EAL8_1dv&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFPJRCFRDARSZofcQcV6m7Pu2EAL8_1dv&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1122,8 +1333,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    sampurnRamayanaTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    sampurnRamayanaTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1132,7 +1343,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1167,10 +1378,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadUttarRamayana() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hhyQevNGOYNOMJnQMxUVbYF&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hhyQevNGOYNOMJnQMxUVbYF&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1179,8 +1391,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    uttarRamayanaTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    uttarRamayanaTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1189,7 +1401,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1224,10 +1436,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadShreeMahalaxmi() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hgkkuYwmaFJ1uyoN7uz2zTh&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hgkkuYwmaFJ1uyoN7uz2zTh&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1236,8 +1449,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    shreeMahalaxmiTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    shreeMahalaxmiTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1246,7 +1459,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1281,10 +1494,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadshivMahapuran() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL57F01972FF119B66&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL57F01972FF119B66&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1293,8 +1507,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    shivMahapuranTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    shivMahapuranTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1303,7 +1517,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1338,10 +1552,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadjaiHanuman() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLxAeSrqQeWdVRBmLQEbmrzPnGrgADaNFw&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLxAeSrqQeWdVRBmLQEbmrzPnGrgADaNFw&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1350,8 +1565,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    jaiHanumanTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    jaiHanumanTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1360,7 +1575,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1395,10 +1610,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadbalKrishna() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hgeL8Tvt4a8reRmum760h5G&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hgeL8Tvt4a8reRmum760h5G&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1407,8 +1623,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    balKrishnaTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    balKrishnaTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1417,7 +1633,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1452,10 +1668,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadgitaGyan() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFPJRCFRDARSRskyLvVn6ukSQvLq2c_iy&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFPJRCFRDARSRskyLvVn6ukSQvLq2c_iy&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1464,8 +1681,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    gitaGyanTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    gitaGyanTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1474,7 +1691,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1509,10 +1726,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadbikramBatal() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hjTXfIElDpIfgBYUwWhKnSn&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLFr_jkwUp0hjTXfIElDpIfgBYUwWhKnSn&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1521,8 +1739,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    bikramBatalTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    bikramBatalTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1531,7 +1749,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1566,10 +1784,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadkaran() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLzufeTFnhupzEKODFa86wWlD8HYEqMage&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLzufeTFnhupzEKODFa86wWlD8HYEqMage&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1578,8 +1797,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    karanTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    karanTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1588,7 +1807,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1623,10 +1842,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadsankatMochanHanuman() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLlNHEsFhS-kVLRmuQyssIkr_qaPmyaKC7&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLlNHEsFhS-kVLRmuQyssIkr_qaPmyaKC7&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1635,8 +1855,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    sankatMochanHanumanTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    sankatMochanHanumanTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1645,7 +1865,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1680,10 +1900,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadvisnuPuran() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLQQa2ptMYrubalxxhseMKKZBYMGk_MC26&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLQQa2ptMYrubalxxhseMKKZBYMGk_MC26&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1692,8 +1913,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    visnuPuranTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    visnuPuranTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1702,7 +1923,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1737,10 +1958,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadvignahranGanesh() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLsGrL5_XD8WI8OKxiqOkNRRJT-Vnrb7qT&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLsGrL5_XD8WI8OKxiqOkNRRJT-Vnrb7qT&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1749,8 +1971,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    vignahranGaneshTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    vignahranGaneshTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1759,7 +1981,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1794,10 +2016,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
     }
+
     private void loadsaiNathTeraHajarohath() {
 
         System.out.println("Loading Other TV Serial ... ");
-        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLVkaGZKVjEqQgBqA8-12rEun4OnhjlawN&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo&part=contentDetails&maxResults=1";
+        String mahabharatUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLVkaGZKVjEqQgBqA8-12rEun4OnhjlawN&key=" + apikey + "&part=contentDetails&maxResults=1";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, mahabharatUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -1806,8 +2029,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                     JSONObject pageOptionJsonObject = response.getJSONObject("pageInfo");
                     pageOptionJsonObject.getString("totalResults");
-                    saiNathTeraHajarohathTV.setText(pageOptionJsonObject.getString("totalResults").toString());
-                    System.out.println("Total Video : "+pageOptionJsonObject.getString("totalResults"));
+                    saiNathTeraHajarohathTV.setText(pageOptionJsonObject.getString("totalResults").toString() + " " + "Episode");
+                    System.out.println("Total Video : " + pageOptionJsonObject.getString("totalResults"));
 
                     JSONArray jsonArray = response.getJSONArray("items");
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -1816,7 +2039,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                         JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
                         snippetJsonObject.getString("playlistId");
-                        System.out.println("Playlist ID : "+snippetJsonObject.getString("playlistId"));
+                        System.out.println("Playlist ID : " + snippetJsonObject.getString("playlistId"));
 
 
                         JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
@@ -1853,15 +2076,16 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     }
 
 
-
-
-
     private void gridListData() {
         list = new ArrayList<>();
     }
 
     @Override
     public void itemClicked(String userId, String videoID) {
-
+        System.out.println("ITEM CLICKED");
+        System.out.println("Video ID : " + videoID);
+        System.out.println("LOADING VIDEO...");
+        Toast.makeText(getContext(), "adapter clicked", Toast.LENGTH_SHORT).show();
+//        loadVideoToYoutubeVideoPlayer(userId,videoID);
     }
 }
