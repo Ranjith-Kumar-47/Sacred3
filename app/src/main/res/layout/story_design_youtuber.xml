@@ -28,6 +28,7 @@
                 android:layout_width="40dp"
                 android:layout_height="32dp"
 
+                android:visibility="gone"
                 android:src="@drawable/live_icon"
                 android:layout_gravity="right"/>
             <de.hdodenhof.circleimageview.CircleImageView
