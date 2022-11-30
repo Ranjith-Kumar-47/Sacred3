@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable-v24/auth_button_background.xml" value="0.2145" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable-v24/auth_screen_bg.xml" value="0.2025" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable-v24/buttonBackground.xml" value="0.2145" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/exit_dialog_bg.xml" value="0.1" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/drawable/get_otp_button_background.xml" value="0.1" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_otpless_login.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_about.xml" value="0.10559006211180125" />
-        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_about_ganesh.xml" value="0.264" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_about_ganesh.xml" value="0.1" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_image.xml" value="0.25" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_tv_serial.xml" value="0.24954710144927536" />

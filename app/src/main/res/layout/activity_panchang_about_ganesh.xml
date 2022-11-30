@@ -145,7 +145,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginEnd="15dp"
                             android:src="@drawable/gcc0001"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_bias="0.496"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/janTextView" />
 
@@ -161,6 +161,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:textColor="@color/black"
                             android:textSize="30sp"
                             android:textStyle="bold"
+                            android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
@@ -176,9 +177,23 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="January 01, Saturday - Masik Shivaratri January 02, Sunday - Paush Amavasya January 06, Thursday - Vinayaka Chaturthi January 09, Sunday - Guru Gobind Singh Jayanti January 10, Monday - Masik Durgashtami January 13, Thursday - Paush Putrada Ekadashi January 14, Friday - Pongal, Uttarayan, Makar Sankranti January 15, Saturday - Pradosh Vrat (Shukla Paksha) January 17, Monday - Paush Purnima Vrat January 21, Friday - Sankashti Chaturthi January 28, Friday - Shattila Ekadashi January 30, Sunday - Masik Shivaratri"
+                            android:text="1 जनवरी, रविवार	नववर्ष
+\n 2 जनवरी, सोमवार	पौष पुत्रदा एकादशी
+\n4 जनवरी, बुधवार	प्रदोष व्रत (शुक्ल)
+\n6 जनवरी, शुक्रवार	पौष पूर्णिमा व्रत
+\n10 जनवरी, मंगलवार	संकष्टी चतुर्थी
+\n12 जनवरी, गुरुवार	स्वामी विवेकानंद जयंती
+\n13 जनवरी, शुक्रवार	लोहड़ी
+\n14 जनवरी, शनिवार	पोंगल , मकर संक्रांति
+\n18 जनवरी, बुधवार	षटतिला एकादशी
+\n19 जनवरी, गुरुवार	प्रदोष व्रत (कृष्ण)
+\n20 जनवरी, शुक्रवार	मासिक शिवरात्रि
+\n21 जनवरी, शनिवार	माघ अमावस्या
+\n23 जनवरी, सोमवार	सुभाष चन्द्र बोस जयन्ती
+\n26 जनवरी, गुरुवार	गणतन्त्र दिवस, बसंत पंचमी, सरस्वती पूजा"
                             android:textColor="@color/black"
                             android:textSize="20sp"
+                            android:visibility="visible"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -254,7 +269,15 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="01 February, Tuesday - Magh/Mauni Amavasya February 05, Saturday - Basant Panchami, Saraswati Puja February 07, Monday - Ratha Saptami February 08, Tuesday - Bhishma Ashtami February 12, Saturday - Jaya Ekadashi February 13, Sunday - Pradosh Vrat (Shukla Paksha), Kumbh Sankranti February 16, Wednesday - Magh Purnima Vrat February 20, Sunday - Sankashti Chaturthi February 27, Sunday - Vijaya Ekadashi February 28, Monday - Pradosh Vrat (Krishna)"
+                            android:text="1 फरवरी, बुधवार	जया एकादशी
+\n2 फरवरी, गुरुवार	प्रदोष व्रत (शुक्ल)
+\n5 फरवरी, रविवार	बसंत पंचमी , सरस्वती पूजा, माघ पूर्णिमा व्रत
+\n9 फरवरी, गुरुवार	संकष्टी चतुर्थी
+\n13 फरवरी, सोमवार	कुम्भ संक्रांति, विजया एकादशी
+\n16 फरवरी, गुरुवार	गुरु रविदास जयंती
+\n18 फरवरी, शनिवार	महाशिवरात्रि, प्रदोष व्रत (कृष्ण), मासिक शिवरात्रि
+\n19 फरवरी, रविवार	शिवाजी जयंती
+\n20 फरवरी, सोमवार	फाल्गुन अमावस्या"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -314,6 +337,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginEnd="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:text="March Festival "
+
                             android:textColor="@color/black"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -332,7 +356,20 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="March 01, Tuesday - Mahashivratri, Masik Shivaratri 02 March, Wednesday - Phalguna Amavasya March 04, Friday - Phulera Dooj March 14, Monday - Amalaki Ekadashi March 15, Tuesday - Pradosh Vrat (Shukla Paksha), Pisces Sankranti March 17, Thursday - Holika Dahan March 18, Friday - Holi, Falgun Purnima Vrat March 21, Monday - Sankashti Chaturthi March 24 - Thursday - Sheetala Saptami March 25, Friday - Sheetala Ashtami March 28, Monday - Papmochini Ekadashi March 29, Tuesday - Pradosh Vrat (Krishna) March 30, Wednesday - Masik Shivratri"
+                            android:text="3 मार्च, शुक्रवार	आमलकी एकादशी
+\n4 मार्च, शनिवार	प्रदोष व्रत (शुक्ल)
+\n7 मार्च, मंगलवार	होलिका दहन, फाल्गुन पूर्णिमा व्रत
+\n8 मार्च, बुधवार	होली
+\n11 मार्च, शनिवार	संकष्टी चतुर्थी
+\n15 मार्च, बुधवार	मीन संक्रांति
+\n18 मार्च, शनिवार	पापमोचिनी एकादशी
+\n19 मार्च, रविवार	प्रदोष व्रत (कृष्ण)
+\n20 मार्च, सोमवार	मासिक शिवरात्रि
+\n21 मार्च, मंगलवार	चैत्र अमावस्या
+\n22 मार्च, बुधवार	चैत्र नवरात्रि, उगाडी, घटस्थापना, गुड़ी पड़वा
+\n23 मार्च, गुरुवार	चेटी चंड
+\n30 मार्च, गुरुवार	राम नवमी
+\n31 मार्च, शुक्रवार	चैत्र नवरात्रि पारणा"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -410,7 +447,16 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="April 01, Friday - Chaitra Amavasya April 02, Saturday - Chaitra Navratri, Ugadi, Ghatasthapana, Gudi Padwa April 03, Sunday - Cheti Chand April 10, Sunday - Ram Navami April 11, Monday - Chaitra Navratri Parana April 12, Tuesday - Kamada Ekadashi April 14, Thursday - Pradosh Vrat (Shukla Paksha), Mesh Sankranti April 16, Saturday - Hanuman Jayanti, Chaitra Purnima Vrat April 19, Tuesday - Sankashti Chaturthi April 26, Tuesday - Varuthini Ekadashi April 28, Thursday - Pradosh Vrat (Krishna) April 29, Friday - Masik Shivratri April 30, Saturday - Vaishakh Amavasya"
+                            android:text="1 अप्रैल, शनिवार	बैंक अवकाश, कामदा एकादशी
+\n3 अप्रैल, सोमवार	प्रदोष व्रत (शुक्ल)
+\n6 अप्रैल, गुरुवार	हनुमान जयंती, चैत्र पूर्णिमा व्रत
+\n9 अप्रैल, रविवार	संकष्टी चतुर्थी
+\n14 अप्रैल, शुक्रवार	महावीर जयंती, अम्बेडकर जयन्ती, मेष संक्रांति
+\n16 अप्रैल, रविवार	वरुथिनी एकादशी
+\n17 अप्रैल, सोमवार	प्रदोष व्रत (कृष्ण)
+\n18 अप्रैल, मंगलवार	मासिक शिवरात्रि
+\n20 अप्रैल, गुरुवार	वैशाख अमावस्या
+\n22 अप्रैल, शनिवार	अक्षय तृतीया"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -488,7 +534,15 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="May 03, Tuesday - Akshaya Tritiya May 12, Thursday - Mohini Ekadashi May 13, Friday - Pradosh Vrat (Shukla Paksha) May 15, Sunday - Vrishabha Sankranti May 16, Monday - Vaishakh Purnima Vrat May 19, Thursday - Sankashti Chaturthi May 26, Thursday - Apara Ekadashi May 27 Friday - Pradosh Vrat (Krishna) May 28, Saturday - Masik Shivaratri May 30, Monday - Jyeshtha Amavasya"
+                            android:text="1 मई, सोमवार	मोहिनी एकादशी
+\n3 मई, बुधवार	प्रदोष व्रत (शुक्ल)
+\n5 मई, शुक्रवार	वैशाख पूर्णिमा व्रत
+\n8 मई, सोमवार	संकष्टी चतुर्थी
+\n15 मई, सोमवार	अपरा एकादशी, वृष संक्रांति
+\n16 मई, मंगलवार	बुद्ध जयंती
+\n17 मई, बुधवार	मासिक शिवरात्रि, प्रदोष व्रत (कृष्ण)
+\n19 मई, शुक्रवार	ज्येष्ठ अमावस्या
+\n31 मई, बुधवार	निर्जला एकादशी"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -566,9 +620,19 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="June 11 - Saturday - Nirjala Ekadashi June 12, Sunday - Pradosh Vrat (Shukla Paksha) June 14, Tuesday - Jyeshtha Purnima Vrat June 15, Wednesday - Mithun Sankranti June 17, Friday - Sankashti Chaturthi June 24, Friday - Yogini Ekadashi June 26, Sunday - Pradosh Vrat (Krishna) June 27, Monday - Masik Shivaratri June 29, Wednesday - Ashadha Amavasya"
+                            android:text="1 जून, गुरुवार	प्रदोष व्रत (शुक्ल)
+\n2 जून, शुक्रवार	महाराणा प्रताप जयंती
+\n4 जून, रविवार	ज्येष्ठ पूर्णिमा व्रत
+\n7 जून, बुधवार	संकष्टी चतुर्थी
+\n14 जून, बुधवार	संत कबीर जयंती, योगिनी एकादशी
+\n15 जून, गुरुवार	प्रदोष व्रत (कृष्ण), मिथुन संक्रांति
+\n16 जून, शुक्रवार	मासिक शिवरात्रि
+\n18 जून, रविवार	आषाढ़ अमावस्या
+\n20 जून, मंगलवार	जगन्नाथ रथ यात्रा
+\n29 जून, गुरुवार	देवशयनी एकादशी, अषाढ़ी एकादशी"
                             android:textColor="@color/black"
                             android:textSize="20sp"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -644,7 +708,17 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="July 01, Friday - Jagannath Rath Yatra July 10, Sunday - Devshayani Ekadashi, Ashadhi Ekadashi July 11, Monday - Pradosh Vrat (Shukla Paksha) July 13, Wednesday - Guru Purnima, Ashadh Purnima Vrat July 16, Saturday - Sankashti Chaturthi, Karka Sankranti July 24, Sunday - Kamika Ekadashi July 25, Monday - Pradosh Vrat (Krishna) July 26, Tuesday - Masik Shivaratri July 28, Thursday - Shravana Amavasya July 31, Sunday - Hariyali Teej"
+                            android:text="1 जुलाई, शनिवार	प्रदोष व्रत (शुक्ल)
+\n3 जुलाई, सोमवार	गुरु-पूर्णिमा, आषाढ़ पूर्णिमा व्रत
+\n6 जुलाई, गुरुवार	संकष्टी चतुर्थी
+\n13 जुलाई, गुरुवार	शहीद दिवस
+\n13 जुलाई, गुरुवार	कामिका एकादशी
+\n14 जुलाई, शुक्रवार	प्रदोष व्रत (कृष्ण)
+\n15 जुलाई, शनिवार	मासिक शिवरात्रि
+\n16 जुलाई, रविवार	कर्क संक्रांति
+\n17 जुलाई, सोमवार	श्रावण अमावस्या
+\n29 जुलाई, शनिवार	पद्मिनी एकादशी
+\n30 जुलाई, रविवार	प्रदोष व्रत (शुक्ल)"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -722,7 +796,22 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="August 02, Tuesday - Nag Panchami August 08, Monday - Shravana Putrada Ekadashi August 09, Tuesday - Pradosh Vrat (Shukla Paksha) August 11, Thursday - Raksha Bandhan August 12, Friday - Shravan Purnima Vrat August 14, Sunday - Kajari Teej August 15, Monday - Sankashti Chaturthi August 17, Wednesday - Singh Sankranti August 19, Friday - Janmashtami August 23, Tuesday - Aja Ekadashi August 24, Wednesday - Pradosh Vrat (Krishna) August 25, Thursday - Masik Shivaratri August 27, Saturday - Bhadrapada Amavasya August 30, Tuesday - Hartalika Teej August 31, Wednesday - Ganesh Chaturthi"
+
+                            android:text="1 अगस्त, मंगलवार	पूर्णिमा व्रत
+\n4 अगस्त, शुक्रवार	संकष्टी चतुर्थी
+\n12 अगस्त, शनिवार	परम एकादशी
+\n13 अगस्त, रविवार	प्रदोष व्रत (कृष्ण)
+\n14 अगस्त, सोमवार	मासिक शिवरात्रि
+\n15 अगस्त, मंगलवार	स्वतन्त्रता दिवस
+\n16 अगस्त, बुधवार	अमावस्या
+\n17 अगस्त, गुरुवार	सिंह संक्रांति
+\n19 अगस्त, शनिवार	हरियाली तीज
+\n21 अगस्त, सोमवार	नाग पंचमी
+\n27 अगस्त, रविवार	श्रावण पुत्रदा एकादशी
+\n28 अगस्त, सोमवार	प्रदोष व्रत (शुक्ल)
+\n29 अगस्त, मंगलवार	ओणम/थिरुवोणम
+\n30 अगस्त, बुधवार	रक्षा बंधन
+\n31 अगस्त, गुरुवार	श्रावण पूर्णिमा व्रत"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -800,7 +889,21 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="06 September, Tuesday - Parivartani Ekadashi 08 September, Thursday - Pradosh Vrat (Shukla Paksha), Onam/ Thiruvonam 09 September, Friday - Anant Chaturdashi September 10, Saturday - Bhadrapada Purnima Vrat September 13, Tuesday - Sankashti Chaturthi September 17, Saturday - Kanya Sankranti September 21 Wednesday - Indira Ekadashi September 23, Friday - Pradosh Vrat (Krishna) September 24, Saturday - Masik Shivaratri September 25, Sunday - Ashwin Amavasya September 26, Monday - Sharad Navratri, Ghatasthapana"
+                            android:text="2 सितंबर, शनिवार	कजरी तीज
+\n3 सितंबर, रविवार	संकष्टी चतुर्थी
+\n7 सितंबर, गुरुवार	जन्माष्टमी
+\n10 सितंबर, रविवार	अजा एकादशी
+\n12 सितंबर, मंगलवार	प्रदोष व्रत (कृष्ण)
+\n13 सितंबर, बुधवार	मासिक शिवरात्रि
+\n14 सितंबर, गुरुवार	भाद्रपद अमावस्या
+\n17 सितंबर, रविवार	कन्या संक्रांति
+\n18 सितंबर, सोमवार	हरतालिका तीज
+\n19 सितंबर, मंगलवार	गणेश चतुर्थी
+\n25 सितंबर, सोमवार	परिवर्तिनी एकादशी
+\n27 सितंबर, बुधवार	प्रदोष व्रत (शुक्ल)
+\n28 सितंबर, गुरुवार	अनंत चतुर्दशी
+\n28 सितंबर, गुरुवार	भगत सिंह जयंती
+\n29 सितंबर, शुक्रवार	भाद्रपद पूर्णिमा व्रत"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -863,6 +966,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:textColor="@color/black"
                             android:textSize="30sp"
                             android:textStyle="bold"
+
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
@@ -876,9 +980,25 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="15dp"
+                            android:text="2 अक्टूबर, सोमवार	गाँधी जयन्ती
+\n2 अक्टूबर, सोमवार	संकष्टी चतुर्थी
+\n10 अक्टूबर, मंगलवार	इन्दिरा एकादशी
+\n11 अक्टूबर, बुधवार	प्रदोष व्रत (कृष्ण)
+\n12 अक्टूबर, गुरुवार	मासिक शिवरात्रि
+\n14 अक्टूबर, शनिवार	अश्विन अमावस्या
+\n15 अक्टूबर, रविवार	शरद नवरात्रि, घटस्थापना
+\n18 अक्टूबर, बुधवार	तुला संक्रांति
+\n20 अक्टूबर, शुक्रवार	कल्परम्भ
+\n21 अक्टूबर, शनिवार	नवपत्रिका पूजा
+\n22 अक्टूबर, रविवार	दुर्गा महा अष्टमी पूजा
+\n23 अक्टूबर, सोमवार	दुर्गा महा नवमी पूजा
+\n24 अक्टूबर, मंगलवार	दुर्गा विसर्जन, दशहरा, शरद नवरात्रि पारणा
+\n25 अक्टूबर, बुधवार	पापांकुशा एकादशी
+\n26 अक्टूबर, गुरुवार	प्रदोष व्रत (शुक्ल)
+\n28 अक्टूबर, शनिवार	अश्विन पूर्णिमा व्रत
+\n31 अक्टूबर, मंगलवार	वल्लभ भाई पटेल जयंती"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="October 01, Saturday - Kalparambh October 02, Sunday - Navpatrika Puja October 03, Monday - Durga Puja Ashtami Puja October 04, Tuesday - Durga Maha Navami Puja, Sharad Navratri Parana October 05, Wednesday - Durga Visarjan, Dussehra October 06, Thursday - Papankusha Ekadashi October 07, Friday - Pradosh Vrat (Shukla Paksha) October 09, Sunday - Ashwin Purnima Vrat October 13, Thursday - Sankashti Chaturthi, Karva Chauth October 17, Monday - Tula Sankranti October 21, Friday - Rama Ekadashi October 22, Saturday - Pradosh Vrat (Krishna) October 23, Sunday - Masik Shivaratri, Dhanteras October 24, Monday - Diwali, Narak Chaturdashi October 25, Tuesday - Kartik Amavasya October 26 Wednesday - Bhai Dooj, Govardhan Puja October 30, Sunday - Chhath Puja"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -907,6 +1027,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
                             android:fontFamily="sans-serif-condensed-light"
+
                             android:text="November 2023"
                             android:textColor="@color/black"
                             android:textSize="30sp"
@@ -956,7 +1077,22 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="November 04, Friday - Devutthan Ekadashi November 05, Saturday - Pradosh Vrat (Shukla Paksha) November 08, Tuesday - Kartik Purnima Vrat November 12, Saturday - Sankashti Chaturthi November 16, Wednesday - Scorpio Sankranti November 20, Sunday - Utpanna Ekadashi November 21, Monday - Pradosh Vrat (Krishna) November 22, Tuesday - Masik Shivratri November 23, Wednesday - Margashirsha Amavasya"
+                            android:text="1 नवंबर, बुधवार	संकष्टी चतुर्थी, करवा चौथ
+\n9 नवंबर, गुरुवार	रमा एकादशी
+\n10 नवंबर, शुक्रवार	धनतेरस, प्रदोष व्रत (कृष्ण)
+\n11 नवंबर, शनिवार	मासिक शिवरात्रि
+\n12 नवंबर, रविवार	दिवाली, नरक चतुर्दशी
+\n13 नवंबर, सोमवार	कार्तिक अमावस्या
+\n14 नवंबर, मंगलवार	गोवर्धन पूजा
+\n14 नवंबर, मंगलवार	बाल दिवस
+\n15 नवंबर, बुधवार	भाई दूज
+\n17 नवंबर, शुक्रवार	वृश्चिक संक्रांति
+\n19 नवंबर, रविवार	छठ पूजा
+\n23 नवंबर, गुरुवार	देवुत्थान एकादशी
+\n24 नवंबर, शुक्रवार	प्रदोष व्रत (शुक्ल)
+\n27 नवंबर, सोमवार	कार्तिक पूर्णिमा व्रत
+\n30 नवंबर, गुरुवार	संकष्टी चतुर्थी"
+
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -1019,6 +1155,7 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:textColor="@color/black"
                             android:textSize="30sp"
                             android:textStyle="bold"
+
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
@@ -1034,7 +1171,17 @@ This calendar provides information about festivals, auspicious days, special muh
                             android:layout_marginBottom="15dp"
                             android:fontFamily="sans-serif-condensed-light"
                             android:padding="10dp"
-                            android:text="03 December, Saturday - Mokshada Ekadashi 05 December, Monday - Pradosh Vrat (Shukla Paksha) 08 December, Thursday - Margashirsha Purnima Vrat December 11, Sunday - Sankashti Chaturthi December 16, Friday - Dhanu Sankranti December 19, Monday - Saphala Ekadashi December 21, Wednesday - Pradosh Vrat (Krishna), Masik Shivaratri December 23, Friday - Paush Amavasya"
+                            android:text="8 दिसंबर, शुक्रवार	उत्पन्ना एकादशी
+\n10 दिसंबर, रविवार	प्रदोष व्रत (कृष्ण)
+\n11 दिसंबर, सोमवार	मासिक शिवरात्रि
+\n12 दिसंबर, मंगलवार	मार्गशीर्ष अमावस्या
+\n16 दिसंबर, शनिवार	धनु संक्रांति
+\n23 दिसंबर, शनिवार	मोक्षदा एकादशी
+\n24 दिसंबर, रविवार	प्रदोष व्रत (शुक्ल)
+\n25 दिसंबर, सोमवार	क्रिसमस
+\n26 दिसंबर, मंगलवार	मार्गशीर्ष पूर्णिमा व्रत
+\n29 दिसंबर, शुक्रवार	गुरु गोबिंद सिंह जयंती
+\n30 दिसंबर, शनिवार	संकष्टी चतुर्थी"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"

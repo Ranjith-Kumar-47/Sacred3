@@ -56,9 +56,9 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     String personName = "";
     String personPhoto = "";
     FloatingActionButton feedBackButton;
-//    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
+    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
 //    private String apikey = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-    private String apikey = "AIzaSyDvFA137yMArqY2tGEdmhNykiMw1YQhI14";
+//    private String apikey = "AIzaSyDvFA137yMArqY2tGEdmhNykiMw1YQhI14";
 
     String liveStatus  = "";
 
@@ -386,14 +386,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
 
-//            String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)+"&eventType=live&maxResults=250&type=video&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-//            String youtubeAccountUrl1 = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&forUsername="+youtubeAcountList.get(j)+"&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-
-
-
-
             String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=" + apikey;
-
             // geting live status
             String checkingLiveVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)  +"&eventType=live&type=video&videoDefinition=any&key=" +apikey;
 
@@ -483,7 +476,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
                             );
                             list.add(youtuberModel);
-//                            liveStatus = "none";
+                            liveStatus = "none";
                         }
                         YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getContext(), list);
                         youtuberRV.setAdapter(youtubeAccountAdapter);
@@ -517,7 +510,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getContext(), list);
         youtuberRV.setAdapter(youtubeAccountAdapter1);
 
-//        liveStatus = "none";
+        liveStatus = "none";
 
 
 
