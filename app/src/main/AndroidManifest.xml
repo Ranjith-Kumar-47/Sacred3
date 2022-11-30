@@ -18,6 +18,9 @@
         tools:replace="android:icon,android:roundIcon"
         tools:targetApi="31">
         <activity
+            android:name=".PanchangAboutGanesh"
+            android:exported="false" />
+        <activity
             android:name=".TvSerialActivity"
             android:exported="false" />
         <activity

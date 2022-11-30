@@ -52,6 +52,30 @@ public class PanchangImageActivity extends AppCompatActivity {
             panchangImageView.setImageResource(R.drawable.ta_nov);
         }else if(imageId.equalsIgnoreCase("dec")){
             panchangImageView.setImageResource(R.drawable.ta_dec);
+        }else if(imageId.equalsIgnoreCase("gjan")){
+            panchangImageView.setImageResource(R.drawable.gc0001);
+        }else if(imageId.equalsIgnoreCase("gfeb")){
+            panchangImageView.setImageResource(R.drawable.gc0002);
+        }else if(imageId.equalsIgnoreCase("gmar")){
+            panchangImageView.setImageResource(R.drawable.gc0003);
+        }else if(imageId.equalsIgnoreCase("gapril")){
+            panchangImageView.setImageResource(R.drawable.gc0004);
+        }else if(imageId.equalsIgnoreCase("gmay")){
+            panchangImageView.setImageResource(R.drawable.gc0005);
+        }else if(imageId.equalsIgnoreCase("gjune")){
+            panchangImageView.setImageResource(R.drawable.gc0006);
+        }else if(imageId.equalsIgnoreCase("gjuly")){
+            panchangImageView.setImageResource(R.drawable.gc0007);
+        }else if(imageId.equalsIgnoreCase("gaug")){
+            panchangImageView.setImageResource(R.drawable.gc0008);
+        }else if(imageId.equalsIgnoreCase("gsep")){
+            panchangImageView.setImageResource(R.drawable.gc0010);
+        }else if(imageId.equalsIgnoreCase("goct")){
+            panchangImageView.setImageResource(R.drawable.gc0011);
+        }else if(imageId.equalsIgnoreCase("gnov")){
+            panchangImageView.setImageResource(R.drawable.gc0012);
+        }else if(imageId.equalsIgnoreCase("gdec")){
+            panchangImageView.setImageResource(R.drawable.gc0002);
         }
 
 

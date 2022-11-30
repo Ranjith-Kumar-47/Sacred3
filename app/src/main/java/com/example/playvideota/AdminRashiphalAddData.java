@@ -131,6 +131,9 @@ public class AdminRashiphalAddData extends AppCompatActivity {
         }else if(rashiData.toLowerCase().equalsIgnoreCase("Sagittarius"))
         {
             rashiphalDataTextview.setBackgroundResource(R.drawable.zodiac_sagarithus);
+        }else if(rashiData.toLowerCase().equalsIgnoreCase("Scorpio"))
+        {
+            rashiphalDataTextview.setBackgroundResource(R.drawable.scorpio);
         }
 
 

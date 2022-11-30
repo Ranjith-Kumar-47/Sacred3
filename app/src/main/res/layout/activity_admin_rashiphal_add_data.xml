@@ -79,8 +79,8 @@
             android:fontFamily="sans-serif-condensed-light"
             android:hint="     Write About Today's Rashipal"
             android:padding="22sp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorAccent"
             android:textSize="24sp" />
 
     </androidx.cardview.widget.CardView>

@@ -9,7 +9,7 @@ import android.view.View;
 
 public class AdminRashiphal extends AppCompatActivity {
 
-    CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius;
+    CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius, Scorpio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +135,16 @@ public class AdminRashiphal extends AppCompatActivity {
             }
         });
 
+        Scorpio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminRashiphal.this, AdminRashiphalAddData.class);
+                intent.putExtra("Rashipal","Scorpio");
+                intent.putExtra("RashipalImage","scorpio");
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -150,5 +160,6 @@ public class AdminRashiphal extends AppCompatActivity {
         Taurus = findViewById(R.id.Taurus);
         Virgo = findViewById(R.id.Virgo);
         Sagittarius = findViewById(R.id.Sagittarius);
+        Scorpio = findViewById(R.id.Scorpio);
     }
 }

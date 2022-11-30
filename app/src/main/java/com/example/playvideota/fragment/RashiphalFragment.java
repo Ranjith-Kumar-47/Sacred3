@@ -49,7 +49,7 @@ public class RashiphalFragment extends Fragment {
     ArrayList<RashiPhalModel> list;
     FirebaseDatabase database;
     TextView rashiphalDataTextview,todayDateTextview;
-    CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius;
+    CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius,scorpio;
     ImageView adminVideo, adminVideoPlayButton;
     String videoIdData = "";
 
@@ -133,7 +133,7 @@ public class RashiphalFragment extends Fragment {
                             System.out.println("Database Key : "+snapshot.getKey());
 //                            RashiphalDataModel data = snapshot.getValue(RashiphalDataModel.class);
                             rashiphalDataTextview.setText(snapshot.getValue().toString());
-                            rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
+//                            rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
                         }
                     }
                     @Override
@@ -253,7 +253,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.aquarius);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.aquarius);
                                 }
                             }
 
@@ -279,7 +279,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.aries);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.aries);
                                 }
                             }
 
@@ -305,7 +305,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.cancer);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.cancer);
                                 }
                             }
 
@@ -331,7 +331,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.capriconorg);
                                 }
                             }
 
@@ -357,7 +357,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.gemini);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.gemini);
                                 }
                             }
 
@@ -383,7 +383,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.libra);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.libra);
                                 }
                             }
 
@@ -409,7 +409,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.lio);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.lio);
                                 }
                             }
 
@@ -435,7 +435,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.pisces);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.pisces);
                                 }
                             }
 
@@ -461,7 +461,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.taurus);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.taurus);
                                 }
                             }
 
@@ -487,7 +487,7 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.virgo);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.virgo);
                                 }
                             }
 
@@ -512,7 +512,32 @@ public class RashiphalFragment extends Fragment {
                                     System.out.println("Database Value : "+snapshot.getValue());
                                     System.out.println("Database Key : "+snapshot.getKey());
                                     rashiphalDataTextview.setText(snapshot.getValue().toString());
-                                    rashiphalDataTextview.setBackgroundResource(R.drawable.zodiac_sagarithus);
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.zodiac_sagarithus);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+            }
+        });
+
+        scorpio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database.getReference().child("Rashipal")
+                        .child("Scorpio")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    System.out.println("Database Data : "+snapshot.toString());
+                                    System.out.println("Database Value : "+snapshot.getValue());
+                                    System.out.println("Database Key : "+snapshot.getKey());
+                                    rashiphalDataTextview.setText(snapshot.getValue().toString());
+//                                    rashiphalDataTextview.setBackgroundResource(R.drawable.zodiac_sagarithus);
                                 }
                             }
 
@@ -541,6 +566,7 @@ public class RashiphalFragment extends Fragment {
         Taurus = binding.Taurus;
         Virgo = binding.Virgo;
         Sagittarius = binding.Sagittarius;
+        scorpio = binding.scorpio;
 
         adminVideo = binding.adminVideo;
         adminVideoPlayButton = binding.adminVideoPlayButton;

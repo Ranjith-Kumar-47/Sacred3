@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.playvideota.PanchangAbout;
+import com.example.playvideota.PanchangAboutGanesh;
 import com.example.playvideota.R;
 import com.example.playvideota.databinding.FragmentPanchangBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -182,7 +183,7 @@ public class PanchangFragment extends Fragment {
         cardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PanchangAbout.class);
+                Intent intent = new Intent(getContext(), PanchangAboutGanesh.class);
                 startActivity(intent);
             }
         });
