@@ -63,9 +63,9 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
             }
         });
 
-        if(youtuberModel.getLiveStatus().toLowerCase().equalsIgnoreCase("live")){
-            holder.liveIconImageView.setVisibility(View.VISIBLE);
-        }
+//        if(youtuberModel.getLiveStatus().toLowerCase().equalsIgnoreCase("live")){
+//            holder.liveIconImageView.setVisibility(View.VISIBLE);
+//        }
 
 
 

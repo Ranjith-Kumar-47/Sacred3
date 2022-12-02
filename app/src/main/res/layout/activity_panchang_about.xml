@@ -136,8 +136,8 @@
 
                         <ImageView
                             android:id="@+id/janImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -214,8 +214,8 @@
 
                         <ImageView
                             android:id="@+id/febcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -292,8 +292,8 @@
 
                         <ImageView
                             android:id="@+id/marcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -370,8 +370,8 @@
 
                         <ImageView
                             android:id="@+id/aprilcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -448,8 +448,8 @@
 
                         <ImageView
                             android:id="@+id/maycalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -526,8 +526,8 @@
 
                         <ImageView
                             android:id="@+id/junecalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -604,8 +604,8 @@
 
                         <ImageView
                             android:id="@+id/julycalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -682,8 +682,8 @@
 
                         <ImageView
                             android:id="@+id/augcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -760,8 +760,8 @@
 
                         <ImageView
                             android:id="@+id/sepcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -838,8 +838,8 @@
 
                         <ImageView
                             android:id="@+id/octcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -916,8 +916,8 @@
 
                         <ImageView
                             android:id="@+id/novcalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
@@ -994,8 +994,8 @@
 
                         <ImageView
                             android:id="@+id/deccalenderImageView"
-                            android:layout_width="250dp"
-                            android:layout_height="250dp"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"

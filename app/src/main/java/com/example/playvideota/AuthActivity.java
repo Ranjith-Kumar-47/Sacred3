@@ -86,29 +86,7 @@ public class AuthActivity extends AppCompatActivity {
         });
 
 
-        //Initialize OTPLess Instance
-        otpless = OtplessProvider.getInstance(this).init(this::onOtplessResult);
 
-
-
-        Button whatsappButton = (Button) findViewById(R.id.whatsappButton);
-        signInWithWhataApp();
-        whatsappButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(AuthActivity.this, "not working yet", Toast.LENGTH_SHORT).show();
-                signInWithWhataApp();
-
-                String url1 = whatsappUrl ;
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url1));
-                startActivity(i);
-
-                initiateOtplessFlow(whatsappUrl);
-
-            }
-        });
 
         phoneNumberButton = findViewById(R.id.phoneNumberButton);
 
@@ -162,34 +140,10 @@ public class AuthActivity extends AppCompatActivity {
     }
 
 
-    private void initiateOtplessFlow(String intentUri) {
-
-        //While you create a request with otpless sdk you can define your own loading text and color
-
-        System.out.println("initaite otp less flow ");
-        final OtplessIntentRequest request = new OtplessIntentRequest(intentUri)
-                .setLoadingText("Please wait...")
-                .setProgressBarColor(R.color.purple_200);
 
 
 
-        otpless.openOtpless(request);
 
-    }
-
-
-    //Call back function Where token is received
-    private void onOtplessResult(@NonNull OtplessTokenData response) {
-        if (response == null) {
-            return;
-        }
-        //Send this token to your backend end api to fetch user details from otpless service
-        token = response.getToken();
-
-        System.out.println("token : "+token);
-
-
-    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
