@@ -31,6 +31,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.ActivityMainBinding;
+import com.example.playvideota.fragment.GeetaSlokFragment;
 import com.example.playvideota.fragment.PanchangFragment;
 import com.example.playvideota.fragment.RashiphalFragment;
 import com.example.playvideota.fragment.TvFragment;
@@ -122,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
 //                        transaction.replace(R.id.fragmentContainer, new ProblemFragment());
                         break;
                     case 2:
-
                         ExecutorService service2 = Executors.newSingleThreadExecutor();
                         service2.execute(new Runnable() {
                             @Override
@@ -136,6 +136,23 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
 //                        transaction.replace(R.id.fragmentContainer, new ProfileFragment());
+                        break;
+
+
+                    case 3:
+//                        ExecutorService service3 = Executors.newSingleThreadExecutor();
+//                        service3.execute(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                try {
+//                                    transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//
+//                            }
+//                        });
+                        transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
                         break;
                 }
 

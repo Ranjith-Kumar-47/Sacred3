@@ -12,4 +12,9 @@
         drawable="@drawable/rashiphal_removebg_preview"
         text="@string/Rashiphal" />
 
+    <tab
+        drawable="@drawable/ic_geeta"
+        text="@string/geeta" />
+
+
 </tabs>

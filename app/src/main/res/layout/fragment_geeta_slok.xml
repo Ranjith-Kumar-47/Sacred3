@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.GeetaSlokFragment">
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/adhyay1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 1" />
+
+            <Button
+                android:id="@+id/adhyay2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 2" />
+
+            <Button
+                android:id="@+id/adhyay3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 3" />
+
+            <Button
+                android:id="@+id/adhyay4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 4" />
+
+            <Button
+                android:id="@+id/adhyay5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 5" />
+
+            <Button
+                android:id="@+id/adhyay6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 6" />
+
+            <Button
+                android:id="@+id/adhyay7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 7" />
+
+            <Button
+                android:id="@+id/adhyay8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 8" />
+
+            <Button
+                android:id="@+id/adhyay9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 9" />
+
+            <Button
+                android:id="@+id/adhyay10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 10" />
+
+            <Button
+                android:id="@+id/adhyay11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 11" />
+
+            <Button
+                android:id="@+id/adhyay12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 12" />
+
+            <Button
+                android:id="@+id/adhyay13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 13" />
+
+            <Button
+                android:id="@+id/adhyay14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 14" />
+
+            <Button
+                android:id="@+id/adhyay15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 15" />
+
+            <Button
+                android:id="@+id/adhyay16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 16" />
+
+            <Button
+                android:id="@+id/adhyay17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 17" />
+
+            <Button
+                android:id="@+id/adhyay18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="अध्याय – 18" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</FrameLayout>
