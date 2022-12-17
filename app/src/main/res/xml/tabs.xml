@@ -13,7 +13,7 @@
         text="@string/Rashiphal" />
 
     <tab
-        drawable="@drawable/ic_geeta"
+        drawable="@drawable/bhagavad_gita"
         text="@string/geeta" />
 
 
