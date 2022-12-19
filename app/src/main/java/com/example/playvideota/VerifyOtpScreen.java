@@ -22,7 +22,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 public class VerifyOtpScreen extends AppCompatActivity {
@@ -30,12 +32,15 @@ public class VerifyOtpScreen extends AppCompatActivity {
     EditText inputOption1,inputOption2,inputOption3,inputOption4,inputOption5,inputOption6;
 
     Button verifyButtonClick;
+    FirebaseDatabase database;
     String getOtpBacked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_otp_screen);
+
+        database = FirebaseDatabase.getInstance();
 
         inputOption1 = findViewById(R.id.inputOption1);
         inputOption2 = findViewById(R.id.inputOption2);
@@ -86,6 +91,12 @@ public class VerifyOtpScreen extends AppCompatActivity {
                                         verifyButtonClick.setVisibility(View.VISIBLE);
 
                                         if(task.isSuccessful()){
+//                                            getIntent().getStringExtra("mobile");
+
+                                            database.getReference().child("Users")
+                                                    .child(FirebaseAuth.getInstance().getUid())
+                                                    .setValue(getIntent().getStringExtra("mobile"));
+
                                             Intent intent = new Intent(VerifyOtpScreen.this, MainActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);

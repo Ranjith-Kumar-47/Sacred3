@@ -28,6 +28,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.otpless.main.Otpless;
 
 import com.otpless.main.OtplessIntentRequest;
@@ -49,6 +51,8 @@ public class AuthActivity extends AppCompatActivity {
     private Otpless otpless;
     String whatsappUrl ;
     Button phoneNumberButton;
+    FirebaseDatabase database;
+    FirebaseStorage storage;
     String token;
     private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
     private String secretKey = "nUKQZBGCIedyMZMBH35LPJe0ArlpljRPZIrqcGqEeX8CPMaugIVFhk3rt7xhyGN82";
@@ -63,6 +67,9 @@ public class AuthActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
+
+        storage = FirebaseStorage.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -167,6 +174,8 @@ public class AuthActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
+
+
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
             if (acct != null) {
@@ -177,6 +186,10 @@ public class AuthActivity extends AppCompatActivity {
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
                 Toast.makeText(this, "email : " + personEmail, Toast.LENGTH_SHORT).show();
+
+                database.getReference().child("Users")
+                        .child(personId)
+                        .setValue(personEmail);
                 Intent intent = new Intent(AuthActivity.this, MainActivity.class);
                 intent.putExtra("personName", acct.getDisplayName());
                 intent.putExtra("personPhoto", acct.getPhotoUrl());
