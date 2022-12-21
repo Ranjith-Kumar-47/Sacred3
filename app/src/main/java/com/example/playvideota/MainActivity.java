@@ -1,15 +1,19 @@
 package com.example.playvideota;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,6 +21,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,6 +33,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.playvideota.adapter.ViewPagerAdapter;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.ActivityMainBinding;
@@ -43,6 +49,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
@@ -77,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
     private final String CHANNEL_ID = "simple_notification";
     private final int NOTIFICATION_ID = 1;
 
+    ViewPager2 viewPager;
+    TabLayout tabLayout;
+    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
+
+    private int[] tabIcons = {
+            R.drawable.ic_apple_tv_svgrepo_com,
+            R.drawable.ic_calender_day_love_svgrepo_com,
+            R.drawable.rashiphal_removebg_preview,
+            R.drawable.gita_slok_icon
+    };
+    ViewPagerAdapter viewPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +115,24 @@ public class MainActivity extends AppCompatActivity {
 
         toolbarButtonFunction();
 
+        viewPager = binding.viewPager;
+        tabLayout = binding.tabLayout;
+        viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
+
+
+
+
+
+//        new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setText(titles[position]) )).attach();
+//        new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setIcon(R.drawable.gita_slok_icon) )).attach();
+       new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setIcon(tabIcons[position]) )).attach();
+
+
+        tabLayout.getTabAt(0).setText("दूरदर्शन").setIcon(R.drawable.ic_apple_tv_svgrepo_com).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
+        tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
+        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.rashiphal_removebg_preview);
+        tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
 
         // setting the root fragment for home page
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -181,8 +219,6 @@ public class MainActivity extends AppCompatActivity {
         logoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                createNotification();
-//                addNotification();
                 auth.signOut();
                 Intent intent = new Intent(MainActivity.this, AuthActivity.class);
                 startActivity(intent);
@@ -198,10 +234,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
-
-
 
 
 
@@ -302,135 +334,5 @@ public class MainActivity extends AppCompatActivity {
         customDialog.show();
     }
 
-    private void youtubeAccount() {
-        youtubeAcountList = new ArrayList<>();
 
-        youtubeAcountList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
-        youtubeAcountList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
-        youtubeAcountList.add("UCPITDRnLbTRyyEUVwZHbMww");
-        youtubeAcountList.add("UCSzOZ97LOpU-_AVlGfmD4rQ");
-        youtubeAcountList.add("UCHq7ZxlzRRXimaBmk5QAxSQ");
-        youtubeAcountList.add("UCUUIz69kK3Ib5bD4hWLKAwA");
-        youtubeAcountList.add("UC8Igqo3g1U40n66BLb-xHuQ");
-        youtubeAcountList.add("UCfwa_zKl8-zC9rQDWIEixgg");
-        youtubeAcountList.add("UCfwa_zKl8-zC9rQDWIEixgg");
-        youtubeAcountList.add("CT_QwW7Tbew5qrYNb2auqAQ");
-        youtubeAcountList.add("UC04m8d9t8UeWZ5DuvQVnqiw");
-        youtubeAcountList.add("UC6vQRTCxutg6fJLUGkDKynQ");
-        youtubeAcountList.add("UCOizxR3GwY7dmehMCAdvv9g");
-        youtubeAcountList.add("UCyIkg79GpPVF77qYKoAINtw");
-        youtubeAcountList.add("UCDqkux3AH7P9hRjmunoUeAQ");
-        youtubeAcountList.add("UC7ZivIYRB0fMSGh-THcTYbw");
-        youtubeAcountList.add("UCaayLD9i5x4MmIoVZxXSv_g");
-        youtubeAcountList.add("UCHKGDg0GJKBsA9mFraDOLHA");
-
-
-//        youtubeAcountList.add("AasthaChannel UCRUAdVm9ZOF4JheOd8qIQHA");
-//        youtubeAcountList.add("Aniruddhacharya ji UCDe0DwkMVFfSIoiYdQUPQmQ");
-//        youtubeAcountList.add("Satsang UCPITDRnLbTRyyEUVwZHbMww");
-//        youtubeAcountList.add("Bhakthi TV UCSzOZ97LOpU-_AVlGfmD4rQ");
-//        youtubeAcountList.add("Shri Devkinandan Thakur Ji UCHq7ZxlzRRXimaBmk5QAxSQ");
-//        youtubeAcountList.add("Pandit Pradeep Ji Mishra Sehore Wale UCUUIz69kK3Ib5bD4hWLKAwA");
-//        youtubeAcountList.add("Bhakti Sangeet HDN UC8Igqo3g1U40n66BLb-xHuQ");
-//        youtubeAcountList.add("JayaKishori Motivation UCfwa_zKl8-zC9rQDWIEixgg");
-//        youtubeAcountList.add("Iamjayakishori UCfwa_zKl8-zC9rQDWIEixgg");
-//        youtubeAcountList.add("SanskarTV CT_QwW7Tbew5qrYNb2auqAQ");
-//        youtubeAcountList.add("SADHNA GOLD UC04m8d9t8UeWZ5DuvQVnqiw");
-//        youtubeAcountList.add("Saregama Bhakti UC6vQRTCxutg6fJLUGkDKynQ");
-//        youtubeAcountList.add("Gauri Gopal Tv UCOizxR3GwY7dmehMCAdvv9g");
-//        youtubeAcountList.add("Swami Raghvacharya UCyIkg79GpPVF77qYKoAINtw");
-//        youtubeAcountList.add("BhaktiSagar Tv UCDqkux3AH7P9hRjmunoUeAQ");
-//        youtubeAcountList.add("Shemaroo Bhakti UC7ZivIYRB0fMSGh-THcTYbw");
-//        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
-//        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
-
-    }
-
-    private void loadYoutubeAccount() {
-        for (int j = 0; j < youtubeAcountList.size(); j++) {
-            String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        JSONArray jsonArray = response.getJSONArray("items");
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                            jsonObject.getString("id");
-                            System.out.println("ID : " + jsonObject.getString("id"));
-
-                            JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
-                            snippetJsonObject.getString("title");
-
-                            System.out.println("TITLE : " + snippetJsonObject.getString("title"));
-
-                            JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
-                            JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
-
-                            mediumJsonObject.getString("url");
-                            System.out.println("URL : " + mediumJsonObject.getString("url"));
-
-                            // getting channel branding image
-                            JSONObject channelBrandingJsonObject = jsonObject.getJSONObject("brandingSettings");
-                            JSONObject bannerImageJsonObject = channelBrandingJsonObject.getJSONObject("image");
-                            bannerImageJsonObject.getString("bannerExternalUrl");
-
-
-                            YoutuberModel youtuberModel = new YoutuberModel(
-                                    mediumJsonObject.getString("url"),
-                                    snippetJsonObject.getString("title"),
-                                    jsonObject.getString("id"),
-                                    bannerImageJsonObject.getString("bannerExternalUrl")
-
-                            );
-                            list.add(youtuberModel);
-                        }
-                        YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getApplicationContext(), list);
-                        youtuberRV.setAdapter(youtubeAccountAdapter);
-
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // TODO: Handle error
-
-                }
-            });
-
-            MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
-        }
-
-        YoutuberAdapter youtubeAccountAdapter1 = new YoutuberAdapter(getApplicationContext(), list);
-        youtuberRV.setAdapter(youtubeAccountAdapter1);
-
-
-    }
-
-
-
-    private void settingAdapter() {
-        youtuberRV = findViewById(R.id.youtuberRV);
-        youtuberRV.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        gridLayoutManager.setOrientation(youtuberRV.VERTICAL);
-        youtuberRV.setLayoutManager(gridLayoutManager);
-
-        youtuberAdapter = new YoutuberAdapter(this, list);
-        youtuberRV.setAdapter(youtuberAdapter);
-
-    }
-
-
-    private void gridListData() {
-        list = new ArrayList<>();
-    }
 }

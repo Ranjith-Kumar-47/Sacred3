@@ -58,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/sign_in_button"
         android:layout_width="0dp"
         android:layout_height="60dp"
