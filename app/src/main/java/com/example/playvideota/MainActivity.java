@@ -43,6 +43,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 import com.squareup.picasso.Picasso;
 
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     ActivityMainBinding binding;
+    FirebaseDatabase database;
+    FirebaseAuth auth;
+    ImageView adminButton;
+
 
     RecyclerView youtuberRV;
     ArrayList<YoutuberModel> list;
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> youtubeAcountList;
     String personName = "";
     String personPhoto = "";
+    private String   adminEmail = "KK5n3nfT3ihnQxg7W4YgKdhJAsg2";
 
     private final String CHANNEL_ID = "simple_notification";
     private final int NOTIFICATION_ID = 1;
@@ -76,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
+
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        adminButton = binding.adminButton;
+
+//        System.out.println("admin Email " +auth.getCurrentUser().getEmail());
+
+
+
+
         toolbarButtonFunction();
 
 
@@ -164,10 +181,21 @@ public class MainActivity extends AppCompatActivity {
         logoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNotification();
-                addNotification();
+//                createNotification();
+//                addNotification();
+                auth.signOut();
+                Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+                startActivity(intent);
             }
         });
+
+
+        if(auth.getCurrentUser() != null){
+            if(adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())){
+                adminButton.setVisibility(View.VISIBLE);
+            }
+            System.out.println("admin Email " +auth.getCurrentUser().getEmail());
+        }
 
     }
 

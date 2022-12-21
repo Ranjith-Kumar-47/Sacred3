@@ -97,6 +97,8 @@ public class VerifyOtpScreen extends AppCompatActivity {
                                                     .child(FirebaseAuth.getInstance().getUid())
                                                     .setValue(getIntent().getStringExtra("mobile"));
 
+                                            String id = task.getResult().getUser().getUid();
+
                                             Intent intent = new Intent(VerifyOtpScreen.this, MainActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);

@@ -21,6 +21,7 @@ public class SplashScreen extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseAuth auth;
     FirebaseStorage storage;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class SplashScreen extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
-        storage = FirebaseStorage.getInstance();
+        currentUser = auth.getCurrentUser();
+
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         service.execute(new Runnable() {
@@ -41,20 +43,24 @@ public class SplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 }finally {
 
-                    FirebaseUser currentUser = auth.getCurrentUser();
-                    if(currentUser != null){
-                        Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                        startActivity(intent);
-                    }else {
-                        Intent intent = new Intent(SplashScreen.this, AuthActivity.class);
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(SplashScreen.this, AuthActivity.class);
+                    startActivity(intent);
                 }
             }
         });
 
 
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if(currentUser != null){
+//            Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+//            startActivity(intent);
+//        }
+//
+//    }
 
     @Override
     public void onBackPressed() {

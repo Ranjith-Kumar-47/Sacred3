@@ -2,6 +2,7 @@ package com.example.playvideota.fragment;
 
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -92,6 +93,7 @@ public class GeetaSlokFragment extends Fragment {
         geetaRv = binding.geetaRV;
         onClickHandler();
 
+        lookSelected(adhyay1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         geetaRv.setLayoutManager(linearLayoutManager);
         GeetaAdapter geetaAdapter = new GeetaAdapter(getContext(),list1);
@@ -104,6 +106,26 @@ public class GeetaSlokFragment extends Fragment {
         adhyay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay1);
+//                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
+
                 Toast.makeText(getContext(), "chapter 1", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -115,6 +137,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay2);
+                lookUnSelected(adhyay1);
+//                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 2", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -126,6 +167,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay3);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+//                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 3", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -137,6 +197,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay4);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+//                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 4", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -148,6 +227,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay5);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+//                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 5", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -159,6 +257,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay6);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+//                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 6", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -170,6 +287,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay7);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+//                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 7", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -181,6 +317,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay8);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+//                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 8", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -192,6 +347,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay9);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+//                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 9", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -203,6 +377,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay10);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+//                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 10", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -214,6 +407,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay11);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+//                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 11", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -225,6 +437,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay12);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+//                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 12", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -236,6 +467,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay13);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+//                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 13", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -247,6 +497,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay14);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+//                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 14", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -258,6 +527,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay15);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+//                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 15", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -269,6 +557,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay16);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+//                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 16", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -280,6 +587,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay17);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+//                lookUnSelected(adhyay17);
+                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 17", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -291,6 +617,25 @@ public class GeetaSlokFragment extends Fragment {
         adhyay18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(adhyay18);
+                lookUnSelected(adhyay1);
+                lookUnSelected(adhyay2);
+                lookUnSelected(adhyay3);
+                lookUnSelected(adhyay4);
+                lookUnSelected(adhyay5);
+                lookUnSelected(adhyay6);
+                lookUnSelected(adhyay7);
+                lookUnSelected(adhyay8);
+                lookUnSelected(adhyay9);
+                lookUnSelected(adhyay10);
+                lookUnSelected(adhyay11);
+                lookUnSelected(adhyay12);
+                lookUnSelected(adhyay13);
+                lookUnSelected(adhyay14);
+                lookUnSelected(adhyay15);
+                lookUnSelected(adhyay16);
+                lookUnSelected(adhyay17);
+//                lookUnSelected(adhyay18);
                 Toast.makeText(getContext(), "chapter 18", Toast.LENGTH_SHORT).show();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
                 geetaRv.setLayoutManager(linearLayoutManager);
@@ -407,6 +752,18 @@ public class GeetaSlokFragment extends Fragment {
                 "धार्तराष्ट्रा रणे हन्युस्तन्मे क्षेमतरं भवेत् || 46||","काश! यह कितनी अजीब बात है कि हमने भयानक परिणामों के साथ इस महान पाप को करने के लिए अपना मन बना लिया है। राज-सुख की लालसा से प्रेरित होकर हम अपने स्वजनों का वध करने पर आमादा हैं। यदि धृतराष्ट्र के पुत्र हाथ में शस्त्र लेकर युद्ध के मैदान में निहत्थे और निरंकुश मुझे मार दें तो अच्छा होगा।"));
         list1.add(new GeetaModel("Adhya 1","Geeta Slok 47","एवमुक्त्वार्जुन: सङ्ख्ये रथोपस्थ उपाविशत् |\n" +
                 "विसृज्य सशरं चापं शोकसंविग्नमानस: || 47||","संजय ने कहा: इस प्रकार कहकर, अर्जुन ने अपना धनुष और बाण एक तरफ रख दिया, और अपने रथ के आसन में बैठ गया, उसका मन व्याकुल और शोक से व्याकुल हो गया।"));
+
+    }
+
+    private void lookSelected(Button parsedButton) {
+//        parsedButton.setTextColor(red);
+        parsedButton.setBackgroundResource(R.drawable.no_button_bg);
+
+    }
+
+    private void lookUnSelected(Button parsedButton) {
+//        parsedButton.setTextColor(white);
+        parsedButton.setBackgroundResource(R.drawable.mobile_number_background);
 
     }
 
