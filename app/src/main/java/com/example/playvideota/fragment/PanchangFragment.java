@@ -32,7 +32,14 @@ public class PanchangFragment extends Fragment {
     ImageView pachangDailyImageView;
     TextView panchangDailyTitleTextView,panchangDailyTitleDescriptionTextView,panchangDailyFestivalTextView;
 
+
     FirebaseDatabase database;
+
+    TextView sasSubhMahuratTimeTv,sasGulikKalTimeTv,sasRahuKalTimeTv,sasyumghanatKalTimeTv;
+    TextView ssSuryodayTimeTv,ssSuryaasthTimeTv,ssChandrodayTimeTv,ssChandroasthTimeTv;
+    TextView thethiDetails,spMuleTv,spGandTv,spNagTv,spMuleTimeTv,spGandTimeTv,spNagTimeTv;
+    TextView fbMahinaAmanatTv,fbfbMahinaAmanatData,fbMahinaPurnimatTv,fbfbMahinaPurnimatData,fbVikramSawanthTv,fbVikramSawanthData,fbSakSawanthTv,fbSakSawanthData;
+    TextView sixBoxSuryaRashiTv,sixBoxSuryaRashiData,sixBoxChandRashiTv,sixBoxChandRashiData,sixBoxDisshasulTv,sixBoxDisshasulData,sixBoxChandraNiwasTv,sixBoxChandraNiwasData,sixBoxRetuTv,sixBoxsixBoxRetuData,sixBoxAyanTv,sixBoxAyanData;
 
     public PanchangFragment() {
         // Required empty public constructor
@@ -64,113 +71,116 @@ public class PanchangFragment extends Fragment {
 //
 //        todayDateTextview.setText(" "+startDate+" "+endDate+" " );
 
-
-//        pachangDailyImageView = binding.pachangDailyImageView;
-//        panchangDailyTitleTextView = binding.panchangDailyTitleTextView;
-//        panchangDailyTitleDescriptionTextView = binding.panchangDailyTitleDescriptionTextView;
-//        panchangDailyFestivalTextView = binding.panchangDailyFestivalTextView;
-
-//        database.getReference().child("Panchang")
-//                .child("daily_panchang")
-//                .child("daily_panchang_image")
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.exists()){
-//                            System.out.println("Value : "+snapshot.getValue());
-////                            pachangDailyImageView.setImageURI(Uri.parse(snapshot.getValue().toString()));
-//                            Picasso.with(getContext()).load(snapshot.getValue().toString()).placeholder(R.drawable.ic_profile_svgrepo_com).into(binding.pachangDailyImageView);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+        initingTextView();
+        addingDataToTextView();
 
 
-//        database.getReference().child("Panchang")
-//                .child("daily_panchang").addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.exists()){
-//
-//                            System.out.println("value ta : "+snapshot.getValue());
-//                            System.out.println("key ta : "+snapshot.getKey());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+        pachangDailyImageView = binding.pachangDailyImageView;
+        panchangDailyTitleTextView = binding.panchangDailyTitleTextView;
+        panchangDailyTitleDescriptionTextView = binding.panchangDailyTitleDescriptionTextView;
+        panchangDailyFestivalTextView = binding.panchangDailyFestivalTextView;
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("daily_panchang_image")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("Value : "+snapshot.getValue());
+//                            pachangDailyImageView.setImageURI(Uri.parse(snapshot.getValue().toString()));
+                            Picasso.with(getContext()).load(snapshot.getValue().toString()).placeholder(R.drawable.ic_profile_svgrepo_com).into(binding.pachangDailyImageView);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+
+                            System.out.println("value ta : "+snapshot.getValue());
+                            System.out.println("key ta : "+snapshot.getKey());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
 
-//
-//        database.getReference().child("Panchang")
-//                .child("daily_panchang")
-//                .child("panchang_description")
-//                        .addListenerForSingleValueEvent(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                if(snapshot.exists()){
-//                                    System.out.println("Value : "+snapshot.getValue());
-//                                    panchangDailyTitleDescriptionTextView.setText(snapshot.getValue().toString());
-//
-//                                }
-//
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                            }
-//                        });
 
-//        database.getReference().child("Panchang")
-//                .child("daily_panchang")
-//                .child("panchang_festival").addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.exists()){
-//                            System.out.println("Value : "+snapshot.getValue());
-//                            panchangDailyFestivalTextView.setText(snapshot.getValue().toString());
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("panchang_description")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    System.out.println("Value : "+snapshot.getValue());
+                                    panchangDailyTitleDescriptionTextView.setText(snapshot.getValue().toString());
 
-//        database.getReference().child("Panchang")
-//                .child("daily_panchang")
-//                .child("panchang_title").addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.exists()){
-//                            System.out.println("Value : "+snapshot.getValue());
-//                            panchangDailyTitleTextView.setText(snapshot.getValue().toString());
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//
-//
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("panchang_festival").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("Value : "+snapshot.getValue());
+                            panchangDailyFestivalTextView.setText(snapshot.getValue().toString());
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("panchang_title").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("Value : "+snapshot.getValue());
+                            panchangDailyTitleTextView.setText(snapshot.getValue().toString());
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
         CardView cardView2 = binding.cardView2;
         CardView cardView3 = binding.cardView3;
-        CardView cardView4 = binding.cardView4;
+//        CardView cardView4 = binding.cardView4;
 
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,16 +198,63 @@ public class PanchangFragment extends Fragment {
             }
         });
 
-        cardView4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PanchangAbout.class);
-                startActivity(intent);
-            }
-        });
+//        cardView4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), PanchangAbout.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
         return  binding.getRoot();
+    }
+
+    private void addingDataToTextView() {
+    }
+
+    private void initingTextView() {
+        sasSubhMahuratTimeTv = binding.sasSubhMahuratTimeTv;
+        sasGulikKalTimeTv = binding.sasGulikKalTimeTv;
+        sasRahuKalTimeTv = binding.sasRahuKalTimeTv;
+        sasyumghanatKalTimeTv = binding.sasyumghanatKalTimeTv;
+
+        ssSuryodayTimeTv = binding.ssSuryodayTimeTv;
+        ssSuryaasthTimeTv = binding.ssSuryaasthTimeTv;
+        ssChandrodayTimeTv = binding.ssChandrodayTimeTv;
+        ssChandroasthTimeTv = binding.ssChandroasthTimeTv;
+
+        thethiDetails = binding.thethiDetails;
+        spMuleTv = binding.spMuleTv;
+        spGandTv = binding.spGandTv;
+        spNagTv = binding.spNagTv;
+        spMuleTimeTv = binding.spMuleTimeTv;
+        spGandTimeTv = binding.spGandTimeTv;
+        spNagTimeTv = binding.spNagTimeTv;
+
+        fbMahinaAmanatTv = binding.fbMahinaAmanatTv;
+        fbfbMahinaAmanatData = binding.fbfbMahinaAmanatData;
+        fbMahinaPurnimatTv = binding.fbMahinaPurnimatTv;
+        fbfbMahinaPurnimatData = binding.fbfbMahinaPurnimatData;
+        fbVikramSawanthTv = binding.fbVikramSawanthTv;
+        fbVikramSawanthData = binding.fbVikramSawanthData;
+        fbSakSawanthTv = binding.fbSakSawanthTv;
+        fbSakSawanthData = binding.fbSakSawanthData;
+
+        sixBoxSuryaRashiTv = binding.sixBoxSuryaRashiTv;
+        sixBoxSuryaRashiData = binding.sixBoxSuryaRashiData;
+        sixBoxChandRashiTv = binding.sixBoxChandRashiTv;
+        sixBoxChandRashiData = binding.sixBoxChandRashiData;
+        sixBoxDisshasulTv = binding.sixBoxDisshasulTv;
+        sixBoxDisshasulData = binding.sixBoxDisshasulData;
+        sixBoxChandraNiwasTv = binding.sixBoxChandraNiwasTv;
+        sixBoxChandraNiwasData = binding.sixBoxChandraNiwasData;
+        sixBoxRetuTv = binding.sixBoxRetuTv;
+        sixBoxsixBoxRetuData = binding.sixBoxsixBoxRetuData;
+        sixBoxAyanTv = binding.sixBoxAyanTv;
+        sixBoxAyanData = binding.sixBoxAyanData;
+
+
     }
 }
