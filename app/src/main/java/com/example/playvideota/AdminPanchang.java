@@ -126,11 +126,15 @@ public class AdminPanchang extends AppCompatActivity {
 //                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
 //                    .child("UCDe0DwkMVFfSIoiYdQUPQmQbanner");
 
+//            final StorageReference reference = storage.getReference()
+//                    .child("channel")
+//                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                    .child("videos")
+//                    .child("UAeujvJqzgg");
+
             final StorageReference reference = storage.getReference()
-                    .child("channel")
-                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                    .child("videos")
-                    .child("UAeujvJqzgg");
+                    .child("thakurpanchang")
+                    .child("dec");
 
             reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -150,16 +154,16 @@ public class AdminPanchang extends AppCompatActivity {
 //                                    .child("channelProfile")
 //                                    .setValue(uri.toString());
 //
-                            database.getReference().child("channels")
-                                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                                    .child("videos")
-                                    .child("UAeujvJqzgg")
-                                    .setValue(uri.toString());
+//                            database.getReference().child("channels")
+//                                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                                    .child("videos")
+//                                    .child("UAeujvJqzgg")
+//                                    .setValue(uri.toString());
 
 //                            database.getReference()
 //                                    .child("Panchang")
 //                                    .child("ThakurPanchang")
-//                                    .child("feb")
+//                                    .child("dec")
 //                                    .setValue(uri.toString());
 
                         }
