@@ -50,44 +50,44 @@ public class AdminPanchang extends AppCompatActivity {
             }
         });
 
-        submitPanchangButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String panchangTitle = panchangDailyTitleTextView.getText().toString();
-                String panchangDescription = panchangDailyTitleDescriptionTextView.getText().toString();
-                String panchangFestival = panchangDailyFestivalTextView.getText().toString();
-
-                submitPanchangButton.setVisibility(View.GONE);
-
-                if (panchangTitle.equalsIgnoreCase(null) || panchangDescription.equalsIgnoreCase("") || panchangFestival.equalsIgnoreCase("")) {
-                    Toast.makeText(AdminPanchang.this, "All Field is Mandatory", Toast.LENGTH_SHORT).show();
-                    submitPanchangButton.setVisibility(View.VISIBLE);
-                } else {
-                    database.getReference().child("Panchang")
-                            .child("daily_panchang")
-                            .child("panchang_title")
-                            .setValue(panchangTitle);
-
-                    database.getReference().child("Panchang")
-                            .child("daily_panchang")
-                            .child("panchang_description")
-                            .setValue(panchangDescription);
-
-                    database.getReference().child("Panchang")
-                            .child("daily_panchang")
-                            .child("panchang_festival")
-                            .setValue(panchangFestival).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Toast.makeText(AdminPanchang.this, "Added Successfully", Toast.LENGTH_SHORT).show();
-                                    submitPanchangButton.setVisibility(View.VISIBLE);
-                                }
-                            });
-
-                }
-
-            }
-        });
+//        submitPanchangButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String panchangTitle = panchangDailyTitleTextView.getText().toString();
+//                String panchangDescription = panchangDailyTitleDescriptionTextView.getText().toString();
+//                String panchangFestival = panchangDailyFestivalTextView.getText().toString();
+//
+//                submitPanchangButton.setVisibility(View.GONE);
+//
+//                if (panchangTitle.equalsIgnoreCase(null) || panchangDescription.equalsIgnoreCase("") || panchangFestival.equalsIgnoreCase("")) {
+//                    Toast.makeText(AdminPanchang.this, "All Field is Mandatory", Toast.LENGTH_SHORT).show();
+//                    submitPanchangButton.setVisibility(View.VISIBLE);
+//                } else {
+//                    database.getReference().child("Panchang")
+//                            .child("daily_panchang")
+//                            .child("panchang_title")
+//                            .setValue(panchangTitle);
+//
+//                    database.getReference().child("Panchang")
+//                            .child("daily_panchang")
+//                            .child("panchang_description")
+//                            .setValue(panchangDescription);
+//
+//                    database.getReference().child("Panchang")
+//                            .child("daily_panchang")
+//                            .child("panchang_festival")
+//                            .setValue(panchangFestival).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                @Override
+//                                public void onSuccess(Void unused) {
+//                                    Toast.makeText(AdminPanchang.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+//                                    submitPanchangButton.setVisibility(View.VISIBLE);
+//                                }
+//                            });
+//
+//                }
+//
+//            }
+//        });
     }
 
     @Override
@@ -98,10 +98,39 @@ public class AdminPanchang extends AppCompatActivity {
             pachangDailyImageView.setImageURI(uri);
 
 
+//            final StorageReference reference = storage.getReference()
+//                    .child("panchang")
+//                    .child("daily_panchang")
+//                    .child("daily_panchang_image");
+
+//            channelIdList.add("UC04m8d9t8UeWZ5DuvQVnqiw");
+//            channelIdList.add("UC6vQRTCxutg6fJLUGkDKynQ");
+//            channelIdList.add("UC7ZivIYRB0fMSGh-THcTYbw");
+//
+//            channelIdList.add("UC8Igqo3g1U40n66BLb-xHuQ");
+//            channelIdList.add("UCHq7ZxlzRRXimaBmk5QAxSQ");
+//            channelIdList.add("UCOizxR3GwY7dmehMCAdvv9g");
+//            channelIdList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
+//
+//            channelIdList.add("UCSzOZ97LOpU-_AVlGfmD4rQ");
+//            channelIdList.add("UCUUIz69kK3Ib5bD4hWLKAwA");
+//            channelIdList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
+//            channelIdList.add("UCfwa_zKl8-zC9rQDWIEixgg");
+//            channelIdList.add("UCyIkg79GpPVF77qYKoAINtw");
+
+//            UCHq7ZxlzRRXimaBmk5QAxSQ
+//            UCDe0DwkMVFfSIoiYdQUPQmQ
+
+//            final StorageReference reference = storage.getReference()
+//                    .child("channel")
+//                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                    .child("UCDe0DwkMVFfSIoiYdQUPQmQbanner");
+
             final StorageReference reference = storage.getReference()
-                    .child("panchang")
-                    .child("daily_panchang")
-                    .child("daily_panchang_image");
+                    .child("channel")
+                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+                    .child("videos")
+                    .child("UAeujvJqzgg");
 
             reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -117,20 +146,21 @@ public class AdminPanchang extends AppCompatActivity {
 //                                    .setValue(uri.toString());
 
 //                            database.getReference().child("channels")
-//                                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                                    .child("UCHq7ZxlzRRXimaBmk5QAxSQ")
 //                                    .child("channelProfile")
 //                                    .setValue(uri.toString());
 //
-//                            database.getReference().child("channels")
-//                                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
-//                                    .child("channelBanner")
-//                                    .setValue(uri.toString());
-
-                            database.getReference()
-                                    .child("Panchang")
-                                    .child("ThakurPanchang")
-                                    .child("feb")
+                            database.getReference().child("channels")
+                                    .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+                                    .child("videos")
+                                    .child("UAeujvJqzgg")
                                     .setValue(uri.toString());
+
+//                            database.getReference()
+//                                    .child("Panchang")
+//                                    .child("ThakurPanchang")
+//                                    .child("feb")
+//                                    .setValue(uri.toString());
 
                         }
                     });
@@ -139,11 +169,6 @@ public class AdminPanchang extends AppCompatActivity {
                     Toast.makeText(AdminPanchang.this, "Daily panchang Image Updated", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
-
-
-
 
 
 //            database.getReference().child("channels")

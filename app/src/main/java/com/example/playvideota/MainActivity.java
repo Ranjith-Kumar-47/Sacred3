@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] tabIcons = {
             R.drawable.ic_apple_tv_svgrepo_com,
             R.drawable.ic_calender_day_love_svgrepo_com,
-            R.drawable.rashiphal_removebg_preview,
+            R.drawable.astrology,
             R.drawable.gita_slok_icon
     };
     ViewPagerAdapter viewPagerAdapter;
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("दूरदर्शन").setIcon(R.drawable.ic_apple_tv_svgrepo_com).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
-        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.rashiphal_removebg_preview);
+        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.astrology);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
 
 //        // setting the root fragment for home page

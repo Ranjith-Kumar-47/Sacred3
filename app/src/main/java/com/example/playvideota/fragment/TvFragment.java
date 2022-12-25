@@ -515,83 +515,83 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 //        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
 //        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
 
-
-        database.getReference().child("channels")
-                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
-                .child("channelName")
-                .setValue("AasthaChannel");
-
-
-
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("channelName")
-                .setValue("Aniruddhacharya ji");
-
-        database.getReference().child("channels")
-                .child("UCSzOZ97LOpU-_AVlGfmD4rQ")
-                .child("channelName")
-                .setValue("Satsang");
-
-        database.getReference().child("channels")
-                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
-                .child("channelName")
-                .setValue("Bhakthi TV");
-
-        database.getReference().child("channels")
-                .child("UCHq7ZxlzRRXimaBmk5QAxSQ")
-                .child("channelName")
-                .setValue("Shri Devkinandan Thakur Ji ");
-
-        database.getReference().child("channels")
-                .child("UCUUIz69kK3Ib5bD4hWLKAwA")
-                .child("channelName")
-                .setValue("Pandit Pradeep Ji Mishra Sehore Wale");
-
-        database.getReference().child("channels")
-                .child("UC8Igqo3g1U40n66BLb-xHuQ")
-                .child("channelName")
-                .setValue("Bhakti Sangeet HDN");
-
-        database.getReference().child("channels")
-                .child("UCfwa_zKl8-zC9rQDWIEixgg")
-                .child("channelName")
-                .setValue("JayaKishori Motivation");
-
-        database.getReference().child("channels")
-                .child("CT_QwW7Tbew5qrYNb2auqAQ")
-                .child("channelName")
-                .setValue("SanskarTV");
-
-        database.getReference().child("channels")
-                .child("UC04m8d9t8UeWZ5DuvQVnqiw")
-                .child("channelName")
-                .setValue("SADHNA GOLD");
-
-        database.getReference().child("channels")
-                .child("UC6vQRTCxutg6fJLUGkDKynQ")
-                .child("channelName")
-                .setValue("Saregama Bhakti");
-
-        database.getReference().child("channels")
-                .child("UCOizxR3GwY7dmehMCAdvv9g")
-                .child("channelName")
-                .setValue("Gauri Gopal Tv");
-
-        database.getReference().child("channels")
-                .child("UCyIkg79GpPVF77qYKoAINtw")
-                .child("channelName")
-                .setValue("Swami Raghvacharya");
-
-        database.getReference().child("channels")
-                .child("UCDqkux3AH7P9hRjmunoUeAQ")
-                .child("channelName")
-                .setValue("BhaktiSagar Tv");
-
-        database.getReference().child("channels")
-                .child("UC7ZivIYRB0fMSGh-THcTYbw")
-                .child("channelName")
-                .setValue("Shemaroo Bhakti");
+//
+//        database.getReference().child("channels")
+//                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+//                .child("channelName")
+//                .setValue("AasthaChannel");
+//
+//
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("channelName")
+//                .setValue("Aniruddhacharya ji");
+//
+//        database.getReference().child("channels")
+//                .child("UCSzOZ97LOpU-_AVlGfmD4rQ")
+//                .child("channelName")
+//                .setValue("Satsang");
+//
+//        database.getReference().child("channels")
+//                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+//                .child("channelName")
+//                .setValue("Bhakthi TV");
+//
+//        database.getReference().child("channels")
+//                .child("UCHq7ZxlzRRXimaBmk5QAxSQ")
+//                .child("channelName")
+//                .setValue("Shri Devkinandan Thakur Ji ");
+//
+//        database.getReference().child("channels")
+//                .child("UCUUIz69kK3Ib5bD4hWLKAwA")
+//                .child("channelName")
+//                .setValue("Pandit Pradeep Ji Mishra Sehore Wale");
+//
+//        database.getReference().child("channels")
+//                .child("UC8Igqo3g1U40n66BLb-xHuQ")
+//                .child("channelName")
+//                .setValue("Bhakti Sangeet HDN");
+//
+//        database.getReference().child("channels")
+//                .child("UCfwa_zKl8-zC9rQDWIEixgg")
+//                .child("channelName")
+//                .setValue("JayaKishori Motivation");
+//
+//        database.getReference().child("channels")
+//                .child("CT_QwW7Tbew5qrYNb2auqAQ")
+//                .child("channelName")
+//                .setValue("SanskarTV");
+//
+//        database.getReference().child("channels")
+//                .child("UC04m8d9t8UeWZ5DuvQVnqiw")
+//                .child("channelName")
+//                .setValue("SADHNA GOLD");
+//
+//        database.getReference().child("channels")
+//                .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                .child("channelName")
+//                .setValue("Saregama Bhakti");
+//
+//        database.getReference().child("channels")
+//                .child("UCOizxR3GwY7dmehMCAdvv9g")
+//                .child("channelName")
+//                .setValue("Gauri Gopal Tv");
+//
+//        database.getReference().child("channels")
+//                .child("UCyIkg79GpPVF77qYKoAINtw")
+//                .child("channelName")
+//                .setValue("Swami Raghvacharya");
+//
+//        database.getReference().child("channels")
+//                .child("UCDqkux3AH7P9hRjmunoUeAQ")
+//                .child("channelName")
+//                .setValue("BhaktiSagar Tv");
+//
+//        database.getReference().child("channels")
+//                .child("UC7ZivIYRB0fMSGh-THcTYbw")
+//                .child("channelName")
+//                .setValue("Shemaroo Bhakti");
 
 
     }

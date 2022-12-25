@@ -75,25 +75,7 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.youtuberImage);
 
-        database.getReference().child("channels")
-                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
-                .child("channelProfile")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            Picasso.with(context)
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(holder.youtuberImage);
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
 
 
         holder.youtuberImage.setOnClickListener(new View.OnClickListener() {

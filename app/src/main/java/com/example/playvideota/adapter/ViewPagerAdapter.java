@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.playvideota.fragment.GeetaSlokFragment;
+import com.example.playvideota.fragment.MannTvFragment;
 import com.example.playvideota.fragment.PanchangFragment;
 import com.example.playvideota.fragment.RashiphalFragment;
 import com.example.playvideota.fragment.TvFragment;
@@ -26,7 +27,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 0:
-                return new TvFragment();
+                return new MannTvFragment();
             case 1:
                 return new PanchangFragment();
             case 2:
