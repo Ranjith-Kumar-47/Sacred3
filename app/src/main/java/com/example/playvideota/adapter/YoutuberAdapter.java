@@ -17,7 +17,13 @@ import com.example.playvideota.MainActivity;
 import com.example.playvideota.R;
 import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.model.YoutuberModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 
@@ -25,7 +31,8 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
 
     Context context;
     ArrayList<YoutuberModel> list;
-
+    FirebaseDatabase database;
+    ArrayList<String> channelIdList = new ArrayList<>();
     public YoutuberAdapter(Context context, ArrayList<YoutuberModel> list) {
         this.context = context;
         this.list = list;
@@ -34,7 +41,25 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        database = FirebaseDatabase.getInstance();
         View view = LayoutInflater.from(context).inflate(R.layout.story_design_youtuber,parent,false);
+
+
+        channelIdList.add("UC04m8d9t8UeWZ5DuvQVnqiw");
+        channelIdList.add("UC6vQRTCxutg6fJLUGkDKynQ");
+        channelIdList.add("UC7ZivIYRB0fMSGh-THcTYbw");
+
+        channelIdList.add("UC8Igqo3g1U40n66BLb-xHuQ");
+        channelIdList.add("UCHq7ZxlzRRXimaBmk5QAxSQ");
+        channelIdList.add("UCOizxR3GwY7dmehMCAdvv9g");
+        channelIdList.add("UCRUAdVm9ZOF4JheOd8qIQHA");
+
+        channelIdList.add("UCSzOZ97LOpU-_AVlGfmD4rQ");
+        channelIdList.add("UCUUIz69kK3Ib5bD4hWLKAwA");
+        channelIdList.add("UCDe0DwkMVFfSIoiYdQUPQmQ");
+        channelIdList.add("UCfwa_zKl8-zC9rQDWIEixgg");
+        channelIdList.add("UCyIkg79GpPVF77qYKoAINtw");
+
         return new viewHolder(view);
     }
 
@@ -49,6 +74,26 @@ public class YoutuberAdapter extends RecyclerView.Adapter<YoutuberAdapter.viewHo
                 .load(youtuberModel.getYoutuberImage())
                 .placeholder(R.drawable.ic_profile_svgrepo_com)
                 .into(holder.youtuberImage);
+
+        database.getReference().child("channels")
+                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+                .child("channelProfile")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            Picasso.with(context)
+                                    .load(snapshot.getValue().toString())
+                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+                                    .into(holder.youtuberImage);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
         holder.youtuberImage.setOnClickListener(new View.OnClickListener() {

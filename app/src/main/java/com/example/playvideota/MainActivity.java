@@ -134,97 +134,88 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.rashiphal_removebg_preview);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
 
-        // setting the root fragment for home page
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentContainer, new TvFragment());
-        transaction.commit();
-
-
-        binding.bottomNavigation.setOnItemSelectListener(new ReadableBottomBar.ItemSelectListener() {
-            @Override
-            public void onItemSelected(int i) {
-
-                // this is used to change one fragment to another.
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-                switch (i) {
-                    case 0:
-                        ExecutorService service = Executors.newSingleThreadExecutor();
-                        service.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new TvFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ContestFragment());
-                        break;
-                    case 1:
-                        ExecutorService service1 = Executors.newSingleThreadExecutor();
-                        service1.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new PanchangFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ProblemFragment());
-                        break;
-                    case 2:
-                        ExecutorService service2 = Executors.newSingleThreadExecutor();
-                        service2.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    transaction.replace(R.id.fragmentContainer, new RashiphalFragment());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-//                        transaction.replace(R.id.fragmentContainer, new ProfileFragment());
-                        break;
-
-
-                    case 3:
-//                        ExecutorService service3 = Executors.newSingleThreadExecutor();
-//                        service3.execute(new Runnable() {
+//        // setting the root fragment for home page
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.fragmentContainer, new TvFragment());
+//        transaction.commit();
+//
+//
+//        binding.bottomNavigation.setOnItemSelectListener(new ReadableBottomBar.ItemSelectListener() {
+//            @Override
+//            public void onItemSelected(int i) {
+//
+//                // this is used to change one fragment to another.
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//
+//                switch (i) {
+//                    case 0:
+//                        ExecutorService service = Executors.newSingleThreadExecutor();
+//                        service.execute(new Runnable() {
 //                            @Override
 //                            public void run() {
 //                                try {
-//                                    transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
+//                                    transaction.replace(R.id.fragmentContainer, new TvFragment());
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        });
+////                        transaction.replace(R.id.fragmentContainer, new ContestFragment());
+//                        break;
+//                    case 1:
+//                        ExecutorService service1 = Executors.newSingleThreadExecutor();
+//                        service1.execute(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                try {
+//                                    transaction.replace(R.id.fragmentContainer, new PanchangFragment());
 //                                } catch (Exception e) {
 //                                    e.printStackTrace();
 //                                }
 //
 //                            }
 //                        });
-                        transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
-                        break;
-                }
-
-                transaction.commit();
-            }
-        });
+////                        transaction.replace(R.id.fragmentContainer, new ProblemFragment());
+//                        break;
+//                    case 2:
+//                        ExecutorService service2 = Executors.newSingleThreadExecutor();
+//                        service2.execute(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                try {
+//                                    transaction.replace(R.id.fragmentContainer, new RashiphalFragment());
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//
+//                            }
+//                        });
+////                        transaction.replace(R.id.fragmentContainer, new ProfileFragment());
+//                        break;
+//
+//
+//                    case 3:
+////                        ExecutorService service3 = Executors.newSingleThreadExecutor();
+////                        service3.execute(new Runnable() {
+////                            @Override
+////                            public void run() {
+////                                try {
+////                                    transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
+////                                } catch (Exception e) {
+////                                    e.printStackTrace();
+////                                }
+////
+////                            }
+////                        });
+//                        transaction.replace(R.id.fragmentContainer, new GeetaSlokFragment());
+//                        break;
+//                }
+//
+//                transaction.commit();
+//            }
+//        });
 
         ImageView logoImage = binding.logoImage;
-        logoImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                auth.signOut();
-                Intent intent = new Intent(MainActivity.this, AuthActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         if(auth.getCurrentUser() != null){
             if(adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())){

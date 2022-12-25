@@ -34,6 +34,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -55,6 +56,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     String youtuberBannerImage = "";
     GoogleSignInClient mGoogleSignInClient;
 
+    FirebaseDatabase database;
+
     private  String apiKey="AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
 
     @Override
@@ -67,6 +70,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        database = FirebaseDatabase.getInstance();
 
 
         gettingItem();

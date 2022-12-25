@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -35,6 +36,10 @@ import com.example.playvideota.model.TvLiveVideoModel;
 import com.example.playvideota.model.YoutubeDashboradModel;
 import com.example.playvideota.model.YoutuberModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -56,11 +61,11 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     String personName = "";
     String personPhoto = "";
     FloatingActionButton feedBackButton;
-    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
+    //    private String apikey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
 //    private String apikey = "AIzaSyBA5stcvWxiMf5PhX6HRQJJMhC2a6ovzxo";
-//    private String apikey = "AIzaSyDvFA137yMArqY2tGEdmhNykiMw1YQhI14";
+    private String apikey = "AIzaSyDvFA137yMArqY2tGEdmhNykiMw1YQhI14";
 
-    String liveStatus  = "";
+    String liveStatus = "";
 
     // for live video
     RecyclerView liveVideoRV;
@@ -100,6 +105,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     TextView mahabharatTV, sampurnRamayanaTV, uttarRamayanaTV, shreeMahalaxmiTV, shivMahapuranTV, jaiHanumanTV, visnuPuranTV, balKrishnaTV, gitaGyanTV, bikramBatalTV, karanTV, sankatMochanHanumanTV, vignahranGaneshTV, saiNathTeraHajarohathTV;
 
 
+    FirebaseDatabase database;
+
     public TvFragment() {
         // Required empty public constructor
     }
@@ -108,6 +115,8 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        database = FirebaseDatabase.getInstance();
 
     }
 
@@ -375,22 +384,16 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 
     private void loadYoutubeAccount() {
 
-
         System.out.println("Getting live Status ... ");
-
-
-
-
-
 
 
         for (int j = 0; j < youtubeAcountList.size(); j++) {
 
             String youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings&id=" + youtubeAcountList.get(j) + "&key=" + apikey;
             // geting live status
-            String checkingLiveVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" +youtubeAcountList.get(j)  +"&eventType=live&type=video&videoDefinition=any&key=" +apikey;
+            String checkingLiveVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" + youtubeAcountList.get(j) + "&eventType=live&type=video&videoDefinition=any&key=" + apikey;
 
-            JsonObjectRequest liveStatusObjectRequest = new JsonObjectRequest(Request.Method.GET,checkingLiveVideoUrl , null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest liveStatusObjectRequest = new JsonObjectRequest(Request.Method.GET, checkingLiveVideoUrl, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
@@ -398,25 +401,14 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         JSONObject pageInfoJsonObject = response.getJSONObject("pageInfo");
                         pageInfoJsonObject.getString("totalResults");
 
-                        if(pageInfoJsonObject.getString("totalResults").equalsIgnoreCase("0")){
+                        if (pageInfoJsonObject.getString("totalResults").equalsIgnoreCase("0")) {
                             liveStatus = "none";
-                        }else{
+                        } else {
                             liveStatus = "live";
 
                         }
-                        System.out.println("Live Status : "+liveStatus);
+                        System.out.println("Live Status : " + liveStatus);
 
-
-//                        JSONArray jsonArray = response.getJSONArray("items");
-//                        for (int i = 0; i < jsonArray.length(); i++) {
-//                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                            JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
-//
-//                            liveStatus = snippetJsonObject.getString("liveBroadcastContent");
-//
-//                            System.out.println("Live status : " +snippetJsonObject.getString("liveBroadcastContent"));
-//
-//                        }
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -431,10 +423,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 //                    Toast.makeText(getContext(), "LIVE : "+error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
-
-
-
-
 
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
@@ -465,8 +453,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                             bannerImageJsonObject.getString("bannerExternalUrl");
 
 
-
-
                             YoutuberModel youtuberModel = new YoutuberModel(
                                     mediumJsonObject.getString("url"),
                                     snippetJsonObject.getString("title"),
@@ -480,8 +466,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
                         }
                         YoutuberAdapter youtubeAccountAdapter = new YoutuberAdapter(getContext(), list);
                         youtuberRV.setAdapter(youtubeAccountAdapter);
-
-
 
 
                     } catch (Exception e) {
@@ -501,7 +485,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
             });
 
 
-
             MySingleton.getInstance(getContext()).addToRequestQueue(liveStatusObjectRequest);
 
             MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
@@ -513,6 +496,102 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         liveStatus = "none";
 
 
+//        youtubeAcountList.add("Aniruddhacharya ji UCDe0DwkMVFfSIoiYdQUPQmQ");
+//        youtubeAcountList.add("Satsang UCPITDRnLbTRyyEUVwZHbMww");
+//        youtubeAcountList.add("Bhakthi TV UCSzOZ97LOpU-_AVlGfmD4rQ");
+//        youtubeAcountList.add("Shri Devkinandan Thakur Ji UCHq7ZxlzRRXimaBmk5QAxSQ");
+//        youtubeAcountList.add("Pandit Pradeep Ji Mishra Sehore Wale UCUUIz69kK3Ib5bD4hWLKAwA");
+//        youtubeAcountList.add("Bhakti Sangeet HDN UC8Igqo3g1U40n66BLb-xHuQ");
+//        youtubeAcountList.add("JayaKishori Motivation UCfwa_zKl8-zC9rQDWIEixgg");
+
+//        youtubeAcountList.add("Iamjayakishori UCfwa_zKl8-zC9rQDWIEixgg");
+//        youtubeAcountList.add("SanskarTV CT_QwW7Tbew5qrYNb2auqAQ");
+//        youtubeAcountList.add("SADHNA GOLD UC04m8d9t8UeWZ5DuvQVnqiw");
+//        youtubeAcountList.add("Saregama Bhakti UC6vQRTCxutg6fJLUGkDKynQ");
+//        youtubeAcountList.add("Gauri Gopal Tv UCOizxR3GwY7dmehMCAdvv9g");
+//        youtubeAcountList.add("Swami Raghvacharya UCyIkg79GpPVF77qYKoAINtw");
+//        youtubeAcountList.add("BhaktiSagar Tv UCDqkux3AH7P9hRjmunoUeAQ");
+//        youtubeAcountList.add("Shemaroo Bhakti UC7ZivIYRB0fMSGh-THcTYbw");
+//        youtubeAcountList.add("T-Series Bhakti Sagar UCaayLD9i5x4MmIoVZxXSv_g");
+//        youtubeAcountList.add("Pen Bhakti UCHKGDg0GJKBsA9mFraDOLHA");
+
+
+        database.getReference().child("channels")
+                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+                .child("channelName")
+                .setValue("AasthaChannel");
+
+
+
+        database.getReference().child("channels")
+                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+                .child("channelName")
+                .setValue("Aniruddhacharya ji");
+
+        database.getReference().child("channels")
+                .child("UCSzOZ97LOpU-_AVlGfmD4rQ")
+                .child("channelName")
+                .setValue("Satsang");
+
+        database.getReference().child("channels")
+                .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+                .child("channelName")
+                .setValue("Bhakthi TV");
+
+        database.getReference().child("channels")
+                .child("UCHq7ZxlzRRXimaBmk5QAxSQ")
+                .child("channelName")
+                .setValue("Shri Devkinandan Thakur Ji ");
+
+        database.getReference().child("channels")
+                .child("UCUUIz69kK3Ib5bD4hWLKAwA")
+                .child("channelName")
+                .setValue("Pandit Pradeep Ji Mishra Sehore Wale");
+
+        database.getReference().child("channels")
+                .child("UC8Igqo3g1U40n66BLb-xHuQ")
+                .child("channelName")
+                .setValue("Bhakti Sangeet HDN");
+
+        database.getReference().child("channels")
+                .child("UCfwa_zKl8-zC9rQDWIEixgg")
+                .child("channelName")
+                .setValue("JayaKishori Motivation");
+
+        database.getReference().child("channels")
+                .child("CT_QwW7Tbew5qrYNb2auqAQ")
+                .child("channelName")
+                .setValue("SanskarTV");
+
+        database.getReference().child("channels")
+                .child("UC04m8d9t8UeWZ5DuvQVnqiw")
+                .child("channelName")
+                .setValue("SADHNA GOLD");
+
+        database.getReference().child("channels")
+                .child("UC6vQRTCxutg6fJLUGkDKynQ")
+                .child("channelName")
+                .setValue("Saregama Bhakti");
+
+        database.getReference().child("channels")
+                .child("UCOizxR3GwY7dmehMCAdvv9g")
+                .child("channelName")
+                .setValue("Gauri Gopal Tv");
+
+        database.getReference().child("channels")
+                .child("UCyIkg79GpPVF77qYKoAINtw")
+                .child("channelName")
+                .setValue("Swami Raghvacharya");
+
+        database.getReference().child("channels")
+                .child("UCDqkux3AH7P9hRjmunoUeAQ")
+                .child("channelName")
+                .setValue("BhaktiSagar Tv");
+
+        database.getReference().child("channels")
+                .child("UC7ZivIYRB0fMSGh-THcTYbw")
+                .child("channelName")
+                .setValue("Shemaroo Bhakti");
 
 
     }
@@ -701,7 +780,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         System.out.println("Loading Aarti");
 
 
-        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-qncdFkqIattVxgOdO-BMNC&key="+apikey +"&part=contentDetails&maxResults=5";
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-qncdFkqIattVxgOdO-BMNC&key=" + apikey + "&part=contentDetails&maxResults=5";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -765,8 +844,6 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
         });
 
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
-
-
 
 
 //
@@ -917,11 +994,10 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
     private void loadMantra() {
 
 
-
         System.out.println("Loading Aarti");
 
 
-        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL57FdneUw7RLbUAA9xb0bqJza-xbkMgbw&key="+apikey +"&part=contentDetails&maxResults=5";
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL57FdneUw7RLbUAA9xb0bqJza-xbkMgbw&key=" + apikey + "&part=contentDetails&maxResults=5";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -998,7 +1074,7 @@ public class TvFragment extends Fragment implements YoutubeDashBoardAdapterInter
 //        String youtubeBhajanUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCtzWNV1gw53ecASMQ-6Esnw&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apikey;
 
 
-        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-pl3iLsHPoK3oUWWIU8awC3&key="+apikey +"&part=contentDetails&maxResults=5";
+        String urlvk = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfx6o81oSA-pl3iLsHPoK3oUWWIU8awC3&key=" + apikey + "&part=contentDetails&maxResults=5";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlvk, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

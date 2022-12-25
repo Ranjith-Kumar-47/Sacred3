@@ -187,7 +187,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
                         android:fontFamily="sans-serif-condensed-light"
-                        android:text="Krishna Pach , Monday"
+                        android:text="कृष्णा पच, सोमवार"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -228,7 +228,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-condensed-light"
-                        android:text="Festival"
+                        android:text="त्यौहार"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="@+id/view5"
@@ -241,7 +241,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="30dp"
-                        android:text="Nehru Jaiti"
+                        android:text="नेहरू जैती"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textView10"
@@ -378,6 +378,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
+                        android:layout_marginEnd="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@id/sasCV1"
                         app:layout_constraintTop_toBottomOf="@+id/sasCV1">
@@ -432,7 +433,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="15dp"
-                                android:text="subh mahurat"
+                                android:text="यमघण्टकाल"
                                 android:textAlignment="center"
                                 android:textColor="@color/teal_200"
                                 android:textSize="16sp" />
@@ -778,11 +779,12 @@
                                 android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/spMuleTv"
+                                android:id="@+id/spNakchatra"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
                                 android:text="Surya Uday"
+                                android:maxLines="3"
                                 android:textSize="16sp"
                                 android:textColor="@color/colorAccent"
                                 android:textAlignment="center" />
@@ -794,6 +796,7 @@
                                 android:layout_margin="10dp"
                                 android:layout_marginStart="20dp"
                                 android:textSize="16sp"
+                                android:visibility="gone"
                                 android:textColor="@color/colorAccent"
                                 android:layout_gravity="center"
                                 android:text="12:19" />
@@ -825,12 +828,13 @@
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/spGandTv"
+                                android:id="@+id/spYog"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
                                 android:text="Surya Uday"
                                 android:textAlignment="center"
+                                android:maxLines="3"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="16sp" />
 
@@ -840,6 +844,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:layout_margin="10dp"
+                                android:visibility="gone"
                                 android:layout_marginStart="20dp"
                                 android:text="12:19"
                                 android:textColor="@color/colorAccent"
@@ -872,13 +877,14 @@
                                 android:textAlignment="center" />
 
                             <TextView
-                                android:id="@+id/spNagTv"
+                                android:id="@+id/spKaran"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
                                 android:textSize="16sp"
                                 android:textColor="@color/colorAccent"
                                 android:text="Surya Uday"
+                                android:maxLines="3"
                                 android:textAlignment="center" />
 
                             <TextView
@@ -888,6 +894,7 @@
                                 android:layout_margin="10dp"
                                 android:layout_marginStart="20dp"
                                 android:textSize="16sp"
+                                android:visibility="gone"
                                 android:textColor="@color/colorAccent"
                                 android:layout_gravity="center"
                                 android:text="12:19" />
@@ -914,7 +921,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/mobile_number_background"
                     android:orientation="vertical">
 
@@ -923,6 +930,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -969,7 +977,7 @@
                         <LinearLayout
                             android:id="@+id/fourBoxLL2"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <TextView
@@ -977,9 +985,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
-                                android:textSize="16sp"
-                                android:text="Surya Uday"
-                                android:textAlignment="center" />
+                                android:text="महीना पूर्णिमांत"
+                                android:textAlignment="center"
+                                android:textSize="16sp" />
 
                             <TextView
                                 android:id="@+id/fbfbMahinaPurnimatData"
@@ -1011,7 +1019,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="40dp"
                         android:layout_marginBottom="20dp"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -1030,7 +1038,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
-                                android:text="Surya Uday"
+                                android:textSize="16sp"
+                                android:text="विक्रम सवंत"
                                 android:textAlignment="center" />
 
                             <TextView
@@ -1058,6 +1067,7 @@
                             android:id="@+id/fourBoxLL22"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+
                             android:orientation="vertical">
 
                             <TextView
@@ -1066,7 +1076,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
                                 android:textSize="16sp"
-                                android:text="Surya Uday"
+                                android:text="शक सवंत"
                                 android:textAlignment="center" />
 
                             <TextView
@@ -1093,7 +1103,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/sixBoxCV"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
@@ -1104,7 +1114,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/mobile_number_background"
                     android:orientation="vertical">
 
@@ -1159,7 +1169,7 @@
                         <LinearLayout
                             android:id="@+id/sixBoxLL2"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <TextView
@@ -1247,7 +1257,7 @@
                         <LinearLayout
                             android:id="@+id/sixBoxLL22"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <TextView
@@ -1307,7 +1317,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
-                                android:text="Surya Uday"
+                                android:text="ऋतु"
                                 android:textSize="16sp"
                                 android:textAlignment="center" />
 
@@ -1317,6 +1327,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
                                 android:text="Surya Uday"
+
                                 android:textSize="16sp"
                                 android:textColor="@color/colorAccent"
                                 android:textAlignment="center" />
@@ -1336,7 +1347,7 @@
                         <LinearLayout
                             android:id="@+id/sixBoxLL222"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <TextView
@@ -1358,22 +1369,11 @@
                                 android:textColor="@color/colorAccent"
                                 android:textAlignment="center" />
 
-
                         </LinearLayout>
-
-
-
                     </LinearLayout>
                 </LinearLayout>
 
-
-
-
-
             </androidx.cardview.widget.CardView>
-
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -110,11 +110,28 @@ public class AdminPanchang extends AppCompatActivity {
                     reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
+//                            database.getReference()
+//                                    .child("Panchang")
+//                                    .child("daily_panchang")
+//                                    .child("daily_panchang_image")
+//                                    .setValue(uri.toString());
+
+//                            database.getReference().child("channels")
+//                                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                                    .child("channelProfile")
+//                                    .setValue(uri.toString());
+//
+//                            database.getReference().child("channels")
+//                                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                                    .child("channelBanner")
+//                                    .setValue(uri.toString());
+
                             database.getReference()
                                     .child("Panchang")
-                                    .child("daily_panchang")
-                                    .child("daily_panchang_image")
+                                    .child("ThakurPanchang")
+                                    .child("feb")
                                     .setValue(uri.toString());
+
                         }
                     });
 
@@ -122,6 +139,45 @@ public class AdminPanchang extends AppCompatActivity {
                     Toast.makeText(AdminPanchang.this, "Daily panchang Image Updated", Toast.LENGTH_SHORT).show();
                 }
             });
+
+
+
+
+
+
+
+//            database.getReference().child("channels")
+//                    .child("CT_QwW7Tbew5qrYNb2auqAQ")
+//                    .child("channelName")
+//                    .setValue("SanskarTV");
+
+//
+//            database.getReference().child("channels")
+//                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                    .child("channelName")
+//                    .setValue("Saregama Bhakti");
+//
+//            database.getReference().child("channels")
+//                    .child("UCOizxR3GwY7dmehMCAdvv9g")
+//                    .child("channelName")
+//                    .setValue("Gauri Gopal Tv");
+//
+
+//
+//            database.getReference().child("channels")
+//                    .child("UCDqkux3AH7P9hRjmunoUeAQ")
+//                    .child("channelName")
+//                    .setValue("BhaktiSagar Tv");
+//
+
+
+//
+//            database.getReference().child("channels")
+//                    .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+//                    .child("channelName")
+//                    .setValue("Bhakthi TV");
+
+//
 
         }
     }

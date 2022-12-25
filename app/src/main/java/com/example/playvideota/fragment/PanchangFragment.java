@@ -30,16 +30,16 @@ public class PanchangFragment extends Fragment {
 
     FragmentPanchangBinding binding;
     ImageView pachangDailyImageView;
-    TextView panchangDailyTitleTextView,panchangDailyTitleDescriptionTextView,panchangDailyFestivalTextView;
+    TextView panchangDailyTitleTextView, panchangDailyTitleDescriptionTextView, panchangDailyFestivalTextView;
 
 
     FirebaseDatabase database;
 
-    TextView sasSubhMahuratTimeTv,sasGulikKalTimeTv,sasRahuKalTimeTv,sasyumghanatKalTimeTv;
-    TextView ssSuryodayTimeTv,ssSuryaasthTimeTv,ssChandrodayTimeTv,ssChandroasthTimeTv;
-    TextView thethiDetails,spMuleTv,spGandTv,spNagTv,spMuleTimeTv,spGandTimeTv,spNagTimeTv;
-    TextView fbMahinaAmanatTv,fbfbMahinaAmanatData,fbMahinaPurnimatTv,fbfbMahinaPurnimatData,fbVikramSawanthTv,fbVikramSawanthData,fbSakSawanthTv,fbSakSawanthData;
-    TextView sixBoxSuryaRashiTv,sixBoxSuryaRashiData,sixBoxChandRashiTv,sixBoxChandRashiData,sixBoxDisshasulTv,sixBoxDisshasulData,sixBoxChandraNiwasTv,sixBoxChandraNiwasData,sixBoxRetuTv,sixBoxsixBoxRetuData,sixBoxAyanTv,sixBoxAyanData;
+    TextView sasSubhMahuratTimeTv, sasGulikKalTimeTv, sasRahuKalTimeTv, sasyumghanatKalTimeTv;
+    TextView ssSuryodayTimeTv, ssSuryaasthTimeTv, ssChandrodayTimeTv, ssChandroasthTimeTv;
+    TextView thethiDetails, spYog, spNagTv, spMuleTimeTv, spGandTimeTv, spNagTimeTv,spNakchatra,spKaran;
+    TextView fbMahinaAmanatTv, fbfbMahinaAmanatData, fbMahinaPurnimatTv, fbfbMahinaPurnimatData, fbVikramSawanthTv, fbVikramSawanthData, fbSakSawanthTv, fbSakSawanthData;
+    TextView sixBoxSuryaRashiTv, sixBoxSuryaRashiData, sixBoxChandRashiTv, sixBoxChandRashiData, sixBoxDisshasulTv, sixBoxDisshasulData, sixBoxChandraNiwasTv, sixBoxChandraNiwasData, sixBoxRetuTv, sixBoxsixBoxRetuData, sixBoxAyanTv, sixBoxAyanData;
 
     public PanchangFragment() {
         // Required empty public constructor
@@ -57,7 +57,7 @@ public class PanchangFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_panchang, container, false);
-        binding = FragmentPanchangBinding.inflate(inflater,container,false);
+        binding = FragmentPanchangBinding.inflate(inflater, container, false);
 
 //        TextView todayDateTextview = binding.todayDateTextview;
 //        long millis = System.currentTimeMillis();
@@ -86,8 +86,8 @@ public class PanchangFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("Value : "+snapshot.getValue());
+                        if (snapshot.exists()) {
+                            System.out.println("Value : " + snapshot.getValue());
 //                            pachangDailyImageView.setImageURI(Uri.parse(snapshot.getValue().toString()));
                             Picasso.with(getContext()).load(snapshot.getValue().toString()).placeholder(R.drawable.ic_profile_svgrepo_com).into(binding.pachangDailyImageView);
                         }
@@ -104,10 +104,10 @@ public class PanchangFragment extends Fragment {
                 .child("daily_panchang").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
 
-                            System.out.println("value ta : "+snapshot.getValue());
-                            System.out.println("key ta : "+snapshot.getKey());
+                            System.out.println("value ta : " + snapshot.getValue());
+                            System.out.println("key ta : " + snapshot.getKey());
                         }
                     }
 
@@ -118,35 +118,33 @@ public class PanchangFragment extends Fragment {
                 });
 
 
-
-
         database.getReference().child("Panchang")
                 .child("daily_panchang")
                 .child("panchang_description")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    System.out.println("Value : "+snapshot.getValue());
-                                    panchangDailyTitleDescriptionTextView.setText(snapshot.getValue().toString());
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            System.out.println("Value : " + snapshot.getValue());
+                            panchangDailyTitleDescriptionTextView.setText(snapshot.getValue().toString());
 
-                                }
+                        }
 
-                            }
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
 
         database.getReference().child("Panchang")
                 .child("daily_panchang")
                 .child("panchang_festival").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("Value : "+snapshot.getValue());
+                        if (snapshot.exists()) {
+                            System.out.println("Value : " + snapshot.getValue());
                             panchangDailyFestivalTextView.setText(snapshot.getValue().toString());
                         }
 
@@ -163,8 +161,8 @@ public class PanchangFragment extends Fragment {
                 .child("panchang_title").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("Value : "+snapshot.getValue());
+                        if (snapshot.exists()) {
+                            System.out.println("Value : " + snapshot.getValue());
                             panchangDailyTitleTextView.setText(snapshot.getValue().toString());
 
                         }
@@ -175,7 +173,6 @@ public class PanchangFragment extends Fragment {
 
                     }
                 });
-
 
 
         CardView cardView2 = binding.cardView2;
@@ -207,11 +204,353 @@ public class PanchangFragment extends Fragment {
 //        });
 
 
-
-        return  binding.getRoot();
+        return binding.getRoot();
     }
 
     private void addingDataToTextView() {
+
+//        database.getReference().child("Panchang")
+//                .child("daily_panchang")
+//                .child("panchang_title")
+//                .setValue("S");
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("subhAsubhSamaySubhMahurat").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sasSubhMahuratTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("GulikKal").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sasGulikKalTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("RahuKal").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sasRahuKalTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("yumGhanatKal").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sasyumghanatKalTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("suryaudayTime").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            ssSuryodayTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("suryaAsthTime").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            ssSuryaasthTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("chandrodayTime").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            ssChandrodayTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("chandroasthTime").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            ssChandroasthTimeTv.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("thithi").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            thethiDetails.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("nakchatra").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            spNakchatra.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("yog").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            spYog.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("karan").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            spKaran.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("mahinaAmanth").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            fbfbMahinaAmanatData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("mahinaPurnimat").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            fbfbMahinaPurnimatData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("vikramSawanth").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            fbVikramSawanthData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sakSawanth").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            fbSakSawanthData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxSuryaRashiData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxSuryaRashiData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxChandRashiData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxChandRashiData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxDisshasulData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxDisshasulData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxChandraNiwasData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxChandraNiwasData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxRetuData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxsixBoxRetuData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("Panchang")
+                .child("daily_panchang")
+                .child("sixBoxAyanData").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            sixBoxAyanData.setText(snapshot.getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 
     private void initingTextView() {
@@ -226,12 +565,13 @@ public class PanchangFragment extends Fragment {
         ssChandroasthTimeTv = binding.ssChandroasthTimeTv;
 
         thethiDetails = binding.thethiDetails;
-        spMuleTv = binding.spMuleTv;
-        spGandTv = binding.spGandTv;
-        spNagTv = binding.spNagTv;
+        spNakchatra = binding.spNakchatra;
+        spYog = binding.spYog;
+        spNagTv = binding.spKaran;
         spMuleTimeTv = binding.spMuleTimeTv;
         spGandTimeTv = binding.spGandTimeTv;
         spNagTimeTv = binding.spNagTimeTv;
+        spKaran = binding.spKaran;
 
         fbMahinaAmanatTv = binding.fbMahinaAmanatTv;
         fbfbMahinaAmanatData = binding.fbfbMahinaAmanatData;
