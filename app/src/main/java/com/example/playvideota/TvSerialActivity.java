@@ -44,15 +44,15 @@ public class TvSerialActivity extends AppCompatActivity {
 
 
 
-
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         gridLayoutManager.setOrientation(tvSerialRV.VERTICAL);

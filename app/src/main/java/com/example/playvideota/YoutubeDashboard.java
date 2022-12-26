@@ -97,8 +97,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
         loadProfileIamage();
         loadbannerImage();
 
-//        settingAdapter();
-//        loadYoutubeVideo();
+        settingAdapter();
+        loadYoutubeVideo();
         loadYoutuberName();
         clickHandler();
         logOutGoogleAccount();
@@ -173,7 +173,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(YoutubeDashboard.this, WebViewActivity.class);
-                intent.putExtra("id","6Z8rKK0E7bA");
+                intent.putExtra("id","HnXkv_ozPQw");
                 startActivity(intent);
             }
         });
@@ -182,7 +182,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(YoutubeDashboard.this, WebViewActivity.class);
-                intent.putExtra("id","BFVtoK_B07I");
+                intent.putExtra("id","jTwDqpQ-yQw");
                 startActivity(intent);
             }
         });
@@ -193,7 +193,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(YoutubeDashboard.this, WebViewActivity.class);
-                intent.putExtra("id","EskWox5H9tY");
+                intent.putExtra("id","dnloFi1GT9Q");
                 startActivity(intent);
             }
         });
@@ -202,10 +202,27 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     private void loadYoutuberName() {
         youtuberNameTV = findViewById(R.id.youtuberName);
-        id = getIntent().getStringExtra("id");
-        database.getReference().child("channels")
-                .child(id)
-                .child("channelName")
+//        id = getIntent().getStringExtra("id");
+//        database.getReference().child("channels")
+//                .child(id)
+//                .child("channelName")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            youtuberNameTV.setText(snapshot.getValue().toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
+                .child("title")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -219,22 +236,38 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
                     }
                 });
-//        youtuberNameTV.setText(youtuberName);
     }
 
     private void loadbannerImage() {
         ImageView youtuberImageView = findViewById(R.id.youtuberImageView);
 
-//        Picasso.with(getApplicationContext())
-//                .load(youtuberBannerImage)
-//                .into(youtuberImageView);
 
-        id = getIntent().getStringExtra("id");
+//        id = getIntent().getStringExtra("id");
+//
+//
+//        database.getReference().child("channels")
+//                .child(id)
+//                .child("channelBanner")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(youtuberImageView);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-
-        database.getReference().child("channels")
-                .child(id)
-                .child("channelBanner")
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
+                .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -269,14 +302,47 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     private void loadProfileIamage() {
         ImageView profileUserImage = findViewById(R.id.profileUserImage);
-        id = getIntent().getStringExtra("id");
-//        Picasso.with(getApplicationContext())
-//                .load(youtuberImage)
-//                .into(profileUserImage);
+//        id = getIntent().getStringExtra("id");
 
-        database.getReference().child("channels")
-                .child(id)
-                .child("channelProfile")
+
+//        database.getReference().child("channels")
+//                .child(id)
+//                .child("channelProfile")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(profileUserImage);
+//
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(profileUserImage1);
+//
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(profileUserImage2);
+//
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(profileUserImage3);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
+                .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -290,16 +356,15 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
                                     .into(profileUserImage1);
-
                             Picasso.with(getApplicationContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
                                     .into(profileUserImage2);
-
                             Picasso.with(getApplicationContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
                                     .into(profileUserImage3);
+
                         }
                     }
 
@@ -309,10 +374,9 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                     }
                 });
 
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("6Z8rKK0E7bA")
+
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
                 .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -322,84 +386,12 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
                                     .into(videoImage1);
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("6Z8rKK0E7bA")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription1.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("BFVtoK_B07I")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
                             Picasso.with(getApplicationContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
                                     .into(videoImage2);
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("BFVtoK_B07I")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription2.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("EskWox5H9tY")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
                             Picasso.with(getApplicationContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -413,16 +405,16 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                     }
                 });
 
-        database.getReference().child("channels")
-                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
-                .child("videos")
-                .child("EskWox5H9tY")
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
                 .child("title")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
-                            videoDescription3.setText(snapshot.getValue().toString());
+                            videoDescription1.setText(snapshot.getValue().toString()+" Episode 1");
+                            videoDescription2.setText(snapshot.getValue().toString()+" Episode 2");
+                            videoDescription3.setText(snapshot.getValue().toString()+" Episode 3");
                         }
                     }
 
@@ -431,193 +423,449 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
                     }
                 });
+
+
+
+
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("6Z8rKK0E7bA")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage1);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("6Z8rKK0E7bA")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription1.setText(snapshot.getValue().toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("BFVtoK_B07I")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage2);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("BFVtoK_B07I")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription2.setText(snapshot.getValue().toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("EskWox5H9tY")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getApplicationContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage3);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("channels")
+//                .child("UCDe0DwkMVFfSIoiYdQUPQmQ")
+//                .child("videos")
+//                .child("EskWox5H9tY")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription3.setText(snapshot.getValue().toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
     }
 
 
     private void loadYoutubeVideo() {
-        youtuberId = getIntent().getStringExtra("youtuberId");
-        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" + youtuberId + "&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apiKey;
 
-        String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" + youtuberId + "&eventType=live&maxResults=250&type=video&key=" + apiKey;
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
+                .child("videos")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("snap k : "+snapshot.getKey());
+                            System.out.println("snap v : "+snapshot.getValue());
 
-        System.out.println("LOADING VIDEO");
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("items");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            for (DataSnapshot ds:snapshot.getChildren()) {
+                                System.out.println("snap v : "+ds.getValue());
+                                System.out.println("snap k : "+ds.getKey());
+                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+                                        ds.getValue().toString(),
+                                        "Episode " +ds.getKey()
+                                );
 
-                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
-                        idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID : " + idJsonObject.getString("videoId"));
+                                list.add(youtubeDashboradModel);
+                            }
 
-                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
-                        snippetJsonObject.getString("title");
-                        snippetJsonObject.getString("channelId");
-                        snippetJsonObject.getString("description");
-                        snippetJsonObject.getString("liveBroadcastContent");
-
-                        System.out.println("VIDEO TITLE : " + snippetJsonObject.getString("title"));
-                        System.out.println("VIDEO DESCRIPTION : " + snippetJsonObject.getString("description"));
-
-                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
-                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
-
-                        mediumJsonObject.getString("url");
-                        System.out.println("URL : " + mediumJsonObject.getString("url"));
-
-                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
-                                mediumJsonObject.getString("url"),
-                                snippetJsonObject.getString("description"),
-                                snippetJsonObject.getString("title"),
-                                idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent"),
-                                snippetJsonObject.getString("channelId"),
-                                youtuberImage,
-                                youtuberName
-                        );
-
-                        list.add(youtubeDashboradModel);
-
-                        System.out.println("live video : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
-                    }
-
-//                    // filter list contain only live videos
-//                    for(int i=0 ;i<list.size(); i++){
-//                        if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
-//                            filteredList.add(list.get(i));
-//                        }
-//                    }
-
-                    // normalList contain video other than live
-                    for (int i = 0; i < list.size(); i++) {
-                        if (list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")) {
-                            normalList.add(list.get(i));
+                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+                            youtubeVideoRV.setAdapter(adapter);
                         }
                     }
 
-//
-//                    // firstly adding live video to the selected list
-//                    for(int i=0 ;i<filteredList.size(); i++){
-//                        selectedList.add(filteredList.get(i));
-//                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    // secondly adding video other than live video
-                    for (int i = 0; i < normalList.size(); i++) {
-                        selectedList.add(normalList.get(i));
                     }
+                });
 
+        database.getReference().child("tvSerial")
+                .child("ShreeMahalaxmi")
+                .child("videos")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("snap k : "+snapshot.getKey());
+                            System.out.println("snap v : "+snapshot.getValue());
 
-//
-                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
-                    youtubeVideoRV.setAdapter(youtubeDashboardAdapter1);
+                            for (DataSnapshot ds:snapshot.getChildren()) {
+                                System.out.println("snap v : "+ds.getValue());
+                                System.out.println("snap k : "+ds.getKey());
+                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+                                        ds.getValue().toString(),
+                                        "Episode " +ds.getKey()
+                                );
 
+                                list.add(youtubeDashboradModel);
+                            }
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
-
-            }
-        });
-
-        JsonObjectRequest jsonObjectRequestLive = new JsonObjectRequest(Request.Method.GET, liveYoutubeVideoUrl, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("items");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
-                        idJsonObject.getString("videoId");
-                        System.out.println("VIDEO ID : " + idJsonObject.getString("videoId"));
-
-                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
-                        snippetJsonObject.getString("title");
-                        snippetJsonObject.getString("channelId");
-                        snippetJsonObject.getString("description");
-                        snippetJsonObject.getString("liveBroadcastContent");
-
-                        System.out.println("VIDEO TITLE : " + snippetJsonObject.getString("title"));
-                        System.out.println("VIDEO DESCRIPTION : " + snippetJsonObject.getString("description"));
-
-                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
-                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
-
-                        mediumJsonObject.getString("url");
-                        System.out.println("URL : " + mediumJsonObject.getString("url"));
-
-                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
-                                mediumJsonObject.getString("url"),
-                                snippetJsonObject.getString("description"),
-                                snippetJsonObject.getString("title"),
-                                idJsonObject.getString("videoId"),
-                                snippetJsonObject.getString("liveBroadcastContent"),
-                                snippetJsonObject.getString("channelId"),
-                                youtuberImage,
-                                youtuberName
-                        );
-
-                        list.add(youtubeDashboradModel);
-
-                        System.out.println("live video : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
-                    }
-
-                    // filter list contain only live videos
-                    for (int i = 0; i < list.size(); i++) {
-                        if (list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("live")) {
-                            filteredList.add(list.get(i));
+                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+                            youtubeVideoRV.setAdapter(adapter);
                         }
                     }
 
-                    // firstly adding live video to the selected list
-                    for (int i = 0; i < filteredList.size(); i++) {
-                        selectedList.add(filteredList.get(i));
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("tvSerial")
+                .child("UttarRamayana")
+                .child("videos")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("snap k : "+snapshot.getKey());
+                            System.out.println("snap v : "+snapshot.getValue());
+
+                            for (DataSnapshot ds:snapshot.getChildren()) {
+                                System.out.println("snap v : "+ds.getValue());
+                                System.out.println("snap k : "+ds.getKey());
+                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+                                        ds.getValue().toString(),
+                                        "Episode " +ds.getKey()
+                                );
+
+                                list.add(youtubeDashboradModel);
+                            }
+
+                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+                            youtubeVideoRV.setAdapter(adapter);
+                        }
                     }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        database.getReference().child("tvSerial")
+                .child("ramayanImage")
+                .child("videos")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            System.out.println("snap k : "+snapshot.getKey());
+                            System.out.println("snap v : "+snapshot.getValue());
+
+                            for (DataSnapshot ds:snapshot.getChildren()) {
+                                System.out.println("snap v : "+ds.getValue());
+                                System.out.println("snap k : "+ds.getKey());
+                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+                                        ds.getValue().toString(),
+                                        "Episode " +ds.getKey()
+                                );
+
+                                list.add(youtubeDashboradModel);
+                            }
+
+                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+                            youtubeVideoRV.setAdapter(adapter);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+//        youtuberId = getIntent().getStringExtra("youtuberId");
+//        youtubeAccountUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" + youtuberId + "&eventType=live&eventType=none&maxResults=250&chart=mostPopular&q=news&order=viewCount&type=video&videoDefinition=any&key=" + apiKey;
+//
+//        String liveYoutubeVideoUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=" + youtuberId + "&eventType=live&maxResults=250&type=video&key=" + apiKey;
+//
+//        System.out.println("LOADING VIDEO");
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, youtubeAccountUrl, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    JSONArray jsonArray = response.getJSONArray("items");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+//
+//                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+//                        idJsonObject.getString("videoId");
+//                        System.out.println("VIDEO ID : " + idJsonObject.getString("videoId"));
+//
+//                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+//                        snippetJsonObject.getString("title");
+//                        snippetJsonObject.getString("channelId");
+//                        snippetJsonObject.getString("description");
+//                        snippetJsonObject.getString("liveBroadcastContent");
+//
+//                        System.out.println("VIDEO TITLE : " + snippetJsonObject.getString("title"));
+//                        System.out.println("VIDEO DESCRIPTION : " + snippetJsonObject.getString("description"));
+//
+//                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
+//                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
+//
+//                        mediumJsonObject.getString("url");
+//                        System.out.println("URL : " + mediumJsonObject.getString("url"));
+//
+//                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                mediumJsonObject.getString("url"),
+//                                snippetJsonObject.getString("description"),
+//                                snippetJsonObject.getString("title"),
+//                                idJsonObject.getString("videoId"),
+//                                snippetJsonObject.getString("liveBroadcastContent"),
+//                                snippetJsonObject.getString("channelId"),
+//                                youtuberImage,
+//                                youtuberName
+//                        );
+//
+//                        list.add(youtubeDashboradModel);
+//
+//                        System.out.println("live video : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
+//                    }
+//
+////                    // filter list contain only live videos
+////                    for(int i=0 ;i<list.size(); i++){
+////                        if(!list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+////                            filteredList.add(list.get(i));
+////                        }
+////                    }
 //
 //                    // normalList contain video other than live
-//                    for(int i=0 ;i<list.size(); i++){
-//                        if(list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+//                    for (int i = 0; i < list.size(); i++) {
+//                        if (list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")) {
 //                            normalList.add(list.get(i));
 //                        }
 //                    }
-
-                    YoutubeDashboardAdapter youtubeDashboardAdapter20 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
-                    youtubeVideoRV.setAdapter(youtubeDashboardAdapter20);
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
-
-            }
-        });
-
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequestLive);
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
-
-        YoutubeDashboardAdapter youtubeDashboardAdapter30 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
-        youtubeVideoRV.setAdapter(youtubeDashboardAdapter30);
-
-        System.out.println("LOADED VIDEO");
+//
+////
+////                    // firstly adding live video to the selected list
+////                    for(int i=0 ;i<filteredList.size(); i++){
+////                        selectedList.add(filteredList.get(i));
+////                    }
+//
+//                    // secondly adding video other than live video
+//                    for (int i = 0; i < normalList.size(); i++) {
+//                        selectedList.add(normalList.get(i));
+//                    }
+//
+//
+////
+//                    YoutubeDashboardAdapter youtubeDashboardAdapter1 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
+//                    youtubeVideoRV.setAdapter(youtubeDashboardAdapter1);
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                // TODO: Handle error
+//
+//            }
+//        });
+//
+//        JsonObjectRequest jsonObjectRequestLive = new JsonObjectRequest(Request.Method.GET, liveYoutubeVideoUrl, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    JSONArray jsonArray = response.getJSONArray("items");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+//
+//                        JSONObject idJsonObject = jsonObject.getJSONObject("id");
+//                        idJsonObject.getString("videoId");
+//                        System.out.println("VIDEO ID : " + idJsonObject.getString("videoId"));
+//
+//                        JSONObject snippetJsonObject = jsonObject.getJSONObject("snippet");
+//                        snippetJsonObject.getString("title");
+//                        snippetJsonObject.getString("channelId");
+//                        snippetJsonObject.getString("description");
+//                        snippetJsonObject.getString("liveBroadcastContent");
+//
+//                        System.out.println("VIDEO TITLE : " + snippetJsonObject.getString("title"));
+//                        System.out.println("VIDEO DESCRIPTION : " + snippetJsonObject.getString("description"));
+//
+//                        JSONObject thumbnailJsonObject = snippetJsonObject.getJSONObject("thumbnails");
+//                        JSONObject mediumJsonObject = thumbnailJsonObject.getJSONObject("high");
+//
+//                        mediumJsonObject.getString("url");
+//                        System.out.println("URL : " + mediumJsonObject.getString("url"));
+//
+//                        YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                mediumJsonObject.getString("url"),
+//                                snippetJsonObject.getString("description"),
+//                                snippetJsonObject.getString("title"),
+//                                idJsonObject.getString("videoId"),
+//                                snippetJsonObject.getString("liveBroadcastContent"),
+//                                snippetJsonObject.getString("channelId"),
+//                                youtuberImage,
+//                                youtuberName
+//                        );
+//
+//                        list.add(youtubeDashboradModel);
+//
+//                        System.out.println("live video : " + youtubeDashboradModel.getVideoLiveBroadcastContent());
+//                    }
+//
+//                    // filter list contain only live videos
+//                    for (int i = 0; i < list.size(); i++) {
+//                        if (list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("live")) {
+//                            filteredList.add(list.get(i));
+//                        }
+//                    }
+//
+//                    // firstly adding live video to the selected list
+//                    for (int i = 0; i < filteredList.size(); i++) {
+//                        selectedList.add(filteredList.get(i));
+//                    }
+//
+////
+////                    // normalList contain video other than live
+////                    for(int i=0 ;i<list.size(); i++){
+////                        if(list.get(i).getVideoLiveBroadcastContent().toLowerCase().equalsIgnoreCase("none")){
+////                            normalList.add(list.get(i));
+////                        }
+////                    }
+//
+//                    YoutubeDashboardAdapter youtubeDashboardAdapter20 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
+//                    youtubeVideoRV.setAdapter(youtubeDashboardAdapter20);
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                // TODO: Handle error
+//
+//            }
+//        });
+//
+//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequestLive);
+//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+//
+//
+//        YoutubeDashboardAdapter youtubeDashboardAdapter30 = new YoutubeDashboardAdapter(getApplicationContext(), selectedList, YoutubeDashboard.this::itemClicked);
+//        youtubeVideoRV.setAdapter(youtubeDashboardAdapter30);
+//
+//        System.out.println("LOADED VIDEO");
     }
 
     private void settingAdapter() {

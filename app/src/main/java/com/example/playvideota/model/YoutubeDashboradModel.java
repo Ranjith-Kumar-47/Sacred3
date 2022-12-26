@@ -33,8 +33,13 @@ public class YoutubeDashboradModel {
 
     }
 
-    public YoutubeDashboradModel(String videoImage, String videoDescription) {
-        this.videoImage = videoImage;
+//    public YoutubeDashboradModel(String videoImage, String videoDescription) {
+//        this.videoImage = videoImage;
+//        this.videoDescription = videoDescription;
+//    }
+
+    public YoutubeDashboradModel(String videoId, String videoDescription) {
+        this.videoId = videoId;
         this.videoDescription = videoDescription;
     }
 

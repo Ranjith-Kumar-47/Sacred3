@@ -9,8 +9,10 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scrollbars="none"
-        android:layout_height="match_parent">
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -102,10 +104,10 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
-                        android:paddingStart="20dp"
-                        android:maxLines="5"
                         android:background="@drawable/mobile_number_background"
                         android:hint=" Description "
+                        android:maxLines="5"
+                        android:paddingStart="20dp"
                         app:layout_constraintBottom_toBottomOf="@+id/pachangDailyImageView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/pachangDailyImageView"
@@ -143,9 +145,9 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="30dp"
-                        android:paddingStart="20dp"
                         android:background="@drawable/mobile_number_background"
                         android:hint=" Festival Name "
+                        android:paddingStart="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textView10"
@@ -162,10 +164,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="180dp"
+                android:layout_marginTop="10dp"
+
+
                 android:layout_marginEnd="30dp"
-
-
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/mobile_number_background"
                 android:text="Submit Panchang"
@@ -173,15 +175,100 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/adminVideoIdEditText" />
+
+
+            <TextView
+                android:id="@+id/adminTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Admin Panel Live Video"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <ImageView
+                android:id="@+id/adminLivevideoThumbnailImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                app:layout_constraintStart_toStartOf="@+id/adminTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adminTitle" />
+
+            <TextView
+                android:id="@+id/adminLiveVideoVisibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="sans-serif-light"
+                android:text="Live Video Visibility"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/adminLiveVideoYes"
+                app:layout_constraintEnd_toEndOf="@+id/adminTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adminTitle" />
+
+            <ImageView
+                android:id="@+id/adminLiveVideoYes"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/yes_button_bg"
+                android:src="@drawable/ic_baseline_done_24"
+                app:layout_constraintBottom_toBottomOf="@+id/adminLivevideoThumbnailImageView"
+                app:layout_constraintEnd_toStartOf="@+id/adminLiveVideoNo"
+                app:layout_constraintStart_toStartOf="@+id/adminLiveVideoVisibility"
+                app:layout_constraintTop_toTopOf="@+id/adminLivevideoThumbnailImageView" />
+
+            <ImageView
+                android:id="@+id/adminLiveVideoNo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/no_button_bg"
+                android:src="@drawable/ic_no"
+                app:layout_constraintBottom_toBottomOf="@+id/adminLiveVideoYes"
+                app:layout_constraintEnd_toEndOf="@+id/adminTitle"
+
+                app:layout_constraintTop_toTopOf="@+id/adminLiveVideoYes" />
+
+
+            <EditText
+                android:id="@+id/adminVideoIdEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Video Id"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
+                app:layout_constraintStart_toStartOf="@+id/adminLivevideoThumbnailImageView"
+                app:layout_constraintTop_toBottomOf="@+id/adminLivevideoThumbnailImageView" />
+
+            <ImageButton
+                android:id="@+id/submitVideoIdButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:background="@drawable/yes_button_bg"
+
+                android:src="@drawable/ic_baseline_done_24"
+                app:layout_constraintEnd_toEndOf="@+id/adminTitle"
+                app:layout_constraintTop_toTopOf="@+id/adminVideoIdEditText" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

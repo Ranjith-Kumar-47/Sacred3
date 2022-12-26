@@ -17,8 +17,13 @@ import com.android.volley.Response;
 import com.example.playvideota.R;
 import com.example.playvideota.TvSerialActivity;
 import com.example.playvideota.VideoPlayer;
+import com.example.playvideota.WebViewActivity;
 import com.example.playvideota.YoutubeDashboard;
 import com.example.playvideota.model.YoutubeDashboradModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -29,6 +34,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
     Context context;
     ArrayList<YoutubeDashboradModel> list;
     YoutubeDashBoardAdapterInterface listener;
+    FirebaseDatabase database;
 
     public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list, YoutubeDashBoardAdapterInterface listener) {
         this.context = context;
@@ -48,6 +54,9 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.story_design_youtube_video, parent, false);
 
+        database = FirebaseDatabase.getInstance();
+
+
         viewHolder viewHolder = new viewHolder(view);
         return viewHolder;
     }
@@ -55,40 +64,52 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         YoutubeDashboradModel youtubeDashboradModel = list.get(position);
-        Picasso.with(context)
-                .load(youtubeDashboradModel.getVideoImage())
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(holder.videoImage);
-
-        Picasso.with(context)
-                .load(youtubeDashboradModel.getChannelIcon())
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(holder.channelIcon);
-
 //        Picasso.with(context)
 //                .load(youtubeDashboradModel.getVideoImage())
 //                .placeholder(R.drawable.ic_profile_svgrepo_com)
-//                .into(holder);
+//                .into(holder.videoImage);
+//
+//        Picasso.with(context)
+//                .load(youtubeDashboradModel.getChannelIcon())
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(holder.channelIcon);
 
-        // checking for live video
-        if(!youtubeDashboradModel.getVideoLiveBroadcastContent().equalsIgnoreCase("none")){
-            holder.liveButton.setVisibility(View.VISIBLE);
-        }
+        database.getReference().child("tvSerial")
+                .child("mahabharat")
+                .child("image")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            Picasso.with(context)
+                                    .load(snapshot.getValue().toString())
+                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+                                    .into(holder.videoImage);
+
+                            Picasso.with(context)
+                                    .load(snapshot.getValue().toString())
+                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+                                    .into(holder.channelIcon);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
-        holder.videoDescription.setText(youtubeDashboradModel.getVideoTitle());
+
+        holder.videoDescription.setText(youtubeDashboradModel.getVideoDescription());
 
         holder.videoDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
-                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
-                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
-                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
-                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
-                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
-                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
-                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
+                Intent intent = new Intent(v.getContext(), WebViewActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("id",youtubeDashboradModel.getVideoId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -98,15 +119,9 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         holder.cardViewContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), VideoPlayer.class);
-                intent.putExtra("userId", youtubeDashboradModel.getChannelId() );
-                intent.putExtra("videoId",youtubeDashboradModel.getVideoId());
-                intent.putExtra("videoTitle",youtubeDashboradModel.getVideoTitle());
-                intent.putExtra("videoDescription",youtubeDashboradModel.getVideoDescription());
-                intent.putExtra("videoLiveBroadcastContent",youtubeDashboradModel.getVideoLiveBroadcastContent());
-                intent.putExtra("channelIcon",youtubeDashboradModel.getChannelIcon());
-                intent.putExtra("channelName",youtubeDashboradModel.getChannelName());
-                System.out.println("CHANNEL NAME YDA : "+youtubeDashboradModel.getChannelName());
+                Intent intent = new Intent(v.getContext(), WebViewActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("id",youtubeDashboradModel.getVideoId());
                 v.getContext().startActivity(intent);
             }
         });
