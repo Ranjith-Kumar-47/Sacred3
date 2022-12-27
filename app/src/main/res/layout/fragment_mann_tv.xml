@@ -25,6 +25,8 @@
                android:id="@+id/adminVideoCardView"
                android:visibility="gone"
                android:layout_width="match_parent"
+               app:cardCornerRadius="10dp"
+               android:layout_margin="15dp"
                android:layout_height="wrap_content">
                <androidx.constraintlayout.widget.ConstraintLayout
                    android:layout_width="match_parent"
@@ -451,12 +453,22 @@
             </LinearLayout>
 
 
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/feedBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/orange"
+        android:src="@drawable/ic_baseline_feedback_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 

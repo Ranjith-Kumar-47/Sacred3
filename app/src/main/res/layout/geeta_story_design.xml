@@ -31,7 +31,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bhagavad_gita" />
+                app:srcCompat="@drawable/gita_image" />
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -40,7 +40,7 @@
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageView8"
-                app:srcCompat="@drawable/bhagavad_gita" />
+                app:srcCompat="@drawable/gita_image" />
 
             <TextView
                 android:id="@+id/adhyaNumber"

@@ -116,7 +116,9 @@ public class RashiphalFragment extends Fragment {
         String startDate = cDate.substring(0,10);
         String endDate = cDate.substring(29);
 
-        todayDateTextview.setText(startDate+" "+endDate+" " +"Rashiphal");
+//        आज 14 Nov, 2022
+
+        todayDateTextview.setText(startDate+" "+endDate+" " +"रशीपाल");
 
 
 
