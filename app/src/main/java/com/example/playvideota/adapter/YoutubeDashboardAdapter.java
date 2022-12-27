@@ -35,6 +35,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
     ArrayList<YoutubeDashboradModel> list;
     YoutubeDashBoardAdapterInterface listener;
     FirebaseDatabase database;
+    String tvserialName ;
 
     public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list, YoutubeDashBoardAdapterInterface listener) {
         this.context = context;
@@ -47,6 +48,12 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         this.list = list;
     }
 
+    public YoutubeDashboardAdapter(Context context, ArrayList<YoutubeDashboradModel> list, String tvserialName) {
+        this.context = context;
+        this.list = list;
+        this.tvserialName = tvserialName;
+    }
+
 
 
     @NonNull
@@ -55,6 +62,7 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         View view = LayoutInflater.from(context).inflate(R.layout.story_design_youtube_video, parent, false);
 
         database = FirebaseDatabase.getInstance();
+
 
 
         viewHolder viewHolder = new viewHolder(view);
@@ -74,8 +82,10 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
 //                .placeholder(R.drawable.ic_profile_svgrepo_com)
 //                .into(holder.channelIcon);
 
+
+
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(tvserialName)
                 .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

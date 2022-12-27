@@ -101,6 +101,8 @@ public class AdminPanchang extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getApplicationContext(), "Video Visible", Toast.LENGTH_SHORT).show();
                                 adminLiveVideoNo.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
                             }
                         });
             }
@@ -118,6 +120,8 @@ public class AdminPanchang extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getApplicationContext(), "Visibility Gone", Toast.LENGTH_SHORT).show();
                                 adminLiveVideoYes.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
                             }
                         });
             }

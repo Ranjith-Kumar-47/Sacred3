@@ -66,6 +66,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     FirebaseDatabase database;
     String id = "";
+    String serialName = "";
 
     private String apiKey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
 
@@ -80,6 +81,8 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         database = FirebaseDatabase.getInstance();
+
+        serialName = getIntent().getStringExtra("serialName");
 
         videoImage1 = findViewById(R.id.videoImage1);
         videoImage2 = findViewById(R.id.videoImage2);
@@ -221,7 +224,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                });
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("title")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -266,7 +269,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                });
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -341,7 +344,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                });
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -376,7 +379,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("image")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -406,7 +409,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                 });
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("title")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -555,7 +558,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
     private void loadYoutubeVideo() {
 
         database.getReference().child("tvSerial")
-                .child("mahabharat")
+                .child(serialName)
                 .child("videos")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -575,7 +578,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                                 list.add(youtubeDashboradModel);
                             }
 
-                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list,serialName);
                             youtubeVideoRV.setAdapter(adapter);
                         }
                     }
@@ -585,102 +588,102 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
                     }
                 });
-
-        database.getReference().child("tvSerial")
-                .child("ShreeMahalaxmi")
-                .child("videos")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("snap k : "+snapshot.getKey());
-                            System.out.println("snap v : "+snapshot.getValue());
-
-                            for (DataSnapshot ds:snapshot.getChildren()) {
-                                System.out.println("snap v : "+ds.getValue());
-                                System.out.println("snap k : "+ds.getKey());
-                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
-                                        ds.getValue().toString(),
-                                        "Episode " +ds.getKey()
-                                );
-
-                                list.add(youtubeDashboradModel);
-                            }
-
-                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
-                            youtubeVideoRV.setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("UttarRamayana")
-                .child("videos")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("snap k : "+snapshot.getKey());
-                            System.out.println("snap v : "+snapshot.getValue());
-
-                            for (DataSnapshot ds:snapshot.getChildren()) {
-                                System.out.println("snap v : "+ds.getValue());
-                                System.out.println("snap k : "+ds.getKey());
-                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
-                                        ds.getValue().toString(),
-                                        "Episode " +ds.getKey()
-                                );
-
-                                list.add(youtubeDashboradModel);
-                            }
-
-                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
-                            youtubeVideoRV.setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("ramayanImage")
-                .child("videos")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            System.out.println("snap k : "+snapshot.getKey());
-                            System.out.println("snap v : "+snapshot.getValue());
-
-                            for (DataSnapshot ds:snapshot.getChildren()) {
-                                System.out.println("snap v : "+ds.getValue());
-                                System.out.println("snap k : "+ds.getKey());
-                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
-                                        ds.getValue().toString(),
-                                        "Episode " +ds.getKey()
-                                );
-
-                                list.add(youtubeDashboradModel);
-                            }
-
-                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
-                            youtubeVideoRV.setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+//
+//        database.getReference().child("tvSerial")
+//                .child("ShreeMahalaxmi")
+//                .child("videos")
+//                .addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            System.out.println("snap k : "+snapshot.getKey());
+//                            System.out.println("snap v : "+snapshot.getValue());
+//
+//                            for (DataSnapshot ds:snapshot.getChildren()) {
+//                                System.out.println("snap v : "+ds.getValue());
+//                                System.out.println("snap k : "+ds.getKey());
+//                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                        ds.getValue().toString(),
+//                                        "Episode " +ds.getKey()
+//                                );
+//
+//                                list.add(youtubeDashboradModel);
+//                            }
+//
+//                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+//                            youtubeVideoRV.setAdapter(adapter);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("tvSerial")
+//                .child("UttarRamayana")
+//                .child("videos")
+//                .addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            System.out.println("snap k : "+snapshot.getKey());
+//                            System.out.println("snap v : "+snapshot.getValue());
+//
+//                            for (DataSnapshot ds:snapshot.getChildren()) {
+//                                System.out.println("snap v : "+ds.getValue());
+//                                System.out.println("snap k : "+ds.getKey());
+//                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                        ds.getValue().toString(),
+//                                        "Episode " +ds.getKey()
+//                                );
+//
+//                                list.add(youtubeDashboradModel);
+//                            }
+//
+//                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+//                            youtubeVideoRV.setAdapter(adapter);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("tvSerial")
+//                .child("ramayanImage")
+//                .child("videos")
+//                .addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            System.out.println("snap k : "+snapshot.getKey());
+//                            System.out.println("snap v : "+snapshot.getValue());
+//
+//                            for (DataSnapshot ds:snapshot.getChildren()) {
+//                                System.out.println("snap v : "+ds.getValue());
+//                                System.out.println("snap k : "+ds.getKey());
+//                                YoutubeDashboradModel youtubeDashboradModel = new YoutubeDashboradModel(
+//                                        ds.getValue().toString(),
+//                                        "Episode " +ds.getKey()
+//                                );
+//
+//                                list.add(youtubeDashboradModel);
+//                            }
+//
+//                            YoutubeDashboardAdapter adapter = new YoutubeDashboardAdapter(getApplicationContext(),list);
+//                            youtubeVideoRV.setAdapter(adapter);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
 
 //        youtuberId = getIntent().getStringExtra("youtuberId");
@@ -899,8 +902,6 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
         System.out.println("ITEM CLICKED");
         System.out.println("Video ID : " + videoID);
         System.out.println("LOADING VIDEO...");
-//        loadVideoToYoutubeVideoPlayer(userId,videoID);
-
         Intent intent = new Intent(YoutubeDashboard.this, VideoPlayer.class);
         intent.putExtra("userId", userId);
         intent.putExtra("videoId", videoID);

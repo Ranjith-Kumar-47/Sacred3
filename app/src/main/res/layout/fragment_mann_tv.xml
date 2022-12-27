@@ -23,6 +23,7 @@
 
            <androidx.cardview.widget.CardView
                android:id="@+id/adminVideoCardView"
+               android:visibility="gone"
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
                <androidx.constraintlayout.widget.ConstraintLayout

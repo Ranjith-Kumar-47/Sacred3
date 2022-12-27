@@ -78,7 +78,7 @@ public class MannTvFragment extends Fragment {
     }
 
     private void adminVideoHandler() {
-        adminVideoCardView.setVisibility(View.GONE);
+
 
         database.getReference().child("LiveVideo")
                 .child("visibility")
@@ -88,6 +88,45 @@ public class MannTvFragment extends Fragment {
                         if(snapshot.exists()){
                             videoVisibility = snapshot.getValue().toString();
                             System.out.println("visiblity : "+videoVisibility);
+                            if(videoVisibility.equalsIgnoreCase("visible")){
+                                adminVideoCardView.setVisibility(View.VISIBLE);
+                                database.getReference().child("LiveVideo")
+                                        .child("videoId")
+                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(snapshot.exists()){
+                                                    adminVideoId = snapshot.getValue().toString();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+                                database.getReference().child("LiveVideo")
+                                        .child("videoImage")
+                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(snapshot.exists()){
+                                                    Picasso.with(getContext())
+                                                            .load(snapshot.getValue().toString())
+                                                            .placeholder(R.drawable.ic_video_loading)
+                                                            .into(adminVideo);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+
+                            }
                         }
                     }
 
@@ -97,44 +136,46 @@ public class MannTvFragment extends Fragment {
                     }
                 });
 
-        if(videoVisibility.equalsIgnoreCase("visible")){
-            adminVideoCardView.setVisibility(View.VISIBLE);
-            System.out.println("visiblity amit : "+videoVisibility);
-            database.getReference().child("LiveVideo")
-                    .child("videoId")
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists()){
-                                adminVideoId = snapshot.getValue().toString();
-                            }
-                        }
+        System.out.println("create visibility : "+videoVisibility);
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-            database.getReference().child("LiveVideo")
-                    .child("videoImage")
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists()){
-                                Picasso.with(getContext())
-                                        .load(snapshot.getValue().toString())
-                                        .placeholder(R.drawable.ic_video_loading)
-                                        .into(adminVideo);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-        }
+//        if(videoVisibility.toLowerCase().equalsIgnoreCase("visible")){
+//            adminVideoCardView.setVisibility(View.VISIBLE);
+//            System.out.println("visiblity amit : "+videoVisibility);
+//            database.getReference().child("LiveVideo")
+//                    .child("videoId")
+//                    .addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            if(snapshot.exists()){
+//                                adminVideoId = snapshot.getValue().toString();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+//
+//            database.getReference().child("LiveVideo")
+//                    .child("videoImage")
+//                    .addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            if(snapshot.exists()){
+//                                Picasso.with(getContext())
+//                                        .load(snapshot.getValue().toString())
+//                                        .placeholder(R.drawable.ic_video_loading)
+//                                        .into(adminVideo);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+//        }
 
     }
 
@@ -143,7 +184,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("id","UCDe0DwkMVFfSIoiYdQUPQmQ");
+                intent.putExtra("serialName","mahabharat");
                 startActivity(intent);
             }
         });
@@ -152,7 +193,25 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("id","UCHq7ZxlzRRXimaBmk5QAxSQ");
+                intent.putExtra("serialName","ramayanImage");
+                startActivity(intent);
+            }
+        });
+
+        videoImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), YoutubeDashboard.class);
+                intent.putExtra("serialName","ShreeMahalaxmi");
+                startActivity(intent);
+            }
+        });
+
+        videoImage4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), YoutubeDashboard.class);
+                intent.putExtra("serialName","UttarRamayana");
                 startActivity(intent);
             }
         });
