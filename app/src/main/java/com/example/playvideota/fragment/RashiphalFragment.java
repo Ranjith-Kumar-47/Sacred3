@@ -1,5 +1,6 @@
 package com.example.playvideota.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +52,7 @@ public class RashiphalFragment extends Fragment {
     FirebaseDatabase database;
     TextView rashiphalDataTextview,todayDateTextview;
     CardView Aquarius,Aries,Cancer,Capricon,Gemini,Libra,Leo,Pisces,Taurus,Virgo,Sagittarius,scorpio;
+    TextView aquariusTv,ariesTv,cancerTv,capriconTv,geminiTv,libraTv,leoTv,piscesTv,taurusTv,virgoTv,sagittariusTv,scorpioTv;
     ImageView adminVideo, adminVideoPlayButton;
     String videoIdData = "";
 
@@ -118,12 +121,12 @@ public class RashiphalFragment extends Fragment {
 
 //        आज 14 Nov, 2022
 
-        todayDateTextview.setText(startDate+" "+endDate+" " +"रशीपाल");
+        todayDateTextview.setText(startDate+" "+endDate+" " +"राशिफल");
 
 
 
 
-
+        lookSelected(capriconTv);
         database.getReference().child("Rashipal")
                 .child("Capricon")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -182,7 +185,26 @@ public class RashiphalFragment extends Fragment {
 
 
 
+
+
+
         return binding.getRoot();
+    }
+    @SuppressLint("ResourceAsColor")
+    private void lookSelected(TextView parsedButton) {
+        parsedButton.setBackgroundResource(R.drawable.yes_button_bg);
+//        parsedButton.setBackgroundColor(R.color.orange);
+        parsedButton.setTextColor(R.color.orange);
+
+
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void lookUnSelected(TextView parsedButton) {
+        parsedButton.setBackgroundResource(R.drawable.exit_dialog_bg);
+//        parsedButton.setBackgroundColor(R.color.white);
+        parsedButton.setTextColor(R.color.black);
+
     }
 
     private void adminVideo() {
@@ -245,6 +267,21 @@ public class RashiphalFragment extends Fragment {
         Aquarius.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(aquariusTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
+
                 database.getReference().child("Rashipal")
                         .child("Aquarius")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -270,6 +307,20 @@ public class RashiphalFragment extends Fragment {
         Aries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                lookSelected(ariesTv);
+
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
 
                 database.getReference().child("Rashipal")
                         .child("Aries")
@@ -297,6 +348,21 @@ public class RashiphalFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                lookSelected(cancerTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+//                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Cancer")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -322,6 +388,21 @@ public class RashiphalFragment extends Fragment {
         Capricon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                lookSelected(capriconTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+//                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
 
                 database.getReference().child("Rashipal")
                         .child("Capricon")
@@ -349,6 +430,21 @@ public class RashiphalFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                lookSelected(geminiTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+//                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Gemini")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -374,6 +470,20 @@ public class RashiphalFragment extends Fragment {
         Libra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lookSelected(libraTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+//                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
 
                 database.getReference().child("Rashipal")
                         .child("Libra")
@@ -401,6 +511,21 @@ public class RashiphalFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                lookSelected(leoTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+//                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Leo")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -426,6 +551,21 @@ public class RashiphalFragment extends Fragment {
         Pisces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                lookSelected(piscesTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+//                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
 
                 database.getReference().child("Rashipal")
                         .child("Pisces")
@@ -453,6 +593,20 @@ public class RashiphalFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                lookSelected(taurusTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+//                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
                 database.getReference().child("Rashipal")
                         .child("Taurus")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -479,6 +633,21 @@ public class RashiphalFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                lookSelected(virgoTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+//                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Virgo")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -504,6 +673,22 @@ public class RashiphalFragment extends Fragment {
         Sagittarius.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                lookSelected(sagittariusTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+//                lookUnSelected(sagittariusTv);
+                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Sagittarius")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -529,6 +714,22 @@ public class RashiphalFragment extends Fragment {
         scorpio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                lookSelected(scorpioTv);
+
+                lookUnSelected(ariesTv);
+                lookUnSelected(aquariusTv);
+                lookUnSelected(cancerTv);
+                lookUnSelected(capriconTv);
+                lookUnSelected(geminiTv);
+                lookUnSelected(libraTv);
+                lookUnSelected(leoTv);
+                lookUnSelected(piscesTv);
+                lookUnSelected(taurusTv);
+                lookUnSelected(virgoTv);
+                lookUnSelected(sagittariusTv);
+//                lookUnSelected(scorpioTv);
+
                 database.getReference().child("Rashipal")
                         .child("Scorpio")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -569,6 +770,20 @@ public class RashiphalFragment extends Fragment {
         Virgo = binding.Virgo;
         Sagittarius = binding.Sagittarius;
         scorpio = binding.scorpio;
+
+
+        aquariusTv =binding.aquariusTv;
+        ariesTv = binding.ariesTv;
+        cancerTv = binding.cancerTv;
+        capriconTv = binding.capriconTv;
+        geminiTv = binding.geminiTv;
+        libraTv = binding.libraTv;
+        leoTv = binding.leoTv;
+        piscesTv = binding.piscesTv;
+        taurusTv = binding.taurusTv;
+        virgoTv = binding.virgoTv;
+        sagittariusTv = binding.sagittariusTv;
+        scorpioTv = binding.scorpioTv;
 
         adminVideo = binding.adminVideo;
         adminVideoPlayButton = binding.adminVideoPlayButton;

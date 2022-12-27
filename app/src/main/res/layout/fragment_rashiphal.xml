@@ -81,13 +81,15 @@
                              app:srcCompat="@drawable/capriconorg" />
 
                          <TextView
-                             android:id="@+id/rashiphalName1"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/capriconTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मकर"
+                             android:gravity="center"
+                             android:background="@drawable/exit_dialog_bg"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage1" />
@@ -119,13 +121,15 @@
                              app:srcCompat="@drawable/cancer" />
 
                          <TextView
-                             android:id="@+id/rashiphalName3"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/cancerTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कर्क"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage3" />
@@ -157,13 +161,15 @@
                              app:srcCompat="@drawable/aries" />
 
                          <TextView
-                             android:id="@+id/rashiphalName4"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/ariesTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मेष"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage4" />
@@ -195,13 +201,15 @@
                              app:srcCompat="@drawable/gemini" />
 
                          <TextView
-                             android:id="@+id/rashiphalName5"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/geminiTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मिथुन"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage5" />
@@ -234,13 +242,15 @@
                              app:srcCompat="@drawable/taurus" />
 
                          <TextView
-                             android:id="@+id/rashiphalName6"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/taurusTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="वृष"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage6" />
@@ -273,13 +283,15 @@
                              app:srcCompat="@drawable/pisces" />
 
                          <TextView
-                             android:id="@+id/rashiphalName7"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/piscesTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मीन"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage7" />
@@ -310,13 +322,15 @@
                              app:srcCompat="@drawable/libra" />
 
                          <TextView
-                             android:id="@+id/rashiphalName8"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/libraTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="तुला"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage8" />
@@ -348,13 +362,15 @@
                              app:srcCompat="@drawable/lio" />
 
                          <TextView
-                             android:id="@+id/rashiphalName9"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/leoTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="सिंह"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage9" />
@@ -387,13 +403,15 @@
                              app:srcCompat="@drawable/aquarius" />
 
                          <TextView
-                             android:id="@+id/rashiphalName10"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/aquariusTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कुंभ"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage10" />
@@ -427,13 +445,15 @@
                              app:srcCompat="@drawable/zodiac_sagarithus" />
 
                          <TextView
-                             android:id="@+id/rashiphalName2"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/sagittariusTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="धनु"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage2" />
@@ -467,13 +487,15 @@
                              app:srcCompat="@drawable/virgo" />
 
                          <TextView
-                             android:id="@+id/rashiphalName"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/virgoTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कन्या"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImage" />
@@ -507,13 +529,15 @@
                              app:srcCompat="@drawable/scorpio" />
 
                          <TextView
-                             android:id="@+id/rashiphalNameScorpio"
-                             android:layout_width="wrap_content"
+                             android:id="@+id/scorpioTv"
+                             android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
                              android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="वृश्चिक"
+                             android:background="@drawable/exit_dialog_bg"
+                             android:gravity="center"
                              app:layout_constraintEnd_toEndOf="parent"
                              app:layout_constraintStart_toStartOf="parent"
                              app:layout_constraintTop_toBottomOf="@+id/rashiphalImageScorpio" />
@@ -540,7 +564,7 @@
              android:layout_height="wrap_content"
              android:layout_marginStart="30dp"
              android:layout_marginEnd="20dp"
-             android:text="आज 14 Nov, 2022 रशीपाल"
+             android:text="आज 14 Nov, 2022 राशिफल"
              android:textColor="@color/orange"
              android:textSize="22sp"
              app:layout_constraintBottom_toBottomOf="@+id/view4"

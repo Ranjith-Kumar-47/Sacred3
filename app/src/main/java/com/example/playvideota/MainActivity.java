@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
 
     private int[] tabIcons = {
-            R.drawable.ic_apple_tv_svgrepo_com,
+            R.drawable.tv_icon_btn,
             R.drawable.ic_calender_day_love_svgrepo_com,
             R.drawable.astrology,
             R.drawable.gita_slok_icon
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
        new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setIcon(tabIcons[position]) )).attach();
 
 
-        tabLayout.getTabAt(0).setText("टीवी").setIcon(R.drawable.ic_apple_tv_svgrepo_com).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
+        tabLayout.getTabAt(0).setText("टीवी").setIcon(R.drawable.tv_icon_btn).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.astrology);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);

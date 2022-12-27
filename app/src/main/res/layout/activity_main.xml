@@ -27,7 +27,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/ic_baseline_share_24"
+        android:src="@drawable/share_icon_btn"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:tabSelectedTextColor="@color/black"
         app:tabIndicatorColor="@color/orange"
-        app:tabTextAppearance="@style/TextAppearance.AppCompat.Caption"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottomNavigation">
 

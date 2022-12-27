@@ -56,7 +56,7 @@ public class RashiphalAdapter extends RecyclerView.Adapter<RashiphalAdapter.view
             super(itemView);
 
             rashiphalImage = itemView.findViewById(R.id.rashiphalImage);
-            rashiphalName = itemView.findViewById(R.id.rashiphalName);
+            rashiphalName = itemView.findViewById(R.id.virgoTv);
 
         }
 

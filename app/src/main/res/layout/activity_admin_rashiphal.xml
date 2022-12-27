@@ -84,7 +84,7 @@
                 app:srcCompat="@drawable/capriconorg" />
 
             <TextView
-                android:id="@+id/rashiphalName1"
+                android:id="@+id/capriconTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -123,7 +123,7 @@
                 app:srcCompat="@drawable/zodiac_sagarithus" />
 
             <TextView
-                android:id="@+id/rashiphalName2"
+                android:id="@+id/sagittariusTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -163,7 +163,7 @@
                 app:srcCompat="@drawable/cancer" />
 
             <TextView
-                android:id="@+id/rashiphalName3"
+                android:id="@+id/cancerTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -201,7 +201,7 @@
                 app:srcCompat="@drawable/aries" />
 
             <TextView
-                android:id="@+id/rashiphalName4"
+                android:id="@+id/ariesTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -238,7 +238,7 @@
                 app:srcCompat="@drawable/gemini" />
 
             <TextView
-                android:id="@+id/rashiphalName5"
+                android:id="@+id/geminiTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -276,7 +276,7 @@
                 app:srcCompat="@drawable/taurus" />
 
             <TextView
-                android:id="@+id/rashiphalName6"
+                android:id="@+id/taurusTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -315,7 +315,7 @@
                 app:srcCompat="@drawable/pisces" />
 
             <TextView
-                android:id="@+id/rashiphalName7"
+                android:id="@+id/piscesTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -352,7 +352,7 @@
                 app:srcCompat="@drawable/libra" />
 
             <TextView
-                android:id="@+id/rashiphalName8"
+                android:id="@+id/libraTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -390,7 +390,7 @@
                 app:srcCompat="@drawable/lio" />
 
             <TextView
-                android:id="@+id/rashiphalName9"
+                android:id="@+id/leoTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -430,7 +430,7 @@
                 app:srcCompat="@drawable/aquarius" />
 
             <TextView
-                android:id="@+id/rashiphalName10"
+                android:id="@+id/aquariusTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -469,7 +469,7 @@
                 app:srcCompat="@drawable/virgo" />
 
             <TextView
-                android:id="@+id/rashiphalName"
+                android:id="@+id/virgoTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -510,7 +510,7 @@
                 app:srcCompat="@drawable/scorpio" />
 
             <TextView
-                android:id="@+id/rashiphalNameScorpio"
+                android:id="@+id/scorpioTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
