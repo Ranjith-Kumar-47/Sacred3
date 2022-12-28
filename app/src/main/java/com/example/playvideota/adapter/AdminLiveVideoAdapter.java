@@ -52,7 +52,6 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), WebViewActivity.class);
                 intent.putExtra("id",adminLiveVideoModel.getVideoId());
-                Toast.makeText(context, adminLiveVideoModel.getVideoId(), Toast.LENGTH_SHORT).show();
                 v.getContext().startActivity(intent);
             }
         });
