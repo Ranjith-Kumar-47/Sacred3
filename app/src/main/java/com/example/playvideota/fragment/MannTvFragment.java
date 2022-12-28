@@ -6,10 +6,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,10 +25,14 @@ import com.example.playvideota.FeedbackActivity;
 import com.example.playvideota.R;
 import com.example.playvideota.WebViewActivity;
 import com.example.playvideota.YoutubeDashboard;
+import com.example.playvideota.adapter.AdminLiveVideoAdapter;
+import com.example.playvideota.adapter.YoutubeDashboardAdapter;
 import com.example.playvideota.adapter.YoutuberAdapter;
 import com.example.playvideota.api.MySingleton;
 import com.example.playvideota.databinding.FragmentMannTvBinding;
 import com.example.playvideota.databinding.FragmentTvBinding;
+import com.example.playvideota.model.AdminLiveVideoModel;
+import com.example.playvideota.model.YoutubeDashboradModel;
 import com.example.playvideota.model.YoutuberModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,21 +43,24 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 
 public class MannTvFragment extends Fragment {
 
     FragmentMannTvBinding binding;
-    ImageView videoImage1,videoImage2,videoImage3,videoImage4,videoImage5,videoImage6,videoImage7,videoImage8;
-    TextView videoDescription1,videoDescription2,videoDescription3,videoDescription4,videoDescription5,videoDescription6,videoDescription7,videoDescription8;
+    ImageView videoImage1, videoImage2, videoImage3, videoImage4, videoImage5, videoImage6, videoImage7, videoImage8;
+    TextView videoDescription1, videoDescription2, videoDescription3, videoDescription4, videoDescription5, videoDescription6, videoDescription7, videoDescription8;
     FirebaseDatabase database;
-    CardView adminVideoCardView;
-    ImageView adminVideo,adminVideoPlayButton;
+    HorizontalScrollView adminLiveVideoHorizontalSv;
+
 
     String url = "";
     String videoVisibility = "";
 
     String adminVideoId = "";
-
+    ArrayList<AdminLiveVideoModel> list = new ArrayList<>();
+    RecyclerView adminLiveVideoRv;
 
 
     public MannTvFragment() {
@@ -67,16 +78,48 @@ public class MannTvFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentMannTvBinding.inflate(inflater,container,false);
+        binding = FragmentMannTvBinding.inflate(inflater, container, false);
 
         initingData();
         settingData();
+
+        settingAdapter();
 
         clickHandler();
         feedbackHandler();
         adminVideoHandler();
 
-        return  binding.getRoot();
+
+        return binding.getRoot();
+    }
+
+    private void settingAdapter() {
+
+//        youtubeVideoRV = findViewById(R.id.youtubeVideoRV);
+//        youtubeVideoRV.setHasFixedSize(true);
+//
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+//        gridLayoutManager.setOrientation(youtubeVideoRV.VERTICAL);
+//        youtubeVideoRV.setLayoutManager(gridLayoutManager);
+//
+//        YoutubeDashboardAdapter youtubeDashboardAdapter3 = new YoutubeDashboardAdapter(getApplicationContext(), list, this);
+//        youtubeVideoRV.setAdapter(youtubeDashboardAdapter3);
+
+        adminLiveVideoRv = binding.adminLiveVideoRv;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        adminLiveVideoRv.setLayoutManager(linearLayoutManager);
+        adminLiveVideoRv.setNestedScrollingEnabled(false);
+
+//        adminLiveVideoRv.setHasFixedSize(true);
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
+//        gridLayoutManager.setOrientation(adminLiveVideoRv.HORIZONTAL);
+//        adminLiveVideoRv.setLayoutManager(gridLayoutManager);
+//        adminLiveVideoRv.setNestedScrollingEnabled(false);
+
+
+        AdminLiveVideoAdapter adminLiveVideoAdapter = new AdminLiveVideoAdapter(getContext(), list);
+        adminLiveVideoRv.setAdapter(adminLiveVideoAdapter);
     }
 
     private void feedbackHandler() {
@@ -98,37 +141,34 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoVisibility = snapshot.getValue().toString();
-                            System.out.println("visiblity : "+videoVisibility);
-                            if(videoVisibility.equalsIgnoreCase("visible")){
-                                adminVideoCardView.setVisibility(View.VISIBLE);
+                            System.out.println("visiblity : " + videoVisibility);
+                            if (videoVisibility.equalsIgnoreCase("visible")) {
+                                adminLiveVideoHorizontalSv.setVisibility(View.VISIBLE);
                                 database.getReference().child("LiveVideo")
-                                        .child("videoId")
-                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        .child("videos")
+                                        .addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                if(snapshot.exists()){
-                                                    adminVideoId = snapshot.getValue().toString();
-                                                }
-                                            }
+                                                if (snapshot.exists()) {
+                                                    System.out.println("snap k : " + snapshot.getKey());
+                                                    System.out.println("snap v : " + snapshot.getValue());
 
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                    for (DataSnapshot ds : snapshot.getChildren()) {
+                                                        System.out.println("snap live v : " + ds.getValue());
+                                                        System.out.println("snap live k : " + ds.getKey());
+                                                        AdminLiveVideoModel adminLiveVideoModel = new AdminLiveVideoModel(
+                                                                ds.getKey(),
+                                                                ds.getValue().toString()
+                                                        );
 
-                                            }
-                                        });
+                                                        list.add(adminLiveVideoModel);
+                                                    }
 
-                                database.getReference().child("LiveVideo")
-                                        .child("videoImage")
-                                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                if(snapshot.exists()){
-                                                    Picasso.with(getContext())
-                                                            .load(snapshot.getValue().toString())
-                                                            .placeholder(R.drawable.ic_video_loading)
-                                                            .into(adminVideo);
+                                                    AdminLiveVideoAdapter adminLiveVideoAdapter = new AdminLiveVideoAdapter(getContext(), list);
+                                                    adminLiveVideoRv.setAdapter(adminLiveVideoAdapter);
+
                                                 }
                                             }
 
@@ -149,8 +189,6 @@ public class MannTvFragment extends Fragment {
                     }
                 });
 
-        System.out.println("create visibility : "+videoVisibility);
-
 
     }
 
@@ -159,7 +197,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","mahabharat");
+                intent.putExtra("serialName", "mahabharat");
                 startActivity(intent);
             }
         });
@@ -168,7 +206,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","ramayanImage");
+                intent.putExtra("serialName", "ramayanImage");
                 startActivity(intent);
             }
         });
@@ -177,7 +215,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","ShreeMahalaxmi");
+                intent.putExtra("serialName", "ShreeMahalaxmi");
                 startActivity(intent);
             }
         });
@@ -186,7 +224,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","UttarRamayana");
+                intent.putExtra("serialName", "UttarRamayana");
                 startActivity(intent);
             }
         });
@@ -195,7 +233,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","balKrishna");
+                intent.putExtra("serialName", "balKrishna");
                 startActivity(intent);
             }
         });
@@ -204,7 +242,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","saiBaba");
+                intent.putExtra("serialName", "saiBaba");
                 startActivity(intent);
             }
         });
@@ -213,7 +251,7 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","shivPuran");
+                intent.putExtra("serialName", "shivPuran");
                 startActivity(intent);
             }
         });
@@ -222,19 +260,19 @@ public class MannTvFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), YoutubeDashboard.class);
-                intent.putExtra("serialName","vignahartaGanesh");
+                intent.putExtra("serialName", "vignahartaGanesh");
                 startActivity(intent);
             }
         });
 
-        adminVideoCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  =  new Intent(getContext(), WebViewActivity.class);
-                intent.putExtra("id",adminVideoId);
-                startActivity(intent);
-            }
-        });
+//        adminVideoCardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent  =  new Intent(getContext(), WebViewActivity.class);
+//                intent.putExtra("id",adminVideoId);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void settingData() {
@@ -254,7 +292,6 @@ public class MannTvFragment extends Fragment {
 //
 //                    }
 //                });
-
 
 
 //        database.getReference().child("channels")
@@ -283,7 +320,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription1.setText(snapshot.getValue().toString());
                         }
                     }
@@ -300,7 +337,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -360,7 +397,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -380,7 +417,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription2.setText(snapshot.getValue().toString());
                         }
                     }
@@ -390,9 +427,6 @@ public class MannTvFragment extends Fragment {
 
                     }
                 });
-
-
-
 
 
 //        database.getReference().child("channels")
@@ -518,7 +552,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -538,7 +572,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription3.setText(snapshot.getValue().toString());
                         }
                     }
@@ -555,7 +589,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -575,7 +609,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription4.setText(snapshot.getValue().toString());
                         }
                     }
@@ -593,7 +627,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -613,7 +647,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription5.setText(snapshot.getValue().toString());
                         }
                     }
@@ -631,7 +665,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -651,7 +685,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription6.setText(snapshot.getValue().toString());
                         }
                     }
@@ -669,7 +703,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -689,7 +723,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription7.setText(snapshot.getValue().toString());
                         }
                     }
@@ -707,7 +741,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             Picasso.with(getContext())
                                     .load(snapshot.getValue().toString())
                                     .placeholder(R.drawable.ic_profile_svgrepo_com)
@@ -727,7 +761,7 @@ public class MannTvFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             videoDescription8.setText(snapshot.getValue().toString());
                         }
                     }
@@ -737,10 +771,6 @@ public class MannTvFragment extends Fragment {
 
                     }
                 });
-
-
-
-
 
 
     }
@@ -764,9 +794,11 @@ public class MannTvFragment extends Fragment {
         videoDescription7 = binding.videoDescription7;
         videoDescription8 = binding.videoDescription8;
 
-        adminVideoCardView = binding.adminVideoCardView;
-        adminVideo = binding.adminVideo;
-        adminVideoPlayButton = binding.adminVideoPlayButton;
+        adminLiveVideoHorizontalSv = binding.adminLiveVideoHorizontalSv;
+
+//        adminVideoCardView = binding.adminVideoCardView;
+//        adminVideo = binding.adminVideo;
+//        adminVideoPlayButton = binding.adminVideoPlayButton;
 
 
     }

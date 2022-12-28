@@ -218,6 +218,15 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView logoImage = binding.logoImage;
 
+        logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+                startActivity(intent);
+            }
+        });
+
         if(auth.getCurrentUser() != null){
             if((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid()) ) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid())) ){
                 adminButton.setVisibility(View.VISIBLE);

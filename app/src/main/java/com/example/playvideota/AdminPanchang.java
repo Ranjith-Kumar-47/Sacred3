@@ -30,6 +30,8 @@ public class AdminPanchang extends AppCompatActivity {
     ImageButton submitVideoIdButton;
     ImageView adminLivevideoThumbnailImageView,adminLiveVideoYes,adminLiveVideoNo;
 
+    String videoId = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,8 @@ public class AdminPanchang extends AppCompatActivity {
         adminVideoIdEditText = findViewById(R.id.adminVideoIdEditText);
         submitVideoIdButton = findViewById(R.id.submitVideoIdButton);
 
+
+
         submitVideoIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,10 +68,12 @@ public class AdminPanchang extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter Video Id", Toast.LENGTH_SHORT).show();
                 }else {
                     database.getReference().child("LiveVideo")
-                            .child("videoId")
+                            .child("videos")
+                            .child(adminVideoIdEditText.getText().toString())
                             .setValue(adminVideoIdEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
+                                    videoId = adminVideoIdEditText.getText().toString();
                                     Toast.makeText(getApplicationContext(), "Video ID Added", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -82,7 +88,11 @@ public class AdminPanchang extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                startActivityForResult(intent, 33);
+                if(videoId.equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Id First", Toast.LENGTH_SHORT).show();
+                }else {
+                    startActivityForResult(intent, 33);
+                }
             }
         });
 
@@ -294,7 +304,6 @@ public class AdminPanchang extends AppCompatActivity {
                 Uri uri = data.getData();
                 adminLivevideoThumbnailImageView.setImageURI(uri);
 
-
 //            final StorageReference reference = storage.getReference()
 //                    .child("panchang")
 //                    .child("daily_panchang")
@@ -331,7 +340,8 @@ public class AdminPanchang extends AppCompatActivity {
 
                 final StorageReference reference = storage.getReference()
                         .child("LiveVideo")
-                        .child("videoImage");
+                        .child("videos")
+                        .child(videoId);
 
                 reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -359,8 +369,12 @@ public class AdminPanchang extends AppCompatActivity {
 
                             database.getReference()
                                     .child("LiveVideo")
-                                    .child("videoImage")
+                                    .child("videos")
+                                    .child(videoId)
                                     .setValue(uri.toString());
+
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
 
                             }
                         });
