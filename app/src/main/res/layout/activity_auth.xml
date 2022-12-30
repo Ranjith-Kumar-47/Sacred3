@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/auth_screen_bg"
-    tools:context=".AuthActivity">
+    tools:context="com.pujagoodies.sacred.AuthActivity">
 
     <View
         android:id="@+id/view"

@@ -15,5 +15,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "playVideoTA"
+rootProject.name = "sacred"
 include ':app'

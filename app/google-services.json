@@ -1,18 +1,27 @@
 {
   "project_info": {
     "project_number": "258661547926",
+    "firebase_url": "https://playvideota-default-rtdb.firebaseio.com",
     "project_id": "playvideota",
     "storage_bucket": "playvideota.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:258661547926:android:bd274ed1196b6374e027b7",
+        "mobilesdk_app_id": "1:258661547926:android:3bad7ff73cde870ce027b7",
         "android_client_info": {
-          "package_name": "com.example.playvideota"
+          "package_name": "com.pujagoodies.sacred"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "258661547926-2okgo2kalcig09jnn0s2teef9af8d041.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pujagoodies.sacred",
+            "certificate_hash": "bc1c56fefe72def560cd6381f9274eb09e8b7b20"
+          }
+        },
         {
           "client_id": "258661547926-tuj7vtem0lg0h2hqfij2k266vqp9dm25.apps.googleusercontent.com",
           "client_type": 3
