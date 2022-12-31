@@ -27,11 +27,13 @@ public class AdminPanchang extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseDatabase database;
     Button submitPanchangButton;
-    EditText adminVideoIdEditText;
+    EditText adminVideoIdEditText,adminVideoTitleEditText,adminVideoDescriptionEditText;
     ImageButton submitVideoIdButton;
     ImageView adminLivevideoThumbnailImageView,adminLiveVideoYes,adminLiveVideoNo;
 
     String videoId = "";
+    String videoTitle = "";
+    String videoDescription = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,11 @@ public class AdminPanchang extends AppCompatActivity {
         panchangDailyTitleDescriptionTextView = findViewById(R.id.panchangDailyTitleDescriptionTextView);
         panchangDailyTitleTextView = findViewById(R.id.panchangDailyTitleTextView);
         submitPanchangButton = findViewById(R.id.submitPanchangButton);
+
+        adminVideoTitleEditText  = findViewById(R.id.adminVideoTitleEditText);
+        adminVideoDescriptionEditText = findViewById(R.id.adminVideoDescriptionEditText);
+
+
 
         pachangDailyImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,15 +74,44 @@ public class AdminPanchang extends AppCompatActivity {
             public void onClick(View v) {
                 if(adminVideoIdEditText.getText().toString().equalsIgnoreCase("")){
                     Toast.makeText(getApplicationContext(), "Enter Video Id", Toast.LENGTH_SHORT).show();
+                }else if(adminVideoTitleEditText.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Title", Toast.LENGTH_SHORT).show();
+                }else if(adminVideoDescriptionEditText.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Description", Toast.LENGTH_SHORT).show();
                 }else {
                     database.getReference().child("LiveVideo")
                             .child("videos")
+                            .child(adminVideoIdEditText.getText().toString())
                             .child(adminVideoIdEditText.getText().toString())
                             .setValue(adminVideoIdEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     videoId = adminVideoIdEditText.getText().toString();
                                     Toast.makeText(getApplicationContext(), "Video ID Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    database.getReference().child("LiveVideo")
+                            .child("videos")
+                            .child(adminVideoIdEditText.getText().toString())
+                            .child("title")
+                            .setValue(adminVideoTitleEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    videoTitle = adminVideoTitleEditText.getText().toString();
+                                    Toast.makeText(getApplicationContext(), "Video Title Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    database.getReference().child("LiveVideo")
+                            .child("videos")
+                            .child(adminVideoIdEditText.getText().toString())
+                            .child("description")
+                            .setValue(adminVideoDescriptionEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    videoDescription = adminVideoDescriptionEditText.getText().toString();
+                                    Toast.makeText(getApplicationContext(), "Video title Added", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
@@ -91,7 +127,12 @@ public class AdminPanchang extends AppCompatActivity {
                 intent.setType("image/*");
                 if(videoId.equalsIgnoreCase("")){
                     Toast.makeText(getApplicationContext(), "Enter Video Id First", Toast.LENGTH_SHORT).show();
-                }else {
+                }else if(videoTitle.equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Title First", Toast.LENGTH_SHORT).show();
+                }else if(videoDescription.equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Description First", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     startActivityForResult(intent, 33);
                 }
             }
@@ -342,6 +383,7 @@ public class AdminPanchang extends AppCompatActivity {
                 final StorageReference reference = storage.getReference()
                         .child("LiveVideo")
                         .child("videos")
+                        .child(videoId)
                         .child(videoId);
 
                 reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -371,6 +413,7 @@ public class AdminPanchang extends AppCompatActivity {
                             database.getReference()
                                     .child("LiveVideo")
                                     .child("videos")
+                                    .child(videoId)
                                     .child(videoId)
                                     .setValue(uri.toString());
 

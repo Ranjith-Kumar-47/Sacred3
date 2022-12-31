@@ -6,11 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playvideota.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pujagoodies.sacred.WebViewActivity;
 import com.pujagoodies.sacred.model.AdminLiveVideoModel;
 import com.squareup.picasso.Picasso;
@@ -21,6 +26,7 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
 
     Context context;
     ArrayList<AdminLiveVideoModel> list;
+    FirebaseDatabase database;
 
     public AdminLiveVideoAdapter(Context context, ArrayList<AdminLiveVideoModel> list) {
         this.context = context;
@@ -31,6 +37,9 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.sample_live_videos,parent,false);
+
+        database = FirebaseDatabase.getInstance();
+
         return new viewHolder(view);
     }
 
@@ -54,6 +63,41 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
             }
         });
 
+        holder.adminLiveVideoTitle.setText(adminLiveVideoModel.getTitle());
+        holder.adminLiveVideoDescription.setText(adminLiveVideoModel.getDescription());
+
+//        database.getReference().child("LiveVideo")
+//                .child("videos")
+//                .child(adminLiveVideoModel.getVideoId())
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        holder.adminLiveVideoTitle.setText(snapshot.getValue().toString());
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//        database.getReference().child("LiveVideo")
+//                .child("videos")
+//                .child(adminLiveVideoModel.getVideoId())
+//                .child("description")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        holder.adminLiveVideoDescription.setText(snapshot.getValue().toString());
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+
     }
 
     @Override
@@ -63,10 +107,13 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView adminVideo;
+        TextView adminLiveVideoTitle,adminLiveVideoDescription;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
             adminVideo = itemView.findViewById(R.id.adminVideo);
+            adminLiveVideoTitle = itemView.findViewById(R.id.adminLiveVideoTitle);
+            adminLiveVideoDescription = itemView.findViewById(R.id.adminLiveVideoDescription);
         }
     }
 }

@@ -5,10 +5,35 @@ import android.net.Uri;
 public class AdminLiveVideoModel {
     String videoId;
     String image;
+    String title;
+    String description;
+
+    public AdminLiveVideoModel(String videoId, String image, String title, String description) {
+        this.videoId = videoId;
+        this.image = image;
+        this.title = title;
+        this.description = description;
+    }
 
     public AdminLiveVideoModel(String videoId, String image) {
         this.videoId = videoId;
         this.image = image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getVideoId() {

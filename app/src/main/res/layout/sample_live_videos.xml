@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="320dp"
-    android:layout_height="wrap_content">
+    android:layout_height="320dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/adminVideoCardView"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,17 +18,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/adminVideo"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_video_loading"
                 android:visibility="visible"
-
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,6 +50,46 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/adminVideo" />
+
+            <TextView
+                android:id="@+id/adminLiveVideoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="sans-serif-light"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:nestedScrollingEnabled="true"
+                android:padding="3dp"
+                android:paddingStart="10dp"
+                android:singleLine="false"
+                android:text="Video Title"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/adminVideo"
+                app:layout_constraintStart_toStartOf="@+id/adminVideo"
+                app:layout_constraintTop_toBottomOf="@+id/adminVideo" />
+
+            <TextView
+                android:id="@+id/adminLiveVideoDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="sans-serif-light"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:nestedScrollingEnabled="true"
+                android:padding="3dp"
+                android:paddingStart="10dp"
+                android:singleLine="false"
+                android:text="video description"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/adminLiveVideoTitle"
+                app:layout_constraintStart_toStartOf="@+id/adminLiveVideoTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adminLiveVideoTitle" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

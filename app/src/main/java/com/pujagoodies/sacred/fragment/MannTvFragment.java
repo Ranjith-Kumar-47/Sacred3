@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,17 +137,22 @@ public class MannTvFragment extends Fragment {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 if (snapshot.exists()) {
-                                                    System.out.println("snap k : " + snapshot.getKey());
-                                                    System.out.println("snap v : " + snapshot.getValue());
 
                                                     for (DataSnapshot ds : snapshot.getChildren()) {
-                                                        System.out.println("snap live v : " + ds.getValue());
-                                                        System.out.println("snap live k : " + ds.getKey());
+                                                        System.out.println("ds k : " + ds.getKey());
+                                                        System.out.println("ds v : " + ds.getValue());
+                                                        System.out.println("v id : " + ds.getKey());
+                                                        System.out.println("v imageUrl : " + ds.child(ds.getKey()).getValue().toString());
+                                                        System.out.println("v title : " + ds.child("title").getValue().toString());
+                                                        System.out.println("v description : " + ds.child("description").getValue().toString());
+
                                                         AdminLiveVideoModel adminLiveVideoModel = new AdminLiveVideoModel(
                                                                 ds.getKey(),
-                                                                ds.getValue().toString()
-                                                        );
+                                                                ds.child(ds.getKey()).getValue().toString(),
+                                                                ds.child("title").getValue().toString(),
+                                                                ds.child("description").getValue().toString()
 
+                                                        );
                                                         list.add(adminLiveVideoModel);
                                                     }
 
