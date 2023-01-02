@@ -27,13 +27,25 @@ public class AdminPanchang extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseDatabase database;
     Button submitPanchangButton;
+
     EditText adminVideoIdEditText,adminVideoTitleEditText,adminVideoDescriptionEditText;
+    EditText adminVideoIdEditTextMandir,adminVideoTitleEditTextMandir,adminVideoDescriptionEditTextMandir;
+
     ImageButton submitVideoIdButton;
+    ImageButton submitVideoIdButtonMandir;
+
     ImageView adminLivevideoThumbnailImageView,adminLiveVideoYes,adminLiveVideoNo;
+    ImageView adminLivevideoThumbnailImageViewMandir,adminLiveVideoYesMandir,adminLiveVideoNoMandir;
 
     String videoId = "";
     String videoTitle = "";
     String videoDescription = "";
+
+    String videoIdMandir = "";
+    String videoTitleMandir = "";
+    String videoDescriptionMandir = "";
+
+    boolean enableMandirImage = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +55,7 @@ public class AdminPanchang extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        pachangDailyImageView = findViewById(R.id.pachangDailyImageView);
-        panchangDailyFestivalTextView = findViewById(R.id.panchangDailyFestivalTextView);
-        panchangDailyTitleDescriptionTextView = findViewById(R.id.panchangDailyTitleDescriptionTextView);
-        panchangDailyTitleTextView = findViewById(R.id.panchangDailyTitleTextView);
-        submitPanchangButton = findViewById(R.id.submitPanchangButton);
-
-        adminVideoTitleEditText  = findViewById(R.id.adminVideoTitleEditText);
-        adminVideoDescriptionEditText = findViewById(R.id.adminVideoDescriptionEditText);
+        initData();
 
 
 
@@ -64,11 +69,7 @@ public class AdminPanchang extends AppCompatActivity {
             }
         });
 
-        adminVideoIdEditText = findViewById(R.id.adminVideoIdEditText);
-        submitVideoIdButton = findViewById(R.id.submitVideoIdButton);
-
-
-
+        videoId = adminVideoIdEditText.getText().toString();
         submitVideoIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +119,58 @@ public class AdminPanchang extends AppCompatActivity {
             }
         });
 
-        adminLivevideoThumbnailImageView = findViewById(R.id.adminLivevideoThumbnailImageView);
+        videoIdMandir = adminVideoIdEditTextMandir.getText().toString();
+        submitVideoIdButtonMandir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(adminVideoIdEditTextMandir.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Id", Toast.LENGTH_SHORT).show();
+                }else if(adminVideoTitleEditTextMandir.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Title", Toast.LENGTH_SHORT).show();
+                }else if(adminVideoDescriptionEditTextMandir.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Description", Toast.LENGTH_SHORT).show();
+                }else {
+                    videoIdMandir = adminVideoIdEditTextMandir.getText().toString();
+                    database.getReference().child("Mandir")
+                            .child("videos")
+                            .child(adminVideoIdEditTextMandir.getText().toString())
+                            .child(adminVideoIdEditTextMandir.getText().toString())
+                            .setValue(adminVideoIdEditTextMandir.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    videoIdMandir = adminVideoIdEditTextMandir.getText().toString();
+                                    Toast.makeText(getApplicationContext(), "Video ID Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    database.getReference().child("Mandir")
+                            .child("videos")
+                            .child(adminVideoIdEditTextMandir.getText().toString())
+                            .child("title")
+                            .setValue(adminVideoTitleEditTextMandir.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    videoTitleMandir = adminVideoTitleEditTextMandir.getText().toString();
+                                    Toast.makeText(getApplicationContext(), "Video Title Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    database.getReference().child("Mandir")
+                            .child("videos")
+                            .child(adminVideoIdEditTextMandir.getText().toString())
+                            .child("description")
+                            .setValue(adminVideoDescriptionEditTextMandir.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    videoDescriptionMandir = adminVideoDescriptionEditTextMandir.getText().toString();
+                                    Toast.makeText(getApplicationContext(), "Video description Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+            }
+        });
+
+
         adminLivevideoThumbnailImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,8 +190,25 @@ public class AdminPanchang extends AppCompatActivity {
             }
         });
 
-        adminLiveVideoYes = findViewById(R.id.adminLiveVideoYes);
-        adminLiveVideoNo = findViewById(R.id.adminLiveVideoNo);
+        adminLivevideoThumbnailImageViewMandir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                if(videoIdMandir.equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "Enter Video Id" +videoIdMandir, Toast.LENGTH_SHORT).show();
+                }else if(videoTitleMandir.equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Title ", Toast.LENGTH_SHORT).show();
+                }else if(videoDescriptionMandir.equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(), "Enter Video Description ", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    startActivityForResult(intent, 44);
+                }
+            }
+        });
+
 
         adminLiveVideoYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,6 +229,25 @@ public class AdminPanchang extends AppCompatActivity {
             }
         });
 
+        adminLiveVideoYesMandir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adminLiveVideoYesMandir.setVisibility(View.GONE);
+                adminLiveVideoNoMandir.setVisibility(View.GONE);
+                database.getReference().child("Mandir")
+                        .child("visibility")
+                        .setValue("visible").addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getApplicationContext(), "Video Visible", Toast.LENGTH_SHORT).show();
+                                adminLiveVideoNoMandir.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+            }
+        });
+
         adminLiveVideoNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +260,25 @@ public class AdminPanchang extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getApplicationContext(), "Visibility Gone", Toast.LENGTH_SHORT).show();
                                 adminLiveVideoYes.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+            }
+        });
+
+        adminLiveVideoNoMandir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adminLiveVideoYesMandir.setVisibility(View.GONE);
+                adminLiveVideoNoMandir.setVisibility(View.GONE);
+                database.getReference().child("Mandir")
+                        .child("visibility")
+                        .setValue("gone").addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getApplicationContext(), "Visibility Gone", Toast.LENGTH_SHORT).show();
+                                adminLiveVideoYesMandir.setVisibility(View.VISIBLE);
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
@@ -218,6 +325,39 @@ public class AdminPanchang extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+
+    private void initData() {
+        pachangDailyImageView = findViewById(R.id.pachangDailyImageView);
+        panchangDailyFestivalTextView = findViewById(R.id.panchangDailyFestivalTextView);
+        panchangDailyTitleDescriptionTextView = findViewById(R.id.panchangDailyTitleDescriptionTextView);
+        panchangDailyTitleTextView = findViewById(R.id.panchangDailyTitleTextView);
+        submitPanchangButton = findViewById(R.id.submitPanchangButton);
+
+
+        adminVideoTitleEditText  = findViewById(R.id.adminVideoTitleEditText);
+        adminVideoDescriptionEditText = findViewById(R.id.adminVideoDescriptionEditText);
+        adminVideoIdEditText = findViewById(R.id.adminVideoIdEditText);
+        submitVideoIdButton = findViewById(R.id.submitVideoIdButton);
+        adminLivevideoThumbnailImageView = findViewById(R.id.adminLivevideoThumbnailImageView);
+
+        adminLiveVideoYes = findViewById(R.id.adminLiveVideoYes);
+        adminLiveVideoNo = findViewById(R.id.adminLiveVideoNo);
+
+
+        adminVideoTitleEditTextMandir  = findViewById(R.id.adminVideoTitleEditTextMandir);
+        adminVideoDescriptionEditTextMandir = findViewById(R.id.adminVideoDescriptionEditTextMandir);
+        adminVideoIdEditTextMandir = findViewById(R.id.adminVideoIdEditTextMandir);
+        submitVideoIdButtonMandir = findViewById(R.id.submitVideoIdButtonMandir);
+        adminLivevideoThumbnailImageViewMandir = findViewById(R.id.adminLivevideoThumbnailImageViewMandir);
+
+        adminLiveVideoYesMandir = findViewById(R.id.adminLiveVideoYesMandir);
+        adminLiveVideoNoMandir = findViewById(R.id.adminLiveVideoNoMandir);
+
+
+
+
+
     }
 
     @Override
@@ -416,6 +556,77 @@ public class AdminPanchang extends AppCompatActivity {
                                     .child(videoId)
                                     .child(videoId)
                                     .setValue(uri.toString());
+
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+
+                            }
+                        });
+
+
+                        Toast.makeText(AdminPanchang.this, "live Image Updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+//            database.getReference().child("channels")
+//                    .child("CT_QwW7Tbew5qrYNb2auqAQ")
+//                    .child("channelName")
+//                    .setValue("SanskarTV");
+
+//
+//            database.getReference().child("channels")
+//                    .child("UC6vQRTCxutg6fJLUGkDKynQ")
+//                    .child("channelName")
+//                    .setValue("Saregama Bhakti");
+//
+//            database.getReference().child("channels")
+//                    .child("UCOizxR3GwY7dmehMCAdvv9g")
+//                    .child("channelName")
+//                    .setValue("Gauri Gopal Tv");
+//
+
+//
+//            database.getReference().child("channels")
+//                    .child("UCDqkux3AH7P9hRjmunoUeAQ")
+//                    .child("channelName")
+//                    .setValue("BhaktiSagar Tv");
+//
+
+
+//
+//            database.getReference().child("channels")
+//                    .child("UCRUAdVm9ZOF4JheOd8qIQHA")
+//                    .child("channelName")
+//                    .setValue("Bhakthi TV");
+
+//
+
+            }
+        }else if(requestCode == 44){
+            if (data.getData() != null) {
+                Uri uri = data.getData();
+                adminLivevideoThumbnailImageViewMandir.setImageURI(uri);
+
+                final StorageReference reference = storage.getReference()
+                        .child("Mandir")
+                        .child("videos")
+                        .child(videoIdMandir)
+                        .child(videoIdMandir);
+
+                reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                database.getReference()
+                                        .child("Mandir")
+                                        .child("videos")
+                                        .child(videoIdMandir)
+                                        .child(videoIdMandir)
+                                        .setValue(uri.toString());
 
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);

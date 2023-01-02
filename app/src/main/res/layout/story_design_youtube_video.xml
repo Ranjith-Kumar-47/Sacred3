@@ -35,6 +35,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="start"
                 android:scaleType="centerCrop"
+
                 android:src="@drawable/ic_video_loading"
                 app:civ_border_color="#0B0909"
                 app:civ_border_width="2dp"

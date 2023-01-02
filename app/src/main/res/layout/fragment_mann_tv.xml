@@ -43,6 +43,40 @@
 
             </HorizontalScrollView>
 
+            <TextView
+                android:id="@+id/mandirVideoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif"
+                android:visibility="gone"
+                android:text="मंदिर दर्शन"
+                android:textColor="@color/orange"
+                android:textSize="30sp"
+                 />
+
+
+            <HorizontalScrollView
+                android:id="@+id/adminLiveVideoHorizontalSvMandir"
+                android:layout_width="match_parent"
+                android:scrollbars="none"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/adminLiveVideoRvMandir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+                </RelativeLayout>
+
+            </HorizontalScrollView>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

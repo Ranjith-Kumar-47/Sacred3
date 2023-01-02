@@ -176,126 +176,286 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-
-            <TextView
-                android:id="@+id/adminTitle"
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/adminLiveVideoCardView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Admin Panel Live Video"
-                android:paddingStart="10dp"
-                android:background="@drawable/mobile_number_background"
-                android:textColor="@color/orange"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/submitPanchangButton" />
+                app:layout_constraintTop_toBottomOf="@+id/submitPanchangButton">
 
-            <ImageView
-                android:id="@+id/adminLivevideoThumbnailImageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/ic_baseline_add_a_photo_24"
-                app:layout_constraintStart_toStartOf="@+id/adminTitle"
-                app:layout_constraintTop_toBottomOf="@+id/adminTitle" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mobile_number_background">
 
-            <TextView
-                android:id="@+id/adminLiveVideoVisibility"
-                android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/adminTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp"
+                        android:background="@drawable/mobile_number_background"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingStart="10dp"
+                        android:text="Admin Panel Live Video"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/adminLivevideoThumbnailImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_baseline_add_a_photo_24"
+                        app:layout_constraintStart_toStartOf="@+id/adminTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/adminTitle" />
+
+                    <TextView
+                        android:id="@+id/adminLiveVideoVisibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Live Video Visibility"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/submitVideoIdButton"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditText"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoDescriptionEditText" />
+
+                    <ImageView
+                        android:id="@+id/adminLiveVideoYes"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yes_button_bg"
+                        android:src="@drawable/ic_baseline_done_24"
+                        app:layout_constraintEnd_toStartOf="@+id/adminLiveVideoNo"
+                        app:layout_constraintStart_toStartOf="@+id/adminLiveVideoVisibility"
+                        app:layout_constraintTop_toBottomOf="@+id/adminLiveVideoVisibility" />
+
+                    <ImageView
+                        android:id="@+id/adminLiveVideoNo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/no_button_bg"
+                        android:src="@drawable/ic_no"
+                        app:layout_constraintBottom_toBottomOf="@+id/adminLiveVideoYes"
+
+                        app:layout_constraintEnd_toEndOf="@+id/adminLiveVideoVisibility"
+                        app:layout_constraintTop_toTopOf="@+id/adminLiveVideoYes" />
+
+
+                    <EditText
+                        android:id="@+id/adminVideoIdEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Id"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
+                        app:layout_constraintStart_toStartOf="@+id/adminLivevideoThumbnailImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/adminLivevideoThumbnailImageView" />
+
+                    <EditText
+                        android:id="@+id/adminVideoTitleEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Title"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditText"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoIdEditText" />
+
+                    <EditText
+                        android:id="@+id/adminVideoDescriptionEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Description"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoTitleEditText"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoTitleEditText" />
+
+
+                    <ImageButton
+                        android:id="@+id/submitVideoIdButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yes_button_bg"
+                        android:src="@drawable/ic_baseline_done_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/adminVideoDescriptionEditText"
+                        app:layout_constraintEnd_toEndOf="@+id/adminTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/adminMandirCardView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Live Video Visibility"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/submitVideoIdButton"
-                app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditText"
-                app:layout_constraintTop_toBottomOf="@+id/adminVideoDescriptionEditText" />
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adminLiveVideoCardView">
 
-            <ImageView
-                android:id="@+id/adminLiveVideoYes"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/yes_button_bg"
-                android:src="@drawable/ic_baseline_done_24"
-                app:layout_constraintEnd_toStartOf="@+id/adminLiveVideoNo"
-                app:layout_constraintStart_toStartOf="@+id/adminLiveVideoVisibility"
-                app:layout_constraintTop_toBottomOf="@+id/adminLiveVideoVisibility" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mobile_number_background">
 
-            <ImageView
-                android:id="@+id/adminLiveVideoNo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/no_button_bg"
-                android:src="@drawable/ic_no"
-                app:layout_constraintBottom_toBottomOf="@+id/adminLiveVideoYes"
+                    <TextView
+                        android:id="@+id/adminTitleMandir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp"
+                        android:background="@drawable/mobile_number_background"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingStart="10dp"
+                        android:text="Admin Panel Mandir"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                app:layout_constraintEnd_toEndOf="@+id/adminLiveVideoVisibility"
-                app:layout_constraintTop_toTopOf="@+id/adminLiveVideoYes" />
+                    <ImageView
+                        android:id="@+id/adminLivevideoThumbnailImageViewMandir"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_baseline_add_a_photo_24"
+                        app:layout_constraintStart_toStartOf="@+id/adminTitleMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminTitleMandir" />
 
+                    <TextView
+                        android:id="@+id/adminLiveVideoVisibilityMandir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Mandir Visibility"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/submitVideoIdButtonMandir"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditTextMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoDescriptionEditTextMandir" />
 
-            <EditText
-                android:id="@+id/adminVideoIdEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:ems="10"
-                android:hint="Video Id"
-                android:inputType="textPersonName"
-                android:paddingStart="20dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
-                app:layout_constraintStart_toStartOf="@+id/adminLivevideoThumbnailImageView"
-                app:layout_constraintTop_toBottomOf="@+id/adminLivevideoThumbnailImageView" />
+                    <ImageView
+                        android:id="@+id/adminLiveVideoYesMandir"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yes_button_bg"
+                        android:src="@drawable/ic_baseline_done_24"
+                        app:layout_constraintEnd_toStartOf="@+id/adminLiveVideoNoMandir"
+                        app:layout_constraintStart_toStartOf="@+id/adminLiveVideoVisibilityMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminLiveVideoVisibilityMandir" />
 
-            <EditText
-                android:id="@+id/adminVideoTitleEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:ems="10"
-                android:hint="Video Title"
-                android:inputType="textPersonName"
-                android:paddingStart="20dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
-                app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditText"
-                app:layout_constraintTop_toBottomOf="@+id/adminVideoIdEditText" />
+                    <ImageView
+                        android:id="@+id/adminLiveVideoNoMandir"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/no_button_bg"
+                        android:src="@drawable/ic_no"
+                        app:layout_constraintBottom_toBottomOf="@+id/adminLiveVideoYesMandir"
 
-            <EditText
-                android:id="@+id/adminVideoDescriptionEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:ems="10"
-                android:hint="Video Description"
-                android:inputType="textPersonName"
-                android:paddingStart="20dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButton"
-                app:layout_constraintStart_toStartOf="@+id/adminVideoTitleEditText"
-                app:layout_constraintTop_toBottomOf="@+id/adminVideoTitleEditText" />
+                        app:layout_constraintEnd_toEndOf="@+id/adminLiveVideoVisibilityMandir"
+                        app:layout_constraintTop_toTopOf="@+id/adminLiveVideoYesMandir" />
 
 
-            <ImageButton
-                android:id="@+id/submitVideoIdButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/yes_button_bg"
-                android:src="@drawable/ic_baseline_done_24"
-                app:layout_constraintBottom_toBottomOf="@+id/adminVideoDescriptionEditText"
-                app:layout_constraintEnd_toEndOf="@+id/adminTitle" />
+                    <EditText
+                        android:id="@+id/adminVideoIdEditTextMandir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Id"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButtonMandir"
+                        app:layout_constraintStart_toStartOf="@+id/adminLivevideoThumbnailImageViewMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminLivevideoThumbnailImageViewMandir" />
+
+                    <EditText
+                        android:id="@+id/adminVideoTitleEditTextMandir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Title"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButtonMandir"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoIdEditTextMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoIdEditTextMandir" />
+
+                    <EditText
+                        android:id="@+id/adminVideoDescriptionEditTextMandir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:hint="Video Description"
+                        android:inputType="textPersonName"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/submitVideoIdButtonMandir"
+                        app:layout_constraintStart_toStartOf="@+id/adminVideoTitleEditTextMandir"
+                        app:layout_constraintTop_toBottomOf="@+id/adminVideoTitleEditTextMandir" />
+
+
+                    <ImageButton
+                        android:id="@+id/submitVideoIdButtonMandir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yes_button_bg"
+                        android:src="@drawable/ic_baseline_done_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/adminVideoDescriptionEditTextMandir"
+                        app:layout_constraintEnd_toEndOf="@+id/adminTitleMandir" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

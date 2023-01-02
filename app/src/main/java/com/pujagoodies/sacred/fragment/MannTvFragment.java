@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.playvideota.databinding.FragmentMannTvBinding;
 import com.pujagoodies.sacred.FeedbackActivity;
@@ -37,15 +38,19 @@ public class MannTvFragment extends Fragment {
     ImageView videoImage1, videoImage2, videoImage3, videoImage4, videoImage5, videoImage6, videoImage7, videoImage8;
     TextView videoDescription1, videoDescription2, videoDescription3, videoDescription4, videoDescription5, videoDescription6, videoDescription7, videoDescription8;
     FirebaseDatabase database;
-    HorizontalScrollView adminLiveVideoHorizontalSv;
+    HorizontalScrollView adminLiveVideoHorizontalSv,adminLiveVideoHorizontalSvMandir;
+    TextView mandirVideoTv;
 
 
     String url = "";
     String videoVisibility = "";
+    String videoVisibilityMandir = "";
 
     String adminVideoId = "";
     ArrayList<AdminLiveVideoModel> list = new ArrayList<>();
+    ArrayList<AdminLiveVideoModel> mandirList= new ArrayList<>();
     RecyclerView adminLiveVideoRv;
+    RecyclerView adminLiveVideoRvMandir;
 
 
     public MannTvFragment() {
@@ -73,9 +78,77 @@ public class MannTvFragment extends Fragment {
         clickHandler();
         feedbackHandler();
         adminVideoHandler();
+        adminMandirHandler();
 
 
         return binding.getRoot();
+    }
+
+    private void adminMandirHandler() {
+        database.getReference().child("Mandir")
+                .child("visibility")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            videoVisibilityMandir = snapshot.getValue().toString();
+                            System.out.println("visiblity : " + videoVisibilityMandir);
+                            if (videoVisibilityMandir.equalsIgnoreCase("visible")) {
+                                adminLiveVideoHorizontalSvMandir.setVisibility(View.VISIBLE);
+                                mandirVideoTv.setVisibility(View.VISIBLE);
+                                database.getReference().child("Mandir")
+                                        .child("videos")
+                                        .addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if (snapshot.exists()) {
+
+                                                   try {
+                                                       for (DataSnapshot ds : snapshot.getChildren()) {
+                                                           System.out.println("ds k : " + ds.getKey());
+                                                           System.out.println("ds v : " + ds.getValue());
+                                                           System.out.println("v id : " + ds.getKey());
+                                                           System.out.println("v imageUrl : " + ds.child(ds.getKey()).getValue().toString());
+                                                           System.out.println("v title : " + ds.child("title").getValue().toString());
+                                                           System.out.println("v description : " + ds.child("description").getValue().toString());
+
+                                                           AdminLiveVideoModel adminLiveVideoModel = new AdminLiveVideoModel(
+                                                                   ds.getKey(),
+                                                                   ds.child(ds.getKey()).getValue().toString(),
+                                                                   ds.child("title").getValue().toString(),
+                                                                   ds.child("description").getValue().toString()
+
+                                                           );
+                                                           mandirList.add(adminLiveVideoModel);
+                                                       }
+                                                   }catch (Exception e){
+                                                       Toast.makeText(getContext(), "processing", Toast.LENGTH_SHORT).show();
+
+                                                   }
+
+                                                    AdminLiveVideoAdapter adminLiveVideoAdapter = new AdminLiveVideoAdapter(getContext(), mandirList);
+                                                    adminLiveVideoRvMandir.setAdapter(adminLiveVideoAdapter);
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 
     private void settingAdapter() {
@@ -105,6 +178,16 @@ public class MannTvFragment extends Fragment {
 
         AdminLiveVideoAdapter adminLiveVideoAdapter = new AdminLiveVideoAdapter(getContext(), list);
         adminLiveVideoRv.setAdapter(adminLiveVideoAdapter);
+
+        adminLiveVideoRvMandir = binding.adminLiveVideoRvMandir;
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager2.setSmoothScrollbarEnabled(true);
+        adminLiveVideoRvMandir.setLayoutManager(linearLayoutManager2);
+        adminLiveVideoRvMandir.setNestedScrollingEnabled(false);
+
+        AdminLiveVideoAdapter adminLiveVideoAdapter2 = new AdminLiveVideoAdapter(getContext(), list);
+        adminLiveVideoRvMandir.setAdapter(adminLiveVideoAdapter2);
+
     }
 
     private void feedbackHandler() {
@@ -785,6 +868,9 @@ public class MannTvFragment extends Fragment {
         videoDescription8 = binding.videoDescription8;
 
         adminLiveVideoHorizontalSv = binding.adminLiveVideoHorizontalSv;
+        adminLiveVideoHorizontalSvMandir = binding.adminLiveVideoHorizontalSvMandir;
+
+        mandirVideoTv = binding.mandirVideoTv;
 
 //        adminVideoCardView = binding.adminVideoCardView;
 //        adminVideo = binding.adminVideo;
