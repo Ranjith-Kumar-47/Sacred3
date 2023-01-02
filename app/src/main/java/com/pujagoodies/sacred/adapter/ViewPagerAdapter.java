@@ -9,11 +9,12 @@ import com.pujagoodies.sacred.fragment.GeetaSlokFragment;
 import com.pujagoodies.sacred.fragment.MannTvFragment;
 import com.pujagoodies.sacred.fragment.PanchangFragment;
 import com.pujagoodies.sacred.fragment.RashiphalFragment;
+import com.pujagoodies.sacred.fragment.SahityaFragment;
 import com.pujagoodies.sacred.fragment.TvFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
-    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
+    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK","SAHITYA"};
 
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -32,6 +33,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new RashiphalFragment();
             case 3:
                 return new GeetaSlokFragment();
+            case 4:
+                return new SahityaFragment();
 
         }
         return new TvFragment();
