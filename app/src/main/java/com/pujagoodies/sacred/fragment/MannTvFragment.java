@@ -221,23 +221,29 @@ public class MannTvFragment extends Fragment {
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 if (snapshot.exists()) {
 
-                                                    for (DataSnapshot ds : snapshot.getChildren()) {
-                                                        System.out.println("ds k : " + ds.getKey());
-                                                        System.out.println("ds v : " + ds.getValue());
-                                                        System.out.println("v id : " + ds.getKey());
-                                                        System.out.println("v imageUrl : " + ds.child(ds.getKey()).getValue().toString());
-                                                        System.out.println("v title : " + ds.child("title").getValue().toString());
-                                                        System.out.println("v description : " + ds.child("description").getValue().toString());
+                                                    try {
+                                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                                            System.out.println("ds k : " + ds.getKey());
+                                                            System.out.println("ds v : " + ds.getValue());
+                                                            System.out.println("v id : " + ds.getKey());
+                                                            System.out.println("v imageUrl : " + ds.child(ds.getKey()).getValue().toString());
+                                                            System.out.println("v title : " + ds.child("title").getValue().toString());
+                                                            System.out.println("v description : " + ds.child("description").getValue().toString());
 
-                                                        AdminLiveVideoModel adminLiveVideoModel = new AdminLiveVideoModel(
-                                                                ds.getKey(),
-                                                                ds.child(ds.getKey()).getValue().toString(),
-                                                                ds.child("title").getValue().toString(),
-                                                                ds.child("description").getValue().toString()
+                                                            AdminLiveVideoModel adminLiveVideoModel = new AdminLiveVideoModel(
+                                                                    ds.getKey(),
+                                                                    ds.child(ds.getKey()).getValue().toString(),
+                                                                    ds.child("title").getValue().toString(),
+                                                                    ds.child("description").getValue().toString()
 
-                                                        );
-                                                        list.add(adminLiveVideoModel);
+                                                            );
+                                                            list.add(adminLiveVideoModel);
+                                                        }
+                                                    }catch (Exception e){
+                                                        Toast.makeText(getContext(), "Processing", Toast.LENGTH_SHORT).show();
                                                     }
+
+
 
                                                     AdminLiveVideoAdapter adminLiveVideoAdapter = new AdminLiveVideoAdapter(getContext(), list);
                                                     adminLiveVideoRv.setAdapter(adminLiveVideoAdapter);

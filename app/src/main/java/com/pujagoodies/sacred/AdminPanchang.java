@@ -112,7 +112,7 @@ public class AdminPanchang extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     videoDescription = adminVideoDescriptionEditText.getText().toString();
-                                    Toast.makeText(getApplicationContext(), "Video title Added", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Video Description Added", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
