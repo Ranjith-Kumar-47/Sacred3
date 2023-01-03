@@ -59,6 +59,7 @@ dependencies {
 //    implementation 'com.github.MrNouri:DynamicSizes:1.0'
 
     implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
 
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-database'

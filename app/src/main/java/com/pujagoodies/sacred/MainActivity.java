@@ -1,5 +1,6 @@
 package com.pujagoodies.sacred;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,15 +16,25 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.playvideota.R;
 import com.example.playvideota.databinding.ActivityMainBinding;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.pujagoodies.sacred.adapter.ViewPagerAdapter;
 import com.pujagoodies.sacred.adapter.YoutuberAdapter;
+import com.pujagoodies.sacred.model.UsersModel;
 import com.pujagoodies.sacred.model.YoutuberModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -49,24 +60,28 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> youtubeAcountList;
     String personName = "";
     String personPhoto = "";
-    private String   adminEmail = "KK5n3nfT3ihnQxg7W4YgKdhJAsg2";
-    private String   adminEmail2 = "eW10eBgkhFWsUQtrh9AlUEQRRv33";
+    private String adminEmail = "KK5n3nfT3ihnQxg7W4YgKdhJAsg2";
+    private String adminEmail2 = "eW10eBgkhFWsUQtrh9AlUEQRRv33";
 
     private final String CHANNEL_ID = "simple_notification";
     private final int NOTIFICATION_ID = 1;
 
     ViewPager2 viewPager;
     TabLayout tabLayout;
-    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK","SAHITYA"};
+//    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK", "SAHITYA"};
+    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK"};
 
     private int[] tabIcons = {
             R.drawable.tv_icon_btn,
             R.drawable.ic_calender_day_love_svgrepo_com,
             R.drawable.astrology,
             R.drawable.gita_image,
-            R.drawable.gita_slok_icon
+//            R.drawable.gita_slok_icon
     };
     ViewPagerAdapter viewPagerAdapter;
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +94,51 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         adminButton = binding.adminButton;
 
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if (account != null) {
+            String pn = account.getDisplayName();
+            String pe = account.getEmail();
+            String pi = String.valueOf(account.getPhotoUrl());
+
+            UsersModel usersModel = new UsersModel(pi, pe, pn);
+
+            database.getReference().child("users")
+                    .child(account.getId())
+                    .setValue(usersModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+//                            Toast.makeText(MainActivity.this, "User Authenticated ", Toast.LENGTH_SHORT).show();
+                           System.out.println("user added to database");
+                        }
+                    });
+
+//            Toast.makeText(this, pn, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, pe, Toast.LENGTH_SHORT).show();
+        }
+
+        ImageView logoImage = binding.logoImage;
+
+//        logoImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                auth.signOut();
+//                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(MainActivity.this, "Log Out", Toast.LENGTH_SHORT).show();
+//                        finish();
+//                        Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+//                        startActivity(intent);
+//                    }
+//                });
+//
+//            }
+//        });
+
 //        System.out.println("admin Email " +auth.getCurrentUser().getEmail());
-
-
 
 
         toolbarButtonFunction();
@@ -92,19 +149,16 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
 
 
-
-
-
 //        new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setText(titles[position]) )).attach();
 //        new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setIcon(R.drawable.gita_slok_icon) )).attach();
-       new TabLayoutMediator(tabLayout,viewPager,((tab, position) -> tab.setIcon(tabIcons[position]) )).attach();
+        new TabLayoutMediator(tabLayout, viewPager, ((tab, position) -> tab.setIcon(tabIcons[position]))).attach();
 
 
         tabLayout.getTabAt(0).setText("टीवी").setIcon(R.drawable.tv_icon_btn).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.astrology);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_image);
-        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
+//        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
 
 
 //        // setting the root fragment for home page
@@ -188,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        ImageView logoImage = binding.logoImage;
 
 //        logoImage.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -199,15 +252,14 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        if(auth.getCurrentUser() != null){
-            if((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid()) ) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid())) ){
+        if (auth.getCurrentUser() != null) {
+            if ((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid()))) {
                 adminButton.setVisibility(View.VISIBLE);
             }
-            System.out.println("admin Email " +auth.getCurrentUser().getEmail());
+            System.out.println("admin Email " + auth.getCurrentUser().getEmail());
         }
 
     }
-
 
 
     private void createNotification() {

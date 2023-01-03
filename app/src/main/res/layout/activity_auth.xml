@@ -58,20 +58,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/sign_in_button"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:paddingStart="10dp"
         android:background="@drawable/login_button"
-        android:fontFamily="sans-serif-condensed-light"
         android:drawableLeft="@drawable/googleg_standard_color_18"
+        android:fontFamily="sans-serif-condensed-light"
+        android:paddingStart="10dp"
         android:text="Login with google"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumberButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -39,14 +39,18 @@ public class AuthActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     FirebaseAuth auth;
 
-    String token;
-    private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
-    private String secretKey = "nUKQZBGCIedyMZMBH35LPJe0ArlpljRPZIrqcGqEeX8CPMaugIVFhk3rt7xhyGN82";
+//    String token;
+//    private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
+//    private String secretKey = "nUKQZBGCIedyMZMBH35LPJe0ArlpljRPZIrqcGqEeX8CPMaugIVFhk3rt7xhyGN82";
+//
+//    private static final int RC_SIGN_IN = 1;
+//    private static final String TAG = "GOOGLEAUTH";
+//    GoogleSignInClient mGoogleSignInClient;
+//    Dialog dialog;
 
-    private static final int RC_SIGN_IN = 1;
-    private static final String TAG = "GOOGLEAUTH";
-    GoogleSignInClient mGoogleSignInClient;
-    Dialog dialog;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+    Button sign_in_button;
 
 
 
@@ -64,13 +68,13 @@ public class AuthActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         currentUser = auth.getCurrentUser();
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        // Build a GoogleSignInClient with the options specified by gso.
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
 
@@ -81,11 +85,17 @@ public class AuthActivity extends AppCompatActivity {
 
 
         // Set the dimensions of the sign-in button.
-        Button signInButton = findViewById(R.id.sign_in_button);
 //        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        sign_in_button = findViewById(R.id.sign_in_button);
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
 
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct!=null){
+            navigateToSecondActivity();
+        }
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
@@ -119,8 +129,11 @@ public class AuthActivity extends AppCompatActivity {
 
 
     private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+//        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+//        startActivityForResult(signInIntent, RC_SIGN_IN);
+
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent, 1000);
     }
 
     @Override
@@ -135,16 +148,25 @@ public class AuthActivity extends AppCompatActivity {
 //            handleSignInResult(task);
 //        }
         
-        if(requestCode == RC_SIGN_IN){
+        if(requestCode == 1000){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try{
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account.getIdToken());
+//                GoogleSignInAccount account = task.getResult(ApiException.class);
+//                firebaseAuthWithGoogle(account.getIdToken());
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
             } catch (ApiException e) {
+                Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
         
+    }
+
+    private void navigateToSecondActivity() {
+        finish();
+        Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
