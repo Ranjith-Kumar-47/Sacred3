@@ -19,6 +19,13 @@
         tools:replace="android:icon,android:roundIcon"
         tools:targetApi="31">
         <activity
+            android:name="com.pujagoodies.sacred.LoginActivity"
+            android:exported="false"
+             />
+        <activity
+            android:name="com.pujagoodies.sacred.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name="com.pujagoodies.sacred.WebViewActivity"
             android:exported="false" />
         <activity

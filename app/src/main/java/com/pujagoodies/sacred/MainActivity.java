@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             String pe = account.getEmail();
             String pi = String.valueOf(account.getPhotoUrl());
 
+
             UsersModel usersModel = new UsersModel(pi, pe, pn);
 
             database.getReference().child("users")
@@ -121,22 +122,22 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView logoImage = binding.logoImage;
 
-//        logoImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                auth.signOut();
-//                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        Toast.makeText(MainActivity.this, "Log Out", Toast.LENGTH_SHORT).show();
-//                        finish();
-//                        Intent intent = new Intent(MainActivity.this, AuthActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
-//
-//            }
-//        });
+        logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(MainActivity.this, "Log Out", Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+            }
+        });
 
 //        System.out.println("admin Email " +auth.getCurrentUser().getEmail());
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.playvideota.R;
@@ -38,6 +39,7 @@ public class AuthActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseUser currentUser;
     FirebaseAuth auth;
+    TextView loginOrSignUpTv;
 
 //    String token;
 //    private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
@@ -114,6 +116,15 @@ public class AuthActivity extends AppCompatActivity {
             }
         });
 
+        loginOrSignUpTv = findViewById(R.id.loginOrSignUpTv);
+        loginOrSignUpTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AuthActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -156,7 +167,7 @@ public class AuthActivity extends AppCompatActivity {
                 task.getResult(ApiException.class);
                 navigateToSecondActivity();
             } catch (ApiException e) {
-                Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please check Your Internet Connection", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }

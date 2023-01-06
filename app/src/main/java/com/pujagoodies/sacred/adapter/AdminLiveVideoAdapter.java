@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playvideota.R;
+import com.pujagoodies.sacred.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,6 +38,7 @@ public class AdminLiveVideoAdapter extends RecyclerView.Adapter<AdminLiveVideoAd
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.sample_live_videos,parent,false);
+//        View view = LayoutInflater.from(context).inflate(,parent,false);
 
         database = FirebaseDatabase.getInstance();
 

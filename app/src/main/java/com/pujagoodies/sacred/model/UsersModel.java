@@ -2,12 +2,15 @@ package com.pujagoodies.sacred.model;
 
 public class UsersModel {
     String image,email,name;
+    private String  password;
 
     public UsersModel(String image, String email, String name) {
         this.image = image;
         this.email = email;
         this.name = name;
     }
+
+
 
     public String getImage() {
         return image;

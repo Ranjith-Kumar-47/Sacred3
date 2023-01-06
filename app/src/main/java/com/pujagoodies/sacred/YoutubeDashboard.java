@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.playvideota.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.pujagoodies.sacred.adapter.YoutubeDashBoardAdapterInterface;
 import com.pujagoodies.sacred.adapter.YoutubeDashboardAdapter;
 import com.pujagoodies.sacred.model.YoutubeDashboradModel;
@@ -46,9 +49,13 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     GoogleSignInClient mGoogleSignInClient;
 
+    FirebaseAuth auth;
     FirebaseDatabase database;
     String id = "";
     String serialName = "";
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     private String apiKey = "AIzaSyBnT_DTpgZKYoT6IYH5fNni7O9DUTN98dE";
 
@@ -61,8 +68,11 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this, gso);
         database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         serialName = getIntent().getStringExtra("serialName");
 
@@ -277,10 +287,20 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
             @Override
             public void onClick(View v) {
 
-                mGoogleSignInClient.signOut();
-                Toast.makeText(YoutubeDashboard.this, "LOG OUT", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(YoutubeDashboard.this, AuthActivity.class);
-                startActivity(intent);
+//                mGoogleSignInClient.signOut();
+
+                auth.signOut();
+                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(YoutubeDashboard.this, "LOG OUT", Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent intent = new Intent(YoutubeDashboard.this, AuthActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+
             }
         });
     }
