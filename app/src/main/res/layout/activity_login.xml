@@ -98,6 +98,7 @@
             android:id="@+id/passwordETL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:background="@android:color/transparent"
             android:hint="Password"
             android:paddingBottom="5dp"

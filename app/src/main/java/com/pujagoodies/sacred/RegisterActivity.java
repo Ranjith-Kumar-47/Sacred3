@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        binding.signup.setVisibility(View.GONE);
+                                        binding.signup.setVisibility(View.VISIBLE);
                                         RegisterUserModel user = new RegisterUserModel(binding.nameET.getText().toString(),
                                                 binding.emailET.getText().toString(),
                                                 binding.passwordET.getText().toString());
@@ -69,11 +69,11 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(intent);
 
                                     } else {
-                                        binding.signup.setVisibility(View.GONE);
+                                        binding.signup.setVisibility(View.VISIBLE);
                                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                         Toast.makeText(RegisterActivity.this, "Authentication failed.",
                                                 Toast.LENGTH_SHORT).show();
-                                        Toast.makeText(RegisterActivity.this, "Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
                                     }
 
                                 }

@@ -18,11 +18,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     FirebaseAuth auth;
+    FirebaseDatabase database;
     FirebaseUser currentUser;
 
     @Override
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         currentUser = auth.getCurrentUser();
 
@@ -44,9 +47,13 @@ public class LoginActivity extends AppCompatActivity {
                 String email = binding.emailETL.getText().toString();
                 String password = binding.passwordETL.getText().toString();
 
+
                 if((email.equalsIgnoreCase("")) || (password.equalsIgnoreCase(""))){
                     Toast.makeText(LoginActivity.this, "Enter Required Fields", Toast.LENGTH_SHORT).show();
                 }else {
+
+
+
                     auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -55,8 +62,10 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }else{
+                                binding.loginBTN.setVisibility(View.VISIBLE);
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Please check Your internet Connection ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
