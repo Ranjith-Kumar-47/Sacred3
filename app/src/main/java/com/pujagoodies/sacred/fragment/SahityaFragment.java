@@ -10,8 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.playvideota.R;
-import com.example.playvideota.databinding.FragmentSahityaBinding;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.databinding.FragmentSahityaBinding;
 import com.pujagoodies.sacred.adapter.SahityaAdapter;
 import com.pujagoodies.sacred.model.SahityaImageModel;
 import com.pujagoodies.sacred.model.SahityaModel;

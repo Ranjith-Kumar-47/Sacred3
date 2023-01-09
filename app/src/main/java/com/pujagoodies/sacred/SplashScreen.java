@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.playvideota.R;
-import com.example.playvideota.databinding.ActivitySplashScreenBinding;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;

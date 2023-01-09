@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.playvideota.R;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 
 public class AdminDashboard extends AppCompatActivity {
 

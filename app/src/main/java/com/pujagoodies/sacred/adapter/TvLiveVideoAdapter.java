@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.playvideota.R;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.VideoPlayer;
 import com.pujagoodies.sacred.model.YoutubeDashboradModel;
 import com.squareup.picasso.Picasso;

@@ -7,8 +7,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.example.playvideota.R;
-
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 public class WebViewActivity extends AppCompatActivity {
 
     WebView webView;

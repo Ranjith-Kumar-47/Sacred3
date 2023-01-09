@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.playvideota.databinding.FragmentPanchangBinding;
+import com.pujagoodies.sacred.databinding.FragmentPanchangBinding;
 import com.pujagoodies.sacred.PanchangAbout;
 import com.pujagoodies.sacred.PanchangAboutGanesh;
-import com.example.playvideota.R;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;

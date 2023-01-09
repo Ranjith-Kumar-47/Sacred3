@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.playvideota.R;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 
 public class AdminRashiphal extends AppCompatActivity {
 

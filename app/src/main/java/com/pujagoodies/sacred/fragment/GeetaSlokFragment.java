@@ -12,8 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.playvideota.R;
-import com.example.playvideota.databinding.FragmentGeetaSlokBinding;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.databinding.FragmentGeetaSlokBinding;
 import com.pujagoodies.sacred.adapter.GeetaAdapter;
 import com.pujagoodies.sacred.model.GeetaModel;
 

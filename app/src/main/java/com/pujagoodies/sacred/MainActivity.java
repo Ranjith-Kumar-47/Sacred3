@@ -23,8 +23,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.playvideota.R;
-import com.example.playvideota.databinding.ActivityMainBinding;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

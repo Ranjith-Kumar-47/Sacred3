@@ -11,8 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.playvideota.R;
-import com.example.playvideota.databinding.ActivityRegisterBinding;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

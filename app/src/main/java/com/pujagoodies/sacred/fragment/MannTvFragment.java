@@ -17,9 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.playvideota.databinding.FragmentMannTvBinding;
+import com.pujagoodies.sacred.databinding.FragmentMannTvBinding;
 import com.pujagoodies.sacred.FeedbackActivity;
-import com.example.playvideota.R;
+//import com.example.playvideota.R;
+import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.YoutubeDashboard;
 import com.pujagoodies.sacred.adapter.AdminLiveVideoAdapter;
 import com.pujagoodies.sacred.model.AdminLiveVideoModel;
