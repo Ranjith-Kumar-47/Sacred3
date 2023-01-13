@@ -9,7 +9,7 @@
         android:id="@+id/emoji"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="80dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/logov2" />
 
     <TextView
@@ -17,32 +17,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emoji"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Please, share this app to your relatives and friends"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="कृपया, इस एप्लिकेशन को अपने रिश्तेदारों और दोस्तों के लिए शेयर करें"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvBelow"
-        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Would you like to share our App ?"
-        android:fontFamily="sans-serif-condensed-light"
         android:layout_below="@+id/tv"
-        android:layout_marginStart="15dp"
-        android:textSize="23sp"/>
+        android:layout_alignStart="@+id/tv"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="क्या आप हमारे एप्लिकेशन को शेयर करना चाहते हैं?"
+        android:textSize="21sp" />
 
     <ImageButton
         android:id="@+id/btnNo"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_below="@+id/tvBelow"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignStart="@+id/tvBelow"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="21dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/no_button_bg"
         android:src="@drawable/ic_no" />
@@ -52,9 +60,9 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_below="@+id/tvBelow"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_toEndOf="@+id/btnNo"
         android:background="@drawable/yes_button_bg"
         android:src="@drawable/ic_baseline_done_24" />
 
