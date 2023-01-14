@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_screen_bg"
     tools:context="com.pujagoodies.sacred.LoginActivity">
+
+<!--    android:background="#FB5E2C"-->
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -71,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:hint="Email"
+            android:hint="ईमेल"
             android:paddingBottom="5dp"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +113,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:background="@android:color/transparent"
-            android:hint="Password"
+            android:hint="पासवर्ड"
             android:paddingBottom="5dp"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -111,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/no_button_bg"
-        android:text="LOGIN"
+        android:text="लॉग इन करो"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/goToRegister"
@@ -126,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
-        android:text="Don't hava an account?"
+        android:text="खाता नहीं है?"
         app:layout_constraintBottom_toBottomOf="@+id/goToRegister"
         app:layout_constraintEnd_toStartOf="@+id/goToRegister"
         app:layout_constraintHorizontal_bias="0.5"
@@ -139,9 +152,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Register Now"
-        android:textColor="@color/orange"
-        android:textSize="16sp"
+        android:text="अभी पंजीकरण करें"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

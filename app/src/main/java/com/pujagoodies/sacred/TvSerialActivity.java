@@ -44,14 +44,14 @@ public class TvSerialActivity extends AppCompatActivity {
 
 
 //
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
-//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
+//        tvSerialList.add(new YoutubeDashboradModel("" + R.drawable.ic_profile_svgrepo_com.xml, "this is my video"));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         gridLayoutManager.setOrientation(tvSerialRV.VERTICAL);
@@ -124,7 +124,7 @@ public class TvSerialActivity extends AppCompatActivity {
 
 //                        Picasso.with(getContext())
 //                                .load(mediumJsonObject.getString("url").toString())
-//                                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                .into(binding.mahabharatImageView);
 
 

@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pujagoodies.sacred.R;
 //import com.example.playvideota.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -250,7 +249,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                        if (snapshot.exists()) {
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(youtuberImageView);
 //                        }
 //                    }
@@ -320,22 +319,22 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                        if (snapshot.exists()) {
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(profileUserImage);
 //
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(profileUserImage1);
 //
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(profileUserImage2);
 //
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(profileUserImage3);
 //                        }
 //                    }
@@ -444,7 +443,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                        if (snapshot.exists()) {
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage1);
 //                        }
 //                    }
@@ -485,7 +484,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                        if (snapshot.exists()) {
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage2);
 //                        }
 //                    }
@@ -526,7 +525,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 //                        if (snapshot.exists()) {
 //                            Picasso.with(getApplicationContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage3);
 //                        }
 //                    }
@@ -889,14 +888,14 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
 
     private void gettingItem() {
 
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
-//       list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//        list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
+//       list.add(new YoutubeDashboradModel(R.drawable.ic_profile_svgrepo_com.xml,"this is my video"));
     }
 
 

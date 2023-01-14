@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -383,7 +382,7 @@ public class MannTvFragment extends Fragment {
 //                        if(snapshot.exists()){
 //                            Picasso.with(getContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage1);
 //                        }
 //                    }
@@ -442,7 +441,7 @@ public class MannTvFragment extends Fragment {
 //                        if(snapshot.exists()){
 //                            Picasso.with(getContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage2);
 //                        }
 //                    }
@@ -518,7 +517,7 @@ public class MannTvFragment extends Fragment {
 //                        if(snapshot.exists()){
 //                            Picasso.with(getContext())
 //                                    .load(snapshot.getValue().toString())
-//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                                    .into(videoImage3);
 //                        }
 //                    }

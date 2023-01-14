@@ -68,12 +68,12 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
         YoutubeDashboradModel youtubeDashboradModel = list.get(position);
 //        Picasso.with(context)
 //                .load(youtubeDashboradModel.getVideoImage())
-//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                .into(holder.videoImage);
 //
 //        Picasso.with(context)
 //                .load(youtubeDashboradModel.getChannelIcon())
-//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .placeholder(R.drawable.ic_profile_svgrepo_com.xml)
 //                .into(holder.channelIcon);
 
 

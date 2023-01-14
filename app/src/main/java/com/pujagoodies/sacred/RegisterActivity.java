@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 //import com.example.playvideota.R;
+import com.google.firebase.storage.FirebaseStorage;
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // for database
     FirebaseDatabase database;
+    FirebaseStorage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         //getting the unquie id for user
                                         String id = task.getResult().getUser().getUid();
-                                        database.getReference().child("users").child(id).setValue(user);
+//                                        database.getReference().child("users").child(id).setValue(user);
+//                                        storage.getReference().child("users").child(id).putFile(user);
                                         Toast.makeText(RegisterActivity.this, "User data saved successfully...", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
