@@ -151,7 +151,7 @@ public class RashiphalFragment extends Fragment {
                             System.out.println("Database Key : "+snapshot.getKey());
                             String videoIdValue = snapshot.getValue().toString();
                             videoIdData = videoIdValue;
-                            adminVideo();
+//                            adminVideo();
                         }
                     }
 

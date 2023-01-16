@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 //import com.example.playvideota.R;
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.model.SahityaImageModel;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class SahityaImageAdapter extends RecyclerView.Adapter<SahityaImageAdapter.viewHolder> {
@@ -35,7 +37,9 @@ public class SahityaImageAdapter extends RecyclerView.Adapter<SahityaImageAdapte
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         SahityaImageModel sahityaImageModel = list.get(position);
 
-        holder.sahityaImage.setImageResource(Integer.parseInt(sahityaImageModel.getSahityaImage()));
+//        holder.sahityaImage.setImageResource(Integer.parseInt(sahityaImageModel.getSahityaImage()));
+
+        Picasso.with(context).load(sahityaImageModel.getSahityaImage()).placeholder(R.drawable.ic_profile_svgrepo_com).into(holder.sahityaImage);
 
         holder.sahityaImageAboutTv.setText(sahityaImageModel.getSahityaImageAboutTv());
         holder.sahityaTitle.setText(sahityaImageModel.getSahityaTitle());
