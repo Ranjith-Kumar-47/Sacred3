@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager2 viewPager;
     TabLayout tabLayout;
-//    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK", "SAHITYA"};
-    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK"};
+    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK", "SAHITYA"};
+//    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK"};
 
     private int[] tabIcons = {
             R.drawable.tv_icon_btn,
             R.drawable.ic_calender_day_love_svgrepo_com,
             R.drawable.astrology,
             R.drawable.gita_image,
-//            R.drawable.gita_slok_icon
+            R.drawable.gita_slok_icon
     };
     ViewPagerAdapter viewPagerAdapter;
 
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.astrology);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_image);
-//        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
+        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
 
 
 //        // setting the root fragment for home page
@@ -314,9 +314,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "this is sharing app");
-                intent.putExtra(Intent.EXTRA_TEXT, "your application link here");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
+                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
                 startActivity(Intent.createChooser(intent, "Share Via"));
+
             }
         });
 

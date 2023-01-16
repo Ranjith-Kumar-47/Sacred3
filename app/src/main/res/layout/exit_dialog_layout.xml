@@ -21,7 +21,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:fontFamily="sans-serif-thin"
-        android:text="कृपया, इस एप्लिकेशन को अपने रिश्तेदारों और दोस्तों के लिए शेयर करें"
+        android:text="कृपया, इस ऐप को अपने रिश्तेदारों और दोस्तों के लिए शेयर करें"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="26sp"

@@ -106,7 +106,7 @@
                         android:padding="8dp">
 
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage1"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -148,7 +148,7 @@
                         android:orientation="vertical"
                         android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage2"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -202,7 +202,7 @@
                         android:padding="8dp">
 
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage3"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -244,7 +244,7 @@
                         android:orientation="vertical"
                         android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage4"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -298,7 +298,7 @@
                         android:padding="8dp">
 
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage5"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -340,7 +340,7 @@
                         android:orientation="vertical"
                         android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage6"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -394,7 +394,7 @@
                         android:padding="8dp">
 
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage7"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
@@ -436,7 +436,7 @@
                         android:orientation="vertical"
                         android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <ImageView
                             android:id="@+id/videoImage8"
                             android:layout_width="125dp"
                             android:layout_height="125dp"

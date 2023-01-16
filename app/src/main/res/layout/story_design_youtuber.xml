@@ -30,14 +30,12 @@
                 android:visibility="invisible"
                 android:src="@drawable/live_icon"
                 android:layout_gravity="right"/>
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/videoImage"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile_svgrepo_com"
-                app:civ_border_color="#0B0909"
-                app:civ_border_width="2dp"
                 android:layout_marginBottom="10dp"
                 />
             <TextView
