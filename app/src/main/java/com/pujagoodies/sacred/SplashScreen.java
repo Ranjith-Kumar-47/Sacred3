@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 //import com.example.playvideota.R;
+import com.example.mandir.Test;
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,6 +52,7 @@ public class SplashScreen extends AppCompatActivity {
                 }finally {
 
                     Intent intent = new Intent(SplashScreen.this, AuthActivity.class);
+//                    Intent intent = new Intent(SplashScreen.this, Test.class);
                     startActivity(intent);
                 }
             }

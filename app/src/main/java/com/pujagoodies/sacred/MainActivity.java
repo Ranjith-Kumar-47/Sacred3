@@ -24,6 +24,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 //import com.example.playvideota.R;
+import com.example.mandir.DummyActivity;
+import com.example.mandir.MainActivityMandir;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -42,7 +47,12 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.example.mandir.Test;
+
 import java.util.ArrayList;
+
+import model.GodImages;
+import model.MainGods;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,6 +105,26 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         adminButton = binding.adminButton;
 
+        database.getReference().child("god")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        System.out.println("Key one : " + snapshot.getKey());
+                        System.out.println("value one : " + snapshot.getValue());
+                        for (DataSnapshot childSnapshot : snapshot.getChildren()
+                        ) {
+                            System.out.println("Key two : " + childSnapshot.getKey());
+                            System.out.println("value two : " + childSnapshot.getValue());
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
@@ -113,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
 //                            Toast.makeText(MainActivity.this, "User Authenticated ", Toast.LENGTH_SHORT).show();
-                           System.out.println("user added to database");
+                            System.out.println("user added to database");
                         }
                     });
 
@@ -122,6 +152,154 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ImageView logoImage = binding.logoImage;
+
+//        FirebaseDatabase.getInstance().getReference().child("god").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                    for (DataSnapshot data : snapshot.getChildren()) {
+////                        String name = data.child("godName").getValue().toString();
+////                        String mainName = data.child("godMainName").getValue().toString();
+////                        String key = data.getKey();
+////                        DataSnapshot dataSnapshot = snapshot.child("/" + key + "/GodImages");
+////                        ArrayList<GodImages> godImages = new ArrayList<>();
+////                        for (DataSnapshot data2 : dataSnapshot.getChildren()) {
+////                            String poster = data2.child("image").getValue().toString();
+////                            GodImages godImages1 = new GodImages(poster);
+////                            godImages.add(godImages1);
+////                        }
+////                        MainGods mainGods = new MainGods(name, godImages, mainName);
+////                        gods.add(mainGods);
+////                    }
+//
+//
+//                System.out.println("Key one : " + snapshot.getKey());
+//                for (DataSnapshot childSnapshot : snapshot.getChildren()
+//                ) {
+//                    System.out.println("Key two : " + childSnapshot.getKey());
+//                    String names = childSnapshot.child("" + childSnapshot.getKey()).getKey().toString();
+//                    System.out.println("name : " + names);
+//                    ArrayList<GodImages> godImages = new ArrayList<>();
+//
+////
+//                    for (DataSnapshot childSnapshot2 : childSnapshot.getChildren()) {
+////                                            System.out.println("Key three : " +childSnapshot2.getKey());
+////                                            System.out.println("value three : " +childSnapshot2.getValue());
+//
+//                        String images = String.valueOf(childSnapshot2.getValue());
+//                        String name = String.valueOf(childSnapshot2.getKey());
+//                        System.out.println("image taamit : " + images);
+//                        System.out.println("name taamit : " + name);
+////
+//                        GodImages godImage = new GodImages(images);
+//                        godImages.add(godImage);
+//
+//                    }
+//                    MainGods mainGods = new MainGods(names, godImages, names);
+////                    gods.add(mainGods);
+//                }
+////                myAdapter.notifyDataSetChanged();
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+
+        logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Test.class);
+                startActivity(intent);
+
+//                final ArrayList<MainGods> gods = new ArrayList<>();
+//                database.getReference().child("god")
+//                        .addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                System.out.println("Key one : " + snapshot.getKey());
+//                                ArrayList<GodImages> godImages = new ArrayList<>();
+//                                for (DataSnapshot childSnapshot : snapshot.getChildren()
+//                                ) {
+//                                    System.out.println("Key two : " + childSnapshot.getKey());
+//                                    System.out.println("value two : " + childSnapshot.getValue());
+//
+//                                    String images = String.valueOf(childSnapshot.getValue());
+//                                    String name = String.valueOf(childSnapshot.getKey());
+//                                    System.out.println("image taamit : " + images);
+//                                    System.out.println("name taamit : " + name);
+////
+//                                    GodImages godImage = new GodImages(images);
+//                                    godImages.add(godImage);
+//                                    MainGods mainGods = new MainGods(name, godImages, name);
+//                                    gods.add(mainGods);
+//                                }
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
+
+            }
+        });
+
+
+//        logoImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = null;
+//                try {
+//
+//                    Intent launchIntent =
+//                            getPackageManager().getLaunchIntentForPackage("com.example.mandir");
+//                    if (launchIntent != null) {
+//                        startActivity(launchIntent); //null pointer check in case package name was not found ClassNotFoundException
+//
+////                        Intent intent = new Intent();
+////                        intent.setClassName(getApplicationContext().getPackageName(), "com.example.mandir.MainActivity");
+////                        startActivity(intent);
+//                        intent = new Intent(MainActivity.this,
+//                                Class.forName("com.example.mandir.MainActivity"));
+//                        startActivity(intent);
+//
+//                    }
+//
+////                    intent = new Intent(MainActivity.this,
+////                            Class.forName("com.example.mandir.MainActivity"));
+////                    startActivity(intent);
+//                } catch (ClassNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//
+////                Intent intent = new Intent();
+////                intent.setClassName("com.example.mandir","MainActivity");
+////                startActivity(intent);
+//
+//
+////                try {
+////                    Intent launchIntent =
+////                            getPackageManager().getLaunchIntentForPackage("com.example.mandir");
+////                    if (launchIntent != null) {
+////                        startActivity(launchIntent); //null pointer check in case package name was not found ClassNotFoundException
+////
+////                        Intent intent = new Intent();
+////                        intent.setClassName(getApplicationContext().getPackageName(), "com.example.mandir.MainActivity");
+////                        startActivity(intent);
+////
+////                    }
+////                } catch (Exception e) {
+////                    e.printStackTrace();
+////                }
+//
+//            }
+//        });
 
 //        logoImage.setOnClickListener(new View.OnClickListener() {
 //            @Override

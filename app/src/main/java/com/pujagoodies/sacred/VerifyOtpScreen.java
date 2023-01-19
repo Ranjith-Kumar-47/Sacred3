@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.example.playvideota.R;
+import com.example.mandir.Test;
 import com.pujagoodies.sacred.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -99,7 +100,7 @@ public class VerifyOtpScreen extends AppCompatActivity {
 
                                             String id = task.getResult().getUser().getUid();
 
-                                            Intent intent = new Intent(VerifyOtpScreen.this, MainActivity.class);
+                                            Intent intent = new Intent(VerifyOtpScreen.this, Test.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
                                         }else{

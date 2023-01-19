@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mandir.Test;
 import com.pujagoodies.sacred.R;
 //import com.example.playvideota.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -132,7 +133,7 @@ public class AuthActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(currentUser != null){
-            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            Intent intent = new Intent(AuthActivity.this, Test.class);
             startActivity(intent);
         }
     }
@@ -178,7 +179,7 @@ public class AuthActivity extends AppCompatActivity {
 
     private void navigateToSecondActivity() {
         finish();
-        Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+        Intent intent = new Intent(AuthActivity.this, Test.class);
         startActivity(intent);
     }
 

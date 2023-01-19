@@ -13,7 +13,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
     }
 }
 rootProject.name = "sacred"
 include ':app'
+include ':apps'
