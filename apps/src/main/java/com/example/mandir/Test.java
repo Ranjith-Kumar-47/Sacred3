@@ -22,12 +22,14 @@ public class Test extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(Test.this, "Go", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(Test.this, MainA.class);
-                Intent intent = new Intent();
-                intent.setClassName("com.pujagoodies.sacred","com.pujagoodies.sacred.MainActivity");
-                startActivity(intent);
 
+//                Intent intent = new Intent();
+//                intent.setClassName("com.pujagoodies.sacred","com.pujagoodies.sacred.MainActivity");
+//                startActivity(intent);
+//
+//                startActivity(intent);
+
+                Intent intent = new Intent(Test.this, DummyActivity.class);
                 startActivity(intent);
             }
         });

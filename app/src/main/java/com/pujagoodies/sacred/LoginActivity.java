@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mandir.Test;
+
 import com.pujagoodies.sacred.R;
 //import com.example.playvideota.R;
 import com.pujagoodies.sacred.databinding.ActivityLoginBinding;
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 binding.loginBTN.setVisibility(View.VISIBLE);
-                                Intent intent = new Intent(LoginActivity.this, Test.class);
+                                Intent intent = new Intent(LoginActivity.this, MandirDummyActivity.class);
                                 startActivity(intent);
                             }else{
                                 binding.loginBTN.setVisibility(View.VISIBLE);
@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(currentUser != null){
-            Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this , MandirDummyActivity.class);
             startActivity(intent);
         }
     }

@@ -24,8 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 //import com.example.playvideota.R;
-import com.example.mandir.DummyActivity;
-import com.example.mandir.MainActivityMandir;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -47,12 +46,12 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import com.example.mandir.Test;
+
 
 import java.util.ArrayList;
 
-import model.GodImages;
-import model.MainGods;
+import com.pujagoodies.sacred.model.GodImages;
+import com.pujagoodies.sacred.model.MainGods;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -212,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         logoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Test.class);
+                Intent intent = new Intent(MainActivity.this, MandirDummyActivity.class);
                 startActivity(intent);
 
 //                final ArrayList<MainGods> gods = new ArrayList<>();

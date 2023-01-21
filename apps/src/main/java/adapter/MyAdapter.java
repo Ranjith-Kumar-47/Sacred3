@@ -46,10 +46,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        MainGods mainGodss = mainGods.get(position);
 
             holder.textView.setText(mainGods.get(holder.getBindingAdapterPosition()).getGodMainName());
+//            holder.textView.setText(mainGods.get(holder.getBindingAdapterPosition()).getGodName());
 
-//        Picasso.with(context).load(mainGods.get(holder.getBindingAdapterPosition()).getGodImages()).into(holder.circleImageView);
+//            Picasso.with(context).load(mainGods.get(holder.getBindingAdapterPosition()).getImage())
+//                    .placeholder(R.drawable.bell_centre)
+//                    .into(holder.circleImageView);
+
+//        Picasso.with(context).load(String.valueOf(mainGods.get(holder.getBindingAdapterPosition()).getGodName())).into(holder.circleImageView);
 
 
         Glide.with(holder.circleImageView.getContext()).load(mainGods.get(holder.getBindingAdapterPosition()).getGodName()).into(holder.circleImageView);

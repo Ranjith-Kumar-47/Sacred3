@@ -20,6 +20,11 @@ public class MainGods {
         this.godImages = godImages;
     }
 
+    public MainGods(String godName, String image) {
+        this.godName = godName;
+        this.image = image;
+    }
+
     public MainGods(String godName, ArrayList<GodImages> godImages) {
         this.godName = godName;
         this.godImages = godImages;
@@ -35,6 +40,16 @@ public class MainGods {
     }
 
     private String godName;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     private ArrayList<GodImages> godImages;
 
     public String getGodMainName() {

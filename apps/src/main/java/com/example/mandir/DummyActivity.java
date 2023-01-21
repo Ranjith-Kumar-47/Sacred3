@@ -62,20 +62,7 @@ public class DummyActivity extends AppCompatActivity {
             FirebaseDatabase.getInstance().getReference().child("god").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    for (DataSnapshot data : snapshot.getChildren()) {
-//                        String name = data.child("godName").getValue().toString();
-//                        String mainName = data.child("godMainName").getValue().toString();
-//                        String key = data.getKey();
-//                        DataSnapshot dataSnapshot = snapshot.child("/" + key + "/GodImages");
-//                        ArrayList<GodImages> godImages = new ArrayList<>();
-//                        for (DataSnapshot data2 : dataSnapshot.getChildren()) {
-//                            String poster = data2.child("image").getValue().toString();
-//                            GodImages godImages1 = new GodImages(poster);
-//                            godImages.add(godImages1);
-//                        }
-//                        MainGods mainGods = new MainGods(name, godImages, mainName);
-//                        gods.add(mainGods);
-//                    }
+
                     System.out.println("Key one : "+snapshot.getKey());
                     ArrayList<GodImages> godImages = new ArrayList<>();
                     for (DataSnapshot childSnapshot:snapshot.getChildren()
@@ -87,11 +74,14 @@ public class DummyActivity extends AppCompatActivity {
                         String name = String.valueOf(childSnapshot.getKey());
                         System.out.println("image taamit : " + images);
                         System.out.println("name taamit : " + name);
-//
+
                         GodImages godImage = new GodImages(images);
                         godImages.add(godImage);
-                        MainGods mainGods = new MainGods(name, godImages, name);
+//                        MainGods mainGods = new MainGods(name, godImages, name);
+                        MainGods mainGods = new MainGods(name,images);
                         gods.add(mainGods);
+
+                        //###################################################
 //                        System.out.println("Key two : " +childSnapshot.getKey());
 //
 //                        String names = childSnapshot.child(""+childSnapshot.getKey()).getKey().toString();
@@ -114,6 +104,7 @@ public class DummyActivity extends AppCompatActivity {
 //                        }
 //                        MainGods mainGods = new MainGods(names, godImages, names);
 //                        gods.add(mainGods);
+                        //##################################################
                     }
                     myAdapter.notifyDataSetChanged();
 

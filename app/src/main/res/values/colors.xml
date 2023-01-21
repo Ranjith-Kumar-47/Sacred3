@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#F44336</color>
+    <color name="purple_500">#E91E63</color>
+    <color name="purple_700">#E91E63</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="orange">#E84511</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#00A2CA</color>
-    <color name="colorPrimaryDark">#017799</color>
-    <color name="colorAccent">#000000</color>
+<!--    <color name="colorPrimary">#00A2CA</color>-->
+<!--    <color name="colorPrimaryDark">#017799</color>-->
+<!--    <color name="colorAccent">#000000</color>-->
     <color name="colorYes">#3FFC00</color>
     <color name="colorNo">#FF0000</color>
     <color name="colorlightOrange">#FB5E2C</color>
+
+<!--    <color name="purple_200">#FFBB86FC</color>-->
+<!--    <color name="purple_500">#FF6200EE</color>-->
+<!--    <color name="purple_700">#FF3700B3</color>-->
+<!--    <color name="teal_200">#FF03DAC5</color>-->
+<!--    <color name="teal_700">#FF018786</color>-->
+<!--    <color name="black">#FF000000</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
+    <color name="gold_dark">#F2710F</color>
+    <color name="gold_med">#ab804b</color>
+    <color name="gold">#cea774</color>
+    <color name="gold_light">#edd3b2</color>
+    <color name="bar">#5B0101</color>
+    <color name ="floatButton">#F4C430</color>
+
+    <color name="colorPrimary">@color/gold</color>
+    <color name="colorPrimaryDark">@color/gold_dark</color>
+    <color name="colorAccent">@color/gold_med</color>
 </resources>

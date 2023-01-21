@@ -18,4 +18,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "sacred"
 include ':app'
-include ':apps'

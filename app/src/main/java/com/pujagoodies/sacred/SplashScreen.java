@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 //import com.example.playvideota.R;
-import com.example.mandir.Test;
+
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
