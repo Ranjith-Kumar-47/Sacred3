@@ -14,8 +14,8 @@ import com.pujagoodies.sacred.fragment.TvFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
-    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK","SAHITYA"};
-//    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
+//    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK","SAHITYA"};
+    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
 
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -34,8 +34,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new RashiphalFragment();
             case 3:
                 return new GeetaSlokFragment();
-            case 4:
-                return new SahityaFragment();
+//            case 4:
+//                return new SahityaFragment();
 
         }
         return new TvFragment();

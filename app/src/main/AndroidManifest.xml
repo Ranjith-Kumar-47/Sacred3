@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.pujagoodies.sacred">
 
-
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -20,14 +18,18 @@
         android:theme="@style/Theme.PlayVideoTA"
         tools:replace="android:icon,android:roundIcon,theme"
         tools:targetApi="31">
-
+        <activity
+            android:name=".PdfReaderActivity"
+            android:exported="false" />
         <activity
             android:name=".MandirDummyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -39,88 +41,85 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
-            android:name="com.pujagoodies.sacred.LoginActivity"
-            android:exported="true"
-             />
-        <activity
-            android:name="com.pujagoodies.sacred.RegisterActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.WebViewActivity"
+            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.PanchangAboutGanesh"
+            android:name=".WebViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PanchangAboutGanesh"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.TvSerialActivity"
+            android:name=".TvSerialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.PanchangImageActivity"
+            android:name=".PanchangImageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.PanchangAbout"
+            android:name=".PanchangAbout"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.AdminPanchang"
+            android:name=".AdminPanchang"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.AdminDashboard"
+            android:name=".AdminDashboard"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.AdminRashiphalAddData"
+            android:name=".AdminRashiphalAddData"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.AdminRashiphal"
+            android:name=".AdminRashiphal"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.FeedbackActivity"
+            android:name=".FeedbackActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.EnterPhoneNumberScreen"
+            android:name=".EnterPhoneNumberScreen"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.VerifyOtpScreen"
+            android:name=".VerifyOtpScreen"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.AuthActivity"
+            android:name=".AuthActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.SplashScreen"
+            android:name=".SplashScreen"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="com.pujagoodies.sacred.VideoPlayer"
+            android:name=".VideoPlayer"
             android:configChanges="orientation|screenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.YoutubeDashboard"
+            android:name=".YoutubeDashboard"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
         <activity
-            android:name="com.pujagoodies.sacred.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="true" />
-
-
     </application>
 
 </manifest>

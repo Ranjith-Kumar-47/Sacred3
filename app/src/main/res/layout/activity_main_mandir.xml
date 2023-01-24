@@ -528,6 +528,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/nav"
             android:layout_width="match_parent"
@@ -558,6 +559,7 @@
                 android:backgroundTint="@color/white"/>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinatorLayout6"
             android:layout_width="match_parent"
@@ -568,8 +570,6 @@
             app:layout_constraintTop_toTopOf="@id/nav"
             app:layout_constraintVertical_bias="1"
             >
-
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/flowersSelection"

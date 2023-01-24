@@ -622,6 +622,13 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
+
     //Extra methods and classes
     @Override
     public Confetto generateConfetto(Random random) {
