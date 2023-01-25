@@ -67,8 +67,25 @@ public class MandirDummyActivity extends AppCompatActivity {
                     for (DataSnapshot data : snapshot.getChildren()) {
                         System.out.println("key 2 -> "+data.getKey());
                         System.out.println("value 2 -> "+data.getValue());
-                        String name = data.child("godName").getValue().toString();
-                        String mainName = data.child("godMainName").getValue().toString();
+
+
+                        String name = "";
+
+                        if(data.child("godName").getValue() == null){
+                            name = "";
+                        }else{
+                            name = data.child("godName").getValue().toString();
+                        }
+
+                        String mainName = "";
+
+                        if(data.child("godMainName").getValue() == null){
+                            mainName = "";
+                        }else{
+                            mainName = data.child("godMainName").getValue().toString();
+                        }
+
+
                         String key = data.getKey();
                         DataSnapshot dataSnapshot = snapshot.child("/" + key + "/GodImages");
                         ArrayList<GodImages> godImages = new ArrayList<>();
