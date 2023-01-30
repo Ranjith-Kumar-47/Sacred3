@@ -199,7 +199,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     }
 
                     String key = data.getKey();
-                    DataSnapshot dataSnapshot = snapshot.child("/" + key + "/GodImages");
+                    DataSnapshot dataSnapshot = snapshot.child("/" + key + "/godImages");
                     ArrayList<GodImages> godImages = new ArrayList<>();
                     for (DataSnapshot data2 : dataSnapshot.getChildren()) {
                         String poster = data2.child("image").getValue().toString();
@@ -210,8 +210,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     gods.add(mainGods);
                 }
                 swipeListener.getData(gods);
-
-
             }
 
             @Override
@@ -399,6 +397,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
             }
         });
+
         btnF.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -661,10 +660,14 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 Glide.with(imageView.getContext()).load(mainGods.get(i).getGodName()).into(imageView);
                 navigation.addTab(navigation.newTab().setCustomView(imageView));
             }
+
             navigation.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
                     int positionNav = navigation.getSelectedTabPosition();
+                    System.out.println("navigation : "+positionNav);
+                    System.out.println("navigation name : "+mainGods.get(positionNav).getGodMainName());
+//                    Glide.with(gImage.getContext()).load(mainGods.get(positionNav).getGodImages().get(j).getImage()).into(gImage);
                     Glide.with(gImage.getContext()).load(mainGods.get(positionNav).getGodImages().get(j).getImage()).into(gImage);
                     i = positionNav;
 
@@ -721,6 +724,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 if (i >= mainGods.size()) {
                                     i = 0;
                                 }
+                                System.out.println("size : "+mainGods.size());
                                 Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
 
                             }
@@ -732,7 +736,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 if (j != 0) {
                                     j -= 1;
                                 } else {
-                                    if (mainGods.isEmpty() == false)
+                                    if (!mainGods.isEmpty())
                                         j = mainGods.get(0).getGodImages().size() - 1;
                                     else
                                         j = 0;

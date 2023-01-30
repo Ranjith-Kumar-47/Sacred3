@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if((email.equalsIgnoreCase("")) || (password.equalsIgnoreCase(""))){
                     Toast.makeText(LoginActivity.this, "Enter Required Fields", Toast.LENGTH_SHORT).show();
+                    binding.loginBTN.setVisibility(View.VISIBLE);
                 }else {
 
 

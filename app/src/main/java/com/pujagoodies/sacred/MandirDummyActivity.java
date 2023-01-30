@@ -87,7 +87,7 @@ public class MandirDummyActivity extends AppCompatActivity {
 
 
                         String key = data.getKey();
-                        DataSnapshot dataSnapshot = snapshot.child("/" + key + "/GodImages");
+                        DataSnapshot dataSnapshot = snapshot.child("/" + key + "/godImages");
                         ArrayList<GodImages> godImages = new ArrayList<>();
                         for (DataSnapshot data2 : dataSnapshot.getChildren()) {
                             System.out.println("key 3 -> "+data2.getKey());
