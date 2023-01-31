@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionManager;
+import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -191,9 +192,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 for (DataSnapshot data : snapshot.getChildren()) {
                     String name = "";
 
-                    if(data.child("godName").getValue() == null){
+                    if (data.child("godName").getValue() == null) {
                         name = "";
-                    }else{
+                    } else {
                         name = data.child("godName").getValue().toString();
                         godNamess.add(name);
                     }
@@ -417,84 +418,126 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0)
                         .setEmissionDuration(3000);
 
-                final AlertDialog.Builder alert = new AlertDialog.Builder(MandirMainActivity.this);
-                View view1 = getLayoutInflater().inflate(R.layout.flower_counts, null);
-                EditText editText = view1.findViewById(R.id.count);
-                Button button = view1.findViewById(R.id.confirm);
-                alert.setView(view1);
-                final AlertDialog alertDialog = alert.create();
-                alertDialog.show();
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String ct = editText.getText().toString();
-                        int countFlower = Integer.parseInt(ct);
-                        if (countFlower > 100) {
-                            Toast.makeText(MandirMainActivity.this, "Too Many Flowers,pls enter again", Toast.LENGTH_LONG);
-                        } else {
-                            confettiManager.setEmissionRate(countFlower).animate();
-                            alertDialog.dismiss();
-                            f1.setVisibility(View.INVISIBLE);
-                            f2.setVisibility(View.INVISIBLE);
-                            f3.setVisibility(View.INVISIBLE);
-                            f4.setVisibility(View.INVISIBLE);
-                            f5.setVisibility(View.INVISIBLE);
-                            f6.setVisibility(View.INVISIBLE);
-                            f7.setVisibility(View.INVISIBLE);
-                            f8.setVisibility(View.INVISIBLE);
-                            f9.setVisibility(View.INVISIBLE);
-                            f10.setVisibility(View.INVISIBLE);
-                            f11.setVisibility(View.INVISIBLE);
-                            f1.setImageDrawable(getDrawable(R.drawable.p));
-                            f2.setImageDrawable(getDrawable(R.drawable.p));
-                            f3.setImageDrawable(getDrawable(R.drawable.p));
-                            f4.setImageDrawable(getDrawable(R.drawable.p));
-                            f5.setImageDrawable(getDrawable(R.drawable.p));
-                            f6.setImageDrawable(getDrawable(R.drawable.p));
-                            f7.setImageDrawable(getDrawable(R.drawable.p));
-                            f8.setImageDrawable(getDrawable(R.drawable.p));
-                            f9.setImageDrawable(getDrawable(R.drawable.p));
-                            f10.setImageDrawable(getDrawable(R.drawable.p));
-                            f11.setImageDrawable(getDrawable(R.drawable.p));
-                            Transition transition = new Fade();
-                            transition.setDuration(20000);
-                            transition.addTarget(R.id.f1);
-                            transition.addTarget(R.id.f2);
-                            transition.addTarget(R.id.f3);
-                            transition.addTarget(R.id.f4);
-                            transition.addTarget(R.id.f5);
-                            transition.addTarget(R.id.f6);
-                            transition.addTarget(R.id.f7);
-                            transition.addTarget(R.id.f8);
-                            transition.addTarget(R.id.f9);
-                            transition.addTarget(R.id.f10);
-                            transition.addTarget(R.id.f11);
-                            TransitionManager.beginDelayedTransition(parent, transition);
-                            f1.setVisibility(View.VISIBLE);
-                            f2.setVisibility(View.VISIBLE);
-                            f3.setVisibility(View.VISIBLE);
-                            f4.setVisibility(View.VISIBLE);
-                            f5.setVisibility(View.VISIBLE);
-                            f6.setVisibility(View.VISIBLE);
-                            f7.setVisibility(View.VISIBLE);
-                            f8.setVisibility(View.VISIBLE);
-                            f9.setVisibility(View.VISIBLE);
-                            f10.setVisibility(View.VISIBLE);
-                            f11.setVisibility(View.VISIBLE);
+                confettiManager.setEmissionRate(4).animate();
+//                alertDialog.dismiss();
+                f1.setVisibility(View.INVISIBLE);
+                f2.setVisibility(View.INVISIBLE);
+                f3.setVisibility(View.INVISIBLE);
+                f4.setVisibility(View.INVISIBLE);
+                f5.setVisibility(View.INVISIBLE);
+                f6.setVisibility(View.INVISIBLE);
+                f7.setVisibility(View.INVISIBLE);
+                f8.setVisibility(View.INVISIBLE);
+                f9.setVisibility(View.INVISIBLE);
+                f10.setVisibility(View.INVISIBLE);
+                f11.setVisibility(View.INVISIBLE);
+                f1.setImageDrawable(getDrawable(R.drawable.p));
+                f2.setImageDrawable(getDrawable(R.drawable.p));
+                f3.setImageDrawable(getDrawable(R.drawable.p));
+                f4.setImageDrawable(getDrawable(R.drawable.p));
+                f5.setImageDrawable(getDrawable(R.drawable.p));
+                f6.setImageDrawable(getDrawable(R.drawable.p));
+                f7.setImageDrawable(getDrawable(R.drawable.p));
+                f8.setImageDrawable(getDrawable(R.drawable.p));
+                f9.setImageDrawable(getDrawable(R.drawable.p));
+                f10.setImageDrawable(getDrawable(R.drawable.p));
+                f11.setImageDrawable(getDrawable(R.drawable.p));
+                Transition transition = new Fade();
+                transition.setDuration(20000);
+                transition.addTarget(R.id.f1);
+                transition.addTarget(R.id.f2);
+                transition.addTarget(R.id.f3);
+                transition.addTarget(R.id.f4);
+                transition.addTarget(R.id.f5);
+                transition.addTarget(R.id.f6);
+                transition.addTarget(R.id.f7);
+                transition.addTarget(R.id.f8);
+                transition.addTarget(R.id.f9);
+                transition.addTarget(R.id.f10);
+                transition.addTarget(R.id.f11);
+                TransitionManager.beginDelayedTransition(parent, transition);
+                f1.setVisibility(View.VISIBLE);
+                f2.setVisibility(View.VISIBLE);
+                f3.setVisibility(View.VISIBLE);
+                f4.setVisibility(View.VISIBLE);
+                f5.setVisibility(View.VISIBLE);
+                f6.setVisibility(View.VISIBLE);
+                f7.setVisibility(View.VISIBLE);
+                f8.setVisibility(View.VISIBLE);
+                f9.setVisibility(View.VISIBLE);
+                f10.setVisibility(View.VISIBLE);
+                f11.setVisibility(View.VISIBLE);
 
-                        }
+// code for alert flower count
 
-
-                    }
-                });
-
-//                String ct = editText.getText().toString();
-//                int countFlower = Integer.parseInt(ct);
-//                confirm.setOnClickListener(new View.OnClickListener() {
+//                final AlertDialog.Builder alert = new AlertDialog.Builder(MandirMainActivity.this);
+//                View view1 = getLayoutInflater().inflate(R.layout.flower_counts, null);
+//                EditText editText = view1.findViewById(R.id.count);
+//                Button button = view1.findViewById(R.id.confirm);
+//                alert.setView(view1);
+//                final AlertDialog alertDialog = alert.create();
+//                alertDialog.show();
+//                button.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
-
-
+//                        String ct = editText.getText().toString();
+//                        int countFlower = Integer.parseInt(ct);
+//                        if (countFlower > 100) {
+//                            Toast.makeText(MandirMainActivity.this, "Too Many Flowers,pls enter again", Toast.LENGTH_LONG);
+//                        } else {
+//                            confettiManager.setEmissionRate(countFlower).animate();
+//                            alertDialog.dismiss();
+//                            f1.setVisibility(View.INVISIBLE);
+//                            f2.setVisibility(View.INVISIBLE);
+//                            f3.setVisibility(View.INVISIBLE);
+//                            f4.setVisibility(View.INVISIBLE);
+//                            f5.setVisibility(View.INVISIBLE);
+//                            f6.setVisibility(View.INVISIBLE);
+//                            f7.setVisibility(View.INVISIBLE);
+//                            f8.setVisibility(View.INVISIBLE);
+//                            f9.setVisibility(View.INVISIBLE);
+//                            f10.setVisibility(View.INVISIBLE);
+//                            f11.setVisibility(View.INVISIBLE);
+//                            f1.setImageDrawable(getDrawable(R.drawable.p));
+//                            f2.setImageDrawable(getDrawable(R.drawable.p));
+//                            f3.setImageDrawable(getDrawable(R.drawable.p));
+//                            f4.setImageDrawable(getDrawable(R.drawable.p));
+//                            f5.setImageDrawable(getDrawable(R.drawable.p));
+//                            f6.setImageDrawable(getDrawable(R.drawable.p));
+//                            f7.setImageDrawable(getDrawable(R.drawable.p));
+//                            f8.setImageDrawable(getDrawable(R.drawable.p));
+//                            f9.setImageDrawable(getDrawable(R.drawable.p));
+//                            f10.setImageDrawable(getDrawable(R.drawable.p));
+//                            f11.setImageDrawable(getDrawable(R.drawable.p));
+//                            Transition transition = new Fade();
+//                            transition.setDuration(20000);
+//                            transition.addTarget(R.id.f1);
+//                            transition.addTarget(R.id.f2);
+//                            transition.addTarget(R.id.f3);
+//                            transition.addTarget(R.id.f4);
+//                            transition.addTarget(R.id.f5);
+//                            transition.addTarget(R.id.f6);
+//                            transition.addTarget(R.id.f7);
+//                            transition.addTarget(R.id.f8);
+//                            transition.addTarget(R.id.f9);
+//                            transition.addTarget(R.id.f10);
+//                            transition.addTarget(R.id.f11);
+//                            TransitionManager.beginDelayedTransition(parent, transition);
+//                            f1.setVisibility(View.VISIBLE);
+//                            f2.setVisibility(View.VISIBLE);
+//                            f3.setVisibility(View.VISIBLE);
+//                            f4.setVisibility(View.VISIBLE);
+//                            f5.setVisibility(View.VISIBLE);
+//                            f6.setVisibility(View.VISIBLE);
+//                            f7.setVisibility(View.VISIBLE);
+//                            f8.setVisibility(View.VISIBLE);
+//                            f9.setVisibility(View.VISIBLE);
+//                            f10.setVisibility(View.VISIBLE);
+//                            f11.setVisibility(View.VISIBLE);
+//
+//                        }
+//
+//
 //                    }
 //                });
 
@@ -652,6 +695,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     m += 1;
                 }
             }
+
             for (int i = 0; i < mainGods.size(); i++) {
                 CircleImageView imageView = new CircleImageView(MandirMainActivity.this);
                 ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(100, 100);
@@ -665,8 +709,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
                     int positionNav = navigation.getSelectedTabPosition();
-                    System.out.println("navigation : "+positionNav);
-                    System.out.println("navigation name : "+mainGods.get(positionNav).getGodMainName());
+                    System.out.println("navigation : " + positionNav);
+                    System.out.println("navigation name : " + mainGods.get(positionNav).getGodMainName());
 //                    Glide.with(gImage.getContext()).load(mainGods.get(positionNav).getGodImages().get(j).getImage()).into(gImage);
                     Glide.with(gImage.getContext()).load(mainGods.get(positionNav).getGodImages().get(j).getImage()).into(gImage);
                     i = positionNav;
@@ -684,8 +728,17 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 }
             });
 
+
             //initial
-            Glide.with(gImage.getContext()).load(mainGods.get(0).getGodImages().get(0).getImage()).into(gImage);
+            if (mainGods.size() == 0) {
+                SharedPreferences sharedPreferences = getSharedPreferences("PREFERENCES", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("FirstTimeInstall", "Edit");
+                editor.apply();
+                startActivity(new Intent(MandirMainActivity.this, MandirDummyActivity.class));
+            } else {
+                Glide.with(gImage.getContext()).load(mainGods.get(0).getGodImages().get(0).getImage()).into(gImage);
+            }
 
         }
 
@@ -724,7 +777,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 if (i >= mainGods.size()) {
                                     i = 0;
                                 }
-                                System.out.println("size : "+mainGods.size());
+                                System.out.println("size : " + mainGods.size());
                                 Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
 
                             }
