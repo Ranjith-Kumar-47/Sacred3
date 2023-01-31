@@ -779,6 +779,11 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 }
                                 System.out.println("size : " + mainGods.size());
                                 Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+//                                try {
+//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+//                                } catch(ArrayIndexOutOfBoundsException e) {
+//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(0).getImage()).into(gImage);
+//                                }
 
                             }
                         }
@@ -794,15 +799,47 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     else
                                         j = 0;
                                 }
-                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+
+//                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+//                                try {
+//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+//                                } catch(ArrayIndexOutOfBoundsException e) {
+//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(0).getImage()).into(gImage);
+//                                }
+
+                                if(mainGods.get(i).getGodImages().size() <= j){
+                                    System.out.println("val : "+j);
+                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                    j = 0;
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                    System.out.println("val : "+j);
+                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                }else{
+                                    System.out.println("val : "+j);
+                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                }
 
                             } else {
                                 //Swipe Up
                                 j += 1;
+                                System.out.println("j1 val : "+j);
+                                System.out.println("i1 val : "+i);
                                 if (j >= mainGods.get(0).getGodImages().size()) {
                                     j = 0;
                                 }
-                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                System.out.println("j2 val : "+j);
+                                System.out.println("i2 val : "+i);
+//                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+
+                                if(mainGods.get(i).getGodImages().size() <= j){
+                                    j = 0;
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                }else{
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                }
+
+                                System.out.println("j3 val : "+j);
 
                             }
                         }

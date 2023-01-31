@@ -563,16 +563,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1"
             >
-            <com.google.android.material.bottomappbar.BottomAppBar
-                style="@style/Widget.MaterialComponents.BottomAppBar"
-                android:theme="@style/AppThemeMaterial"
-                android:id="@+id/bottomnav"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/gold_med"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/bottomNavHome"
                 android:layout_width="wrap_content"
@@ -583,6 +573,19 @@
                 app:tint="@color/gold_med"
                 android:foregroundTint="@color/gold_med"
                 android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                style="@style/Widget.MaterialComponents.BottomAppBar"
+                android:theme="@style/AppThemeMaterial"
+                android:id="@+id/bottomnav"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/gold_med"
+                android:gravity="bottom"
+                android:layout_gravity="bottom">
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

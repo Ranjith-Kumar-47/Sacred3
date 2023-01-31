@@ -170,7 +170,7 @@ public class AuthActivity extends AppCompatActivity {
                 navigateToSecondActivity();
             } catch (ApiException e) {
                 Toast.makeText(this, "Please check Your Internet Connection", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
