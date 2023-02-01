@@ -492,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
-                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
+                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपका मंदिर, आपके फोन मे \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
                 startActivity(Intent.createChooser(intent, "Share Via"));
 
             }
@@ -523,7 +523,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
 //                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर");
-                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
+                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपका मंदिर, आपके फोन मे \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
                 startActivity(Intent.createChooser(intent, "Share Via"));
 //                finishAffinity();
             }
