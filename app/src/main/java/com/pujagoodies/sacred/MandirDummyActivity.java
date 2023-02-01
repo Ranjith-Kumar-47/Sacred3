@@ -96,7 +96,7 @@ public class MandirDummyActivity extends AppCompatActivity {
                             GodImages godImages1 = new GodImages(poster);
                             godImages.add(godImages1);
                         }
-                        MainGods mainGods = new MainGods(name, godImages, mainName);
+                        MainGods mainGods = new MainGods(name, godImages, mainName,false);
                         gods.add(mainGods);
                     }
                     myAdapter.notifyDataSetChanged();
@@ -116,7 +116,7 @@ public class MandirDummyActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     ArrayList<Integer> posistions = new ArrayList<>(myAdapter.getSelected());
-                    Collections.sort(posistions);
+//                    Collections.sort(posistions);
                     if (posistions.isEmpty()) {
                         Toast.makeText(MandirDummyActivity.this, "Choose atleast One god", Toast.LENGTH_LONG).show();
                     } else {

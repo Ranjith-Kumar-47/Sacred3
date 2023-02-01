@@ -34,6 +34,12 @@ public class MainGods {
         this.godMainName = godMainName;
     }
 
+    public MainGods(String godName, ArrayList<GodImages> godImages, Boolean isSelected) {
+        this.godName = godName;
+        this.godImages = godImages;
+        this.isSelected = isSelected;
+    }
+
     public MainGods() {
     }
 
@@ -49,4 +55,21 @@ public class MainGods {
     }
 
     private String godMainName;
+
+    private  Boolean isSelected;
+
+    public MainGods(String godName, ArrayList<GodImages> godImages, String godMainName, Boolean isSelected) {
+        this.godName = godName;
+        this.godImages = godImages;
+        this.godMainName = godMainName;
+        this.isSelected = isSelected;
+    }
+
+    public Boolean getSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(Boolean selected) {
+        isSelected = selected;
+    }
 }

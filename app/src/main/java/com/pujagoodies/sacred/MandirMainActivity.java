@@ -207,7 +207,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                         GodImages godImages1 = new GodImages(poster);
                         godImages.add(godImages1);
                     }
-                    MainGods mainGods = new MainGods(name, godImages);
+                    MainGods mainGods = new MainGods(name, godImages, false);
                     gods.add(mainGods);
                 }
                 swipeListener.getData(gods);
@@ -679,12 +679,12 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     public class SwipeListener implements View.OnTouchListener {
 
         GestureDetector gestureDetector;
-        ArrayList<MainGods> mainGods;
+        ArrayList<MainGods> mainGods = new ArrayList<>();
 
         public void getData(ArrayList<MainGods> mg) {
 
 //            mainGods = new ArrayList<>(mg);
-            mainGods = new ArrayList<>();
+//            mainGods = new ArrayList<>();
             int p = 0, m = 0;
             while ((p != position.size()) && (m != mg.size())) {
                 if (position.get(p) == m) {
@@ -769,7 +769,14 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 } else {
                                     i = mainGods.size() - 1;
                                 }
-                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                System.out.println("talength : "+i);
+                                System.out.println("talength mainGod : "+mainGods.size());
+//                                System.out.println("talength godImage : "+mainGods.get(i).getGodImages().size());
+                                if(mainGods.size() == 0){
+                                    Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                }
 
                             } else {
                                 //Swipe Left
@@ -777,13 +784,14 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 if (i >= mainGods.size()) {
                                     i = 0;
                                 }
-                                System.out.println("size : " + mainGods.size());
-                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-//                                try {
-//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-//                                } catch(ArrayIndexOutOfBoundsException e) {
-//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(0).getImage()).into(gImage);
-//                                }
+//                                System.out.println("size : " + mainGods.size());
+                                if(mainGods.size() == 0){
+                                    Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                }
+//                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+
 
                             }
                         }
@@ -801,45 +809,51 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 }
 
 //                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-//                                try {
-//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-//                                } catch(ArrayIndexOutOfBoundsException e) {
-//                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(0).getImage()).into(gImage);
-//                                }
 
-                                if(mainGods.get(i).getGodImages().size() <= j){
-                                    System.out.println("val : "+j);
-                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
-                                    j = 0;
-                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-                                    System.out.println("val : "+j);
-                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
-                                }else{
-                                    System.out.println("val : "+j);
-                                    System.out.println("val size : "+mainGods.get(i).getGodImages().size());
-                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                if(mainGods.size() == 0){
+                                    Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    if(mainGods.get(i).getGodImages().size() <= j){
+                                        System.out.println("val : "+j);
+                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                        j = 0;
+                                        Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                        System.out.println("val : "+j);
+                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                    }else{
+                                        System.out.println("val : "+j);
+                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                        Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                    }
                                 }
+
+
 
                             } else {
                                 //Swipe Up
                                 j += 1;
                                 System.out.println("j1 val : "+j);
                                 System.out.println("i1 val : "+i);
-                                if (j >= mainGods.get(0).getGodImages().size()) {
-                                    j = 0;
-                                }
-                                System.out.println("j2 val : "+j);
-                                System.out.println("i2 val : "+i);
+
+                                if(mainGods.size() == 0){
+                                    Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    if (j >= mainGods.get(0).getGodImages().size()) {
+                                        j = 0;
+                                    }
+                                    System.out.println("j2 val : "+j);
+                                    System.out.println("i2 val : "+i);
 //                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
 
-                                if(mainGods.get(i).getGodImages().size() <= j){
-                                    j = 0;
-                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-                                }else{
-                                    Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-                                }
+                                    if(mainGods.get(i).getGodImages().size() <= j){
+                                        j = 0;
+                                        Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                    }else{
+                                        Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
+                                    }
 
-                                System.out.println("j3 val : "+j);
+                                    System.out.println("j3 val : "+j);
+                                }
 
                             }
                         }

@@ -580,7 +580,7 @@
                 android:id="@+id/bottomnav"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:backgroundTint="@color/gold_med"
+                android:backgroundTint="@color/white"
                 android:gravity="bottom"
                 android:layout_gravity="bottom">
 
