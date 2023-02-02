@@ -418,7 +418,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0)
                         .setEmissionDuration(3000);
 
-                confettiManager.setEmissionRate(4).animate();
+                confettiManager.setEmissionRate(14).animate();
 //                alertDialog.dismiss();
                 f1.setVisibility(View.INVISIBLE);
                 f2.setVisibility(View.INVISIBLE);
