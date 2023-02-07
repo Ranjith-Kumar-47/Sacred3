@@ -116,7 +116,10 @@ public class MandirDummyActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     ArrayList<Integer> posistions = new ArrayList<>(myAdapter.getSelected());
-//                    Collections.sort(posistions);
+                    for (int i = 0; i < posistions.size(); i++) {
+                        System.out.println("selected index : "+posistions.get(i));
+                    }
+                    Collections.sort(posistions);
                     if (posistions.isEmpty()) {
                         Toast.makeText(MandirDummyActivity.this, "Choose atleast One god", Toast.LENGTH_LONG).show();
                     } else {

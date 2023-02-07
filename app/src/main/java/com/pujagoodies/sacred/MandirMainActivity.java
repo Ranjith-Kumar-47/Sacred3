@@ -184,6 +184,12 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
         godNamess = new ArrayList<>();
 
+
+        //sound Players
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sound);
+        final MediaPlayer mediaPlayer2 = MediaPlayer.create(this, R.raw.shankh);
+        final MediaPlayer mediaPlayer3 = MediaPlayer.create(this, R.raw.temple);
+
         //Getting Data From Database
         final ArrayList<MainGods> gods = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference().child("/pics").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -211,6 +217,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     gods.add(mainGods);
                 }
                 swipeListener.getData(gods);
+                mediaPlayer.start();
             }
 
             @Override
@@ -230,10 +237,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             }
         }, 2000);
 
-        //sound Players
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sound);
-        final MediaPlayer mediaPlayer2 = MediaPlayer.create(this, R.raw.shankh);
-        final MediaPlayer mediaPlayer3 = MediaPlayer.create(this, R.raw.temple);
+
 
         //bells on click animations
         count = 0;

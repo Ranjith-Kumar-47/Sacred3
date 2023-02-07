@@ -288,44 +288,44 @@ public class AdminPanchang extends AppCompatActivity {
         });
 
 
-//        submitPanchangButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String panchangTitle = panchangDailyTitleTextView.getText().toString();
-//                String panchangDescription = panchangDailyTitleDescriptionTextView.getText().toString();
-//                String panchangFestival = panchangDailyFestivalTextView.getText().toString();
-//
-//                submitPanchangButton.setVisibility(View.GONE);
-//
-//                if (panchangTitle.equalsIgnoreCase(null) || panchangDescription.equalsIgnoreCase("") || panchangFestival.equalsIgnoreCase("")) {
-//                    Toast.makeText(AdminPanchang.this, "All Field is Mandatory", Toast.LENGTH_SHORT).show();
-//                    submitPanchangButton.setVisibility(View.VISIBLE);
-//                } else {
-//                    database.getReference().child("Panchang")
-//                            .child("daily_panchang")
-//                            .child("panchang_title")
-//                            .setValue(panchangTitle);
-//
-//                    database.getReference().child("Panchang")
-//                            .child("daily_panchang")
-//                            .child("panchang_description")
-//                            .setValue(panchangDescription);
-//
-//                    database.getReference().child("Panchang")
-//                            .child("daily_panchang")
-//                            .child("panchang_festival")
-//                            .setValue(panchangFestival).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void unused) {
-//                                    Toast.makeText(AdminPanchang.this, "Added Successfully", Toast.LENGTH_SHORT).show();
-//                                    submitPanchangButton.setVisibility(View.VISIBLE);
-//                                }
-//                            });
-//
-//                }
-//
-//            }
-//        });
+        submitPanchangButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String panchangTitle = panchangDailyTitleTextView.getText().toString();
+                String panchangDescription = panchangDailyTitleDescriptionTextView.getText().toString();
+                String panchangFestival = panchangDailyFestivalTextView.getText().toString();
+
+                submitPanchangButton.setVisibility(View.GONE);
+
+                if (panchangTitle.equalsIgnoreCase(null) || panchangDescription.equalsIgnoreCase("") || panchangFestival.equalsIgnoreCase("")) {
+                    Toast.makeText(AdminPanchang.this, "All Field is Mandatory", Toast.LENGTH_SHORT).show();
+                    submitPanchangButton.setVisibility(View.VISIBLE);
+                } else {
+                    database.getReference().child("Panchang")
+                            .child("daily_panchang")
+                            .child("panchang_title")
+                            .setValue(panchangTitle);
+
+                    database.getReference().child("Panchang")
+                            .child("daily_panchang")
+                            .child("panchang_description")
+                            .setValue(panchangDescription);
+
+                    database.getReference().child("Panchang")
+                            .child("daily_panchang")
+                            .child("panchang_festival")
+                            .setValue(panchangFestival).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(AdminPanchang.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+                                    submitPanchangButton.setVisibility(View.VISIBLE);
+                                }
+                            });
+
+                }
+
+            }
+        });
     }
 
     private void initData() {
@@ -371,10 +371,10 @@ public class AdminPanchang extends AppCompatActivity {
                 pachangDailyImageView.setImageURI(uri);
 
 
-//            final StorageReference reference = storage.getReference()
-//                    .child("panchang")
-//                    .child("daily_panchang")
-//                    .child("daily_panchang_image");
+            final StorageReference reference = storage.getReference()
+                    .child("panchang")
+                    .child("daily_panchang")
+                    .child("daily_panchang_image");
 
 //            channelIdList.add("UC04m8d9t8UeWZ5DuvQVnqiw");
 //            channelIdList.add("UC6vQRTCxutg6fJLUGkDKynQ");
@@ -405,9 +405,9 @@ public class AdminPanchang extends AppCompatActivity {
 //                    .child("videos")
 //                    .child("UAeujvJqzgg");
 
-                final StorageReference reference = storage.getReference()
-                        .child("thakurpanchang")
-                        .child("dec");
+//                final StorageReference reference = storage.getReference()
+//                        .child("thakurpanchang")
+//                        .child("dec");
 
                 reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -416,11 +416,11 @@ public class AdminPanchang extends AppCompatActivity {
                         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-//                            database.getReference()
-//                                    .child("Panchang")
-//                                    .child("daily_panchang")
-//                                    .child("daily_panchang_image")
-//                                    .setValue(uri.toString());
+                            database.getReference()
+                                    .child("Panchang")
+                                    .child("daily_panchang")
+                                    .child("daily_panchang_image")
+                                    .setValue(uri.toString());
 
 //                            database.getReference().child("channels")
 //                                    .child("UCHq7ZxlzRRXimaBmk5QAxSQ")

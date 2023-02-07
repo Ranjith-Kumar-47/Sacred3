@@ -46,11 +46,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/logoImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginStart="2dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logov2"
+        android:src="@drawable/ic_baseline_arrow_back_24"
         app:civ_border_color="#0B0909"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"

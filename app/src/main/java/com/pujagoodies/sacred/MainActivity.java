@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.example.playvideota.R;
@@ -249,75 +250,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        logoImage.setOnClickListener(new View.OnClickListener() {
+//        TextView logoTitle = binding.logoTitle;
+//        logoTitle.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//
-//                Intent intent = null;
-//                try {
-//
-//                    Intent launchIntent =
-//                            getPackageManager().getLaunchIntentForPackage("com.example.mandir");
-//                    if (launchIntent != null) {
-//                        startActivity(launchIntent); //null pointer check in case package name was not found ClassNotFoundException
-//
-////                        Intent intent = new Intent();
-////                        intent.setClassName(getApplicationContext().getPackageName(), "com.example.mandir.MainActivity");
-////                        startActivity(intent);
-//                        intent = new Intent(MainActivity.this,
-//                                Class.forName("com.example.mandir.MainActivity"));
-//                        startActivity(intent);
-//
-//                    }
-//
-////                    intent = new Intent(MainActivity.this,
-////                            Class.forName("com.example.mandir.MainActivity"));
-////                    startActivity(intent);
-//                } catch (ClassNotFoundException e) {
-//                    e.printStackTrace();
-//                }
-//
-////                Intent intent = new Intent();
-////                intent.setClassName("com.example.mandir","MainActivity");
-////                startActivity(intent);
-//
-//
-////                try {
-////                    Intent launchIntent =
-////                            getPackageManager().getLaunchIntentForPackage("com.example.mandir");
-////                    if (launchIntent != null) {
-////                        startActivity(launchIntent); //null pointer check in case package name was not found ClassNotFoundException
-////
-////                        Intent intent = new Intent();
-////                        intent.setClassName(getApplicationContext().getPackageName(), "com.example.mandir.MainActivity");
-////                        startActivity(intent);
-////
-////                    }
-////                } catch (Exception e) {
-////                    e.printStackTrace();
-////                }
+//                Intent intent = new Intent(MainActivity.this, MandirDummyActivity.class);
+//                startActivity(intent);
 //
 //            }
 //        });
-
-//        logoImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                auth.signOut();
-//                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        Toast.makeText(MainActivity.this, "Log Out", Toast.LENGTH_SHORT).show();
-//                        finish();
-//                        Intent intent = new Intent(MainActivity.this, AuthActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
-//
-//            }
-//        });
-
-//        System.out.println("admin Email " +auth.getCurrentUser().getEmail());
 
 
         toolbarButtonFunction();
