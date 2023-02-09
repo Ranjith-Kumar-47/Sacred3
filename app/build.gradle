@@ -103,6 +103,7 @@ dependencies {
     implementation "androidx.compose.material3:material3:1.0.0-rc01"
 //    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
+//    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
 
 }
