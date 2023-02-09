@@ -154,44 +154,52 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
 
-
-        ImageView smoke = findViewById(R.id.imageView11);
-        smoke.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
-                toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
-                toast1.show();
-
-                Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
-                toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
-                toast2.show();
-
-                Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
-                toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
-                toast3.show();
-
-                Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
-                toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
-                toast4.show();
-
-                Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
-                toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
-                toast5.show();
-
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
-                Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
-                toast6.setView(layout);
-                toast6.show();
-
-                Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                toast7.setGravity(Gravity.CENTER ,0,40);
-                toast7.setView(layout);
-                toast7.show();
-            }
-        });
+//
+//        ImageView smoke = findViewById(R.id.imageView11);
+//        smoke.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
+//                toast1.show();
+//
+//                Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
+//                toast2.show();
+//
+//                Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+//                toast3.show();
+//
+//                Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
+//                toast4.show();
+//
+//                Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
+//                toast5.show();
+//
+//                LayoutInflater inflater = getLayoutInflater();
+//                View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+//                Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
+//                toast6.setView(layout);
+//                toast6.show();
+//
+//                Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast7.setGravity(Gravity.CENTER ,0,40);
+//                toast7.setView(layout);
+//                toast7.show();
+//
+//
+//                LayoutInflater inflater2 = getLayoutInflater();
+//                View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+//                Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                toast8.setGravity( Gravity.CENTER,30,40);
+//                toast8.setView(layout2);
+//                toast8.show();
+//            }
+//        });
 
 
 
@@ -307,6 +315,13 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     toast7.setGravity(Gravity.CENTER ,0,40);
                     toast7.setView(layout);
                     toast7.show();
+
+                    LayoutInflater inflater2 = getLayoutInflater();
+                    View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+                    Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                    toast8.setGravity( Gravity.CENTER,30,40);
+                    toast8.setView(layout2);
+                    toast8.show();
 
                 }
             }
