@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class AuthActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     FirebaseAuth auth;
     TextView loginOrSignUpTv;
+    ProgressBar googleProgressBar;
 
 //    String token;
 //    private String applicationId = "OTPLess:NHIDKECWTRQPMHWFXLKYCACBPMFMECZT";
@@ -87,6 +89,8 @@ public class AuthActivity extends AppCompatActivity {
         // the GoogleSignInAccount will be non-null.
 //        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
+        googleProgressBar = findViewById(R.id.googleProgressBar);
+
 
         // Set the dimensions of the sign-in button.
 //        signInButton.setSize(SignInButton.SIZE_STANDARD);
@@ -102,6 +106,8 @@ public class AuthActivity extends AppCompatActivity {
         sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sign_in_button.setVisibility(View.GONE);
+                googleProgressBar.setVisibility(View.VISIBLE);
                 signIn();
             }
 
@@ -192,11 +198,14 @@ public class AuthActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             FirebaseUser user = auth.getCurrentUser();
                             Intent intent = new Intent(AuthActivity.this,MainActivity.class);
+                            sign_in_button.setVisibility(View.VISIBLE);
+                            googleProgressBar.setVisibility(View.GONE);
                             startActivity(intent);
                             finish();
-//                            dialog.dismiss();
+
                         }else {
-//                            dialog.dismiss();
+                            sign_in_button.setVisibility(View.VISIBLE);
+                            googleProgressBar.setVisibility(View.GONE);
                             Toast.makeText(AuthActivity.this, "LOGIN Failed", Toast.LENGTH_SHORT).show();
                         }
                     }

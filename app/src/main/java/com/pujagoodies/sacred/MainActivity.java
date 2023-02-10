@@ -443,42 +443,42 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        moveTaskToBack(true);
-        Dialog customDialog = new Dialog(this);
-        customDialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT);
-
-        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        customDialog.getWindow().getAttributes().windowAnimations
-                = androidx.appcompat.R.style.Animation_AppCompat_Dialog;
-        customDialog.setContentView(R.layout.exit_dialog_layout);
-
-        ImageButton yesBtn = customDialog.findViewById(R.id.btnYes);
-        ImageButton noBtn = customDialog.findViewById(R.id.btnNo);
-
-        yesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
-//                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर");
-                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपका मंदिर, आपके फोन मे \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
-                startActivity(Intent.createChooser(intent, "Share Via"));
+        finishAffinity();
+//        Dialog customDialog = new Dialog(this);
+//        customDialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+//                WindowManager.LayoutParams.WRAP_CONTENT);
+//
+//        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        customDialog.getWindow().getAttributes().windowAnimations
+//                = androidx.appcompat.R.style.Animation_AppCompat_Dialog;
+//        customDialog.setContentView(R.layout.exit_dialog_layout);
+//
+//        ImageButton yesBtn = customDialog.findViewById(R.id.btnYes);
+//        ImageButton noBtn = customDialog.findViewById(R.id.btnNo);
+//
+//        yesBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(Intent.ACTION_SEND);
+//                intent.setType("text/plain");
+//                intent.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
+////                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपके फोन में आपका मंदिर");
+//                intent.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपका मंदिर, आपके फोन मे \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
+//                startActivity(Intent.createChooser(intent, "Share Via"));
+////                finishAffinity();
+//            }
+//        });
+//
+//        noBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //                finishAffinity();
-            }
-        });
-
-        noBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finishAffinity();
-//                customDialog.cancel();
-            }
-        });
-
-        customDialog.show();
+////                customDialog.cancel();
+//            }
+//        });
+//
+//        customDialog.show();
     }
 
 

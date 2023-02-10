@@ -72,6 +72,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="-24dp"
+                android:visibility="gone"
                 android:src="@drawable/dhoopsmok"
                 app:layout_constraintBottom_toTopOf="@+id/imageView11"
                 app:layout_constraintStart_toStartOf="@+id/guideline9" />
@@ -80,6 +81,7 @@
                 android:id="@+id/imageView11"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/test"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
                 app:layout_constraintTop_toTopOf="@+id/test"

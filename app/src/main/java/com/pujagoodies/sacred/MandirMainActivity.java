@@ -195,7 +195,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //                LayoutInflater inflater2 = getLayoutInflater();
 //                View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
 //                Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-//                toast8.setGravity( Gravity.CENTER,30,40);
+//                toast8.setGravity( Gravity.CENTER,60,40);
 //                toast8.setView(layout2);
 //                toast8.show();
 //            }
@@ -319,7 +319,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     LayoutInflater inflater2 = getLayoutInflater();
                     View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
                     Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast8.setGravity( Gravity.CENTER,30,40);
+                    toast8.setGravity( Gravity.CENTER,60,40);
                     toast8.setView(layout2);
                     toast8.show();
 
