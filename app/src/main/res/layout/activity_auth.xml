@@ -71,7 +71,7 @@
         android:text="Login with google"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:visibility="visible"
+
         app:layout_constraintBottom_toTopOf="@+id/phoneNumberButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -84,6 +84,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:visibility="gone"
+        android:indeterminateTint="#d60909"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumberButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

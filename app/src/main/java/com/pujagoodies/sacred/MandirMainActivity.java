@@ -1,5 +1,7 @@
 package com.pujagoodies.sacred;
 
+import static java.lang.Thread.sleep;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -7,10 +9,13 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.text.Html;
 import android.transition.Fade;
 import android.transition.Transition;
@@ -56,6 +61,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.pujagoodies.sacred.adapter.FlowersAdapter;
 import com.pujagoodies.sacred.adapter.MyAdapter;
@@ -154,14 +161,130 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
 
+
+        ImageView smoke = findViewById(R.id.imageView11);
+        smoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ExecutorService service = Executors.newSingleThreadExecutor();
+                service.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                @SuppressLint("ResourceAsColor")
+                                public void run() {
+                                    Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
+                                    toast1.show();
+
+//                                    Toast toast = Toast.makeText(context, msg, duration);
+//                                    View view = toast1.getView();
+//                                    view.setBackgroundResource(android.R.drawable.toast_frame);
 //
-//        ImageView smoke = findViewById(R.id.imageView11);
-//        smoke.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
+//                                    view.setBackgroundColor(R.color.colorYes);
+//                                    TextView text = view.findViewById(android.R.id.message);
+////                                    text.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.custom_toast));
+//                                    text.setTextColor(getApplicationContext().getResources().getColor(R.color.white));
+//                                    toast1.show();
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+
+                                    Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
+                                    toast2.show();
+
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+                                    toast3.show();
+
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
+                                    toast4.show();
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
+                                    toast5.show();
+
+                                }
+                            });
+                            sleep(2000);
+
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    LayoutInflater inflater = getLayoutInflater();
+                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                    Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
+                                    toast6.setView(layout);
+                                    toast6.show();
+
+
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    LayoutInflater inflater = getLayoutInflater();
+                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                    Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast7.setGravity(Gravity.CENTER ,0,40);
+                                    toast7.setView(layout);
+                                    toast7.show();
+
+
+                                }
+                            });
+                            sleep(2000);
+
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+
+                                    LayoutInflater inflater2 = getLayoutInflater();
+                                    View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+                                    Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast8.setGravity( Gravity.CENTER,60,40);
+                                    toast8.setView(layout2);
+                                    toast8.show();
+
+                                }
+                            });
+                            sleep(2000);
+
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
 //                Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
 //                toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
 //                toast1.show();
+//
 //
 //                Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
 //                toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
@@ -174,11 +297,11 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //                Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
 //                toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
 //                toast4.show();
-//
+
 //                Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
 //                toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
 //                toast5.show();
-//
+
 //                LayoutInflater inflater = getLayoutInflater();
 //                View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
 //                Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
@@ -198,8 +321,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //                toast8.setGravity( Gravity.CENTER,60,40);
 //                toast8.setView(layout2);
 //                toast8.show();
-//            }
-//        });
+            }
+        });
 
 
 
@@ -284,44 +407,108 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     editor.putString("CaptionFirstTimeInstall", "Yes");
                     editor.apply();
 
-                    Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
-                    toast1.show();
+                    ExecutorService service = Executors.newSingleThreadExecutor();
+                    service.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
+                                        toast1.show();
+                                    }
+                                });
+                                sleep(2000);
 
-                    Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
-                    toast2.show();
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
 
-                    Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
-                    toast3.show();
+                                        Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
+                                        toast2.show();
 
-                    Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
-                    toast4.show();
+                                    }
+                                });
+                                sleep(2000);
 
-                    Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
-                    toast5.show();
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+                                        toast3.show();
 
-                    LayoutInflater inflater = getLayoutInflater();
-                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
-                    Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
-                    toast6.setView(layout);
-                    toast6.show();
+                                    }
+                                });
+                                sleep(2000);
 
-                    Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast7.setGravity(Gravity.CENTER ,0,40);
-                    toast7.setView(layout);
-                    toast7.show();
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
+                                        toast4.show();
+                                    }
+                                });
+                                sleep(2000);
 
-                    LayoutInflater inflater2 = getLayoutInflater();
-                    View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
-                    Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                    toast8.setGravity( Gravity.CENTER,60,40);
-                    toast8.setView(layout2);
-                    toast8.show();
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
+                                        toast5.show();
+
+                                    }
+                                });
+                                sleep(2000);
+
+
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        LayoutInflater inflater = getLayoutInflater();
+                                        View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                        Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
+                                        toast6.setView(layout);
+                                        toast6.show();
+
+
+                                    }
+                                });
+                                sleep(2000);
+
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        LayoutInflater inflater = getLayoutInflater();
+                                        View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                        Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast7.setGravity(Gravity.CENTER ,0,40);
+                                        toast7.setView(layout);
+                                        toast7.show();
+
+
+                                    }
+                                });
+                                sleep(2000);
+
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+
+                                        LayoutInflater inflater2 = getLayoutInflater();
+                                        View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+                                        Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast8.setGravity( Gravity.CENTER,60,40);
+                                        toast8.setView(layout2);
+                                        toast8.show();
+
+                                    }
+                                });
+                                sleep(2000);
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        }
+                    });
 
                 }
             }
