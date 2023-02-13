@@ -163,6 +163,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
         ImageView smoke = findViewById(R.id.imageView11);
+//        ImageView smoke = findViewById(R.id.sweetsThali);
         smoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,7 +174,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                     public void run() {
                         try {
                             MandirMainActivity.this.runOnUiThread(new Runnable() {
-                                @SuppressLint("ResourceAsColor")
                                 public void run() {
                                     Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
                                     toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
@@ -274,6 +274,15 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 }
                             });
                             sleep(2000);
+//                            sleep(2000);
+                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast toast9 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "पंचांग,राशिफल इत्यादि देखें" + "</b></font>"), Toast.LENGTH_LONG);
+                                    toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM,22,130);
+                                    toast9.show();
+
+                                }
+                            });
 
                         }catch (Exception e){
                             e.printStackTrace();
@@ -414,7 +423,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                             try {
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने प्रमुख देवी देवताओं का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
                                         toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
                                         toast1.show();
                                     }
@@ -424,7 +433,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
 
-                                        Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल चढ़ाएं" + "</b></font>"), Toast.LENGTH_LONG);
                                         toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
                                         toast2.show();
 
@@ -434,7 +443,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
+                                        Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शंख बजाएं" + "</b></font>"), Toast.LENGTH_LONG);
                                         toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
                                         toast3.show();
 
@@ -444,7 +453,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
+                                        Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "आरती करें" + "</b></font>"), Toast.LENGTH_LONG);
                                         toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
                                         toast4.show();
                                     }
@@ -459,7 +468,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                     }
                                 });
-                                sleep(2000);
+                                sleep(3000);
 
 
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
@@ -474,7 +483,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                     }
                                 });
-                                sleep(2000);
+                                sleep(3000);
 
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
@@ -488,7 +497,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                     }
                                 });
-                                sleep(2000);
+                                sleep(3000);
 
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
@@ -502,7 +511,18 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
                                     }
                                 });
+
                                 sleep(2000);
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast9 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "पंचांग,राशिफल इत्यादि देखें" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM,22,130);
+                                        toast9.show();
+
+                                    }
+                                });
+
+
 
                             }catch (Exception e){
                                 e.printStackTrace();

@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.github.iammert:ReadableBottomBar:0.2'
     implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1'
 //    implementation 'com.android.support:multidex:1.0.3'
-//    implementationfiles('libs/OTPless-Android-SDK.aar')
+
 
 //    implementation 'com.github.MrNouri:DynamicSizes:1.0'
 
