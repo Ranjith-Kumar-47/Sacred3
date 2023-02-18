@@ -42,7 +42,7 @@ public class AuthActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseUser currentUser;
     FirebaseAuth auth;
-    TextView loginOrSignUpTv;
+    TextView loginOrSignUpTv,skip;
     ProgressBar googleProgressBar;
 
 //    String token;
@@ -73,6 +73,15 @@ public class AuthActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
         currentUser = auth.getCurrentUser();
+
+        skip = findViewById(R.id.skip);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AuthActivity.this, MandirDummyActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 //                .requestIdToken(getString(R.string.default_web_client_id))

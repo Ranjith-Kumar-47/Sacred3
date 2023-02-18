@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.pujagoodies.sacred.databinding.FragmentMannTvBinding;
 import com.pujagoodies.sacred.FeedbackActivity;
 //import com.example.playvideota.R;
@@ -62,6 +63,7 @@ public class MannTvFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = FirebaseDatabase.getInstance();
+        FirebaseMessaging.getInstance().subscribeToTopic("notification");
 
     }
 
@@ -72,6 +74,8 @@ public class MannTvFragment extends Fragment {
 
         initingData();
         settingData();
+
+
 
         settingAdapter();
 
@@ -393,43 +397,49 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        database.getReference().child("tvSerial")
-                .child("mahabharat")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription1.setText(snapshot.getValue().toString());
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("mahabharat")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription1.setText("महाभारत");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Fmahabharat.jpg?alt=media&token=c8b9c95e-c766-4cc6-a79d-2019cc76eeb2")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage1);
+        videoDescription1.setText("महाभारत");
 
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("mahabharat")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage1);
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+//        database.getReference().child("tvSerial")
+//                .child("mahabharat")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Fmahabharat.jpg?alt=media&token=c8b9c95e-c766-4cc6-a79d-2019cc76eeb2")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage1);
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
 
 //        database.getReference().child("channels")
@@ -470,42 +480,48 @@ public class MannTvFragment extends Fragment {
 //                });
 
 
-        database.getReference().child("tvSerial")
-                .child("ramayanImage")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage2);
-                        }
-                    }
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Framayana.png?alt=media&token=93da567e-7aec-40ce-b33e-2ed2b2d97165")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage2);
+        videoDescription2.setText("रामायण");
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+//        database.getReference().child("tvSerial")
+//                .child("ramayanImage")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Framayana.png?alt=media&token=93da567e-7aec-40ce-b33e-2ed2b2d97165")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage2);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("ramayanImage")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription2.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+//        database.getReference().child("tvSerial")
+//                .child("ramayanImage")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription2.setText("रामायण");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
 
 //        database.getReference().child("channels")
@@ -625,231 +641,262 @@ public class MannTvFragment extends Fragment {
 //
 //
 
-        database.getReference().child("tvSerial")
-                .child("ShreeMahalaxmi")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage3);
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("ShreeMahalaxmi")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftalaxmi.jpg?alt=media&token=f0cf8b6b-7069-45f2-a539-f8257e7b36c1")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage3);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftalaxmi.jpg?alt=media&token=f0cf8b6b-7069-45f2-a539-f8257e7b36c1")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage3);
+        videoDescription3.setText("जय महालक्ष्मी");
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+//        database.getReference().child("tvSerial")
+//                .child("ShreeMahalaxmi")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    }
-                });
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2FuttarRamayana.jpeg?alt=media&token=35313318-b204-450e-8b95-c359367da27d")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage4);
+        videoDescription4.setText("उत्तर रामायण");
 
-        database.getReference().child("tvSerial")
-                .child("ShreeMahalaxmi")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription3.setText(snapshot.getValue().toString());
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("UttarRamayana")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage4);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+//        database.getReference().child("tvSerial")
+//                .child("UttarRamayana")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription4.setText(snapshot.getValue().toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    }
-                });
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftabalkrishna.jpeg?alt=media&token=2d33d59a-2650-4850-993e-86356f707db5")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage5);
+        videoDescription5.setText("बाल कृष्ण");
 
-        database.getReference().child("tvSerial")
-                .child("UttarRamayana")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage4);
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("balKrishna")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftaganesh.png?alt=media&token=b4c4018f-6502-4c06-8d47-9009b2d90bda")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage5);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+//        database.getReference().child("tvSerial")
+//                .child("balKrishna")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription5.setText("विघ्नहर्ता गणेश");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    }
-                });
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftasaibaba.png?alt=media&token=a68d56e2-f9c2-4e5c-9f12-f7c3b74c99cc")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage6);
+        videoDescription6.setText("साईं बाबा");
 
-        database.getReference().child("tvSerial")
-                .child("UttarRamayana")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription4.setText(snapshot.getValue().toString());
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("saiBaba")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftasaibaba.png?alt=media&token=a68d56e2-f9c2-4e5c-9f12-f7c3b74c99cc")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage6);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+//        database.getReference().child("tvSerial")
+//                .child("saiBaba")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription6.setText("साईं बाबा");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    }
-                });
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftashiva.png?alt=media&token=ede304b5-12e8-4ace-8c57-bd33e499d065")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage7);
+        videoDescription7.setText("शिव महापुराण");
 
+//        database.getReference().child("tvSerial")
+//                .child("shivPuran")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftashiva.png?alt=media&token=ede304b5-12e8-4ace-8c57-bd33e499d065")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage7);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-        database.getReference().child("tvSerial")
-                .child("balKrishna")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage5);
-                        }
-                    }
+//        database.getReference().child("tvSerial")
+//                .child("shivPuran")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription7.setText("शिव महापुराण");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+        Picasso.with(getContext())
+                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftaganesh.png?alt=media&token=b4c4018f-6502-4c06-8d47-9009b2d90bda")
+                .placeholder(R.drawable.ic_profile_svgrepo_com)
+                .into(videoImage8);
+        videoDescription8.setText("विघ्नहर्ता गणेश");
 
-                    }
-                });
+//        database.getReference().child("tvSerial")
+//                .child("vignahartaGanesh")
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            Picasso.with(getContext())
+//                                    .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftaganesh.png?alt=media&token=b4c4018f-6502-4c06-8d47-9009b2d90bda")
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(videoImage8);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-        database.getReference().child("tvSerial")
-                .child("balKrishna")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription5.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-        database.getReference().child("tvSerial")
-                .child("saiBaba")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage6);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("saiBaba")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription6.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-        database.getReference().child("tvSerial")
-                .child("shivPuran")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage7);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("shivPuran")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription7.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-        database.getReference().child("tvSerial")
-                .child("vignahartaGanesh")
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Picasso.with(getContext())
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(videoImage8);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("tvSerial")
-                .child("vignahartaGanesh")
-                .child("title")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            videoDescription8.setText(snapshot.getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+//        database.getReference().child("tvSerial")
+//                .child("vignahartaGanesh")
+//                .child("title")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            videoDescription8.setText("विघ्नहर्ता गणेश");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
 
     }

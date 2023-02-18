@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     String personPhoto = "";
     private String adminEmail = "KK5n3nfT3ihnQxg7W4YgKdhJAsg2";
     private String adminEmail2 = "eW10eBgkhFWsUQtrh9AlUEQRRv33";
+    private String adminEmail3 = "NFA8t9HOVcg8KoYjRK39AeUNM092";
 
     private final String CHANNEL_ID = "simple_notification";
     private final int NOTIFICATION_ID = 1;
@@ -373,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         if (auth.getCurrentUser() != null) {
-            if ((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid()))) {
+            if ((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail3.equalsIgnoreCase(auth.getCurrentUser().getUid()))   ) {
                 adminButton.setVisibility(View.VISIBLE);
             }
             System.out.println("admin Email " + auth.getCurrentUser().getEmail());

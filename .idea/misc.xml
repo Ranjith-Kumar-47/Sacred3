@@ -52,7 +52,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_feedback.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_login.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_main_mandir.xml" value="0.4" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_main_mandir.xml" value="0.536" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_otpless_login.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_about.xml" value="0.1" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/activity_panchang_about_ganesh.xml" value="0.1" />
@@ -69,6 +69,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/caption_toast_vertical.xml" value="0.13196555217831812" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/custom_player_ui.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/exit_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_first.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_geeta_slok.xml" value="0.1989342806394316" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_mann_tv.xml" value="0.24365942028985507" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/fragment_panchang.xml" value="0.264" />
@@ -78,6 +79,7 @@
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/geeta_story_design.xml" value="0.264" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/live_video_sample.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/navigation.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/notification.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/sample_live_videos.xml" value="0.26721014492753625" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/sample_rashiphal_fragment.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/Demon/AndroidStudioProjects/playVideoTA/app/src/main/res/layout/sample_sahitya_design.xml" value="0.26721014492753625" />

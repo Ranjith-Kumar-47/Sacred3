@@ -50,7 +50,7 @@
         android:fontFamily="sans-serif"
         android:text="Admin Dashboard"
         android:textColor="@color/orange"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view3"
@@ -58,25 +58,123 @@
 
     <ImageView
         android:id="@+id/rashiphalAdminImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pachangAdminImageView"
         app:srcCompat="@drawable/rashiphal_removebg_preview" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/pachangAdminImageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_baseline_calendar_month_24"
         app:civ_border_color="#0B0909"
-        app:layout_constraintBottom_toTopOf="@+id/rashiphalAdminImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/notificationBanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="Notification Panel"
+        android:textColor="@color/orange"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+    <EditText
+        android:id="@+id/notificationDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/mobile_number_background"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint=" Description "
+        android:paddingStart="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/notificationTitle"
+        app:layout_constraintTop_toBottomOf="@+id/notificationTitle" />
+
+    <EditText
+        android:id="@+id/notificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/mobile_number_background"
+
+        android:hint=" Title"
+        android:maxLines="5"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notificationBanner"/>
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginEnd="20dp"
+        android:background="#B8B0B0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rashiphalAdminImageView" />
+
+
+    <TextView
+        android:id="@+id/selectedTimeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Select Time"
+        android:textColor="@color/orange"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/notificationAdminImageView"
+        app:layout_constraintEnd_toStartOf="@+id/notificationAdminImageView"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/rashiphalAdminImageView"
+        app:layout_constraintTop_toTopOf="@+id/notificationAdminImageView" />
+
+    <ImageView
+        android:id="@+id/notificationAdminImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/notificationDescription"
+        app:layout_constraintTop_toBottomOf="@+id/notificationDescription"
+        app:srcCompat="@drawable/ic_baseline_notifications_active_24" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:text="NOTE : Press Notification bell only after adding all field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notificationAdminImageView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

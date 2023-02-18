@@ -15,19 +15,29 @@
     </style>
 
 
-<!--    <style name="AppThemeMaterial" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--    </style>-->
+    <!--    <style name="AppThemeMaterial" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
+    <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--        <item name="colorAccent">@color/colorAccent</item>-->
+    <!--    </style>-->
 
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
+
     <style name="coloured_checkbox" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name = "colorAccent">@color/gold_dark</item>
-        <item name = "android:textColorSecondary">@color/gold_med</item>
+        <item name="colorAccent">@color/gold_dark</item>
+        <item name="android:textColorSecondary">@color/gold_med</item>
     </style>
+
+    <style name="Theme.PlayVideoTA.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PlayVideoTA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PlayVideoTA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
