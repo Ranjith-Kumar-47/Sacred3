@@ -88,6 +88,7 @@
         android:text="Notification Panel"
         android:textColor="@color/orange"
         android:textSize="25sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintStart_toStartOf="@+id/view5"
         app:layout_constraintTop_toBottomOf="@+id/view5" />
@@ -104,6 +105,7 @@
         android:paddingStart="20dp"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/notificationTitle"
         app:layout_constraintTop_toBottomOf="@+id/notificationTitle" />
@@ -120,10 +122,11 @@
         android:hint=" Title"
         android:maxLines="5"
         android:paddingStart="20dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notificationBanner"/>
+        app:layout_constraintTop_toBottomOf="@+id/notificationBanner" />
 
     <View
         android:id="@+id/view5"
@@ -148,6 +151,7 @@
         android:text="Select Time"
         android:textColor="@color/orange"
         android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/notificationAdminImageView"
         app:layout_constraintEnd_toStartOf="@+id/notificationAdminImageView"
         app:layout_constraintHorizontal_bias="0.46"
@@ -160,6 +164,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/notificationDescription"
         app:layout_constraintTop_toBottomOf="@+id/notificationDescription"
         app:srcCompat="@drawable/ic_baseline_notifications_active_24" />
@@ -172,6 +177,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:text="NOTE : Press Notification bell only after adding all field"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notificationAdminImageView" />

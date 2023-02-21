@@ -43,8 +43,8 @@ public class AdminDashboard extends AppCompatActivity {
     int hour = 0;
     int minute  = 0;
     EditText notificationTitle,notificationDescription;
-    String title = "Sacred";
-    String description = "Sacred divine";
+    private String title = "प्रात:काल पूजा का समय";
+    private String description = "अपने देवी - देवताओं के पूजा करे";
 
 
     @Override
@@ -52,41 +52,41 @@ public class AdminDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
-        database  = FirebaseDatabase.getInstance();
+//        database  = FirebaseDatabase.getInstance();
+//
+//        database.getReference().child("notification")
+//                .child("notificationTitle")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            title =  snapshot.getValue().toString();
+//                            System.out.println("database notification title : "+title);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-        database.getReference().child("notification")
-                .child("notificationTitle")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            title =  snapshot.getValue().toString();
-                            System.out.println("database notification title : "+title);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        database.getReference().child("notification")
-                .child("notificationDescription")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            description =  snapshot.getValue().toString();
-                            System.out.println("database notification description : "+description);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+//        database.getReference().child("notification")
+//                .child("notificationDescription")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            description =  snapshot.getValue().toString();
+//                            System.out.println("database notification description : "+description);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
         createNotificationChannel();
 
@@ -115,76 +115,79 @@ public class AdminDashboard extends AppCompatActivity {
             }
         });
 
+// to show time picker
+//        selectedTimeTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final Calendar c = Calendar.getInstance();
+//
+//                calendar = Calendar.getInstance();
+//
+//                // on below line we are getting our hour, minute.
+//                hour = calendar.get(Calendar.HOUR_OF_DAY);
+//                minute = calendar.get(Calendar.MINUTE);
+//
+//                // on below line we are initializing our Time Picker Dialog
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(AdminDashboard.this,
+//                        new TimePickerDialog.OnTimeSetListener() {
+//                            @Override
+//                            public void onTimeSet(TimePicker view, int hourOfDay,
+//                                                  int minute) {
+//                                // on below line we are setting selected time
+//                                // in our text view.
+//                                selectedTimeTextView.setText(hourOfDay + ":" + minute);
+//
+//
+//                                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+//                                calendar.set(Calendar.MINUTE,minute);
+//                                calendar.set(Calendar.SECOND,0);
+//                                calendar.set(Calendar.MILLISECOND,0);
+//
+//                                database.getReference().child("notification")
+//                                        .child("notificationTime")
+//                                        .setValue(calendar.getTimeInMillis()).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                            @Override
+//                                            public void onSuccess(Void unused) {
+//                                                Toast.makeText(AdminDashboard.this, "Now Click Notification Bell ", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//                            }
+//                        }, hour, minute, false);
+//
+//                System.out.println("amit time : "+calendar.getTimeInMillis());
+//
+//                // at last we are calling show to
+//                // display our time picker dialog.
+//                timePickerDialog.show();
+//            }
+//        });
 
-        selectedTimeTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
 
-                calendar = Calendar.getInstance();
-
-                // on below line we are getting our hour, minute.
-                hour = calendar.get(Calendar.HOUR_OF_DAY);
-                minute = calendar.get(Calendar.MINUTE);
-
-                // on below line we are initializing our Time Picker Dialog
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AdminDashboard.this,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay,
-                                                  int minute) {
-                                // on below line we are setting selected time
-                                // in our text view.
-                                selectedTimeTextView.setText(hourOfDay + ":" + minute);
+//        notificationAdminImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "Processing...", Toast.LENGTH_SHORT).show();
+//                setNotification();
+//            }
+//        });
 
 
-                                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                                calendar.set(Calendar.MINUTE,minute);
-                                calendar.set(Calendar.SECOND,0);
-                                calendar.set(Calendar.MILLISECOND,0);
-
-                                database.getReference().child("notification")
-                                        .child("notificationTime")
-                                        .setValue(calendar.getTimeInMillis()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(AdminDashboard.this, "Now Click Notification Bell ", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-                        }, hour, minute, false);
-
-                System.out.println("amit time : "+calendar.getTimeInMillis());
-
-                // at last we are calling show to
-                // display our time picker dialog.
-                timePickerDialog.show();
-            }
-        });
-
-
-        notificationAdminImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Processing...", Toast.LENGTH_SHORT).show();
-                setNotification();
-            }
-        });
+        setNotification();
     }
 
     private void setNotification() {
 
-        if(notificationTitle.getText().toString() != null){
-            database.getReference().child("notification")
-                    .child("notificationTitle")
-                    .setValue(notificationTitle.getText().toString());
-        }
-
-        if(notificationDescription.getText().toString() != null){
-            database.getReference().child("notification")
-                    .child("notificationDescription")
-                    .setValue(notificationDescription.getText().toString());
-        }
+//        if(notificationTitle.getText().toString() != null){
+//            database.getReference().child("notification")
+//                    .child("notificationTitle")
+//                    .setValue(notificationTitle.getText().toString());
+//        }
+//
+//        if(notificationDescription.getText().toString() != null){
+//            database.getReference().child("notification")
+//                    .child("notificationDescription")
+//                    .setValue(notificationDescription.getText().toString());
+//        }
 
 
 
@@ -202,26 +205,31 @@ public class AdminDashboard extends AppCompatActivity {
 //        interval += calendar.getTimeInMillis();
 //                alarmManager.set(AlarmManager.RTC_WAKEUP,ctime + atime,pendingIntent);
 //                alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+        long notificationTimer = Long.parseLong("1676986200000");
 
-        database.getReference().child("notification")
-                .child("notificationTime")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    long notificationTimer = (long) snapshot.getValue();
-                                    System.out.println("database time : "+notificationTimer);
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
 
-                                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_DAY,pendingIntent);
-                                    Toast.makeText(getApplicationContext(), "Notification Added", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+//        database.getReference().child("notification")
+//                .child("notificationTime")
+//                        .addListenerForSingleValueEvent(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                if(snapshot.exists()){
+////                                    long notificationTimer = (long) snapshot.getValue();
+//                                    long notificationTimer = Long.parseLong("1676986200000");
+//                                    System.out.println("database time : "+notificationTimer);
+//
+////                                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
+//                                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
+//                                    Toast.makeText(getApplicationContext(), "Notification Added", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
 
     }
 

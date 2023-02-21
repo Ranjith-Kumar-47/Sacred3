@@ -69,12 +69,11 @@
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/imageView13"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginBottom="-18dp"
-                android:src="@drawable/smoketa"
-                android:visibility="visible"
+                android:layout_width="133dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="-34dp"
+                android:src="@drawable/s2"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/imageView11"
                 app:layout_constraintStart_toStartOf="@+id/guideline9" />
 
@@ -86,8 +85,9 @@
                 app:layout_constraintBottom_toBottomOf="@+id/test"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
                 app:layout_constraintTop_toTopOf="@+id/test"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dhoop" />
+                app:layout_constraintVertical_bias="20.0"
+                app:srcCompat="@drawable/dhoop"
+                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

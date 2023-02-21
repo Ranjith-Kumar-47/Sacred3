@@ -77,6 +77,8 @@ public class MannTvFragment extends Fragment {
 
 
 
+
+
         settingAdapter();
 
         clickHandler();
@@ -87,6 +89,8 @@ public class MannTvFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+
 
     private void adminMandirHandler() {
         database.getReference().child("Mandir")

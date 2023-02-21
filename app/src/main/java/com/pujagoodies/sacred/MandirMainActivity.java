@@ -5,6 +5,8 @@ import static java.lang.Thread.sleep;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +16,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -91,13 +94,14 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     TextView testing;
 
     RecyclerView recyclerView, recyclerViewFlowers;
-    GifImageView gifImageView;
+    GifImageView gifImageView,imageView13;
     protected ViewGroup container;
     TabLayout navigation;
     EditText editText;
     Button confirm;
-    String title = "Sacred";
-    String description = "Sacred divine";
+
+    ImageView smoke;
+    boolean isSmokeOn = true;
 
 
     //    com.google.android.material.floatingactionbutton.FloatingActionButton bottomnav;
@@ -121,6 +125,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     ArrayList<Integer> position;
 
     FirebaseDatabase database;
+    private String title = "प्रात:काल पूजा का समय";
+    private String description = "अपने देवी - देवताओं के पूजा करे";
 
 
     View view;
@@ -132,29 +138,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mandir);
 
-//        FirebaseMessaging.getInstance().getToken()
-//                .addOnCompleteListener(new OnCompleteListener<String>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<String> task) {
-//                        if (!task.isSuccessful()) {
-//                            System.out.println("Fetching FCM registration token failed : " +task.getException());
-//                            return;
-//                        }
-//
-//                        // Get new FCM registration token
-//                        String token = task.getResult();
-//
-//                        // Log and toast
-//                        System.out.println("pogo token: " + token);
-//
-//
-//                    }
-//                });
 
-
-
-
-        //views on layout
 
         gImage = findViewById(R.id.test);
         constraintLayout = findViewById(R.id.viewForSwipe);
@@ -191,180 +175,35 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //       confirm = findViewById(R.id.FlowerCountConfirm);
 //       flowerCountLayout = findViewById(R.id.layoutSelection);
 
+        createNotificationChannel();
+        setNotification();
 
 
 
-        ImageView smoke = findViewById(R.id.imageView11);
-//        ImageView smoke = findViewById(R.id.sweetsThali);
-//        smoke.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                ExecutorService service = Executors.newSingleThreadExecutor();
-//                service.execute(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
-//                                    toast1.show();
-//
-////                                    Toast toast = Toast.makeText(context, msg, duration);
-////                                    View view = toast1.getView();
-////                                    view.setBackgroundResource(android.R.drawable.toast_frame);
-////
-////                                    view.setBackgroundColor(R.color.colorYes);
-////                                    TextView text = view.findViewById(android.R.id.message);
-//////                                    text.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.custom_toast));
-////                                    text.setTextColor(getApplicationContext().getResources().getColor(R.color.white));
-////                                    toast1.show();
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//
-//                                    Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
-//                                    toast2.show();
-//
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
-//                                    toast3.show();
-//
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
-//                                    toast4.show();
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
-//                                    toast5.show();
-//
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    LayoutInflater inflater = getLayoutInflater();
-//                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
-//                                    Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
-//                                    toast6.setView(layout);
-//                                    toast6.show();
-//
-//
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    LayoutInflater inflater = getLayoutInflater();
-//                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
-//                                    Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast7.setGravity(Gravity.CENTER ,0,40);
-//                                    toast7.setView(layout);
-//                                    toast7.show();
-//
-//
-//                                }
-//                            });
-//                            sleep(2000);
-//
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//
-//                                    LayoutInflater inflater2 = getLayoutInflater();
-//                                    View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
-//                                    Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast8.setGravity( Gravity.CENTER,60,40);
-//                                    toast8.setView(layout2);
-//                                    toast8.show();
-//
-//                                }
-//                            });
-//                            sleep(2000);
-////                            sleep(2000);
-//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
-//                                public void run() {
-//                                    Toast toast9 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "पंचांग,राशिफल इत्यादि देखें" + "</b></font>"), Toast.LENGTH_LONG);
-//                                    toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM,22,130);
-//                                    toast9.show();
-//
-//                                }
-//                            });
-//
-//                        }catch (Exception e){
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
-//
-////                Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने भगवान का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
-////                toast1.show();
-////
-////
-////                Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल दें" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
-////                toast2.show();
-////
-////                Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शांक बजाया" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
-////                toast3.show();
-////
-////                Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान की आरती के लिए" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
-////                toast4.show();
-//
-////                Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
-////                toast5.show();
-//
-////                LayoutInflater inflater = getLayoutInflater();
-////                View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
-////                Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
-////                toast6.setView(layout);
-////                toast6.show();
-////
-////                Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast7.setGravity(Gravity.CENTER ,0,40);
-////                toast7.setView(layout);
-////                toast7.show();
-////
-////
-////                LayoutInflater inflater2 = getLayoutInflater();
-////                View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
-////                Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-////                toast8.setGravity( Gravity.CENTER,60,40);
-////                toast8.setView(layout2);
-////                toast8.show();
-//            }
-//        });
 
+        // handling dhuup smoke
+        smoke = findViewById(R.id.imageView11);
+        imageView13 = findViewById(R.id.imageView13);
+
+
+
+        smoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isSmokeOn)
+                {
+                    imageView13.setVisibility(View.VISIBLE);
+                    isSmokeOn = false;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            imageView13.setVisibility(View.GONE);
+                            isSmokeOn = true;
+                        }
+                    },3600000);
+                }
+            }
+        });
 
 
 
@@ -1003,6 +842,43 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
 
+    }
+
+    private void setNotification() {
+
+        Intent intent = new Intent(MandirMainActivity.this, NotificationReceiver.class);
+        intent.putExtra("Title",title);
+        intent.putExtra("Text",description);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MandirMainActivity.this,0,intent,0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        long ctime = System.currentTimeMillis();
+        System.out.println("amit : "+ctime);
+        long atime = 1000 * 10;
+
+//        alarmManager.set(AlarmManager.RTC_WAKEUP,ctime + atime,pendingIntent);
+//                alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+        long notificationTimer = Long.parseLong("1676986200000");
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
+
+
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            CharSequence name = "NotificationChannel";
+            String description = "Schedule Notification";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel notificationChannel = new NotificationChannel("Notification", name, importance);
+            notificationChannel.setName(name);
+            notificationChannel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(notificationChannel);
+
+        }
     }
 
     @Override
