@@ -98,69 +98,7 @@ public class YoutubeDashboard extends AppCompatActivity implements YoutubeDashBo
         clickHandler();
         logOutGoogleAccount();
 
-//        BFVtoK_B07I
-//        नानी बाई रो मायरो । नरसी का भात । गाड़ी में बिठाले रे बाबा जानो है नगर अंजार ।श्री अनिरुद्धाचार्य जी
 
-//        sgltU2n6YTU
-//        पति पत्नी का धर्म | जानिये कैसे रहना चाहिए पति पत्नी को | 90% नही जानते लोग | श्री अनिरुद्धाचार्य जी
-
-//        G9bMQn7WIf0
-//        Shri aniruddhacharya Ji maharaj | SHRIMAD BHAGWAT KATHA BUTIBORI(NAGPUR) -DAY- 7 DATE 5-11-2019"
-
-
-//        EskWox5H9tY
-//        इस धनतेरस पर पति पत्नी अपनाएं ये नियम । गृहस्थ जीवन हो जाएगा मालामाल । श्री अनिरुद्धाचार्य जी महाराज
-
-//        sXVqnxBBJ8w
-//        सबके दिल पर छा जाने वाला ये भजन | नीले घोड़े वाले कि गोदी में सो जाऊं | श्री अनिरुद्धाचार्य जी महाराज
-
-//        aOVUzHB7U_k
-//        पूजा के नियम । घर में पूजा कैसे करें । जानिए संपूर्ण पूजा विधि। श्री अनिरुद्धाचार्य जी महाराज
-
-//        6Z8rKK0E7bA
-//        गर्भवती स्त्री के पेट में पल रहा बच्चा लड़का है या लड़की । यह कितने महीने में और कब पता करना चाहिए
-
-//        UtCyyr5naEE
-//        आइये जानते हैं | मृत्यु के बाद क्या होता है | हमारे साथ | बता रहे है | श्री अनिरुद्धाचार्य जी महाराज
-
-//        k7qX2_5RbJI
-//        पराई स्त्री से सम्बंध बनाने पर क्या दंड मिलता है | स्त्री और पुरुष दोनों समझिये ये बात
-
-//      UAeujvJqzgg
-//      कलियुग | राजा परीक्षित ने कलियुग को कहाँ कहाँ स्थान दिया | कलियुग के विभाजन की कथा
-
-
-        // sstj
-
-//        imrHBZZWa-Q
-//        ऐसी कौन सी तीन जगह है जहाँ स्त्री को कभी भी अकेले नहीं छोड़ना चाहिए || SHRI DEVKINANDAN THAKUR JI
-
-//        CyI48iTONLE
-//        नहीं रुकेगी लक्ष्मी जब तक घर में नहीं होंगे ये 4 काम | लक्ष्मी प्राप्ति के अचूक उपाय || धन लाभ
-
-//        fUbs4P029OQ
-//        Swapn Mein Saanp Ko Dekhane Ka Kya Arth Hai ? || SHRI DEVKINANDAN THAKUR JI MAHARAJ
-
-//        U-b_UV3Ypjw
-//        सुबह उठते ही, ये काम ज़रूर करो || Bengaluru Katha
-
-//        ltU64YUflYY
-//        Pati Patni Ke Beech Bar Bar Jhagda Ho To Avashya Karen Yha Upay || THAKUR JI MAHARAJ
-
-//        p6jRAAmi6XA
-//        अगर आप भी रख रहे हैं सोमवार का व्रत तो इन बातों का रखें ध्यान || SHRI DEVKINANDAN THAKUR JI MAHARAJ
-
-//        P6zpDkhAXUo
-//        नींबू मिर्च कैसे फैलाता है घर में कलेश एवं दरिद्रता भूलकर भी ना करें यह कार्य || THAKUR JI MAHARAJ
-
-//        fxonsDCm_AI
-//        महाराज जी ने दिखाई ओवैसी को उसकी औकात क्यों मोदी योगी से डर गए? || SHRI DEVKINNDAN THAKUR JI MAHARAJ
-
-//        PxzJyX3maes
-//        सपने में आने वाले मृत व्यक्ति कौन है पितृ या प्रेत ? || Pitrpaksh Bhagwat Katha
-
-//        PgRV1GIy39c
-//        Karj Mukti Ke Liye Ye Achook Upay Dega Adbhut Parinam || SHRI DEVKINANDAN THAKUR JI MAHARAJ
     }
 
     private void clickHandler() {

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/website"
+        android:title="पूजा सामग्री"/>
+
+
+
+    <item
+        android:id="@+id/placeholder4"
+        android:title=""/>
+<!--    <item-->
+<!--        android:id="@+id/placeholder6"-->
+<!--        android:title=""/>-->
+
+
+    <item
+        android:id="@+id/rashiphalmenu"
+        android:icon="@drawable/ic_baseline_sports_volleyball_24"
+        android:title="पूजा विधि, पंचांग इत्यादि देखें"/>
+
+    <item
+        android:id="@+id/placeholder5"
+        android:title=""/>
+</menu>

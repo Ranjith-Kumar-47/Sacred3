@@ -78,31 +78,57 @@ public class YoutubeDashboardAdapter extends RecyclerView.Adapter<YoutubeDashboa
 
 
 
-        database.getReference().child("tvSerial")
-                .child(tvserialName)
-                .child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            Picasso.with(context)
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(holder.videoImage);
+//        database.getReference().child("tvSerial")
+//                .child(tvserialName)
+//                .child("image")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            Picasso.with(context)
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(holder.videoImage);
+//
+//                            Picasso.with(context)
+//                                    .load(snapshot.getValue().toString())
+//                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                                    .into(holder.channelIcon);
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
 
-                            Picasso.with(context)
-                                    .load(snapshot.getValue().toString())
-                                    .placeholder(R.drawable.ic_profile_svgrepo_com)
-                                    .into(holder.channelIcon);
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+        if(tvserialName.equalsIgnoreCase("mahabharat")){
+            holder.videoImage.setImageResource(R.drawable.tamahabharat);
+            holder.channelIcon.setImageResource(R.drawable.tamahabharat);
+        }else if(tvserialName.equalsIgnoreCase("ramayanImage")){
+            holder.videoImage.setImageResource(R.drawable.taramayana);
+            holder.channelIcon.setImageResource(R.drawable.taramayana);
+        }else if(tvserialName.equalsIgnoreCase("ShreeMahalaxmi")){
+            holder.videoImage.setImageResource(R.drawable.talaxmi);
+            holder.channelIcon.setImageResource(R.drawable.talaxmi);
+        }else if(tvserialName.equalsIgnoreCase("UttarRamayana")){
+            holder.videoImage.setImageResource(R.drawable.tauttarramayana);
+            holder.channelIcon.setImageResource(R.drawable.tauttarramayana);
+        }else if(tvserialName.equalsIgnoreCase("balKrishna")){
+            holder.videoImage.setImageResource(R.drawable.tabalkrishna);
+            holder.channelIcon.setImageResource(R.drawable.tabalkrishna);
+        }else if(tvserialName.equalsIgnoreCase("saiBaba")){
+            holder.videoImage.setImageResource(R.drawable.tasaibaba);
+            holder.channelIcon.setImageResource(R.drawable.tasaibaba);
+        }else if(tvserialName.equalsIgnoreCase("shivPuran")){
+            holder.videoImage.setImageResource(R.drawable.tashiva);
+            holder.channelIcon.setImageResource(R.drawable.tashiva);
+        }else if(tvserialName.equalsIgnoreCase("vignahartaGanesh")){
+            holder.videoImage.setImageResource(R.drawable.taganesh);
+            holder.channelIcon.setImageResource(R.drawable.taganesh);
+        }
 
 
 

@@ -418,10 +418,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Fmahabharat.jpg?alt=media&token=c8b9c95e-c766-4cc6-a79d-2019cc76eeb2")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage1);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Fmahabharat.jpg?alt=media&token=c8b9c95e-c766-4cc6-a79d-2019cc76eeb2")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage1);
+        videoImage1.setImageResource(R.drawable.tamahabharat);
         videoDescription1.setText("महाभारत");
 
 //        database.getReference().child("tvSerial")
@@ -484,10 +485,11 @@ public class MannTvFragment extends Fragment {
 //                });
 
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Framayana.png?alt=media&token=93da567e-7aec-40ce-b33e-2ed2b2d97165")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage2);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Framayana.png?alt=media&token=93da567e-7aec-40ce-b33e-2ed2b2d97165")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage2);
+        videoImage2.setImageResource(R.drawable.taramayana);
         videoDescription2.setText("रामायण");
 
 //        database.getReference().child("tvSerial")
@@ -664,10 +666,11 @@ public class MannTvFragment extends Fragment {
 //
 //                    }
 //                });
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftalaxmi.jpg?alt=media&token=f0cf8b6b-7069-45f2-a539-f8257e7b36c1")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage3);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftalaxmi.jpg?alt=media&token=f0cf8b6b-7069-45f2-a539-f8257e7b36c1")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage3);
+        videoImage3.setImageResource(R.drawable.talaxmi);
         videoDescription3.setText("जय महालक्ष्मी");
 
 //        database.getReference().child("tvSerial")
@@ -687,10 +690,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2FuttarRamayana.jpeg?alt=media&token=35313318-b204-450e-8b95-c359367da27d")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage4);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2FuttarRamayana.jpeg?alt=media&token=35313318-b204-450e-8b95-c359367da27d")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage4);
+        videoImage4.setImageResource(R.drawable.tauttarramayana);
         videoDescription4.setText("उत्तर रामायण");
 
 //        database.getReference().child("tvSerial")
@@ -730,10 +734,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftabalkrishna.jpeg?alt=media&token=2d33d59a-2650-4850-993e-86356f707db5")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage5);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftabalkrishna.jpeg?alt=media&token=2d33d59a-2650-4850-993e-86356f707db5")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage5);
+        videoImage5.setImageResource(R.drawable.tabalkrishna);
         videoDescription5.setText("बाल कृष्ण");
 
 //        database.getReference().child("tvSerial")
@@ -773,10 +778,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftasaibaba.png?alt=media&token=a68d56e2-f9c2-4e5c-9f12-f7c3b74c99cc")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage6);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftasaibaba.png?alt=media&token=a68d56e2-f9c2-4e5c-9f12-f7c3b74c99cc")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage6);
+        videoImage6.setImageResource(R.drawable.tasaibaba);
         videoDescription6.setText("साईं बाबा");
 
 //        database.getReference().child("tvSerial")
@@ -816,10 +822,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftashiva.png?alt=media&token=ede304b5-12e8-4ace-8c57-bd33e499d065")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage7);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftashiva.png?alt=media&token=ede304b5-12e8-4ace-8c57-bd33e499d065")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage7);
+        videoImage7.setImageResource(R.drawable.tashiva);
         videoDescription7.setText("शिव महापुराण");
 
 //        database.getReference().child("tvSerial")
@@ -859,10 +866,11 @@ public class MannTvFragment extends Fragment {
 //                    }
 //                });
 
-        Picasso.with(getContext())
-                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftaganesh.png?alt=media&token=b4c4018f-6502-4c06-8d47-9009b2d90bda")
-                .placeholder(R.drawable.ic_profile_svgrepo_com)
-                .into(videoImage8);
+//        Picasso.with(getContext())
+//                .load("https://firebasestorage.googleapis.com/v0/b/playvideota.appspot.com/o/tvSerial%2Ftaganesh.png?alt=media&token=b4c4018f-6502-4c06-8d47-9009b2d90bda")
+//                .placeholder(R.drawable.ic_profile_svgrepo_com)
+//                .into(videoImage8);
+        videoImage8.setImageResource(R.drawable.taganesh);
         videoDescription8.setText("विघ्नहर्ता गणेश");
 
 //        database.getReference().child("tvSerial")

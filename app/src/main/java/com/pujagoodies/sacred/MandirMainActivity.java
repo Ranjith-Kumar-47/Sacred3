@@ -29,6 +29,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,14 +43,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.pujagoodies.sacred.MyAnimation;
@@ -90,7 +95,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     ConstraintLayout constraintLayout, hand, parent, flowerCountLayout;
     SwipeListener swipeListener;
     MotionLayout motionLayout, motionLayoutSide1, motionLayoutSide2;
-    ImageButton btnF, btnS, btnP, btnPremium, btn;
+    ImageButton btnF, btnS, btnP, btnPremium, btn,dhoopBtn;
     TextView testing;
 
     RecyclerView recyclerView, recyclerViewFlowers;
@@ -103,8 +108,17 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     ImageView smoke;
     boolean isSmokeOn = true;
 
+    // for counter part
+    long flower = 0;
+    long shank = 0;
+    long aarti = 0;
+    long differentflower = 0;
+    long dhoop = 0;
 
-    //    com.google.android.material.floatingactionbutton.FloatingActionButton bottomnav;
+
+
+
+
     com.google.android.material.bottomappbar.BottomAppBar bottomnav;
 
     FloatingActionButton bottomNavHome;
@@ -139,6 +153,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         setContentView(R.layout.activity_main_mandir);
 
 
+        database = FirebaseDatabase.getInstance();
 
         gImage = findViewById(R.id.test);
         constraintLayout = findViewById(R.id.viewForSwipe);
@@ -171,12 +186,59 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         parent = findViewById(R.id.constraintLayout7);
         navigation = findViewById(R.id.navigation);
         btn = findViewById(R.id.temp);
+        dhoopBtn = findViewById(R.id.dhoopBtn);
 //       editText = findViewById(R.id.count);
 //       confirm = findViewById(R.id.FlowerCountConfirm);
 //       flowerCountLayout = findViewById(R.id.layoutSelection);
 
-        createNotificationChannel();
-        setNotification();
+
+//        BottomAppBar bottomAppBar=findViewById(R.id.bottomnav) ;
+//
+
+        BottomAppBar bottomnav = findViewById(R.id.bottomnav);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        Intent intent = new Intent(MandirMainActivity.this, WebViewActivity.class);
+                        intent.putExtra("websiteUrl","https://pujagoodies.com/");
+//                        intent.putExtra("websiteUrl","https://www.google.com/");
+                        startActivity(intent);
+                        break;
+                    case R.id.rashiphalmenu:
+                        Intent intent1 = new Intent(MandirMainActivity.this,MainActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                }
+                return true;
+            }
+        });
+
+//
+
+
+
+
+
+
+        SharedPreferences sharedPreferences= getSharedPreferences("NOTIFICATION",MODE_PRIVATE);
+        String firstTimeNotificaton = sharedPreferences.getString("NotificationFirstTimeInstall","");
+        if(firstTimeNotificaton.equals("Yes")) {
+
+        }
+        else {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("NotificationFirstTimeInstall", "Yes");
+            editor.apply();
+
+            createNotificationChannel();
+            setNotification();
+
+        }
 
 
 
@@ -184,24 +246,177 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         // handling dhuup smoke
         smoke = findViewById(R.id.imageView11);
         imageView13 = findViewById(R.id.imageView13);
+        ImageView sweetsThali = findViewById(R.id.sweetsThali);
+
+
+//        sweetsThali.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ExecutorService service = Executors.newSingleThreadExecutor();
+//                service.execute(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने प्रमुख देवी देवताओं का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
+//                                    toast1.show();
+//                                }
+//                            });
+//                            sleep(2000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//
+//                                    Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल चढ़ाएं" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-53);
+//                                    toast2.show();
+//
+//                                }
+//                            });
+//                            sleep(2000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शंख बजाएं" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+//                                    toast3.show();
+//
+//                                }
+//                            });
+//                            sleep(2000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "धूपबत्ती जलाएं" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,190);
+//                                    toast3.show();
+//
+//                                }
+//                            });
+//                            sleep(2000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "आरती करें" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
+//                                    toast4.show();
+//                                }
+//                            });
+//                            sleep(2000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
+//                                    toast5.show();
+//
+//                                }
+//                            });
+//                            sleep(3000);
+//
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    LayoutInflater inflater = getLayoutInflater();
+//                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+//                                    Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
+//                                    toast6.setView(layout);
+//                                    toast6.show();
+//
+//
+//                                }
+//                            });
+//                            sleep(3000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    LayoutInflater inflater = getLayoutInflater();
+//                                    View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+//                                    Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast7.setGravity(Gravity.CENTER ,0,40);
+//                                    toast7.setView(layout);
+//                                    toast7.show();
+//
+//
+//                                }
+//                            });
+//                            sleep(3000);
+//
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//
+//                                    LayoutInflater inflater2 = getLayoutInflater();
+//                                    View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+//                                    Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast8.setGravity( Gravity.CENTER,60,40);
+//                                    toast8.setView(layout2);
+//                                    toast8.show();
+//
+//                                }
+//                            });
+//
+//                            sleep(2000);
+//                            MandirMainActivity.this.runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast toast9 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "पंचांग,राशिफल इत्यादि देखें" + "</b></font>"), Toast.LENGTH_LONG);
+//                                    toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM,22,130);
+//                                    toast9.show();
+//
+//                                }
+//                            });
+//
+//
+//
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
+//            }
+//        });
 
 
 
-        smoke.setOnClickListener(new View.OnClickListener() {
+        dhoopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isSmokeOn)
                 {
                     imageView13.setVisibility(View.VISIBLE);
+                    dhoopBtn.setImageResource(R.drawable.burn);
                     isSmokeOn = false;
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             imageView13.setVisibility(View.GONE);
+                            dhoopBtn.setImageResource(R.drawable.unburn);
                             isSmokeOn = true;
                         }
                     },3600000);
                 }
+
+                database.getReference().child("counter")
+                        .child("dhoopBtn")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    dhoop = (long) snapshot.getValue();
+                                    database.getReference().child("counter")
+                                            .child("dhoopBtn")
+                                            .setValue(dhoop += 1);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
             }
         });
 
@@ -305,7 +520,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     public void run() {
 
                                         Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल चढ़ाएं" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-50);
+                                        toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-53);
                                         toast2.show();
 
                                     }
@@ -316,6 +531,16 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     public void run() {
                                         Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शंख बजाएं" + "</b></font>"), Toast.LENGTH_LONG);
                                         toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+                                        toast3.show();
+
+                                    }
+                                });
+                                sleep(2000);
+
+                                MandirMainActivity.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "धूपबत्ती जलाएं" + "</b></font>"), Toast.LENGTH_LONG);
+                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,190);
                                         toast3.show();
 
                                     }
@@ -571,6 +796,24 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         btnPremium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                database.getReference().child("counter")
+                        .child("differentFlowerBtn")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    differentflower = (long) snapshot.getValue();
+                                    database.getReference().child("counter")
+                                            .child("differentFlowerBtn")
+                                            .setValue(differentflower += 1);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                 flowersAdapter.setImageAssets(f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, parent);
                 bottomSheetBehavior = BottomSheetBehavior.from(recyclerViewFlowers);
 
@@ -583,6 +826,12 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 //                    drawable.setTint(getResources().getColor(R.color.gold_light));
                 }
+
+
+
+
+
+
 
             }
         });
@@ -655,6 +904,28 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 f9.setVisibility(View.VISIBLE);
                 f10.setVisibility(View.VISIBLE);
                 f11.setVisibility(View.VISIBLE);
+
+
+
+                database.getReference().child("counter")
+                        .child("flowerBtn")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    flower = (long) snapshot.getValue();
+                                    database.getReference().child("counter")
+                                            .child("flowerBtn")
+                                            .setValue(flower += 1);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
 
 // code for alert flower count
 
@@ -739,6 +1010,25 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             public void onClick(View view) {
                 mediaPlayer2.start();
 
+                database.getReference().child("counter")
+                        .child("shankBtn")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    shank = (long) snapshot.getValue();
+                                    database.getReference().child("counter")
+                                            .child("shankBtn")
+                                            .setValue(shank += 1);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
             }
         });
 
@@ -819,6 +1109,27 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 f11.setVisibility(View.VISIBLE);
 
 
+
+                database.getReference().child("counter")
+                        .child("aartiBtn")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    aarti = (long) snapshot.getValue();
+                                    database.getReference().child("counter")
+                                            .child("aartiBtn")
+                                            .setValue(aarti += 1);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
             }
 
         });
@@ -858,7 +1169,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 //        alarmManager.set(AlarmManager.RTC_WAKEUP,ctime + atime,pendingIntent);
 //                alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
-        long notificationTimer = Long.parseLong("1676986200000");
+
+//        long notificationTimer = Long.parseLong("1676986200000");
+        long notificationTimer = Long.parseLong("1677313697859");
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
 
 

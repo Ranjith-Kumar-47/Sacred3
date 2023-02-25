@@ -63,7 +63,7 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:gravity="center"
-                android:text="गणेश आप कैलेंडर 2023"
+                android:text="गणेश आपा कैलेंडर 2023"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"

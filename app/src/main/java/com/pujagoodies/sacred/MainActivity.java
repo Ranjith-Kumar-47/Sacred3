@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] tabIcons = {
             R.drawable.tv_icon_btn,
             R.drawable.ic_calender_day_love_svgrepo_com,
-            R.drawable.astrology,
+            R.drawable.ic_baseline_sports_volleyball_24,
 //            R.drawable.gita_image,
             R.drawable.gita_slok_icon
     };
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("टीवी").setIcon(R.drawable.tv_icon_btn).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
-        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.astrology);
+        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.ic_baseline_sports_volleyball_24);
         tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
 //        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
 
