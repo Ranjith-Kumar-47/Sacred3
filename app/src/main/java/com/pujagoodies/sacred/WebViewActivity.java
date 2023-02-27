@@ -4,12 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
+import android.webkit.URLUtil;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 //import com.example.playvideota.R;
 import com.pujagoodies.sacred.R;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class WebViewActivity extends AppCompatActivity {
 
     WebView webView;
@@ -39,6 +47,8 @@ public class WebViewActivity extends AppCompatActivity {
 
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
+
+
 
         webView.setWebViewClient(new WebViewClient()
         {
@@ -84,17 +94,78 @@ public class WebViewActivity extends AppCompatActivity {
 
         websiteUrl = getIntent().getStringExtra("websiteUrl");
         System.out.println("website url : "+websiteUrl);
-        if(websiteUrl!=null){
-            webView.loadUrl(websiteUrl);
-        }else {
-            webView.loadUrl(url);
+
+        String default_url = "https://pujagoodies.com/";
+        String default_url_youtube_video = "https://www.youtube.com/";
+
+        if(getIntent().getExtras() != null){
+            String url_from_notif = getIntent().getExtras().getString("websiteUrl");
+            String youtube_video_id = getIntent().getExtras().getString("id");
+            String url_from_notif_youtube = "https://www.youtube.com/watch?v="+youtube_video_id;
+            if (url_from_notif != null) {
+                if(URLUtil.isValidUrl(url_from_notif) && Patterns.WEB_URL.matcher(url_from_notif).matches()) {
+                    default_url = url_from_notif;
+                    Log.v("url_from_notif = ", default_url);
+                }
+            }
+            if (youtube_video_id != null) {
+                if(URLUtil.isValidUrl(url_from_notif_youtube) && Patterns.WEB_URL.matcher(url_from_notif_youtube).matches()) {
+                    default_url = url_from_notif_youtube;
+                    Log.v("url_from_notif_youtube ", default_url);
+                }
+            }
+            if (getIntent().getData() != null) {
+                String url_from_mail = getIntent().getData().toString();
+                url_from_mail = url_from_mail.replace("pujagoodies://", "");
+                if(URLUtil.isValidUrl(url_from_mail) && Patterns.WEB_URL.matcher(url_from_mail).matches()) {
+                    default_url = url_from_mail;
+                    Log.v("url_from_mail = ", default_url);
+                }
+            }
         }
 
-//        String checkOrigin = i.getStringExtra("from_activity");
-//        if(checkOrigin!=null && checkOrigin.equals("shoppinglist")){
-//            btnAddtoShoppingList.setVisibility(View.GONE);
-//            btnDeleteShoppingList.setVisibility(View.VISIBLE);
-//        }
+        URI uri;
+        try {
+            uri = new URI(default_url);
+            String domain = uri.getHost();
+//            System.out.println("#####################################");
+//            System.out.println("domain : "+domain);
+//            System.out.println("default_url ta  : "+default_url);
+//            System.out.println(" default_url.startsWith(\"https://pujagoodies.com/  : "+default_url.startsWith("https://pujagoodies.com/"));
+//            System.out.println(" default_url.startsWith(\"https://pujagoodies.com/ Not  : "+!default_url.startsWith("https://pujagoodies.com/"));
+//
+//            System.out.println("URLUtil.isValidUrl(default_url): "+URLUtil.isValidUrl(default_url));
+//            System.out.println("!URLUtil.isValidUrl(default_url): "+!URLUtil.isValidUrl(default_url));
+//
+//            System.out.println("Patterns.WEB_URL.matcher(default_url).matches() : "+Patterns.WEB_URL.matcher(default_url).matches());
+//            System.out.println("!Patterns.WEB_URL.matcher(default_url).matches() : "+!Patterns.WEB_URL.matcher(default_url).matches());
+//
+//
+//            System.out.println("#####################################");
+
+            if(websiteUrl!=null){
+                if (!default_url.startsWith("https://pujagoodies.com/") ||  !domain.equals("pujagoodies.com") || !URLUtil.isValidUrl(default_url) || !Patterns.WEB_URL.matcher(default_url).matches()) {
+                    webView.loadUrl("about:blank");
+                }
+                else {
+                    webView.loadUrl(default_url);
+                }
+            }else if(id!=null) {
+                if (!domain.equals("www.youtube.com") || !URLUtil.isValidUrl(default_url_youtube_video) || !Patterns.WEB_URL.matcher(default_url_youtube_video).matches()) {
+                    webView.loadUrl("about:blank");
+                }
+                else {
+                    webView.loadUrl(default_url);
+                }
+            }
+
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+
+
 
 
 
