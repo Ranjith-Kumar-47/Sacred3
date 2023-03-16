@@ -1,4 +1,4 @@
-package com.example.mahabandar;
+package com.pujagoodies.sacred.adapter;
 
 
 import android.content.Context;
@@ -18,6 +18,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.ViewData;
+import com.pujagoodies.sacred.model.UploadImageModel;
 
 public class ReadAdapter extends FirebaseRecyclerAdapter<UploadImageModel, ReadAdapter.MyViewHolder> {
 
@@ -31,7 +34,7 @@ public class ReadAdapter extends FirebaseRecyclerAdapter<UploadImageModel, ReadA
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ReadAdapter.MyViewHolder holder, int position, @NonNull UploadImageModel model) {
+    protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull UploadImageModel model) {
         holder.textViewTitle.setText(model.getImageName());
         holder.textViewDescription.setText(model.getImageShortDescription());
         Glide.with(context).load(model.getImageUrl()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.cardViewImage);
@@ -39,7 +42,7 @@ public class ReadAdapter extends FirebaseRecyclerAdapter<UploadImageModel, ReadA
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,ViewData.class);
+                Intent intent = new Intent(context, ViewData.class);
                 intent.putExtra("title",model.getImageName());
                 intent.putExtra("longDescription",model.getImageLongDescription());
                 intent.putExtra("imageUrl",model.getImageUrl());
@@ -50,7 +53,7 @@ public class ReadAdapter extends FirebaseRecyclerAdapter<UploadImageModel, ReadA
 
     @NonNull
     @Override
-    public ReadAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_design, parent, false);
         return new MyViewHolder(view);
     }

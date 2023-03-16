@@ -5,6 +5,8 @@
     <string name="Panchang">Panchang</string>
     <string name="Rashiphal">Rashiphal</string>
     <string name="tv">TV</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
     <string name="your_feelings">Your Feelings ?</string>
     <string name="we_d_really_appreciate_your_feedback">We\'d really appreciate your feedback</string>
     <string name="maybe_later">Maybe Later</string>

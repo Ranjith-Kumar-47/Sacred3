@@ -1,4 +1,4 @@
-package com.example.mahabandar;
+package com.pujagoodies.sacred.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.pujagoodies.sacred.PdfViewer;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.model.PdfModel;
 
 public class PdfAdapter extends FirebaseRecyclerAdapter<PdfModel, PdfAdapter.MyViewHolder> {
 
@@ -44,7 +47,7 @@ public class PdfAdapter extends FirebaseRecyclerAdapter<PdfModel, PdfAdapter.MyV
 
     @NonNull
     @Override
-    public PdfAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_design, parent, false);
         return new MyViewHolder(view);
     }

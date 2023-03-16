@@ -196,7 +196,15 @@ public class AdminDashboard extends AppCompatActivity {
         Intent intent = new Intent(AdminDashboard.this, NotificationReceiver.class);
         intent.putExtra("Title",title);
         intent.putExtra("Text",description);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(AdminDashboard.this,0,intent,0);
+
+        // Ranjith kumar: - The version for android 31 is surrounded by the if condition for Pending Intent to FLAG MUTABLE.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(AdminDashboard.this,0,intent,PendingIntent.FLAG_MUTABLE);
+        }
+        else {
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(AdminDashboard.this,0,intent,PendingIntent.FLAG_MUTABLE);
+
+        }
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         long ctime = System.currentTimeMillis();
@@ -251,5 +259,10 @@ public class AdminDashboard extends AppCompatActivity {
             notificationManager.createNotificationChannel(notificationChannel);
 
         }
+    }
+
+    public void openPoojaVidhiAdminPage(View view) {
+        startActivity(new Intent(AdminDashboard.this,AdminPoojaVidhi.class));
+
     }
 }

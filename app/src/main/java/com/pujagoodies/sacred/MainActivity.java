@@ -17,6 +17,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.pujagoodies.sacred.R;
 import com.pujagoodies.sacred.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -46,7 +48,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
 
 
 import java.util.ArrayList;
@@ -80,12 +81,13 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager2 viewPager;
     TabLayout tabLayout;
-//    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK", "SAHITYA"};
-    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK"};
+    //    private String[] titles = {"TV", "PANCHANG", "RASHIPHAL", "GEETA SLOK", "SAHITYA"};
+    private String[] titles = {"TV", "PANCHANG", "POOJA VIDHI", "RASHIPHAL", "GEETA SLOK"};
 
     private int[] tabIcons = {
             R.drawable.tv_icon_btn,
             R.drawable.ic_calender_day_love_svgrepo_com,
+            R.drawable.sahitya_icon,
             R.drawable.ic_baseline_sports_volleyball_24,
 //            R.drawable.gita_image,
             R.drawable.gita_slok_icon
@@ -105,6 +107,21 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         adminButton = binding.adminButton;
+
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful())
+                {
+                    Log.e("TokenDetails","Token Failed to recieve");
+                    return;
+                }
+                String token = task.getResult();
+                Log.d("TOKEN",token);
+            }
+        });
+
 
         database.getReference().child("god")
                 .addValueEventListener(new ValueEventListener() {
@@ -277,8 +294,10 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("टीवी").setIcon(R.drawable.tv_icon_btn).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
         tabLayout.getTabAt(1).setText("पंचांग").setIcon(R.drawable.ic_baseline_calendar_month_24).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
-        tabLayout.getTabAt(2).setText("राशि").setIcon(R.drawable.ic_baseline_sports_volleyball_24);
-        tabLayout.getTabAt(3).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
+        //Ranjith Kumar :- added new tab to the tab layout at index 2.
+        tabLayout.getTabAt(2).setText("पूजा विधि").setIcon(R.drawable.sahitya_icon);
+        tabLayout.getTabAt(3).setText("राशि").setIcon(R.drawable.ic_baseline_sports_volleyball_24);
+        tabLayout.getTabAt(4).setText("गीता श्लोक").setIcon(R.drawable.gita_slok_icon);
 //        tabLayout.getTabAt(4).setText("साहित्य").setIcon(R.drawable.gita_slok_icon);
 
 
@@ -374,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         if (auth.getCurrentUser() != null) {
-            if ((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail3.equalsIgnoreCase(auth.getCurrentUser().getUid()))   ) {
+            if ((adminEmail.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail2.equalsIgnoreCase(auth.getCurrentUser().getUid())) || (adminEmail3.equalsIgnoreCase(auth.getCurrentUser().getUid()))) {
                 adminButton.setVisibility(View.VISIBLE);
             }
             System.out.println("admin Email " + auth.getCurrentUser().getEmail());
@@ -481,6 +500,5 @@ public class MainActivity extends AppCompatActivity {
 //
 //        customDialog.show();
     }
-
 
 }

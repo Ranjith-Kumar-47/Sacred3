@@ -1,4 +1,4 @@
-package com.example.mahabandar;
+package com.pujagoodies.sacred.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.pujagoodies.sacred.PoojaVidhiVideoPlayer;
+import com.pujagoodies.sacred.R;
+import com.pujagoodies.sacred.model.VideoModel;
 
 public class videoAdapter extends FirebaseRecyclerAdapter<VideoModel, videoAdapter.MyViewHolder> {
 
@@ -40,7 +43,7 @@ public class videoAdapter extends FirebaseRecyclerAdapter<VideoModel, videoAdapt
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, VideoPlayer.class);
+                Intent intent = new Intent(context, PoojaVidhiVideoPlayer.class);
                 intent.putExtra("videoUrl", model.getVideoUrl());
                 holder.cardView.getContext().startActivity(intent);
             }
@@ -49,7 +52,7 @@ public class videoAdapter extends FirebaseRecyclerAdapter<VideoModel, videoAdapt
 
     @NonNull
     @Override
-    public videoAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_design, parent, false);
         return new MyViewHolder(view);
     }

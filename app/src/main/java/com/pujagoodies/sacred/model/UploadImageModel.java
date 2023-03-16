@@ -1,4 +1,4 @@
-package com.example.mahabandar;
+package com.pujagoodies.sacred.model;
 
 public class UploadImageModel {
     private String imageName, imageShortDescription,imageLongDescription,ImageUrl,videoUrl;

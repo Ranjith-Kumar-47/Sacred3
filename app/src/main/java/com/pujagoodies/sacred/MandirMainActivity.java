@@ -42,10 +42,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +58,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.pujagoodies.sacred.MyAnimation;
 import com.pujagoodies.sacred.PrefConfig;
@@ -90,16 +93,17 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class MandirMainActivity extends AppCompatActivity implements ConfettoGenerator {
 
+
     //Views and Layouts on screen
     ImageView gImage, centerBell, thali, flowerThali, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11;
     ConstraintLayout constraintLayout, hand, parent, flowerCountLayout;
     SwipeListener swipeListener;
     MotionLayout motionLayout, motionLayoutSide1, motionLayoutSide2;
-    ImageButton btnF, btnS, btnP, btnPremium, btn,dhoopBtn;
+    ImageButton btnF, btnS, btnP, btnPremium, btn, dhoopBtn;
     TextView testing;
 
     RecyclerView recyclerView, recyclerViewFlowers;
-    GifImageView gifImageView,imageView13;
+    GifImageView gifImageView, imageView13;
     protected ViewGroup container;
     TabLayout navigation;
     EditText editText;
@@ -114,9 +118,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     long aarti = 0;
     long differentflower = 0;
     long dhoop = 0;
-
-
-
 
 
     com.google.android.material.bottomappbar.BottomAppBar bottomnav;
@@ -154,7 +155,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 
         database = FirebaseDatabase.getInstance();
-
         gImage = findViewById(R.id.test);
         constraintLayout = findViewById(R.id.viewForSwipe);
         motionLayout = findViewById(R.id.motionLayout);
@@ -201,15 +201,15 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.home:
                         Intent intent = new Intent(MandirMainActivity.this, WebViewActivity.class);
-                        intent.putExtra("websiteUrl","https://pujagoodies.com/");
+                        intent.putExtra("websiteUrl", "https://pujagoodies.com/");
 //                        intent.putExtra("websiteUrl","https://www.google.com/");
                         startActivity(intent);
                         break;
                     case R.id.rashiphalmenu:
-                        Intent intent1 = new Intent(MandirMainActivity.this,MainActivity.class);
+                        Intent intent1 = new Intent(MandirMainActivity.this, MainActivity.class);
                         startActivity(intent1);
                         break;
 
@@ -221,16 +221,11 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences("NOTIFICATION", MODE_PRIVATE);
+        String firstTimeNotificaton = sharedPreferences.getString("NotificationFirstTimeInstall", "");
+        if (firstTimeNotificaton.equals("Yes")) {
 
-
-
-
-        SharedPreferences sharedPreferences= getSharedPreferences("NOTIFICATION",MODE_PRIVATE);
-        String firstTimeNotificaton = sharedPreferences.getString("NotificationFirstTimeInstall","");
-        if(firstTimeNotificaton.equals("Yes")) {
-
-        }
-        else {
+        } else {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("NotificationFirstTimeInstall", "Yes");
             editor.apply();
@@ -239,8 +234,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             setNotification();
 
         }
-
-
 
 
         // handling dhuup smoke
@@ -379,12 +372,10 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //        });
 
 
-
         dhoopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isSmokeOn)
-                {
+                if (isSmokeOn) {
                     imageView13.setVisibility(View.VISIBLE);
                     dhoopBtn.setImageResource(R.drawable.burn);
                     isSmokeOn = false;
@@ -396,30 +387,25 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                             dhoopBtn.setImageResource(R.drawable.unburn);
                             isSmokeOn = true;
                         }
-                    },3600000);
+                    }, 3600000);
                 }
 
-                database.getReference().child("counter")
-                        .child("dhoopBtn")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    dhoop = (long) snapshot.getValue();
-                                    database.getReference().child("counter")
-                                            .child("dhoopBtn")
-                                            .setValue(dhoop += 1);
-                                }
-                            }
+                database.getReference().child("counter").child("dhoopBtn").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            dhoop = (long) snapshot.getValue();
+                            database.getReference().child("counter").child("dhoopBtn").setValue(dhoop += 1);
+                        }
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
             }
         });
-
 
 
         bottomNavHome = findViewById(R.id.bottomNavHome);
@@ -492,12 +478,11 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 mediaPlayer.start();
 
                 // for first time caption
-                SharedPreferences sharedPreferences= getSharedPreferences("CAPTIONS",MODE_PRIVATE);
-                String firstTime = sharedPreferences.getString("CaptionFirstTimeInstall","");
-                if(firstTime.equals("Yes")) {
+                SharedPreferences sharedPreferences = getSharedPreferences("CAPTIONS", MODE_PRIVATE);
+                String firstTime = sharedPreferences.getString("CaptionFirstTimeInstall", "");
+                if (firstTime.equals("Yes")) {
 
-                }
-                else {
+                } else {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("CaptionFirstTimeInstall", "Yes");
                     editor.apply();
@@ -510,7 +495,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast1 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "अपने प्रमुख देवी देवताओं का चयन करें" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast1.setGravity(Gravity.TOP | Gravity.RIGHT,100,0);
+                                        toast1.setGravity(Gravity.TOP | Gravity.RIGHT, 100, 0);
                                         toast1.show();
                                     }
                                 });
@@ -520,7 +505,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     public void run() {
 
                                         Toast toast2 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान को फूल चढ़ाएं" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast2.setGravity(Gravity.CENTER | Gravity.LEFT,135,-53);
+                                        toast2.setGravity(Gravity.CENTER | Gravity.LEFT, 135, -53);
                                         toast2.show();
 
                                     }
@@ -530,7 +515,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "शंख बजाएं" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,70);
+                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT, 135, 70);
                                         toast3.show();
 
                                     }
@@ -540,7 +525,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast3 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "धूपबत्ती जलाएं" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT,135,190);
+                                        toast3.setGravity(Gravity.CENTER | Gravity.LEFT, 135, 190);
                                         toast3.show();
 
                                     }
@@ -550,7 +535,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast4 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "आरती करें" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast4.setGravity(Gravity.CENTER | Gravity.RIGHT,135,-50);
+                                        toast4.setGravity(Gravity.CENTER | Gravity.RIGHT, 135, -50);
                                         toast4.show();
                                     }
                                 });
@@ -559,7 +544,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast5 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "भगवान के लिए फूल चुनें" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast5.setGravity(Gravity.CENTER | Gravity.RIGHT,135,70);
+                                        toast5.setGravity(Gravity.CENTER | Gravity.RIGHT, 135, 70);
                                         toast5.show();
 
                                     }
@@ -570,9 +555,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         LayoutInflater inflater = getLayoutInflater();
-                                        View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                        View layout = inflater.inflate(R.layout.caption_toast, findViewById(R.id.caption_toast_container));
                                         Toast toast6 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast6.setGravity( Gravity.TOP | Gravity.CENTER,0,0);
+                                        toast6.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
                                         toast6.setView(layout);
                                         toast6.show();
 
@@ -584,9 +569,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         LayoutInflater inflater = getLayoutInflater();
-                                        View layout = inflater.inflate(R.layout.caption_toast,findViewById(R.id.caption_toast_container));
+                                        View layout = inflater.inflate(R.layout.caption_toast, findViewById(R.id.caption_toast_container));
                                         Toast toast7 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast7.setGravity(Gravity.CENTER ,0,40);
+                                        toast7.setGravity(Gravity.CENTER, 0, 40);
                                         toast7.setView(layout);
                                         toast7.show();
 
@@ -599,9 +584,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     public void run() {
 
                                         LayoutInflater inflater2 = getLayoutInflater();
-                                        View layout2 = inflater2.inflate(R.layout.caption_toast_vertical,findViewById(R.id.caption_toast_container));
+                                        View layout2 = inflater2.inflate(R.layout.caption_toast_vertical, findViewById(R.id.caption_toast_container));
                                         Toast toast8 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "Select God" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast8.setGravity( Gravity.CENTER,60,40);
+                                        toast8.setGravity(Gravity.CENTER, 60, 40);
                                         toast8.setView(layout2);
                                         toast8.show();
 
@@ -612,15 +597,14 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 MandirMainActivity.this.runOnUiThread(new Runnable() {
                                     public void run() {
                                         Toast toast9 = Toast.makeText(getApplicationContext(), Html.fromHtml("<font color='#E84511' ><b>" + "पंचांग,राशिफल इत्यादि देखें" + "</b></font>"), Toast.LENGTH_LONG);
-                                        toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM,22,130);
+                                        toast9.setGravity(Gravity.CENTER | Gravity.BOTTOM, 22, 130);
                                         toast9.show();
 
                                     }
                                 });
 
 
-
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
@@ -645,7 +629,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 hand.animate().translationYBy(1100f).setDuration(2000);
             }
         }, 2000);
-
 
 
         //bells on click animations
@@ -796,24 +779,20 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         btnPremium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                database.getReference().child("counter")
-                        .child("differentFlowerBtn")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    differentflower = (long) snapshot.getValue();
-                                    database.getReference().child("counter")
-                                            .child("differentFlowerBtn")
-                                            .setValue(differentflower += 1);
-                                }
-                            }
+                database.getReference().child("counter").child("differentFlowerBtn").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            differentflower = (long) snapshot.getValue();
+                            database.getReference().child("counter").child("differentFlowerBtn").setValue(differentflower += 1);
+                        }
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
                 flowersAdapter.setImageAssets(f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, parent);
                 bottomSheetBehavior = BottomSheetBehavior.from(recyclerViewFlowers);
 
@@ -826,11 +805,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 //                    drawable.setTint(getResources().getColor(R.color.gold_light));
                 }
-
-
-
-
-
 
 
             }
@@ -846,14 +820,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 velocitySlow = 50;
                 velocityNormal = 100;
 
-                bitmap = Bitmap.createScaledBitmap(
-                        BitmapFactory.decodeResource(res, R.drawable.p),
-                        size,
-                        size,
-                        false
-                );
-                ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0)
-                        .setEmissionDuration(3000);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, R.drawable.p), size, size, false);
+                ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0).setEmissionDuration(3000);
 
                 confettiManager.setEmissionRate(14).animate();
 //                alertDialog.dismiss();
@@ -906,25 +874,20 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 f11.setVisibility(View.VISIBLE);
 
 
+                database.getReference().child("counter").child("flowerBtn").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            flower = (long) snapshot.getValue();
+                            database.getReference().child("counter").child("flowerBtn").setValue(flower += 1);
+                        }
+                    }
 
-                database.getReference().child("counter")
-                        .child("flowerBtn")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    flower = (long) snapshot.getValue();
-                                    database.getReference().child("counter")
-                                            .child("flowerBtn")
-                                            .setValue(flower += 1);
-                                }
-                            }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                    }
+                });
 
 
 // code for alert flower count
@@ -1010,24 +973,20 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             public void onClick(View view) {
                 mediaPlayer2.start();
 
-                database.getReference().child("counter")
-                        .child("shankBtn")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    shank = (long) snapshot.getValue();
-                                    database.getReference().child("counter")
-                                            .child("shankBtn")
-                                            .setValue(shank += 1);
-                                }
-                            }
+                database.getReference().child("counter").child("shankBtn").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            shank = (long) snapshot.getValue();
+                            database.getReference().child("counter").child("shankBtn").setValue(shank += 1);
+                        }
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
 
             }
         });
@@ -1047,16 +1006,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 velocitySlow = 50;
                 velocityNormal = 100;
                 mediaPlayer3.start();
-                bitmap = Bitmap.createScaledBitmap(
-                        BitmapFactory.decodeResource(res, R.drawable.p),
-                        size,
-                        size,
-                        false
-                );
-                ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0)
-                        .setEmissionDuration(3000)
-                        .setEmissionRate(20)
-                        .animate();
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, R.drawable.p), size, size, false);
+                ConfettiManager confettiManager = getConfettiManager().setNumInitialCount(0).setEmissionDuration(3000).setEmissionRate(20).animate();
                 motionLayout.transitionToState(R.id.end);
                 motionLayoutSide1.transitionToState(R.id.end);
                 motionLayoutSide2.transitionToState(R.id.end);
@@ -1109,25 +1060,20 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                 f11.setVisibility(View.VISIBLE);
 
 
+                database.getReference().child("counter").child("aartiBtn").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            aarti = (long) snapshot.getValue();
+                            database.getReference().child("counter").child("aartiBtn").setValue(aarti += 1);
+                        }
+                    }
 
-                database.getReference().child("counter")
-                        .child("aartiBtn")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    aarti = (long) snapshot.getValue();
-                                    database.getReference().child("counter")
-                                            .child("aartiBtn")
-                                            .setValue(aarti += 1);
-                                }
-                            }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                    }
+                });
 
 
             }
@@ -1150,21 +1096,23 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //        recyclerView.setHasFixedSize(true);
 
 
-
-
-
     }
 
     private void setNotification() {
 
         Intent intent = new Intent(MandirMainActivity.this, NotificationReceiver.class);
-        intent.putExtra("Title",title);
-        intent.putExtra("Text",description);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(MandirMainActivity.this,0,intent,0);
+        intent.putExtra("Title", title);
+        intent.putExtra("Text", description);
+        PendingIntent pendingIntent = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntent = PendingIntent.getBroadcast(MandirMainActivity.this, 0, intent, PendingIntent.FLAG_MUTABLE);
+        } else {
+            pendingIntent = PendingIntent.getBroadcast(MandirMainActivity.this, 0, intent, 0);
+        }
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         long ctime = System.currentTimeMillis();
-        System.out.println("amit : "+ctime);
+        System.out.println("amit : " + ctime);
         long atime = 1000 * 10;
 
 //        alarmManager.set(AlarmManager.RTC_WAKEUP,ctime + atime,pendingIntent);
@@ -1172,7 +1120,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 
 //        long notificationTimer = Long.parseLong("1676986200000");
         long notificationTimer = Long.parseLong("1677313697859");
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,notificationTimer,AlarmManager.INTERVAL_HALF_DAY,pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, notificationTimer, AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
 
 
     }
@@ -1209,12 +1157,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     private ConfettiManager getConfettiManager() {
         final ConfettiSource source = new ConfettiSource(0, -size, container.getWidth(), -size);
         Rect rect = new Rect(container.getLeft(), container.getTop(), container.getRight(), container.getBottom());
-        return new ConfettiManager(getApplicationContext(), this, source, container)
-                .setVelocityX(0, velocitySlow)
-                .setVelocityY(velocityNormal, velocitySlow)
-                .setRotationalVelocity(180, 90)
-                .setBound(rect)
-                .setTouchEnabled(true);
+        return new ConfettiManager(getApplicationContext(), this, source, container).setVelocityX(0, velocitySlow).setVelocityY(velocityNormal, velocitySlow).setRotationalVelocity(180, 90).setBound(rect).setTouchEnabled(true);
     }
 
     public class SwipeListener implements View.OnTouchListener {
@@ -1310,12 +1253,12 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 } else {
                                     i = mainGods.size() - 1;
                                 }
-                                System.out.println("talength : "+i);
-                                System.out.println("talength mainGod : "+mainGods.size());
+                                System.out.println("talength : " + i);
+                                System.out.println("talength mainGod : " + mainGods.size());
 //                                System.out.println("talength godImage : "+mainGods.get(i).getGodImages().size());
-                                if(mainGods.size() == 0){
+                                if (mainGods.size() == 0) {
                                     Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
-                                }else {
+                                } else {
                                     Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
                                 }
 
@@ -1326,9 +1269,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                     i = 0;
                                 }
 //                                System.out.println("size : " + mainGods.size());
-                                if(mainGods.size() == 0){
+                                if (mainGods.size() == 0) {
                                     Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
-                                }else {
+                                } else {
                                     Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
                                 }
 //                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
@@ -1345,55 +1288,53 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                                 } else {
                                     if (!mainGods.isEmpty())
                                         j = mainGods.get(0).getGodImages().size() - 1;
-                                    else
-                                        j = 0;
+                                    else j = 0;
                                 }
 
 //                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
 
-                                if(mainGods.size() == 0){
+                                if (mainGods.size() == 0) {
                                     Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    if(mainGods.get(i).getGodImages().size() <= j){
-                                        System.out.println("val : "+j);
-                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                } else {
+                                    if (mainGods.get(i).getGodImages().size() <= j) {
+                                        System.out.println("val : " + j);
+                                        System.out.println("val size : " + mainGods.get(i).getGodImages().size());
                                         j = 0;
                                         Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-                                        System.out.println("val : "+j);
-                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
-                                    }else{
-                                        System.out.println("val : "+j);
-                                        System.out.println("val size : "+mainGods.get(i).getGodImages().size());
+                                        System.out.println("val : " + j);
+                                        System.out.println("val size : " + mainGods.get(i).getGodImages().size());
+                                    } else {
+                                        System.out.println("val : " + j);
+                                        System.out.println("val size : " + mainGods.get(i).getGodImages().size());
                                         Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
                                     }
                                 }
-
 
 
                             } else {
                                 //Swipe Up
                                 j += 1;
-                                System.out.println("j1 val : "+j);
-                                System.out.println("i1 val : "+i);
+                                System.out.println("j1 val : " + j);
+                                System.out.println("i1 val : " + i);
 
-                                if(mainGods.size() == 0){
+                                if (mainGods.size() == 0) {
                                     Toast.makeText(MandirMainActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
-                                }else{
+                                } else {
                                     if (j >= mainGods.get(0).getGodImages().size()) {
                                         j = 0;
                                     }
-                                    System.out.println("j2 val : "+j);
-                                    System.out.println("i2 val : "+i);
+                                    System.out.println("j2 val : " + j);
+                                    System.out.println("i2 val : " + i);
 //                                Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
 
-                                    if(mainGods.get(i).getGodImages().size() <= j){
+                                    if (mainGods.get(i).getGodImages().size() <= j) {
                                         j = 0;
                                         Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
-                                    }else{
+                                    } else {
                                         Glide.with(gImage.getContext()).load(mainGods.get(i).getGodImages().get(j).getImage()).into(gImage);
                                     }
 
-                                    System.out.println("j3 val : "+j);
+                                    System.out.println("j3 val : " + j);
                                 }
 
                             }

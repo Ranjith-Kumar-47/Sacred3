@@ -6,6 +6,10 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.webkit.URLUtil;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -34,24 +38,20 @@ public class WebViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
 
         id = getIntent().getStringExtra("id");
-        url = "https://www.youtube.com/watch?v="+id;
+        url = "https://www.youtube.com/watch?v=" + id;
 
 
-        WebViewClient webViewClient  = new WebViewClient();
+        WebViewClient webViewClient = new WebViewClient();
 
         //Write the following code in OnCreate:
 //        webview=(WebView)findViewById(R.id.webview);
-        progressDialog=new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
-
-
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 
 
-
-        webView.setWebViewClient(new WebViewClient()
-        {
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
@@ -86,30 +86,24 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
 
 
-
-
-
-
-
-
         websiteUrl = getIntent().getStringExtra("websiteUrl");
-        System.out.println("website url : "+websiteUrl);
+        System.out.println("website url : " + websiteUrl);
 
         String default_url = "https://pujagoodies.com/";
         String default_url_youtube_video = "https://www.youtube.com/";
 
-        if(getIntent().getExtras() != null){
+        if (getIntent().getExtras() != null) {
             String url_from_notif = getIntent().getExtras().getString("websiteUrl");
             String youtube_video_id = getIntent().getExtras().getString("id");
-            String url_from_notif_youtube = "https://www.youtube.com/watch?v="+youtube_video_id;
+            String url_from_notif_youtube = "https://www.youtube.com/watch?v=" + youtube_video_id;
             if (url_from_notif != null) {
-                if(URLUtil.isValidUrl(url_from_notif) && Patterns.WEB_URL.matcher(url_from_notif).matches()) {
+                if (URLUtil.isValidUrl(url_from_notif) && Patterns.WEB_URL.matcher(url_from_notif).matches()) {
                     default_url = url_from_notif;
                     Log.v("url_from_notif = ", default_url);
                 }
             }
             if (youtube_video_id != null) {
-                if(URLUtil.isValidUrl(url_from_notif_youtube) && Patterns.WEB_URL.matcher(url_from_notif_youtube).matches()) {
+                if (URLUtil.isValidUrl(url_from_notif_youtube) && Patterns.WEB_URL.matcher(url_from_notif_youtube).matches()) {
                     default_url = url_from_notif_youtube;
                     Log.v("url_from_notif_youtube ", default_url);
                 }
@@ -117,7 +111,7 @@ public class WebViewActivity extends AppCompatActivity {
             if (getIntent().getData() != null) {
                 String url_from_mail = getIntent().getData().toString();
                 url_from_mail = url_from_mail.replace("pujagoodies://", "");
-                if(URLUtil.isValidUrl(url_from_mail) && Patterns.WEB_URL.matcher(url_from_mail).matches()) {
+                if (URLUtil.isValidUrl(url_from_mail) && Patterns.WEB_URL.matcher(url_from_mail).matches()) {
                     default_url = url_from_mail;
                     Log.v("url_from_mail = ", default_url);
                 }
@@ -143,18 +137,16 @@ public class WebViewActivity extends AppCompatActivity {
 //
 //            System.out.println("#####################################");
 
-            if(websiteUrl!=null){
-                if (!default_url.startsWith("https://pujagoodies.com/") ||  !domain.equals("pujagoodies.com") || !URLUtil.isValidUrl(default_url) || !Patterns.WEB_URL.matcher(default_url).matches()) {
+            if (websiteUrl != null) {
+                if (!default_url.startsWith("https://pujagoodies.com/") || !domain.equals("pujagoodies.com") || !URLUtil.isValidUrl(default_url) || !Patterns.WEB_URL.matcher(default_url).matches()) {
                     webView.loadUrl("about:blank");
-                }
-                else {
+                } else {
                     webView.loadUrl(default_url);
                 }
-            }else if(id!=null) {
+            } else if (id != null) {
                 if (!domain.equals("www.youtube.com") || !URLUtil.isValidUrl(default_url_youtube_video) || !Patterns.WEB_URL.matcher(default_url_youtube_video).matches()) {
                     webView.loadUrl("about:blank");
-                }
-                else {
+                } else {
                     webView.loadUrl(default_url);
                 }
             }
@@ -165,9 +157,14 @@ public class WebViewActivity extends AppCompatActivity {
         }
 
 
+    }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

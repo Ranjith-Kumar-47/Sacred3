@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.pujagoodies.sacred.fragment.GeetaSlokFragment;
 import com.pujagoodies.sacred.fragment.MannTvFragment;
 import com.pujagoodies.sacred.fragment.PanchangFragment;
+import com.pujagoodies.sacred.fragment.PoojaVidhiFragment;
 import com.pujagoodies.sacred.fragment.RashiphalFragment;
 import com.pujagoodies.sacred.fragment.SahityaFragment;
 import com.pujagoodies.sacred.fragment.TvFragment;
@@ -15,7 +16,7 @@ import com.pujagoodies.sacred.fragment.TvFragment;
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
 //    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK","SAHITYA"};
-    private String[] titles = {"TV", "PANCHANG","RASHIPHAL","GEETA SLOK"};
+    private String[] titles = {"TV", "PANCHANG","POOJA VIDHI","RASHIPHAL","GEETA SLOK"};
 
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -31,8 +32,10 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new PanchangFragment();
             case 2:
-                return new RashiphalFragment();
+                return new PoojaVidhiFragment();
             case 3:
+                return new RashiphalFragment();
+            case 4:
                 return new GeetaSlokFragment();
 //            case 4:
 //                return new SahityaFragment();

@@ -1,4 +1,4 @@
-package com.example.mahabandar;
+package com.pujagoodies.sacred.model;
 
 public class PdfModel {
     private String title, shortDescription, pdfUrl, imageUrl;
