@@ -4,7 +4,6 @@ import static java.lang.Thread.sleep;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
-import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,19 +12,15 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.text.Html;
 import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionManager;
-import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -42,53 +37,39 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.pujagoodies.sacred.MyAnimation;
-import com.pujagoodies.sacred.PrefConfig;
 import com.github.jinatonic.confetti.ConfettiManager;
 import com.github.jinatonic.confetti.ConfettiSource;
 import com.github.jinatonic.confetti.ConfettoGenerator;
 import com.github.jinatonic.confetti.confetto.BitmapConfetto;
 import com.github.jinatonic.confetti.confetto.Confetto;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import com.pujagoodies.sacred.adapter.FlowersAdapter;
 import com.pujagoodies.sacred.adapter.MyAdapter;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-
 import com.pujagoodies.sacred.adapter.NotificationReceiver;
 import com.pujagoodies.sacred.model.GodImages;
 import com.pujagoodies.sacred.model.MainGods;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import pl.droidsonroids.gif.GifImageView;
 
 public class MandirMainActivity extends AppCompatActivity implements ConfettoGenerator {
@@ -212,6 +193,15 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                         Intent intent1 = new Intent(MandirMainActivity.this, MainActivity.class);
                         startActivity(intent1);
                         break;
+                    case R.id.buttonShare:
+                        Intent intent2 = new Intent(Intent.ACTION_SEND);
+                        intent2.setType("text/plain");
+                        intent2.putExtra(Intent.EXTRA_SUBJECT, "अब आपके फोन में आपका मंदिर");
+                        intent2.putExtra(Intent.EXTRA_TEXT, "Sacred App, अब आपका अपना मंदिर, आपके फोन में \n https://play.google.com/store/apps/details?id=com.pujagoodies.sacred");
+                        startActivity(Intent.createChooser(intent2, "Share Via"));
+                        break;
+                    case R.id.buttonRate:
+                        break;
 
                 }
                 return true;
@@ -219,7 +209,6 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         });
 
 //
-
 
         SharedPreferences sharedPreferences = getSharedPreferences("NOTIFICATION", MODE_PRIVATE);
         String firstTimeNotificaton = sharedPreferences.getString("NotificationFirstTimeInstall", "");

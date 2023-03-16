@@ -53,22 +53,24 @@
              app:layout_constraintTop_toBottomOf="@+id/view3">
 
              <LinearLayout
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
                  android:orientation="horizontal">
 
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Capricon"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
-                     android:paddingRight="10dp"
+                     app:cardCornerRadius="10dp"
+                     android:paddingEnd="10dp"
                      app:layout_constraintStart_toEndOf="@+id/Cancer"
                      app:layout_constraintTop_toTopOf="@+id/Cancer">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -85,7 +87,6 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मकर"
                              android:gravity="center"
@@ -100,15 +101,17 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Cancer"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
+                     app:cardCornerRadius="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toEndOf="@+id/Aries"
                      app:layout_constraintTop_toTopOf="@+id/Aries">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -125,7 +128,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कर्क"
                              android:background="@drawable/exit_dialog_bg"
@@ -140,15 +143,17 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Aries"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
+                     app:cardCornerRadius="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toEndOf="@+id/Aquarius"
                      app:layout_constraintTop_toTopOf="@+id/Aquarius">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -165,7 +170,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मेष"
                              android:background="@drawable/exit_dialog_bg"
@@ -180,8 +185,9 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Gemini"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-
+                     android:layout_height="match_parent"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toStartOf="@+id/Aquarius"
@@ -189,7 +195,7 @@
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -205,7 +211,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मिथुन"
                              android:background="@drawable/exit_dialog_bg"
@@ -220,8 +226,9 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Taurus"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-
+                     android:layout_height="match_parent"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toStartOf="@+id/Gemini"
@@ -229,7 +236,7 @@
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -246,7 +253,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="वृष"
                              android:background="@drawable/exit_dialog_bg"
@@ -261,16 +268,18 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Pisces"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
+                     app:cardCornerRadius="10dp"
                      android:paddingRight="10dp"
+                     android:layout_marginBottom="10dp"
                      app:layout_constraintEnd_toEndOf="@+id/Capricon"
                      app:layout_constraintStart_toEndOf="@+id/Leo"
                      app:layout_constraintTop_toTopOf="@+id/Leo">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -287,7 +296,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="मीन"
                              android:background="@drawable/exit_dialog_bg"
@@ -302,15 +311,17 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Libra"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toEndOf="@+id/Gemini"
                      app:layout_constraintTop_toTopOf="@+id/Gemini">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -326,7 +337,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="तुला"
                              android:background="@drawable/exit_dialog_bg"
@@ -341,15 +352,17 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Leo"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
                      android:paddingRight="10dp"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      app:layout_constraintStart_toEndOf="@+id/Libra"
                      app:layout_constraintTop_toTopOf="@+id/Libra">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -366,7 +379,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="सिंह"
                              android:background="@drawable/exit_dialog_bg"
@@ -381,16 +394,17 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Aquarius"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
-
                      android:paddingRight="10dp"
                      app:layout_constraintStart_toStartOf="parent"
                      app:layout_constraintTop_toBottomOf="@+id/view">
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -407,7 +421,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कुंभ"
                              android:background="@drawable/exit_dialog_bg"
@@ -422,7 +436,9 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Sagittarius"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      android:layout_marginStart="10dp"
                      android:paddingRight="10dp"
                      app:layout_constraintBottom_toBottomOf="@+id/Virgo"
@@ -431,7 +447,7 @@
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -449,7 +465,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="धनु"
                              android:background="@drawable/exit_dialog_bg"
@@ -464,8 +480,10 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/Virgo"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
+                     android:layout_marginBottom="10dp"
+                     app:cardCornerRadius="10dp"
                      android:paddingRight="10dp"
                      android:layout_marginEnd="10dp"
                      app:layout_constraintBottom_toBottomOf="@+id/Taurus"
@@ -474,7 +492,7 @@
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -491,7 +509,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="कन्या"
                              android:background="@drawable/exit_dialog_bg"
@@ -506,8 +524,10 @@
                  <androidx.cardview.widget.CardView
                      android:id="@+id/scorpio"
                      android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                     android:layout_height="match_parent"
                      android:layout_marginStart="10dp"
+                     app:cardCornerRadius="10dp"
+                     android:layout_marginBottom="10dp"
                      android:paddingRight="10dp"
                      android:layout_marginEnd="10dp"
                      app:layout_constraintBottom_toBottomOf="@+id/Taurus"
@@ -516,7 +536,7 @@
 
                      <androidx.constraintlayout.widget.ConstraintLayout
                          android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_height="match_parent"
                          android:background="@drawable/mobile_number_background">
 
                          <ImageView
@@ -533,7 +553,7 @@
                              android:layout_width="0dp"
                              android:layout_height="wrap_content"
                              android:layout_marginStart="10dp"
-                             android:layout_marginTop="10dp"
+                             android:layout_marginBottom="10dp"
                              android:layout_marginEnd="10dp"
                              android:text="वृश्चिक"
                              android:background="@drawable/exit_dialog_bg"

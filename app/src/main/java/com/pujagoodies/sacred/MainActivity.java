@@ -1,6 +1,7 @@
 package com.pujagoodies.sacred;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -16,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +53,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.pujagoodies.sacred.model.GodImages;
 import com.pujagoodies.sacred.model.MainGods;
@@ -500,5 +503,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //        customDialog.show();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Objects.requireNonNull(tabLayout.getTabAt(2)).select();
+    }
+
 
 }
