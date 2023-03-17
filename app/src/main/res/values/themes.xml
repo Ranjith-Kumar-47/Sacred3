@@ -54,6 +54,10 @@
         <item name="android:statusBarColor" >@color/orange</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 
 
 </resources>

@@ -7,6 +7,7 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -14,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,9 +39,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,6 +58,7 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -89,6 +95,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
     TabLayout navigation;
     EditText editText;
     Button confirm;
+
+    private DrawerLayout drawerLayout;
+
 
     ImageView smoke;
     boolean isSmokeOn = true;
@@ -135,6 +144,8 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         setContentView(R.layout.activity_main_mandir);
 
 
+
+
         database = FirebaseDatabase.getInstance();
         gImage = findViewById(R.id.test);
         constraintLayout = findViewById(R.id.viewForSwipe);
@@ -179,6 +190,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
         BottomAppBar bottomnav = findViewById(R.id.bottomnav);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -201,6 +213,19 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
                         startActivity(Intent.createChooser(intent2, "Share Via"));
                         break;
                     case R.id.buttonRate:
+                        String packageName = getPackageName();
+
+                        try {
+                            // Open the app's Play Store page in the Play Store app
+                            Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
+                            intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent3);
+                        } catch (ActivityNotFoundException e) {
+                            // If the Play Store app is not installed on the device, open the Play Store website instead
+                            Intent intent4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName));
+                            intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent4);
+                        }
                         break;
 
                 }
@@ -1084,6 +1109,20 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
 //        recyclerView.setAdapter(myAdapter);
 //        recyclerView.setHasFixedSize(true);
 
+//        drawerLayout = findViewById(R.id.drawerLayout);
+//        NavigationView sideNavigation = findViewById(R.id.navigationView);
+//        Toolbar toolbar = findViewById(R.id.toolBar);
+//
+//        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.app_name, R.string.app_name);
+//        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+//        actionBarDrawerToggle.syncState();
+//
+//        sideNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                return false;
+//            }
+//        });
 
     }
 
@@ -1129,6 +1168,7 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             notificationManager.createNotificationChannel(notificationChannel);
 
         }
+
     }
 
     @Override
@@ -1335,6 +1375,9 @@ public class MandirMainActivity extends AppCompatActivity implements ConfettoGen
             };
             gestureDetector = new GestureDetector(listener);
             view.setOnTouchListener(this);
+
+
+
         }
 
         @Override

@@ -12,6 +12,7 @@ import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -106,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
-
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         adminButton = binding.adminButton;
